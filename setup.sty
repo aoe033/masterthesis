@@ -30,6 +30,7 @@
 \usepackage{hyperref} %Enables hyperlinks
 \usepackage{listings}%include the source code of any programming language within your document.
 
+
 \usepackage{setspace} %allows more fine-grained control over line spacing. ex.: \onehalfspacing
 \onehalfspacing
 
@@ -38,9 +39,18 @@
 
 \usepackage{subfiles} %alternative to include/input, gives you the advantage that you can compile in subfiles (chapters)
 
+\usepackage[mediumspace,squaren,binary]{SIunits}
+
 \usepackage{acronym}
 
-\usepackage[mediumqspace,squaren,binary]{SIunits}
+\usepackage{fancyhdr}
+
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\rhead{\thechapter}
+%\lhead{LE title}
+%\rfoot{Page \thepage}
 
 \tolerance=1000 %Parameter that tells TeX how much badness is allowable without error
 %Badness is an integer from 0 to 10000 that is a measure of the quality of the spacing in any given box.
@@ -57,6 +67,7 @@
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
     pdftoolbar=true,        % show Acrobat’s toolbar?
     pdfmenubar=true,        % show Acrobat’s menu?
+    pdfborder={0 0 0},
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
     pdftitle={Firmware Design For Common Readout Unit},    % title
@@ -120,3 +131,5 @@
 \title{Firmware Design for\\Common Readout Unit} %This does not show automatically. Use /maketitle.
 \date{\today}
 \author{Anders Østevik}
+
+\endinput

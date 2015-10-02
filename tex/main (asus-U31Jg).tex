@@ -3,9 +3,6 @@
 
 \usepackage{../setup}   %includes packages, colors, setup for hyperref, listings
 
-\usepackage{../acronyms}
-
-
 %Begin documentclass
 \begin{document}
 
@@ -26,7 +23,7 @@
 \tableofcontents
 \blankpage
 
-\printglossaries
+\subfile{acronyms}
 \blankpage
 
 \pagenumbering{arabic}	%DO number this page in arabic style numbers
