@@ -1,1 +1,13 @@
-\null
+\glossarysection[\glossarytoctitle]{\glossarytitle}\glossarypreamble
+\begin{theglossary}\glossaryheader
+\glsgroupheading{F}\relax \glsresetentrylist %
+\glossentry{flash}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{2}}}\glsgroupskip
+\glsgroupheading{S}\relax \glsresetentrylist %
+\glossentry{sram}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{2}}}\glsgroupskip
+\glsgroupheading{T}\relax \glsresetentrylist %
+\glossentry{transceiver}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{v}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{2}}}%
+\end{theglossary}\glossarypostamble

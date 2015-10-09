@@ -3,10 +3,33 @@
 \glsgroupheading{A}\relax \glsresetentrylist %
 \glossentry{asic}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+\glsgroupheading{C}\relax \glsresetentrylist %
+\glossentry{clb}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{2}}}%
+\glossentry{cml}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{v}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{3}}}%
+\glossentry{cots}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+\glsgroupheading{F}\relax \glsresetentrylist %
+\glossentry{fpga}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{v}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{2}}}\glsgroupskip
+\glsgroupheading{H}\relax \glsresetentrylist %
+\glossentry{hdmi}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}\glsgroupskip
 \glsgroupheading{L}\relax \glsresetentrylist %
 \glossentry{lhc}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\glossentry{lvds}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{v}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{2\delimN 3}}}\glsgroupskip
+\glsgroupheading{P}\relax \glsresetentrylist %
+\glossentry{pcie}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}\glsgroupskip
 \glsgroupheading{S}\relax \glsresetentrylist %
+\glossentry{sata}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}%
 \glossentry{slhc}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{1}}}%
 \end{theglossary}\glossarypostamble
