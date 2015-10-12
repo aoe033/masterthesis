@@ -1,6 +1,6 @@
 %location/filename: tex/ch1.tex
 %author: Anders Østevik
-%Last edited: 25.09.2015
+%Last edited: 09.10.2015
 %#######--Chapter 1--#######
 %Content:
 %	Introduction
@@ -12,9 +12,9 @@
 
 \chapter{Introduction}
 
-The future upgrade of the \gls{lhc} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glslink{asic}{ASICs}.\\
+The future upgrade of the \gls{lhc} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
 To address these needs, the GBT architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\
-The GBT system can be described in two parts, where one half of the system consists of radiation hard GBT \glslink{asic}{ASICs} that will act as detectors and will thus be located in the radioactive zone. These ASICs will be used to implement bidirectional multipurpose $4.8\ \giga\bit\per\second$ optical links for the high-energy physics experiments. The other half of the system is the consists of \gls{cots} components that will through optical links receive data from the \glslink{asic}{ASICs} and 
+The GBT system can be described in two parts, where one half of the system consists of radiation hard GBT \glspl{asic} that will act as detectors and will thus be located in the radioactive zone. These ASICs will be used to implement bidirectional multipurpose $4.8\ \giga\bit\per\second$ optical links for the high-energy physics experiments. The other half of the system is the consists of \gls{cots} components that will through optical links receive data from the \glspl{asic} and 
 
 
 Questions that needs answering\\
@@ -28,14 +28,14 @@ CPRI?\\
 
 \section{\gls{fpga}}
 
-\Gls{fpga} is a high density \gls{ic} that is designed to be completely programmable by the customer after manufacturing. The chips are shipped completely "blank" (with the exception of \gls{fpga} evaluation boards), meaning that there are no pre-programmed logic. \Glspl{fpga} are composed of arrays of \glspl{clb} surrounded by programmable routing resources and I/O pads. \cite{weste11} 
-The \gls{fpga} (described in section \ref{sec:cyclone}) used in this thesis is a re-programmable type that uses \gls{sram} to configure routing and logic functions (for a permanent program storage, the on-board \gls{flash} memory can also be used).
+\Gls{fpga} is a high density \gls{ic} that is designed to be completely programmable by the customer after manufacturing (i.e. when the chip is shipped and "in the field"). The chips are shipped completely "blank" (with the exception of \gls{fpga} evaluation boards), meaning that there are no pre-programmed logic. \Glspl{fpga} are composed of arrays of \glspl{clb} surrounded by programmable routing resources and I/O pads. A \gls{clb} consists of a \gls{lut} together with a clock and simple write logic, and uses the address of the \gls{lut} as the function input and the value at the selected address as the function output. \glspl{lut} are considered fast logic, since computing a complex function only requires a single memory lookup. The \gls{lut} can be made out of a \gls{sram}-block. \cite{weste11} 
+The \gls{fpga} (section \ref{sec:cyclone}) used in this thesis is a re-programmable type that stores its "hardware" in a \gls{sram} to configure routing and logic functions (for a permanent program storage, the on-board \gls{flash} memory can also be used).
 
 \subsection{Cyclone V} \label{sec:cyclone}
 Cyclone V by Altera is a modern \gls{fpga} 
 
 \section{\gls{hdl}}
-The most common way to program a \gls{fpga} is by \gls{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. \glspl{hdl} have become more and more useful as system complexity have increased. \cite{weste11} The hardware described in this thesis is done using \acrshort{vhdl}. 
+The most common way to program a \gls{fpga} is by \gls{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. \glspl{hdl} have become more and more useful as system complexity have increased. \cite{weste11} The hardware described in this thesis is done using \acrshort{vhdl}, a strongly typed \gls{hdl} that is capable of describing parallel processes. 
 
 
 \section{\Gls{transceiver} Technology}

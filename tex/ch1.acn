@@ -10,6 +10,11 @@
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{CLB?\glossentry{clb}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{CLB?\glossentry{clb}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{LUT?\glossentry{lut}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{LUT?\glossentry{lut}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{LUT?\glossentry{lut}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{LUT?\glossentry{lut}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
@@ -20,6 +25,7 @@
 \glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{VHDL?\glossentry{vhdl}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{CML?\glossentry{cml}|setentrycounter[]{page}\glsnumberformat}{3}
