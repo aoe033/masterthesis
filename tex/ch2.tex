@@ -1,0 +1,136 @@
+%location/filename: tex/ch1.tex
+%author: Anders Østevik
+%Last edited: 09.10.2015
+%#######--Chapter 2--#######
+%Content:
+%	hsmc-to-vldb pcb design
+%	
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{\acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} design}
+
+In order for communication and the ability to send test signals and monitor the resulting output, there has to be some form of connection between the \gls{cru} and the \gls{vldb}. The \gls{vldb} has twenty additional \gls{hdmi} female connectors which connects to the \gls{lvds} transceivers for high-speed communitaction with the \gls{cru}. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing the \gls{lvds} transceivers. In addition to the \gls{lvds} signals, the connection also needs to contain the Radiation-hard optical link.
+
+The initial plan was to design a \gls{pcb} with a male \gls{sfp} contact in one end connected to two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adaptor that can be plugged directly into each of the \gls{sfp}-connectors on the \gls{sfp}-board with \gls{hdmi} cables to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \gls{sfp}s and \gls{hdmi} connectors, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with cables connecting the three. 
+
+After some discussion with Arild, we ended up with a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design (the one concerning the \gls{xcvr}-protocol), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and saving costs. The resulting design was an \gls{hsmc}-connected board with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signal running to one \gls{sfp}-connector for fiber-optic communication. The \gls{sfp}-to-\gls{hsmc} connection was copied from the original \gls{sfp}-\gls{pcb} files that came with the Terasic CD.
+
+
+\section{Theory of design}
+
+When transmitting signals through a condutor at high frequencies, the conductor no longer acts as an ideal wire. Instantaneous equality of signal voltage on both ends of the conductor are no longer the case, and factors like impedance mismatch and reflections becomes important for the quality of the signal to remain the same through the whole transmission. This section gives a brief explanation of high frequency signal behavior and the methods that was practiced to compensate for these factors when designing the \gls{hsmc}-to-\gls{vldb} \gls{pcb}.
+
+
+\subsection{Transmission lines}
+
+When signal rise/fall times becomes comparable with the propagation delay of the conductor, the signal no longer acts instantaneous. The conductor then becomes what is known as a transmission line with the signals voltage and current acting like waves propagation through the conductor. 
+The general rule for determing if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period so that the high and low states are recognizable. \cite{weste11} 
+
+For an \gls{lvds}-protocol, with signal speeds reaching up to $3.125\ \giga\bit\per\second$, the trace becomes a transmission line if the signal propagation time along the trace is less than 1/4 of the signal period, i.e $80\pico\second$. 
+
+The propagation velocity of a signal is given by:
+
+\begin{equation}
+%\[
+    v = \frac{c}{\sqrt{\epsilon_r}}
+%\]
+\end{equation}
+
+, where $\epsilon_r$ is the dielectric constant of the epoxy material FR4, often used as a material to separate the copper layers on the \glspl{pcb}. $\epsilon_r$ has a value of around $4.05$ @ $3\ \giga\hertz$. \cite{polar15}
+A signal thus propagates through the conductor at a velocity of approximately $0.15\ \milli\meter/\pico\second$. \cite[example 13.7]{weste11}
+
+Assuming a constant transmitting frequency of $3.125\ \giga\bit\per\second$, a conductor becomes a transmission line if the length of the conductor stretches longer than $12\ \milli\meter$ between the transmitter and receiver. This short length is very difficult to avoid when designing a \gls{pcb} with microstrip traces running from one contact out to elleven other contacts. The traces on this \gls{pcb} are thus considered as transmission lines. 
+
+
+\subsection{Reflections and characteristic impedance}
+
+Since the signals no longer acts instantaneous, the transmitter can no longer see what is connected at the receiving end at the time it sends a pulse down the conducting channel. All it sees is the channel impedance, called the characteristic impedance, $Z_0$, of the channel. \cite{weste11}
+
+The type of trace that is used in the \gls{hsmc}-to-\gls{vldb} \gls{pcb} design is called a microstrip, which is when the signals run along traces on the outer layers of the \gls{pcb} with the ground plane on the layer underneath. A microstrip has a characteristic impedance that is given by:
+
+\begin{equation}
+    Z_0 = \frac{60}{\sqrt{0.475\epsilon_r + 0.67}} \times \ln{\frac{4h}{0.67(0.8w + t)}}
+\end{equation}
+
+, where $\epsilon_r$ is the dielectric constant, h is the height of the microstrip seen from the ground plane, i.e the thickness of the FR4 layer, w is the width of the microstrip, and t is the thickness of the copper.
+\cite{weste11}
+
+It is important to match the impedance of the trace to that of the load impedance at the receiving end, or vice versa. With these being different, the energy of the signal cannot be fully absorbed at the receiving end, resulting in a partly reflection of the signal wave back to the transmitter. The ratio of the wave reflected back is given by:
+
+\begin{equation}
+\Gamma = \frac{Z_L - Z_0}{Z_L + Z_0}	
+\end{equation}
+
+, where $Z_L$ is the load impedance and $Z_0$ is the characteristic impedance.
+
+Ideally the $Z_L$ and $Z_0$ should be equal to avoid reflections. Impedance mismatch can cause waste of signal energy and interference with other signal pulses being transmitted through the channel. \cite{weste11} \\
+
+When looking at the datasheet for cables with differential signals, such as HDMI-cables, it is often supplied a differential impedance between the cables instead of a characteristic impedance for each cable. Knowing the characteristic impedance, it is possible to calculate the corresponding differential impedance between two microstrip traces (or vice versa):
+
+\begin{equation}
+    Z_{diff} = 2 \times Z_0 [1 - 0.48 e^{(-0.96 \times \frac{s}{h})}]
+\end{equation}
+
+, where $Z_0$ is the characteristic impedance of the individual microstrips (assuming they are equal and have the same length), s is the spacing between the microstrips and h is the same as in the equation above.
+\cite{douglas98}
+
+\subsection{Routing}
+
+As mentioned in section~\ref{subsec:diffsig}, differential signals have noise advantages over single ended signals. This is given if the pairs have \textit{equal} path lengths and the individual wires in each pair are routed as close to one another as possible. In addition, to keep crosstalk to its minimum, individual pairs has to be routed a distance away from other wires (In reality this only becomes a problem when dealing with wires in micro scale). Twisting the individual wires in each pair to some extent will also contribute to common noise rejection.\cite{weste11} 
+This was taken into consideration when routing the \gls{pcb}. 
+
+The individual wires in each pair was kept as close as possible with a space constraint according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See below). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases). After routing the wires, attempts were made to separate the pairs a distance from one another, but this was not a critical stage.
+
+\section{\gls{pcb} design parameters}
+
+The \gls{pcb} was designed using Orcad Capture CIS for the schematic and the \gls{pcb} layout in Orcad \gls{pcb} Editor with design parameters meeting the Elprint capabilities \cite{elprint15}. The \gls{pcb} layout was then exported into "gerber-files" and imported into Macaos for further manufacture specification and validation. This was then ordered from Elprint xx/12/2015.
+
+To avoid reflections, the \gls{pcb} needed a characteristic impedance matching that of the cables and termination, in this case a single wire impedance of $50\ \ohm$. This was derived from the fact that the \gls{hdmi}-cables are specified to have a differential impedance of approximately $100\ \ohm$, which is also the case of the termination resistance at the receiving end (This must be manually set for the \gls{fpga} transceivers).
+
+The \gls{pcb} was chosen to be four layers, with signals running on the top and bottom copper layers, and the two middle planes for voltage and ground respectively.
+
+For thicknesses of the different \gls{pcb} copper layers and the FR4 in between, Elprint has a set of predefined \textit{stackups} available in Macaos. It is possible to define custom stackups as well, but this will result in a more costly \gls{pcb}. The $4136$ stackup has a copper thickness of $18\ \micro\meter$ on the two outer layers following an FR4 thickness of $65\ \micro\meter$ between the outer layers and the power planes, with the power planes having a thickness of $35\ \micro\meter$. With a mircostrip width of $100\ \micro\meter$, the formula for characteristic impedance yields:
+
+\begin{equation}
+Z_0 = \frac{60}{\sqrt{(0.475 \times 4.05) + 0.67}}\ln{3.96}
+\end{equation}
+
+, which gives a characteristic impedance $Z_0$ of $51.3\ \ohm$ @ $3\ \giga\hertz$.
+
+With a $300\ \micro\meter$ spacing between the differential traces, the formula for differential impedance yields:
+
+\begin{equation}
+    Z_{diff} = 2 \times 51.3\ \ohm [1 - 0.48 e^{(-0.96 \times \frac{300}{65})}]
+\end{equation}
+
+, which gives a differential impedance $Z_{diff}$ of $102\ \ohm$ @ $3\ \giga\hertz$.
+
+
+Orcas PCB Editor has a built-in impedance calculator which yields similar results as shown above.
+
+\begin{table} [h]
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l | l | l | l | l |}
+    \hline
+     & Layer & Type & t $[\micro\meter]$ & $\epsilon_r$ & w $[\micro\meter]$  & $Z_0 [\ohm]$ & Spacing $[\micro\meter]$  & $Z_{diff} [\ohm]$ \\ 
+     \hline
+    1 	  & Surface & Air 		 & 		& 1 	 & 	   & 					& 	  & \\ \hline
+    2 	  & Top 	& Conductor  & 18 	&        & 100 & $51.3$             & 300 & 102\\ \hline
+    3 	  &  		& Dielectric & 65 	& $4.05$ & 	   & 					& 	  & \\ \hline
+    4 	  & Voltage & Plane 	 & 35 	&        & 	   & 					& 	  & \\ \hline
+    5 	  &  		& Dielectric & 1400 & $4.05$ & 	   &					&	  & \\ \hline
+    6 	  & Gnd 	& Plane 	 & 35 	&        & 	   & 					& 	  & \\ \hline
+    7 	  &  		& Dielectric & 65 	& $4.05$ &     & 					& 	  & \\ \hline
+    8 	  & Bottom 	& Conductor  & 18 	&        & 100 & $51.3$             & 300 & 102\\ \hline
+    9 	  & Surface & Air 		 & 	  	& 1 	 & 	   & 					& 	  & \\ \hline
+    \end{tabular}
+     \caption{The layers of the PCB and their traits, where t is the layer thickness and w is the width of the trace. The PCB has an overall thickness of $1.6\ \milli\meter$}
+	\label{tab:Xsect1}
+\end{center}
+\end{table}
+
+
+\end{document}

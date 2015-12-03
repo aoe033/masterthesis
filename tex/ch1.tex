@@ -13,8 +13,10 @@
 \chapter{Introduction}
 
 The future upgrade of the \gls{lhc} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
-To address these needs, the GBT architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\
-The GBT system can be described in two parts, where one half of the system consists of radiation hard GBT \glspl{asic} that will act as detectors and will thus be located in the radioactive zone. These ASICs will be used to implement bidirectional multipurpose $4.8\ \giga\bit\per\second$ optical links for the high-energy physics experiments. The other half of the system is the consists of \gls{cots} components that will through optical links receive data from the \glspl{asic} and 
+To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\ \\
+The \gls{gbt} system can be described in two parts, where one half of the system consists of radiation hard GBT \glspl{asic} that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} will be used to implement bidirectional multipurpose $4.8\ \giga\bit\per\second$ optical links for the high-energy physics experiments. \\
+The other half of the system is located in the counting room and consists of a \gls{cru} that will provide an interface between the detector \glspl{asic} and an online computerfarm. The \gls{cru} consists of \gls{cots} components and will through optical links receive data from the radiation detector. \\
+This master thesis will focus on development of control and data flow firmware, development of signal processing firmware and the software interface to a PC.
 
 
 Questions that needs answering\\
@@ -42,7 +44,13 @@ The most common way to program a \gls{fpga} is by \gls{hdl}, with the major ones
 
 To be able to send serial data in the gigahertz domain, a high-speed transceiver protocol is needed. The Cyclone V GT-series \glspl{fpga} supports a number of protocols that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of these protocols.
 
-Common for all protocols described under is the fact that they treat the signals differentially. While a single ended signal involves one wire between the transmitter and receiver, with the signal swinging from a given voltage to ground, differential signals involves a pair of wires, with two signals that are identical (given equal path lengths), but with opposite polarity. This gives advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications.\cite{douglas01}
+\subsection{Differential Signals} \label{subsec:diffsig}
+
+Common for all protocols described under is the fact that they treat the signals differentially. 
+
+While a single ended signal involves one conductor between the transmitter and receiver, with the signal swinging from a given voltage to ground, differential signals involves a conductor pair, with two signals that are identical, but with opposite polarity. The pair would ideally have equal path lenghts in order to have zero return currents, avoiding problems like \textit{EMI}. In addition, placing the signals as close as possible to one another will also give benefits in terms of common noise rejection.\cite{douglas01}
+
+When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The dissadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one.
 
 \subsection{\gls{lvds}}
 
@@ -55,6 +63,12 @@ For data rates that exceeds $3.125\ \giga\bit\per\second$, CML signaling is pref
 \subsection{CPRI}
 
 %\gls{cpri}
+
+
+%\begin{align}
+%	 b_1 &= s_{11}a_1 + s_{12}a_2 \\
+%	 s_{21}a_1 + s_{22}a_2 &= b_2
+%\end{align}
 
 
 \end{document}
