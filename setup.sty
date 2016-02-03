@@ -9,11 +9,21 @@
 \usepackage{graphicx} %Use this to load pictures etc.
 \usepackage[usenames,dvipsnames]{xcolor} %driver-in­de­pen­dent ac­cess to sev­eral kinds of color tints, shades, tones, and mixes of ar­bi­trary col­ors.
 
-\usepackage{float}  %Allows [H]-positioning in figures
+\usepackage{mdframed} % Allows you to frame figures with \begin{mdframed} below \begin{figure}
+
+
+\usepackage{tikz-timing}[2011/01/09]
+
+\usepackage[labelfont=bf,format=hang]{caption}
+
+%\usepackage{float}  %Allows [H]-positioning in figures
+
+\usepackage{tikz}
+
 \usepackage{amsmath} %includes align and equation. Use * t2o get rid of numbering of formulas
 
 \usepackage[utf8]{inputenc} %Enter special characters directly (æ, ø, å)
-\usepackage[T1]{fontenc} %Use a supported font (T1) that encodes the accented characters used in European languages  
+%\usepackage[T1]{fontenc} %Use a supported font (T1) that encodes the accented characters used in European languages  
 
 %Fonts
 %\usepackage[scaled]{helvet} %Means of load­ing Hel­vetica, scaled so that it matches Times Ro­man (to some ex­tent).
@@ -59,8 +69,8 @@
 %Badness is an integer from 0 to 10000 that is a measure of the quality of the spacing in any given box.
 
 % Følgende angir bokser rundt figurer og tabeller
-\floatstyle{boxed}
-\restylefloat{figure}
+%\floatstyle{boxed}
+%\restylefloat{figure}
 % \restylefloat{table}
 % -------------------
 
