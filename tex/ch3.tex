@@ -10,13 +10,26 @@
 
 \begin{document}
 
-\chapter{Interface between PC and \acrshort{cru}}
+\chapter{Serial interface between PC and \gls{cru}}
 
-In order for the user to have any control over the \gls{cru}, some sort of serial communication between the users PC and the \gls{fpga} is needed. For now, the communication link is only supposed to monitor and set control signals from the \gls{gbt} bank, and not gather the incoming data. Because of this, speed requirements are not critical. 
+In order for the user to have any control over the \gls{cru}, some sort of serial communication between the user PC and the \gls{fpga} is needed. The purpose of the communication link is monitoring and manipulation of the \gls{gbt} control signals. Because of this, the speed requirements of the link is not a crucial matter. 
+
+The Cyclone V unit (see section \ref{sec:cyclone}) that is used in this thesis have the following communication capabilities readily available: PCI-express, Ethernet, USB-BLASTER II, and a SDI-transceiver. However, if removing the on-mounted LCD-display, one can use the exposed header for signaling. The header (J10 in the board schematic) is connected to a transmitter- and receiver pin (both running on 5 volts), several 5 volt output pins and a ground pin. Since speed is not a critical requirement, one can basically use whatever communication standard that is commonly available. Perhaps the most well-known serial communication standard is the RS-232 standard. The signals connected to the HSMC-ports could also be used in this matter. This would, however, require two \gls{hsmc} ports since one is occupied with the \acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} (see section \ref{chap:PCB}), and also an additional GPIO-prototype board connected on-top of the free HSMC-port. \footnote{With the \gls{fpga}-board used in this thesis, the GPIO-\gls{pcb} could not fit properly side-by-side with the \acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} because the latter \gls{pcb} is a bit to wide.}
+
+The PCI-express connection requires the fpga to be directly mounted on the motherboard of the PC, which in this situation is both impractical and not necessary for a simple communication link. This option also limits the compatibility with other \gls{fpga} boards that do not have a PCI-express connection.
+
+The Ethernet connection is supported by most \gls{fpga} boards, but requires layers of protocols in order to communicate. The upside is that a connection using Ethernet cable are capable of long distances between the PC and FPGA, and that it only requires known IP-addresses between the devices for connection and transmission, no additional driver. 
+
+The SDI-transceiver uses coaxial cabling and therefore requires special equipment on the PC side for connection.
+
+USB-BLASTERII limits the user to use a JTAG-server offered by Altera as a way of communication. 
+
+If removing the on-mounted LCD-display, a header is exposed with transmitter- and receiver-pins, a 5 volt output and a ground. Since the serial connection is only manipulating the GBT control-signals, speed is not an issue, and one can basically us whatever communication standard that is commonly available. Perhaps the most well-known serial communication standard is the RS-232 standard.
 
 A variety of communication protocols were considered and are summed up in the table below. 
 
-Common to all communication systems considered is that they are all duplex systems, which simply means two connected devices that can both transmit and receive signals. While \textit{full-duplex} enables both devices to transmit and receive simoultaneously (telephones), \textit{half-duplex} only enables one device to transmit at a time (walkie-talkies). Common to both is that they have two communication channels. 
+Common to all communication systems considered is that they are all duplex systems, which simply means two connected devices that can both transmit and receive signals. While \textit{full-duplex} enables both devices to transmit and receive simultaneously (telephones), \textit{half-duplex} only enables one device to transmit at a time (walkie-talkies). Common to both is that they have two communication channels. 
+
 
 
 
@@ -26,9 +39,10 @@ Common to all communication systems considered is that they are all duplex syste
 
 \subsection{Transmission protocol: \gls{rs232}}
 
+\gls{rs232} is a standard for serial communication and transmission of data. The standard defines electrical characteristics and timing of signals, the meaning of the signals, and also physical size and pin-out of connectors.
 Example of an \gls{rs232} setting: 115200-8-N-1
 
-A typical \gls{rs232} datapacket consists of a start bit, followed by 5, 7 or 8 data bits, 1 parity bit and 1 or 2 stop bits. The start bit is typically a logical low and the stop bit(s) high, but this is system dependent. The transmission line remains high until the start bit pulls it down low, and the data transfer begins until the stop bit is reached. The line is then kept high until a new start bit pull it low again for a new data transfer. The figure below shows a typical \gls{rs232} signal.
+A typical \gls{rs232} data-packet consists of a start bit, followed by 5, 7 or 8 data bits, 1 parity bit and 1 or 2 stop bits. The start bit is typically a logical low and the stop bit(s) high, but this is system dependent. The transmission line remains high until the start bit pulls it down low, and the data transfer begins until the stop bit is reached. The line is then kept high until a new start bit pull it low again for a new data transfer. The figure below shows a typical \gls{rs232} signal.
 
 \begin{figure}[!h]
 \begin{center}
@@ -80,13 +94,12 @@ The \gls{uart}-design is divided into five parts:\\
 - \Gls{fifo}-registers on both the \gls{uart} output and input\\
 
 The following sections gives a brief description of each of the parts described above. \\
-The information was parlty obtained by reading chapter 7 from the book \textit{FPGA Prototyping By VHDL Examples} by Pong P. Chu \cite{chu08}, and by studying the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure.
+The information was partly obtained by reading chapter 7 from the book \textit{FPGA Prototyping By VHDL Examples} by Pong P. Chu \cite{chu08}, and by studying the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure.
 
 \subsubsection{Oversampling and the Baud Rate Generator}
 
 To obtain an accurate sampling of the received signal, an asynchronous system like the \gls{uart} uses what is referred to as oversampling. \\
-With a typical rate of 16 times the baud rate, the receiver listens for the line to go from idle to the first start bit, or from a logical high to a logical low. When low, a counter starts counting from 0 to 7. When the counter reaches 7, the received signal should be in the middle of the start bit. The counter then clears to 0 and starts counting from 0 to 15. This time, when the counter reaches 15, the received signal should be in the middle of the first data bit, or \acrshort{lsb}. The value is retrieved, and the latter procedure is repeated $N - 1$ times until the \acrshort{msb} is retrieved.
-If there is a parity bit, the same procedure is repeated one more time to retrieve it. After retrieving all the data bits, the same procedure is used to sample the M stop bits at the end of the signal. After this, the line is held high until a new start bit arrives. 
+With a typical rate of 16 times the baud rate, the receiver listens for the line to go from idle to the first start bit. When pulled low or high, depending on the system, a counter starts counting from 0 to 7. When the counter reaches 7, the received signal is roughly in the middle of the start bit. The counter then clears to 0 and starts counting from 0 to 15. This time, when the counter reaches 15, the received signal is roughly in the middle of the first data bit, or \acrshort{lsb}. The value is retrieved, and the latter procedure is repeated $N - 1$ times until the \acrshort{msb} is retrieved.\footnote{By sampling the bit in the middle of its time frame, the receiver avoids the noise and ringing that are generated whenever a serial bit changes.\cite{rapid08}} If there is a parity bit, the same procedure is repeated one more time to retrieve it. After retrieving all the data bits, the same procedure is used to sample the M stop bits at the end of the signal. After this, the line is held high until a new start bit arrives. 
 
 %\mdfdefinestyle{mystyle}{rightmargin=90pt, linecolor=darkgray}
 
@@ -142,26 +155,23 @@ Sample ticks        & h 125{c}\\
 \end{figure}
 
 
-To achieve a sample tick of 16 times the baud rate, a Baud Rate Generator module is implemented into the design. The module generates a one-clock-cycle tick once every $\frac{clock}{16 \times baud\ rate}$ clock cycles. For a baud rate of $115200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, there must be a one-clock-cycle tick once every $27$ clock cycle. This is achieved by counting in certain steps given by the formula below:
+To achieve a sampling rate of 16 times the baud rate, a Baud Rate Generator module is implemented into the design. The module generates a one-clock-cycle tick once every $\frac{clock}{16 \times baud\ rate}$ clock cycles. For a baud rate of $115200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, there must be a one-clock-cycle tick once every $27$ clock cycle. This is achieved by counting in certain steps given by the formula below:
 
 \begin{equation}
 Baud\ frequency = \frac{16 \times baud\ rate}{GCD(clock, 16 \times baud\ rate)}
 \end{equation}
 
-, where GCD is the greatest common divisor between the global clock and the baud rate times 16. \cite{velure10} \\
+, where baud frequency is the count steps, GCD is the greatest common divisor between the global clock and the baud rate times 16. \cite{velure10} \\
 For a baud rate of $115200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, the counter must count in steps of $576$ per clock cycle. 
 
-Once the counter reaches a given baud limit, the counter resets and the tick-signal is pulled high. After one clock cycle the tick-signal is pulled low again and the counter starts counting. The baud limit is given by:
+Once the counter reaches a given baud limit, the counter resets and the tick-signal is pulled high. After one clock cycle the tick-signal is pulled low and the counter starts to count again. The baud limit is given by:
 
 \begin{equation}
-Baud\ limit= \frac{clock}{GCD(clock, 16 \times baud\ rate)} - baud frequency
+Baud\ limit= \frac{clock}{GCD(clock, 16 \times baud\ rate)} - baud\ frequency
 \end{equation}
 
 , where clock is the global clock of the system and GCD is the greatest common divisor between the global clock and the baud rate times 16. \cite{velure10} \\
-For a baud rate of $115200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, the counter must count in steps of $576$ up to the baud limit of $15049$, before resetting and pulling the tick-signal high. 
-
-
-
+For a baud rate of $115200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, the counter must count in steps of $576$ up to the baud limit of $15049$, before pulling the tick-signal high and start over again. 
 
 
 \end{document}

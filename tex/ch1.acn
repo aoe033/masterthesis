@@ -11,6 +11,7 @@
 \glossaryentry{COTS?\glossentry{cots}|setentrycounter[]{page}\glsnumberformat}{1}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{IC?\glossentry{ic}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
@@ -22,6 +23,7 @@
 \glossaryentry{LUT?\glossentry{lut}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
@@ -32,7 +34,7 @@
 \glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{VHDL?\glossentry{vhdl}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{HDL?\glossentry{hdl}|setentrycounter[]{page}\glsnumberformat}{2}
-\glossaryentry{VHDL?\glossentry{vhdl}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{VHDL?\glossentry{vhdl}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{3}
@@ -41,4 +43,4 @@
 \glossaryentry{PCIe?\glossentry{pcie}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{SATA?\glossentry{sata}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{3}
-\glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{3}
+\glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{4}

@@ -10,11 +10,11 @@
 
 \begin{document}
 
-\chapter{\acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} design}
+\chapter{\acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} design} \label{chap:PCB}
 
-In order for communication and the ability to send test signals and monitor the resulting output, there has to be some form of connection between the \gls{cru} and the \gls{vldb}. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to the \gls{lvds} transceivers for high-speed communitaction with the \gls{cru}. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing the \gls{lvds} transceivers. In addition to the \gls{lvds} signals, the connection also needs to contain the Radiation-hard optical link.
+In order for communication and the ability to send test signals and monitor the resulting output, there has to be some form of connection between the \gls{cru} and the \gls{vldb}. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to the \gls{lvds} transceivers for high-speed communication with the \gls{cru}. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing the \gls{lvds} transceivers. In addition to the \gls{lvds} signals, the connection also needs to contain the Radiation-hard optical link.
 
-The initial plan was to design a \gls{pcb} with a male \gls{sfp} contact in one end connected to two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adaptor that can be plugged directly into each of the \gls{sfp}-connectors on the \gls{sfp}-board with \gls{hdmi} cables to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp} and \gls{hdmi} connectors, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with cables connecting the three. 
+The initial plan was to design a \gls{pcb} with a male \gls{sfp} contact in one end connected to two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into each of the \gls{sfp}-connectors on the \gls{sfp}-board with \gls{hdmi} cables to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp} and \gls{hdmi} connectors, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with cables connecting the three. 
 
 After some discussion with Arild, we ended up with a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design (the one concerning the \gls{xcvr}-protocol), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and saving costs. The resulting design was an \gls{hsmc}-connected board with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signal running to one \gls{sfp}-connector for fiber-optic communication. The \gls{sfp}-to-\gls{hsmc} connection was copied from the original \gls{sfp}-\gls{pcb} files that came with the Terasic CD.
 
@@ -33,7 +33,7 @@ When transmitting signals through a condutor at high frequencies, the conductor 
 \subsection{Transmission lines}
 
 When signal rise/fall times becomes comparable with the propagation delay of the conductor, the signal no longer acts instantaneous. The conductor becomes what is known as a transmission line, with the signals voltage and current acting like waves propagation through the conductor. 
-The general rule for determing if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period, so that the high and low states are recognizable. \cite{weste11} 
+The general rule for determining if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period, so that the high and low states are recognizable. \cite{weste11} 
 
 For an \gls{lvds}-protocol, with signal speeds reaching up to $3.125\ \giga\bit\per\second$, the trace becomes a transmission line if the signal propagation time along the trace is less than 1/4 of the signal period, i.e $80\pico\second$. 
 
@@ -163,7 +163,7 @@ When looking at the datasheet for cables with differential signals, such as HDMI
 
 \subsection{Routing}
 
-As mentioned in section~\ref{subsec:diffsig}, differential signals have noise advantages over single ended signals. This is the case only if the pairs have \textit{equal} path lengths and the individual wires in each pair are routed as close to one another as possible. In addition, to keep crosstalk to its minimum, individual pairs has to be routed a distance away from other wires (In reality, this only becomes a problem when dealing with wiring in the microscale domain). Twisting the individual wires in each pair to some extent will also contribute to common noise rejection.\cite{weste11} 
+As mentioned in section~\ref{subsec:diffsig}, differential signals have noise advantages over single ended signals. This is the case only if the pairs have \textit{equal} path lengths and the individual wires in each pair are routed as close to one another as possible. In addition, to keep crosstalk to its minimum, individual pairs has to be routed a distance away from other wires (In reality, this only becomes a problem when dealing with wiring in the micro-scale domain). Twisting the individual wires in each pair to some extent will also contribute to common noise rejection.\cite{weste11} 
 This was taken into consideration when routing the \gls{pcb}. 
 
 The individual wires in each pair was kept as close as possible, with a space constraint according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See below). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases). After routing the wires, attempts were made to separate the pairs a distance from one another, but this was not a critical stage.
@@ -176,7 +176,7 @@ To avoid signal reflections, the \gls{pcb} needed a characteristic impedance mat
 
 The \gls{pcb} was chosen to be four layers, with signals running on the top and bottom copper layers, and the two middle planes for voltages and ground respectively.
 
-For thicknesses of the different \gls{pcb} copper layers and the FR4 in between, Elprint has a set of predefined \textit{stackups} available in Macaos. It is possible to define custom stackups as well, but this will result in a more costly \gls{pcb}. The $4036$ pre-defined stackup has a copper thickness of $18\ \micro\meter$ on the two outer layers following an FR4 thickness of $65\ \micro\meter$ between the outer layers and the power planes, with the power planes having a thickness of $35\ \micro\meter$. Between the power planes is another FR4 layer with a thickness of $1.4 \milli\meter$ making the total \gls{pcb} thickness of a standard $1.6 \milli\meter$. With a mircostrip width of $100\ \micro\meter$, the formula for characteristic impedance yields:
+For thicknesses of the different \gls{pcb} copper layers and the FR4 in between, Elprint has a set of predefined \textit{stack-ups} available in Macaos. It is possible to define custom stack-ups as well, but this will result in a more costly \gls{pcb}. The $4036$ pre-defined stack-up has a copper thickness of $18\ \micro\meter$ on the two outer layers following an FR4 thickness of $65\ \micro\meter$ between the outer layers and the power planes, with the power planes having a thickness of $35\ \micro\meter$. Between the power planes is another FR4 layer with a thickness of $1.4 \milli\meter$ making the total \gls{pcb} thickness of a standard $1.6 \milli\meter$. With a mircostrip width of $100\ \micro\meter$, the formula for characteristic impedance yields:
 
 \begin{equation}
 Z_0 = \frac{60}{\sqrt{(0.475 \times 4.05) + 0.67}}\ln{3.96}

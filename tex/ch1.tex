@@ -13,8 +13,11 @@
 \chapter{Introduction}
 
 The future upgrade of the \gls{lhc} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
-To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\ \\
-The \gls{gbt} system can be described in two parts, where one half of the system consists of radiation hard GBT \glspl{asic} that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} will be used to implement bidirectional multipurpose $4.8\ \giga\bit\per\second$ optical links for the high-energy physics experiments. \\
+
+To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\
+
+The \gls{gbt} system can be described in two parts, where one half of the system consists of radiation hard GBT \glspl{asic} that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} will be used to implement bidirectional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments. \\
+
 The other half of the system is located in the counting room and consists of a \gls{cru} that will provide an interface between the detector \glspl{asic} and an online computerfarm. The \gls{cru} consists of \gls{cots} components and will through optical links receive data from the radiation detector. \\
 This master thesis will focus on development of control and data flow firmware, development of signal processing firmware and the software interface to a PC.
 
@@ -28,7 +31,7 @@ LVDS\\
 CML\\
 CPRI?\\
 
-\section{\gls{fpga}}
+\section{\acrfull{fpga}}
 
 \Gls{fpga} is a high density \gls{ic} that is designed to be completely programmable by the customer after manufacturing (i.e. when the chip is shipped and "in the field"). The chips are shipped completely "blank" (with the exception of \gls{fpga} evaluation boards, which contains erasable hardware setup for demo purposes), meaning that there are no pre-programmed logic. 
 
