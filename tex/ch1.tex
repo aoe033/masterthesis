@@ -67,6 +67,37 @@ For data rates that exceeds $3.125\ \giga\bit\per\second$, \gls{cml} signaling i
 
 \subsection{CPRI}
 
+\subsection{Phase-Locked Loops}
+
+A \gls{pll} is a device
+
+\chapter{The Gigabit Transceiver}
+\todo{History, mgt, Short about the electronic components, gbt-sca, gbtx}
+
+\section{Encoding modes}
+
+The "GBT-Frame" mode, which is Reed-Solomon Based; the "8b10b" mode; and the "Wide-Bus" mode which is without encoding.
+
+\section{GBT-FPGA Core}
+The following sections describe the different components that makes up the GBT-FPGA Core. The information was obtained by reading the GBT-FPGA User Guide \cite{gbt_fpga}.
+
+\subsection{GBT Bank}
+The GBT Bank is defined as the top module of the \gls{gbt}-\gls{fpga} Core. It integrates up to four GBT Links and contains the ports required to operate the GBT Links.
+
+\subsection{GBT Link}
+The \gls{gbt} Link is the actual channel of the link. It is composed of three components: GBT Tx, GBT Rx, and the \gls{mgt}. The following subsections gives a brief description of these components.
+
+\subsubsection{GBT Tx}
+
+The \gls{gbt} Tx component is responsible for scrambling and encoding data before transmitting it through the \gls{mgt}.
+
+\subsubsection{GBT Rx}
+
+The \gls{gbt} Rx component is responsible for receiving, decoding and de-scrambling the data through the \gls{mgt}.
+
+\subsubsection{Multi-Gigabit Transceiver}
+The \gls{mgt} is responsible for the transmitting, receiving, serialization and de-serialization of the \gls{gbt} data. It is divided into a transmitter and a receiver part.\\ The transmitter contains a \gls{piso} with two input clocks; one for parallel data and one for serial data. It shifts in $40~\bit$ words from the GBT Tx with a reference clock of $120~\mega\hertz$, serializes the data and sends it out with the help of a dedicated Tx \gls{pll} that generates a serial clock of $2400 \mega\hertz$.\\ The receiver contains a \gls{cdr} block, a \gls{sipo}, a RXRECCLK Phase Aligner block and a \gls{barrel}. 
+
 %\gls{cpri}
 
 

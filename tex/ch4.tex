@@ -14,19 +14,19 @@
 
 \section{120 MHz reference clock}
 
-To be able to conduct a proper loopback test, the \glspl{pll} of the \gls{gbt} \todo{name the proper plls and state why 120 mhz is really needed} must have a reference frequency of $120~\mega\hertz$. There are a number of options to achieve this on the Cyclone V board: By using an external clock like a square wave signal generator; by using an internal programmable oscillator; or by implementing a \gls{pll} into the design that multiplies the global $50~\mega\hertz$ clock up to the desired frequency $120~\mega\hertz$. \\
+To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} \todo{name the proper plls and state why 120 mhz is really needed} must have a reference frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: By using an external clock like a square wave signal generator; by using an internal programmable oscillator; or by implementing a \gls{pll} into the design that multiplies the global $50~\mega\hertz$ clock up to the desired frequency $120~\mega\hertz$. \\
 
-The original approach is to use an external signal generator to generate the reference clock, as shown in the \gls{gbt} instruction videos\todo{reference to the videos}. However, at the time of conducting the tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. 
+The original approach is to use an external signal generator to generate the reference clock, as shown in the \gls{gbt} tutorial videos \cite{gbt_videos}. However, at the time of conducting the tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. 
 
 The approach of implementing a \gls{pll} into the \gls{gbt}-example design was also attempted, but resulted in conflicts between the already implemented \glspl{pll} in the design. 
 
-The last approach of using the internal programmable oscillator as reference clock became the solution to the problem. The below section gives a brief description on how to setup the internal oscillator.
+The last approach of using the internal programmable oscillator as reference clock became the solution to the problem. The below section gives a brief description on how to setup the internal oscillator for the Cyclone V \gls{fpga} board.
 
 \subsection{Configuring the internal oscillator on the Cyclone V board}
 
 To achieve a reference clock of $120~\mega\hertz$, the \gls{fpga} board has an on-board programmable oscillator, the $Si570$ from Silabs. It uses \gls{iic} for serial communication and can be programmed to output frequencies up to $810~\mega\hertz \pm 50 ppm$. To program the oscillator, Altera provides a dedicated software called "Clock Control". The Clock Control software is part of the Java based "Board Test System" software, included in the Cyclone V kit which can be found at Altera's websites \cite{altera_cyclonekit}. The Cyclone V kit is board specific, so it is therefore important to use the right kit with the right board.\\
 
-To make use of the Clock Control software have been proven difficult, mainly because of the software being outdated in relevance to the current version of Quartus (at the time of writing, Quartus 15.0 is the newest edition). The solution was to install an older Quartus (version 13.1) using the Windows Operating System (Linux was also attempted, but without any success) and specify the right paths for the related environment variables. The below sections gives a brief description on how this was achieved.\\
+To make use of the Clock Control software has been proven difficult, mainly because of the software being outdated in relevance to the current version of Quartus (at the time of writing, Quartus 15.0 is the newest edition). The solution was to install an older Quartus (version 13.1) using the Windows Operating System (Linux was also attempted, but without any success) and specify the right paths for the related environment variables. The below sections gives a brief description on how this was achieved.\\
 
 \subsection{Clock Control software setup}
 
@@ -44,7 +44,7 @@ By using Windows, the following steps have been proven to be the best approach t
       \item QUARTUS\_ROOTDIR -- \path{"D:\Quartus_13.1\quartus"}
       \item SOPC\_KIT\_NIOS2 -- \path{"D:\Quartus_13.1\nios2eds"}
     \end{itemize}
-  \item Connect the \gls{fpga} board to the \gls{pc} using USB Blaster II (Refer to the manual for installation instructions for the USB Blaster II \cite{altera_usb}).
+  \item Connect the \gls{fpga} board to the \gls{pc} using USB Blaster II (Refer to the manual for instructions on how to install the USB Blaster II \cite{altera_usb}).
   \item In Command Prompt (cmd.exe):
   \begin{itemize}
       \item Navigate to the "board\_test\_system" folder located inside the Cyclone V kit.
@@ -53,6 +53,16 @@ By using Windows, the following steps have been proven to be the best approach t
     \end{itemize}
 \end{enumerate}
 
+If done correctly, the Clock Control software will start up and display "Connected to the target" in the message window. The default output frequency of the $Si570$ oscillator is $100~\mega\hertz$. The output frequency is calculated using the following equation:
+
+\begin{equation}
+%\[
+    f_{out} = \frac{f_{XTAL} \times RFREQ}{HSDIV \times N1}
+%\]
+\end{equation} 
+
+, where $f_{XTAL}$ is a fixed frequency of $114,2857~\mega\hertz$; RFREQ is a floating point 38-bit word; and HSDIV and N1 is the output dividers \cite{si570}. The parameters are determined by the Clock Control software based on the user typed frequency. The parameters are then sent serially via the USB Blaster II to the $Si570$ chip, where the above formula is used to set the internal registers for the new frequency.
+Figure \ref{fig:clk_cont120} shows the Clock Control software after a new frequency of $120~\mega\hertz$ is set. 
 
 \begin{figure}[ht] % H(strictly put HERE > h!)
 \begin{center}
@@ -63,8 +73,17 @@ By using Windows, the following steps have been proven to be the best approach t
 \end{center}
 \end{figure} 
 
+The $Si570$ is volatile, meaning that the output frequency is reset back to $100~\mega\hertz$ if power is lost. \\
+To confirm correct operation, a quick measurement of the output clock was done using an oscilloscope. Figures \ref{fig:tek100} and \ref{fig:tek120} shows the output frequency, before and after configuration.\\
 
-Below is a list of the probe signals and switches 
+\begin{figure}[!ht]
+   \begin{floatrow}
+     \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek100}}{\caption{Before configuration: 100 MHz.}\label{fig:tek100}}
+     \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek120}}{\caption{After configuration: 120 MHz.}\label{fig:tek120}}
+   \end{floatrow}
+\end{figure}
+
+
 
 \begin{center}
   \begin{tabulary}{1\textwidth}{|L|L|L|L|L|}
