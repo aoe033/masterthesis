@@ -1,0 +1,97 @@
+%location/filename: tex/ch1.tex
+%author: Anders Østevik
+% Created: 28.2.2016
+%#######--Chapter 4--#######
+%Content:	
+
+\documentclass[main.tex]{subfiles}
+
+%\usetikzlibrary{arrows,automata}
+
+\begin{document}
+
+\chapter{External and Internal Loopback test of the GBT bank Quartus Example}
+
+\section{120 MHz reference clock}
+
+To be able to conduct a proper loopback test, the \glspl{pll} of the \gls{gbt} \todo{name the proper plls and state why 120 mhz is really needed} must have a reference frequency of $120~\mega\hertz$. There are a number of options to achieve this on the Cyclone V board: By using an external clock like a square wave signal generator; by using an internal programmable oscillator; or by implementing a \gls{pll} into the design that multiplies the global $50~\mega\hertz$ clock up to the desired frequency $120~\mega\hertz$. \\
+
+The original approach is to use an external signal generator to generate the reference clock, as shown in the \gls{gbt} instruction videos\todo{reference to the videos}. However, at the time of conducting the tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. 
+
+The approach of implementing a \gls{pll} into the \gls{gbt}-example design was also attempted, but resulted in conflicts between the already implemented \glspl{pll} in the design. 
+
+The last approach of using the internal programmable oscillator as reference clock became the solution to the problem. The below section gives a brief description on how to setup the internal oscillator.
+
+\subsection{Configuring the internal oscillator on the Cyclone V board}
+
+To achieve a reference clock of $120~\mega\hertz$, the \gls{fpga} board has an on-board programmable oscillator, the $Si570$ from Silabs. It uses \gls{iic} for serial communication and can be programmed to output frequencies up to $810~\mega\hertz \pm 50 ppm$. To program the oscillator, Altera provides a dedicated software called "Clock Control". The Clock Control software is part of the Java based "Board Test System" software, included in the Cyclone V kit which can be found at Altera's websites \cite{altera_cyclonekit}. The Cyclone V kit is board specific, so it is therefore important to use the right kit with the right board.\\
+
+To make use of the Clock Control software have been proven difficult, mainly because of the software being outdated in relevance to the current version of Quartus (at the time of writing, Quartus 15.0 is the newest edition). The solution was to install an older Quartus (version 13.1) using the Windows Operating System (Linux was also attempted, but without any success) and specify the right paths for the related environment variables. The below sections gives a brief description on how this was achieved.\\
+
+\subsection{Clock Control software setup}
+
+The Cyclone V kit is dependent on a number of Quartus related files, including the USB Blaster II device driver, the jtagconfig software and various device libraries included in the Quartus environment. It is therefore important to have the right version of Quartus installed for the Clock Control program to work properly. The version number of the kit (13.0.0.1 at the time of writing) corresponds to the supported version of Quartus, in this case Quartus 13.x (newer versions of Quartus have not proven to be backwards compatible with the Cyclone V kit).\\
+
+By using Windows, the following steps have been proven to be the best approach to make the Clock Control software work properly. The installed path to Quartus is in this case: \path{D:\Quartus_13.1}.\\
+
+\subsubsection{Steps for configuring Windows to run the Clock Control software}
+
+\begin{enumerate}
+  \item Install Quartus 13.x (includes jtagconfig) together with the Cyclone V device support \cite{altera_q13}.
+  \item Set appropriate environment variables. In Windows, this should be set automatically.
+  \begin{itemize}
+      \item PATH -- \path{"D:\Quartus_13.1"}
+      \item QUARTUS\_ROOTDIR -- \path{"D:\Quartus_13.1\quartus"}
+      \item SOPC\_KIT\_NIOS2 -- \path{"D:\Quartus_13.1\nios2eds"}
+    \end{itemize}
+  \item Connect the \gls{fpga} board to the \gls{pc} using USB Blaster II (Refer to the manual for installation instructions for the USB Blaster II \cite{altera_usb}).
+  \item In Command Prompt (cmd.exe):
+  \begin{itemize}
+      \item Navigate to the "board\_test\_system" folder located inside the Cyclone V kit.
+      \item run "jtagconfig" and confirm connection with the board. If the Command Prompt cannot find jtagconfig, navigate to \path{D:\Quartus_13.1\quartus\bin} using a file explorer and manually start jtagconfig.exe from there
+      \item run "java -Djava.library.path=\path{"D:\Quartus\_13.1\bin"} -jar clk\_cont.jar". The library path is to ensure that the Java environment have access to the appropriate Quartus libraries it needs to connect with the board.
+    \end{itemize}
+\end{enumerate}
+
+
+\begin{figure}[ht] % H(strictly put HERE > h!)
+\begin{center}
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[scale=1]{../img/clk_cont120}  \\[0.1 cm]
+\caption{The Clock Control software by Altera was used to program the $Si570$.}
+\label{fig:clk_cont120}
+\end{center}
+\end{figure} 
+
+
+Below is a list of the probe signals and switches 
+
+\begin{center}
+  \begin{tabulary}{1\textwidth}{|L|L|L|L|L|}
+  \hline
+    Index & Group & Name &  Data & Description   \\
+    \hline
+     P0   & \# & Latency-Optimized GBT Link - Tx                     & 0 & Low when standard GBT    \\
+     \hline
+     P1   & \# & Latency-Optimized GBT Link - Rx                    & 0 & Low when standard GBT      \\
+     \hline
+     P29 & \# & ISSP PLL Locked                                                       & 1 & Text \\
+     \hline
+     P3   & \# & Tx\_FrameCLK Phase Aligner - PLL Locked & 1 & Text \\     
+     \hline
+      S10   & \# & Tx\_FrameCLK Phase Aligner - Manual Reset & 0 & Text \\     
+     \hline
+      S[11..16]   & \# & Tx\_FrameCLK Phase Aligner - GBT Link 1 Steps & 0 & Each Step is 520ps \\     
+     \hline
+      S17   & \# & Tx\_FrameCLK Phase Aligner - Enable & 0 & Enable when ...? \\    
+     \hline
+      S18   & \# & Tx\_FrameCLK Phase Aligner - Trigger & 0 & Set to '1' for autoalignment. \\    
+     \hline
+      P4   & \# & Tx\_FrameCLK Phase Aligner - Phase Shift Done & 0 & Enabled ...? \\    
+     \hline
+      P2   & \# & MGT Tx PLL Locked & 1 & Text \\    
+     \hline     
+  \end{tabulary}  
+\end{center}
+
+\end{document}

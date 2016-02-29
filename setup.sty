@@ -28,42 +28,45 @@
 %Fonts
 %\usepackage[scaled]{helvet} %Means of load­ing Hel­vetica, scaled so that it matches Times Ro­man (to some ex­tent).
 %\usepackage{courier}
+\usepackage{libertine}
+
 
 \usepackage[numbers]{natbib} %Im­ple­ments both au­thor-year and num­bered ref­er­ences, as well as sup­port for other bib­li­og­ra­phy use.
 
 \setlength{\parindent}{0.0in} %determines the length of the empty box that is added to lists by the \indent command.
-\setlength{\parskip}{0.0in} %parameter that contains glue. <glue> is added between each paragraph, but not before the first or after the last paragraph.
+%\setlength{\parskip}{0.0in} %parameter that contains glue. <glue> is added between each paragraph, but not before the first or after the last paragraph.
 
 \usepackage{fixltx2e} %Some bugfixing stuff
 
-\usepackage{parskip} % disables auto-indentation and adds a little bit of (stretchable) space in between paragraphs
+%\usepackage{parskip} % disables auto-indentation and adds a little bit of (stretchable) space in between paragraphs
 
 \usepackage{hyperref} %Enables hyperlinks
 \usepackage{listings}%include the source code of any programming language within your document.
 
-
-\usepackage{setspace} %allows more fine-grained control over line spacing. ex.: \onehalfspacing
+\usepackage{tabulary}
+%\usepackage{setspace} %allows more fine-grained control over line spacing. ex.: \onehalfspacing
 %\singlespacing
 %\onehalfspacing
-\linespread{1.1}
+%\linespread{1.1}
 
 %\usepackage[raggedright,bf,sf]{titlesec} %in­ter­face to sec­tion­ing com­mands for se­lec­tion from var­i­ous ti­tle styles. E.g., marginal ti­tles and to change the font of all head­ings with a sin­gle com­mand, also pro­vid­ing sim­ple one-step page styles. 
-\usepackage{fullpage} %Sets all 4 mar­gins to be ei­ther 1 inch or 1.5 cm, and spec­i­fies the page style.
+
+\usepackage{a4wide} %Comment out this for book-style
+%\usepackage{layouts}
 
 \usepackage{subfiles} %alternative to include/input, gives you the advantage that you can compile in subfiles (chapters)
 
 \usepackage[mediumspace,squaren,binary]{SIunits}
 
-\usepackage{acronym}
-
 \usepackage{fancyhdr}
 
+\usepackage{acronym}
+\usepackage{todonotes} %Lets you create notes and put them in the appropriate places in the text. Use \todo{text}
 
-%\pagestyle{fancy}
-%\fancyhf{}
-%\rhead{\thechapter}
-%\lhead{LE title}
-%\rfoot{Page \thepage}
+%\usepackage[ampersand]{easylist} %easylist
+%\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,
+%Style2*=$\bullet$ ,Style3*=$\circ$ ,Style4*=\tiny$\blacksquare$ )
+
 
 \tolerance=1000 %Parameter that tells TeX how much badness is allowable without error
 %Badness is an integer from 0 to 10000 that is a measure of the quality of the spacing in any given box.

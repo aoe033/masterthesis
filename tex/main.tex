@@ -1,51 +1,97 @@
 
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt,a4paper]{book}
 
 \usepackage{../setup}   %includes packages, colors, setup for hyperref, listings
 
 \usepackage{../acronyms}
 
-\makeglossaries
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
+\setlength{\headheight}{30pt} 
+\setlength{\headsep}{20pt} 
+%\setlength{\marginparwidth}{0pt}
+
+\fancyhf{}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+
+%\fancyhead[LE,RO]{\thepage}
+%\fancyhead[RE]{\mark}
+%\fancyhead[LE]{\rightmark}
 %Begin documentclass
+
+\renewcommand*{\CustomAcronymFields}{%
+  name={\the\glsshorttok},% name is abbreviated form
+  description={\the\glslongtok},% description is long form
+  first={\noexpand\emph{\the\glslongtok}\space(\the\glsshorttok)},%
+  firstplural={\noexpand\emph{\the\glslongtok\noexpand\acrpluralsuffix}\space(\the\glsshorttok)},%
+  text={\the\glsshorttok},%
+  plural={\the\glsshorttok\noexpand\acrpluralsuffix}%
+}
+
+\newcommand{\merk}[1]{\emph{#1}}
+
+\newcommand{\sebo}[1]{{\fontseries{sb}#1}}
+
+%\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+%\newcommand\bulletitems{\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- , Style2*=$\bullet$ ,Style3*=$\circ$ ,Style4*=\tiny$\blacksquare$ )}
+
+
 \begin{document}
+
+%\pagenumbering{gobble}	%DO NOT number this page
+%\newpage
+
+%\thispagestyle{plain}
+%\pagenumbering{roman} %DO number this page in roman style numbers
+
+%\blankpage
+
+\frontmatter
+%\pagenumbering{gobble}	%DO NOT number this page
+\subfile{titlepage}
+\thispagestyle{empty}
+%\blankpage
+%\thispagestyle{plain}
+%\pagenumbering{roman}
+\subfile{abstract}
+%\blankpage
+\subfile{acknowledgements}
+%\blankpage
+%\blankpage 
+\tableofcontents
+\addcontentsline{toc}{section}{Table of Contents}
+
+%\blankpage
 
 %\glsresetall
 
-\pagenumbering{gobble}	%DO NOT number this page
-
-\subfile{titlepage}
-
-\newpage
-
-\pagenumbering{roman} %DO number this page in roman style numbers
-\subfile{acknowledgements}
-\blankpage
-
-\subfile{abstract}
-
-\blankpage 
-\tableofcontents
-\blankpage
-
-\printglossaries
-\blankpage
-
-\pagenumbering{arabic}	%DO number this page in arabic style numbers
-
+%\pagestyle{fancy}
+%\pagenumbering{arabic}	%DO number this page in arabic style numbers
+\mainmatter
 %Chapters here
 \subfile{ch1}	%Chapter 1: Intro
 \subfile{ch2}	%Chapter 2: 
 \subfile{ch3}
+\subfile{ch4}
 
-\newpage
-\begin{appendix}	%Create appendix
-\listoffigures
-\listoftables
-\end{appendix}
+%\pagestyle{plain}
+%\thispagestyle{plain}
+\printglossaries
 
-\newpage
 \bibliographystyle{abbrv}%ieeetr
 \bibliography{../litteratur}
 
+\begin{appendix}	%Create appendix
+\addcontentsline{toc}{section}{Appendix}
+\listoffigures
+\listoftables
+\end{appendix}
 
 \end{document}

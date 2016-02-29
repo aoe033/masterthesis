@@ -7,6 +7,7 @@
 \ProvidesPackage{../acronyms}
 
 \usepackage[acronym]{glossaries} % make a separate list of acronyms
+%\usepackage {acronym}
 
 \makeglossaries
 
@@ -24,6 +25,14 @@ description={A nonvolatile memory type known by its name because of its ability 
 \newglossaryentry{fifo}{name={FIFO},
 description={Short for First In First Out, a shift-register connected as a circular buffer. The data is written and read in the same order i.e. first data in, first data out. FIFOs can be used to buffer data between two asynchronous streams.\cite{weste11}}}
 
+\newglossaryentry{usbrs}{name={USB-to-RS232 adapter},
+description={Adapter to convert between USB and Rs-232 signaling and voltages.}}
+
+
+\newacronym{pc}{PC}{Personal Computer}
+
+\newacronym{pci}{PCI}{Peripheral Component Interconnect}
+
 \newacronym{asic}{ASIC}{Application Specific Integrated Circuit}
 \newacronym{cru}{CRU}{Common Readout Unit}
 \newacronym{lhc}{LHC}{Large Hadron Collider}
@@ -31,9 +40,19 @@ description={Short for First In First Out, a shift-register connected as a circu
 \newacronym{pcb}{PCB}{Printed Circuit Board}
 
 \newacronym{fpga}{FPGA}{Field-Programmable Gate Array}
+\newacronym{hps}{HPS}{Hard Processor System}
+\newacronym{ide}{IDE}{Integrated Development Environment}
 
 \newacronym{uart}{UART}{Universal Asynchronous Receiver/Transmitter}
+\newacronym{sdi}{SDI}{Serial Digital Interface}
+\newacronym{bnc}{BNC}{Bayonet Neill–Concelman}
+
 \newacronym{rs232}{RS-232}{RS-232}
+\newacronym{dte}{DTE}{Data Terminal Equipment}
+\newacronym{dce}{DCE}{Data Communication Equipment}
+
+\newacronym{iic}{I2C}{Inter-Integrated Circuit}
+\newacronym{pll}{PLL}{Phase-Locked Loop}
 
 \newacronym{hdl}{HDL}{Hardware Description Language}
 \newacronym{vhdl}{VHDL}{Very High Speed Integrated Circuit Hardware Description Language}
@@ -61,5 +80,6 @@ description={Short for First In First Out, a shift-register connected as a circu
 
 \newacronym{lsb}{LSB}{Least Significant Bit}
 \newacronym{msb}{MSB}{Most Significant Bit}
+\newacronym{usb}{USB}{Universal Serial Bus}
 
 \endinput

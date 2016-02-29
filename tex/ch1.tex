@@ -12,7 +12,7 @@
 
 \chapter{Introduction}
 
-The future upgrade of the \gls{lhc} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
+The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
 
 To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\
 
@@ -22,50 +22,48 @@ The other half of the system is located in the counting room and consists of a \
 This master thesis will focus on development of control and data flow firmware, development of signal processing firmware and the software interface to a PC.
 
 
-Questions that needs answering\\
+\todo{
 General:\\
-FPGAs\\
--CycloneV\\
 PLLs\\
-LVDS\\
-CML\\
 CPRI?\\
+}
 
-\section{\acrfull{fpga}}
+\section{Field Programmable Gate Array}
 
-\Gls{fpga} is a high density \gls{ic} that is designed to be completely programmable by the customer after manufacturing (i.e. when the chip is shipped and "in the field"). The chips are shipped completely "blank" (with the exception of \gls{fpga} evaluation boards, which contains erasable hardware setup for demo purposes), meaning that there are no pre-programmed logic. 
+A \gls{fpga} is a high density \gls{ic} that is designed to be completely programmable by the customer after manufacturing (i.e. when the chip is shipped and "in the field"). The chips are shipped completely "blank", meaning that there are no pre-programmed logic.\footnote{With the exception of \gls{fpga} evaluation boards, which comes shipped with a pre-programmed hardware setup for demo purposes.} An \gls{fpga} can either be re-programmed using \gls{sram} technology, or one-time programmed by burning antifuses. The latter method makes it less prone to soft errors when exposed to radiation.\\
 
-\Glspl{fpga} are composed of arrays of \glspl{clb} surrounded by programmable routing resources and I/O pads. A \gls{clb} consists of a \gls{lut} together with a clock and simple write logic, and uses the address of the \gls{lut} as the function input and the value at the selected address as the function output. \glspl{lut} are considered fast logic, since computing a complex function only requires a single memory lookup. The \gls{lut} can be made out of an \gls{sram} memory-block. \cite{weste11} 
+\Glspl{fpga} are composed of arrays of \glspl{clb} surrounded by programmable routing resources and I/O pads. A \gls{clb} consists of a \gls{lut} together with a clock and simple write logic, and uses the address bus of the \gls{lut} as the function input pins and the value at the selected address as the function output. \glspl{lut} are considered fast logic, since computing a complex function only requires a single memory lookup. The \gls{lut} can be made out of an \gls{sram} memory-block \cite{weste11}. \\
+
 The \gls{fpga} (section \ref{sec:cyclone}) used in this thesis is a re-programmable type. It stores the user hardware setup in an \gls{sram} memory to configure routing and logic functions (for a permanent program storage, the \gls{fpga} can be configures to store the hardware setup in the on-board \gls{flash} memory, which then programs the \gls{sram} when powered on).
 
 \subsection{Cyclone V} \label{sec:cyclone}
-Cyclone V by Altera is a modern \gls{fpga} 
+Cyclone V by Altera is a modern \gls{fpga}. It is chosen for this thesis mainly because of the on-board high speed transceivers. 
 
-\section{\acrfull{hdl}}
-The most common way to program a \gls{fpga} is by \glspl{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. \glspl{hdl} have become more and more useful as system complexity have increased. \cite{weste11} The hardware described in this thesis is done using \acrshort{vhdl}, a strongly typed \gls{hdl} that is known for its capability of describing parallel processes. 
+\section{Hardware Description Language}
+The most common way to program a \gls{fpga} is by \gls{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. \glspl{hdl} have become more and more useful as system complexity have increased \cite{weste11}. The hardware described in this thesis is done using \acrshort{vhdl}, a strongly typed \gls{hdl} that is known for its capability of describing parallel processes. 
 
-Below is an example of a \gls{vhdl} 
+Below is a small example of logic described using \acrshort{vhdl}:
 
 
-\section{\Gls{transceiver} Technology}
+\section{Transceiver Technology}
 
-To be able to send serial data in the gigahertz domain, a high-speed transceiver protocol is needed. The Cyclone V GT-series \glspl{fpga} supports a number of protocols that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of these protocols.
+To be able to send serial data in the gigahertz domain, a high-speed transceiver protocol is needed. The Cyclone V GT-series \glspl{fpga} supports a number of transceiver protocols that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of some of these protocols.
 
 \subsection{Differential Signals} \label{subsec:diffsig}
 
 Common for all protocols described under is the fact that the signals are treated differentially. 
 
-While a single ended signal involves one conductor between the transmitter and receiver, with the signal swinging from a given voltage to ground, differential signals involves a conductor pair, with two signals that are identical, but with opposite polarity. The pair would ideally have equal path lenghts in order to have zero return currents, avoiding problems like \textit{EMI}. In addition, placing the signals as close as possible to one another will give benefits in terms of common noise rejection.
+While a single ended signal involves one conductor between the transmitter and receiver, with the signal swinging from a given voltage to ground, differential signals involves a conductor pair, with two signals that are identical, but with opposite polarity. The pair would ideally have equal path lenghts in order to have zero return currents, avoiding problems like \textit{EMI}. In addition, placing the signals as close as possible to one another will give benefits in terms of common noise rejection.\\
 
-When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The dissadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one. \cite{douglas01}
+When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The dissadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
 
-\subsection{\acrfull{lvds}}
+\subsection{Low-Voltage Differential Signaling}
 
-LVDS is said to be the most commonly used differential interface. The interface offers a low power consumption with a voltage swing of $350\ \milli\volt$ and good noise immunity. LVDS can deliver data rates up to $3.125\ \giga\bit\per\second$. \cite{ti08lvds}
+\gls{lvds} is said to be the most commonly used differential interface. The interface offers a low power consumption with a voltage swing of $350\ \milli\volt$ and good noise immunity. LVDS can deliver data rates up to $3.125\ \giga\bit\per\second$ \cite{ti08lvds}.
 
-\subsection{\acrfull{cml}}
+\subsection{Current-Mode Logic}
 
-For data rates that exceeds $3.125\ \giga\bit\per\second$, CML signaling is preferred. This is due to the fact that certain communication standards such as \acrshort{pcie}, \acrshort{sata} and \acrshort{hdmi}, shares consistency with CML in signal amplitude and reference to $Vcc$. CML can reach a data rate in excess of $10\ \giga\bit\per\second$, but has a higher power consumption than \gls{lvds}, with a voltage swing of approximately $800\ \milli\volt$. \cite{ti08lvds}
+For data rates that exceeds $3.125\ \giga\bit\per\second$, \gls{cml} signaling is preferred. This is due to the fact that certain communication standards such as \acrshort{pcie}, \acrshort{sata} and \acrshort{hdmi}, shares consistency with CML in signal amplitude and reference to $Vcc$. CML can reach a data rate in excess of $10\ \giga\bit\per\second$, but has a higher power consumption than \gls{lvds}, with a voltage swing of approximately $800\ \milli\volt$ \cite{ti08lvds}.
 
 \subsection{CPRI}
 
