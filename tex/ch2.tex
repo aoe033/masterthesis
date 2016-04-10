@@ -12,11 +12,13 @@
 
 \chapter{HSMC-to-VLDB PCB design} \label{chap:pcb}
 
-In order for communication and the ability to send test signals and monitor the resulting output, there has to be some form of connection between the \gls{cru} and the \gls{vldb}. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to the \gls{lvds} transceivers for high-speed communication with the \gls{cru}. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing the \gls{lvds} transceivers. In addition to the \gls{lvds} signals, the connection also needs to contain the Radiation-hard optical link.\\
+In order for communication and the ability to send test signals and monitor the resulting output, there has to be some form of connection between the \gls{cru} and the \gls{vldb}. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to the \gls{lvds} transceivers for high-speed communication with the \gls{cru}. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing the \gls{lvds} transceivers. In addition to the \gls{lvds} signals, the connection also needs to contain the Radiation-hard optical link, i.e support for SFP fiber-optic cabling.\\
 
-The initial plan was to design a \gls{pcb} with a male \gls{sfp} contact in one end connected to two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into each of the \gls{sfp}-connectors on the \gls{sfp}-board with \gls{hdmi} cables to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp} and \gls{hdmi} connectors, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with cables connecting the three. \\
+\section{Design discussion}
 
-After some discussion with Arild, we ended up with a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design (the one concerning the \gls{xcvr}-protocol), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and saving costs. The resulting design was an \gls{hsmc}-connected board with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signal running to one \gls{sfp}-connector for fiber-optic communication. The \gls{sfp}-to-\gls{hsmc} connection was copied from the original \gls{sfp}-\gls{pcb} files that came with the Terasic CD.
+The initial plan was to design a \gls{pcb} with a male \gls{sfp} contact in one end connected with two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into the \gls{sfp}-connectors on the \gls{sfp}-board with \gls{hdmi} cables to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp}-connectors on one side, wired to \gls{hdmi}-connectors on the other side, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with \gls{sfp}- and \gls{hdmi}-cables connecting . \\
+
+After some discussion with one of the supervisors, Arild Velure, the end result was a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design (the one concerning the \gls{xcvr}-protocol, see \cite{sfp_schem}), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and saving costs. The resulting design was an \gls{hsmc}-connected board with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signal running to one \gls{sfp}-connector for fiber-optic communication. The \gls{sfp}-to-\gls{hsmc} connection was copied from the original \gls{sfp}-\gls{pcb} files that came with the Terasic CD.
 
 \begin{figure}[ht] % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -49,7 +51,6 @@ The propagation velocity of a signal is given by:
 A signal thus propagates through the conductor at a velocity of approximately $0.15\ \milli\meter/\pico\second$ \cite[example 13.7]{weste11}.
 
 So, by assuming a constant transmitting frequency of $3.125\ \giga\bit\per\second$, a conductor becomes a transmission line if the length of the conductor stretches longer than $12\ \milli\meter$ between transmitter and receiver. This short length is very difficult to avoid when designing a \gls{pcb} with microstrip traces running from one connector out to eleven other connectors. The traces on the HSMC-to-VLDB \gls{pcb} are thus considered as transmission lines. 
-
 
 \subsection{Reflections and characteristic impedance}
 
@@ -168,8 +169,6 @@ The individual wires in each pair was kept as close as possible, with a space co
 
 \section{PCB design parameters}
 
-The \gls{pcb} was designed using \textit{Orcad Capture CIS} for the schematic and the \gls{pcb} layout in \textit{Orcad \gls{pcb} Editor} with design parameters meeting the \textit{Elprint} capabilities \cite{elprint15}. The \gls{pcb} layout was then exported to \textit{Gerber-files} and imported into \textit{Macaos} for further manufacture specification and validation. This was then ordered from Elprint xx/12/2015.
-
 To avoid signal reflections, the \gls{pcb} needed a characteristic impedance matching that of the cables and termination, in this case a single wire impedance of $50\ \ohm$, and a differential impedance of $100\ \ohm$. This was derived from the fact that the \gls{hdmi}-cables were specified to have a differential impedance of approximately $100\ \ohm$, which is also the case of the termination resistance at the receiving end (this must be manually set for the \gls{fpga} transceivers).
 
 The \gls{pcb} was chosen to be four layers, with signals running on the top and bottom copper layers, and the two middle planes for voltages and ground respectively.
@@ -215,5 +214,39 @@ Orcad PCB Editor has a built-in impedance calculator which yields similar result
 \end{center}
 \end{table}
 
+\section{Further specification and ordering}
+
+The \gls{pcb} schematic was designed using \textit{Orcad Capture CIS} and the layout using \textit{Orcad \gls{pcb} Editor}, with design parameters meeting \textit{Elprint's} capabilities \cite{elprint15}. The \gls{pcb} layout was then exported into \textit{Gerber-files} and imported into \textit{Macaos} for further manufacture specification and validation. The \gls{pcb} was then ordered from Elprint xx/12/2015 and arrived in office 21/12/2015.
+
+\section{Soldering process}
+
+All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered using solder paste and a solder oven.
+
+\subsection{Martin Rework Station}
+
+The \gls{hsmc}-connector has several ground pads underneath the connector itself, making it impossible to reach when soldering by hand. The solution to this was to apply solder paste on the pads with the help the Martin Rework Station dispenser module that was available in the lab. The dispenser module forces the solder paste out of the syringe using pressurized air. By pressing a foot pedal connected to the dispenser, you apply a controlled air pulse that pushes on the piston of the solder paste syringe. The force of the air pulse can be adjusted using the dispenser \gls{gui}. For the ground pads, a force of $2.50 ccm$ was suitable.  
+
+\subsection{Solder Oven}
+
+
+The oven had a warm-up temperature of 150  for 60 seconds, before carefully climbing up to 220 for 120 seconds
+
+\section{PCB faults and compensations}
+
+After receiving the \glspl{pcb}, further inspection revealed that all viases were missing their solder mask. This exposes the metal of the vias to the surface of the \gls{pcb} and can possibly cause connection shorts between the viases and the pads and/or metallic casings when soldering. The reason for the viases not to have a solder mask is because it was missing in the pad file. A solution to fix this in a future \gls{pcb} print would obviously be to include a solder mask in the pad file.\\
+With the current \gls{pcb} print, however, a temporary solution would be to apply thin \textit{kapton tape} where most critical. This was later shown not to be as critical as first thought for the \gls{pcb}: \\
+\begin{itemize}
+\item The viases that are exposed underneath the \gls{hdmi} casings are in fact connected to ground, making the possible shorts between the viases and the already ground connected casing not a critical problem. \\
+\item The exposed viases underneath the \gls{hsmc}-connector could potentially connect to the ground pads when applying solder paste to the pads. This was avoided by carefully applying  a thin line of solder paste in the middle of the ground pads. This prevented the solder paste to float over to the neighboring viases when melting it in the oven. A possible drawback to this would be bad connection between the ground pads and the \gls{hsmc}-connector, but a quick check using a multimeter proved that the \gls{hsmc} was indeed connected to all the ground pads.
+\end{itemize}
+
+The $10~\kilo\ohm$ pull-up resistors (R91, R92, R95, R96, R97, R99, R100 and R101 in the schematic) connecting to some of the \gls{lvds} receiver signals are not necessary, and the respected pads can therefore be left open. This is therefore also the case for the R51/R52 voltage divider. The reason why these are included could possibly be a misinterpretation of the \gls{sfp}-schematic in which the design of the \gls{pcb} was based upon. 
+
+
+
+\section{Testing and verification}
+After finishing the soldering of all 460 individual pads on the \gls{pcb}, the connections were checked with a multimeter and verified that there were no shorts. The \gls{pcb} was then connected to an external power supply and it was verified that the current draw, with all \gls{hdmi}-connections left open, were no more than the current drawn from the power-\acrshort{led}. \\
+
+A quick test circuit was written in Quartus. Beginning with the transmit-signals: all the relevant \gls{lvds} transmit-signals that are physically connected to the \gls{hsmc} (port A) connector of the \gls{fpga} were connected to a given clock signal. The \gls{pcb} was then connected to the \gls{fpga} board, and the \gls{hdmi} connectors were probed with the help of an oscilloscope and verified that there was an output signal on every \gls{hdmi}.
 
 \end{document}
