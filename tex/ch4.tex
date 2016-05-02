@@ -14,17 +14,26 @@
 
 \section{120 MHz reference clock}
 
-To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} \todo{name the proper plls and state why 120 mhz is really needed} must have a input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: By using an external clock, like a square wave signal generator; by using an on-board programmable oscillator; or by implementing a \gls{pll} into the design that multiplies the global $50~\mega\hertz$ clock up to the desired frequency of $120~\mega\hertz$. \\
+To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} \todo{name the proper plls and state why 120 mhz is really needed} must have a input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: 
+\begin{itemize}
+\item Using an external clock, like a differential square wave signal generator.
+\item Using an on-board programmable oscillator.
+\item Implementing a \gls{pll} into the design that multiplies the on-board $50~\mega\hertz$ global clock up to the desired frequency of $120~\mega\hertz$.
+\end{itemize}
 
-The original approach is to use an external signal generator to generate the reference clock, as shown in the \gls{gbt} tutorial videos \cite{gbt_videos}. However, at the time of conducting the first tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. Because of this, the first tests 
+The original approach is to use an external signal generator to generate the reference clock, as shown in the \gls{gbt} tutorial videos \cite{gbt_videos}. However, at the time of conducting the first tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. Because of this, some time was spent to investigate how to use the internal programmable oscillator as a reference clock.\\
 
-The approach of implementing a \gls{pll} into the \gls{gbt}-example design was also attempted, but resulted in conflicts between the already implemented \glspl{pll} in the design. 
+The approach of implementing an extra \gls{pll} into the \gls{gbt}-example design was also investigated, but attempts of doing so resulted in conflicts between the already implemented transceiver \glspl{pll} in the design. \\
 
-The approach of using the on-board programmable oscillator as reference clock became the solution to the problem. The below section gives a brief description on how to setup the internal oscillator for the Cyclone V \gls{fpga} board.
+The below sections gives the following descriptions:
+\begin{itemize}
+\item How to setup the internal oscillator on the Cyclone V \gls{fpga} board for use as reference clock.
+\item How to setup the $Si338$ external oscillator for use as reference clock.
+\end{itemize}
 
 \subsection{Configuring the on-board oscillator on the Cyclone V board}
 
-To achieve a reference clock of $120~\mega\hertz$ without an external clock, the \gls{fpga} has an on-board programmable oscillator, the $Si570$ from Silabs. It uses \gls{iic} for serial communication and can be programmed to output frequencies up to $810~\mega\hertz \pm 50 ppm$. To program the oscillator, Altera provides a dedicated software called "Clock Control". The Clock Control software is part of the Java based "Board Test System" software, included in the Cyclone V kit which can be found at Altera's websites \cite{altera_cyclonekit}. The Cyclone V kit is board specific, so it is therefore important to use the right kit with the right board.\\
+To achieve a reference clock of $120~\mega\hertz$ without an external clock, the \gls{fpga} has an on-board programmable oscillator; the $Si570$ from Silabs. It uses \gls{iic} for serial communication and can be programmed to output frequencies up to $810~\mega\hertz \pm 50 ppm$. To program the oscillator, Altera provides a dedicated software called "Clock Control". The Clock Control software is part of the Java based "Board Test System" software, included in the Cyclone V kit which can be found at Altera's websites \cite{altera_cyclonekit}. The Cyclone V kit is board specific, so it is therefore important to use the right kit with the right board.\\
 
 To make use of the Clock Control software has been proven difficult, mainly because of the software being outdated in relevance to the current version of Quartus (at the time of writing, Quartus 15.0 is the newest edition). The solution was to install an older Quartus (version 13.1) using the Windows Operating System (Linux was also attempted, but without any success) and specify the right paths for the related environment variables. The below sections gives a brief description on how this was achieved.\\
 

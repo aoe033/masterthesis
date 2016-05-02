@@ -1,0 +1,226 @@
+
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Testing HDMI-daughter card}
+
+LATEX TABLE OVER HDMI SIGNAL SELECTOR
+
+Testing crosstalk and how signals affekt neightbouring signal paths
+
+Results:
+Comparing the signal coming out of j10 when it's isolated with the signal from j10 when the neightbouring hdmi-connectors also have signals, it is quite clear that crosstalk does not have any major role in distorting the signal.
+
+TESTS:
+j10 isolated 37.5 mhz and 300mhz 
+j6 isolated 37.5 mhz and 300mhz
+
+j10 off with signals running on neightbouring hdmi-connectors
+j6 off with signals running on neightbouring hdmi-connectors
+
+Having hdmi cable loose from socket
+--
+
+Under testing, a source signal that can be controlled by the issp was set to controll the frequency coming out of the hdmi's and also to control which hdmi's that would receive a signal.
+
+For reference, a GPIO-board was connected to the hsmc to see if the signal would behave differently than when connecting the hdmi. i.e reflections and stuff
+Result: GPIO-signals has the same distortion/reflections as for HDMI-daughter.
+
+Sma output signal (37.5mhz) is fine, has no ringing as compared to gpio/hdmi output.
+
+In principle, 40mhz should not represent this much noise
+
+Suspected that the neightbouring pin on gpio (which was refclock) was causing the ringing. Turned out to not be the case
+
+Ringing is 360 mhz. Interference between plls?
+
+next: make a clean design with just one pll and counter outputs. RESULTS remain the same.
+
+Change in  cable length reduces reflection, but the ringing still occurs.
+
+routed refclk directly to output pins: got rid of duty cycle, still same ringing
+
+negative signal is non existing, positive looks fine. probe the problem?
+
+ringing most likely comes from the fpga-board
+
+diff probe is grounding. neg is connected to ground. pos to 40kohm
+ Results: not a differential probe...
+
+ connecte DIFF probes! -> still ringing in signals. also called as reflections
+
+ possible conclusion: reflections already caused by altera fpga-board
+
+ same reflection on same location independent on frequency 
+
+have same refclk directly on every hdmi's, see signal if it remains distorted
+do same measurement on gpio
+
+300mhz not interesting because of the reflections
+
+j6 is acting differently, probably because of it being slightly loose.
+
+SOC-fpga: tx\_p11 -> similar 
+
+NOT EMULATED LVDS! 
+
+Possible main cause of reflections: The probe-grabbers and the cables that followed with it caused alot of reflections, distorting the signal. By removing these and using short stubs instead, the signal became much more cleaner @ 100 MHz. When adjusting the signal frequency up to 300 MHz, the signal still looked a bit too distorted to be usable, but maybe this is also caused by the setup of the measurement.
+
+phase difference in single-ended sma clock out and diff-hdmi signal at via and at cable-end.
+
+next: solder tx to rx on hdmi cable end and create loop-back test.
+
+How to add termination in quartus: assignment editor -> add new assignment -> select rx signal -> select "differential" in value column. 
+notes: the oct value cant be set by user, there is only one type of termination for lvds standard, thus you must select differential and not oct 100 ohm. (see handbook vol 1) 
+
+What is lvds direct loopback mode?
+didnt work for lvds
+
+hdmi\_loopback: using two pll-outputs. One for sampling, one for use in process
+sampled mem = 4k.
+since nothing here is async, triggers only on pll\_outclk\_0
+
+with hdmi\_loopback\_test (with signal-tap file), the reference clock has a reflection at 40 Mhz. This is not the case for pll\_clock project. Difference is that hdmi\_loopback has signaltap attached. at higher frequencies the reflection seems to go away.
+
+using the counter triggered by the pll causes a shift in the duty cycle of the signal.
+
+Signaltap:
+
+Using pre-synthesis signals:
+
+Put 50mhz clock as trigger in process and made it sampleclock in signaltap. stable, worked!
+Replaced 50mhz with pll-300mhz as sampleclock (alt\_pll\_0002:alt\_pll\_inst). Unstable, not working.
+Now trying the alt\_pll:pll\_inst 300mhz clock. Still unstable.
+
+Signaltap does not let you use pll\_Clock as sampleclock.
+
+Suggestion: use refclk as sampler: Put 120 mhz refclock as trigger in process and make it sampleclock in signaltap.
+
+results: seems like signaltap only registers rx if it is receiving a clock under 30mhz...
+
+whole project stopped working. refclk was not registered on oscilloscope. Sfp- led on hdmi-card ON for no reason.
+
+Solution: Started over with PLL\_clock\_signal\_test as reference project. This was working (see excel-sheet for revisions)
+
+put 300mhz signal toggled in pll-process on sma. Duty cycle is 65/35 %. Why?
+
+Using refclk as process-trigger and rising\_edge gave no output on oscilloscope..
+Changing it back to the original clk600mhz\_from\_hdmiPll fixed it. 
+
+The uneven duty cycle when using pll is probably caused by timing constraints
+
+To test whether the signals going through the hdmi-pcb is recognizable, Signaltap II was used in an attempt to sample those signals at different frequencies. The first attempts involved a 600mhz pll being driven by a external 120mhz clock. This was then divided by a counter into a 300 mhz, 150 mhz, and a 75 mhz clock. The counter bits drove the hdmi\_tx signal one at a time starting from the lsb. On the hdmi-daughter card, a cut-in-half hdmi-cable was used, with the tx and tx(n) soldered togheter with rx and rx(n) wires respectively, creating a local loopback from and into the very same hdmi-connector. Each sampling, the hdmi\_tx and hdmi\_rx was sampled with a different clock and the results was evaluated. signaltap used the 600mhz output as sampleclock. However, using a pll as sampleclock resulted in unstable readings. The soultion was to use  the 120mhz refclk instead, and adjust it to clock out 600mhz and use that as the sampleclock and as trigger for the counter. 
+
+\begin{table}[]
+\centering
+\caption{Selects which hdmi-connector that has signal.}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+HDMI INDEX & J6 & J10 & J12 & J19 \\ \hline
+0000       & X  &     &     &     \\ \hline
+0001       & X  & X   &     &     \\ \hline
+0010       & X  &     & X   &     \\ \hline
+0011       & X  &     &     & X   \\ \hline
+0100       &    & X   &     &     \\ \hline
+0101       &    & X   & X   &     \\ \hline
+0110       &    & X   &     & X   \\ \hline
+0111       &    &     & X   &     \\ \hline
+1000       &    &     & X   & X   \\ \hline
+1001       &    &     &     & X   \\ \hline
+1010       & X  & X   & X   &     \\ \hline
+1011       & X  & X   &     & X   \\ \hline
+1100       & X  &     & X   & X   \\ \hline
+1101       &    & X   & X   & X   \\ \hline
+1110       & X  & X   & X   & X   \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{Local HDMI loopback test using SignalTap II}
+
+What is Signaltap?
+Signaltap setup
+
+use pre-synthesis pins/signals for clock
+to satisfy signaltap II: put an outputsignal to pll\_out. This output pin is not assigned in pin planner
+
+rx wont trigger in signaltap. New attempt: ALTLVDS\_RX and ALTLVDS\_TX added to project.
+serializes the clock and sends it out tx with 300mhz pll clock. Receiver deserializes into vector.
+
+\section{Discussion}
+
+When meassuring high-frequency signals, the way the signals are measured becomes 
+
+
+\section{timing constraints}
+
+To get rid of uneven duty cycles on the output, a ripple counter was used instead of an ordinary counter driven by the pll clock.
+
+LFSR-counter to send out pseudo-random bits on tx side
+Rx is to receive. Use xor logic to count number of faults with varying frequencies.
+
+Biterror-rate -> errors over time divided by clock.
+
+eye-diagram can be measured while tx and rx is receiving random bits.b
+
+Putting refclk as input clk on ripple counter resulted in no output
+
+The sigtap signals are there to prevent the syntesizer from removing signals and components it thinks is not in use. This tend to occur with signals or registers that are not assosiated to any outputs or inputs.
+
+Using an uart to receive and transmitt signals through hdmi card and bit-error compare. Would not work because of the high-speed data. Uart samples bits with 16 times sample rate. would be difficult when data signal is already 300mhz. 16 x 300 MHz ? Neu wey
+
+SignalTap II:
+It seems that only 100 and 200 mhz clk can be used as sample clk. Also, use button to trigger signals
+The reason why rx-signal looks awkward when sampled is because of that the signal is being sampled by clock when it sometimes is in a metastable state. If you look at the rx\_sample0 and rx\_sample1 however, they seem to allign pretty much exact, even though this should not be the case. (Sampling on the falling edge should not allign with sampling on the rising edge). Might be looking at the wrong rx\_sample-register signals. Q~reg0 is replaced with Q-port. Lets see if it makes a difference. Results seems much better. Falling and rising does not allign, thankfully. Conclusion: Do not trust the sampling 100 prosent. There's a lot that can go wrong.
+
+rx seems to have twice as long bits as the tx. This is also the case for rx\_sample2, but not for rx_sample0 and 1. Maybe try comparing using mux_select.
+
+led4 remains low, now. 
+
+problem detected: sw7 was connected to pinA3, should be pinE7
+
+
+Results:
+
+Hdmi-connector: J10
+Sample clk: 300 Mhz. 
+sig_comp -> compares tx_sample(0-> 7) with mux_Select (rx_sample0, rising / rx_sample1, falling)
+
+global clk 	LED 	Cable length 	Rising edge/falling on rx-sample 	Comments
+
+100Mhz	1 	short (5ns) 	rising seems to work best. 		Some spikes, but are small enough to not be detected. On falling edge: more spikes
+
+200Mhz 	2 	short (5ns) 	rising edge works best.			No spikes whatsoever. Good sign.
+
+300 Mhz 	4 	short (5ns) 	either edge works 			Seems to work fairly good
+
+
+100 Mhz 	1 	long (10 ns) 	Same as above with short delay
+
+200 Mhz 	3	long (10ns) 	Rising edge, with some periodical spikes
+
+300 MHz 	5 	long (10ns)	Rising edge, no spikes 		
+
+
+
+Hdmi-connector: J10
+Sample clk: 300 Mhz. 
+sig_comp -> compares tx_sample(0-> 7) with rx_sample2 (input is: rx_sample0, rising / rx_sample1, falling)
+
+global clk 	LED 	Cable length 	Rising edge/falling on rx-sample 	Comments
+
+100 Mhz 	2 	long (10 ns) 	either works fine.			Small spikes, but are not counted by bit-error counter
+
+200 Mhz	4 	long (10 ns)	either works the same.			Small spikes as above.
+
+300 Mhz	none 	long (10 ns)	? 					rx_sample0 seems to align perfectly with tx_sample5. rx_sample 1 and 2 have wrong values.
+
+
+
+
+
+
+\end{document}

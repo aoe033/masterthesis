@@ -36,14 +36,13 @@ A \gls{fpga} is a high density \gls{ic} that is designed to be completely progra
 
 The \gls{fpga} (section \ref{sec:cyclone}) used in this thesis is a re-programmable type. It stores the user hardware setup in an \gls{sram} memory to configure routing and logic functions (for a permanent program storage, the \gls{fpga} can be configures to store the hardware setup in the on-board \gls{flash} memory, which then programs the \gls{sram} when powered on).
 
-\subsection{Cyclone V} \label{sec:cyclone}
-Cyclone V by Altera is a modern \gls{fpga}. It is chosen for this thesis mainly because of the on-board high speed transceivers. 
+\subsection{Cyclone V GT} \label{sec:cyclone}
+The Cyclone V GT by Altera is a modern \gls{fpga} with many features. It was chosen for this thesis mainly because of the on-board high speed transceivers that is compatible with the GBT-FPGA. Originally, a Terasic Cyclone V GX development board was tested to use with the GBT-Fpga, which in hand offered many more possibilities in terms of communication with the outside world. However, it was discovered that the transceivers were not fast enough for the GBT-FPGA, so it had to be replaced by the more powerful Cyclone V GT fpga development board (see comparison).  
 
 \section{Hardware Description Language}
 The most common way to program a \gls{fpga} is by \gls{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. \glspl{hdl} have become more and more useful as system complexity have increased \cite{weste11}. The hardware described in this thesis is done using \acrshort{vhdl}, a strongly typed \gls{hdl} that is known for its capability of describing parallel processes. 
 
 Below is a small example of logic described using \acrshort{vhdl}:
-
 
 \section{Transceiver Technology}
 
@@ -55,7 +54,7 @@ Common for all protocols described under is the fact that the signals are treate
 
 While a single ended signal involves one conductor between the transmitter and receiver, with the signal swinging from a given voltage to ground, differential signals involves a conductor pair, with two signals that are identical, but with opposite polarity. The pair would ideally have equal path lenghts in order to have zero return currents, avoiding problems like \textit{EMI}. In addition, placing the signals as close as possible to one another will give benefits in terms of common noise rejection.\\
 
-When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The dissadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
+When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The disadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
 
 \subsection{Low-Voltage Differential Signaling}
 
