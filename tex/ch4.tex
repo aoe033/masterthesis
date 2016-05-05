@@ -16,12 +16,12 @@
 
 To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} \todo{name the proper plls and state why 120 mhz is really needed} must have a input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: 
 \begin{itemize}
-\item Using an external clock, like a differential square wave signal generator.
-\item Using an on-board programmable oscillator.
+\item Using an external clock, like a square wave signal generator.
+\item Using one of the on-board programmable oscillators.
 \item Implementing a \gls{pll} into the design that multiplies the on-board $50~\mega\hertz$ global clock up to the desired frequency of $120~\mega\hertz$.
 \end{itemize}
 
-The original approach is to use an external signal generator to generate the reference clock, as shown in the \gls{gbt} tutorial videos \cite{gbt_videos}. However, at the time of conducting the first tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. Because of this, some time was spent to investigate how to use the internal programmable oscillator as a reference clock.\\
+The original approach is to use an external signal generator with differential output to generate the reference clock, as shown in the \gls{gbt} tutorial videos \cite{gbt_videos}. However, at the time of conducting the first tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. Because of this, some time was spent to investigate how to use the internal programmable oscillator as a reference clock.\\
 
 The approach of implementing an extra \gls{pll} into the \gls{gbt}-example design was also investigated, but attempts of doing so resulted in conflicts between the already implemented transceiver \glspl{pll} in the design. \\
 

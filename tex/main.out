@@ -1,0 +1,71 @@
+\BOOKMARK [1][-]{chapter*.3}{Abstract}{}% 1
+\BOOKMARK [1][-]{chapter*.4}{Acknowledgements}{}% 2
+\BOOKMARK [1][-]{chapter*.5}{Table of Contents}{}% 3
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
+\BOOKMARK [1][-]{section.1.1}{Field Programmable Gate Array}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.1}{Cyclone V GT}{section.1.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Hardware Description Language}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Transceiver Technology}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.3.1}{Differential Signals}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.2}{Low-Voltage Differential Signaling}{section.1.3}% 10
+\BOOKMARK [2][-]{subsection.1.3.3}{Current-Mode Logic}{section.1.3}% 11
+\BOOKMARK [2][-]{subsection.1.3.4}{CPRI}{section.1.3}% 12
+\BOOKMARK [2][-]{subsection.1.3.5}{Phase-Locked Loops}{section.1.3}% 13
+\BOOKMARK [0][-]{chapter.2}{The Gigabit Transceiver}{}% 14
+\BOOKMARK [1][-]{section.2.1}{Encoding modes}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.2}{GBT-FPGA Core}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.2.1}{GBT Bank}{section.2.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.2}{GBT Link}{section.2.2}% 18
+\BOOKMARK [0][-]{chapter.3}{HSMC-to-VLDB PCB design}{}% 19
+\BOOKMARK [1][-]{section.3.1}{Specification}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.2}{Design discussion}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.3}{High Speed PCB Design}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.3.1}{Transmission lines}{section.3.3}% 23
+\BOOKMARK [2][-]{subsection.3.3.2}{Reflections and characteristic impedance}{section.3.3}% 24
+\BOOKMARK [2][-]{subsection.3.3.3}{Routing}{section.3.3}% 25
+\BOOKMARK [1][-]{section.3.4}{PCB design parameters}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.5}{Further specification and ordering}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.6}{Soldering process}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.6.1}{Martin Rework Station}{section.3.6}% 29
+\BOOKMARK [2][-]{subsection.3.6.2}{Solder Oven}{section.3.6}% 30
+\BOOKMARK [1][-]{section.3.7}{PCB faults and compensations}{chapter.3}% 31
+\BOOKMARK [0][-]{chapter.4}{Testing and verification of the HDMI daughter card}{}% 32
+\BOOKMARK [1][-]{section.4.1}{Connectivity test}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.1.1}{Purpose of test}{section.4.1}% 34
+\BOOKMARK [2][-]{subsection.4.1.2}{Experimental setup}{section.4.1}% 35
+\BOOKMARK [2][-]{subsection.4.1.3}{Results}{section.4.1}% 36
+\BOOKMARK [1][-]{section.4.2}{External loop-back test for the fiber-optic connector}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.2.1}{Purpose of test}{section.4.2}% 38
+\BOOKMARK [2][-]{subsection.4.2.2}{Experimental setup}{section.4.2}% 39
+\BOOKMARK [2][-]{subsection.4.2.3}{Results}{section.4.2}% 40
+\BOOKMARK [1][-]{section.4.3}{External loop-back test for the HDMI connectors}{chapter.4}% 41
+\BOOKMARK [2][-]{subsection.4.3.1}{Purpose of tests}{section.4.3}% 42
+\BOOKMARK [2][-]{subsection.4.3.2}{Experimental setup}{section.4.3}% 43
+\BOOKMARK [2][-]{subsection.4.3.3}{Results}{section.4.3}% 44
+\BOOKMARK [1][-]{section.4.4}{Conclusion and discussions}{chapter.4}% 45
+\BOOKMARK [0][-]{chapter.5}{Serial interface}{}% 46
+\BOOKMARK [1][-]{section.5.1}{Readily available standards}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.2}{User defined communication}{chapter.5}% 48
+\BOOKMARK [1][-]{section.5.3}{Duplex systems}{chapter.5}% 49
+\BOOKMARK [1][-]{section.5.4}{Choosing communication protocol}{chapter.5}% 50
+\BOOKMARK [1][-]{section.5.5}{Transmission protocol: RS-232}{chapter.5}% 51
+\BOOKMARK [0][-]{chapter.6}{Hardware design on the FPGA side}{}% 52
+\BOOKMARK [1][-]{section.6.1}{Specification}{chapter.6}% 53
+\BOOKMARK [1][-]{section.6.2}{Hardware Components}{chapter.6}% 54
+\BOOKMARK [2][-]{subsection.6.2.1}{UART}{section.6.2}% 55
+\BOOKMARK [2][-]{subsection.6.2.2}{UART oversampling and the Baud Rate Generator}{section.6.2}% 56
+\BOOKMARK [2][-]{subsection.6.2.3}{UART Receiver}{section.6.2}% 57
+\BOOKMARK [2][-]{subsection.6.2.4}{UART Transmitter}{section.6.2}% 58
+\BOOKMARK [2][-]{subsection.6.2.5}{FIFO buffers}{section.6.2}% 59
+\BOOKMARK [2][-]{subsection.6.2.6}{UART decoder}{section.6.2}% 60
+\BOOKMARK [0][-]{chapter.7}{Software on the PC side}{}% 61
+\BOOKMARK [1][-]{section.7.1}{Specification}{chapter.7}% 62
+\BOOKMARK [1][-]{section.7.2}{Non-standard libraries}{chapter.7}% 63
+\BOOKMARK [2][-]{subsection.7.2.1}{RS232}{section.7.2}% 64
+\BOOKMARK [2][-]{subsection.7.2.2}{Timer}{section.7.2}% 65
+\BOOKMARK [2][-]{subsection.7.2.3}{Signals}{section.7.2}% 66
+\BOOKMARK [0][-]{chapter.8}{External and Internal Loopback test of the GBT bank Quartus Example}{}% 67
+\BOOKMARK [1][-]{section.8.1}{120 MHz reference clock}{chapter.8}% 68
+\BOOKMARK [2][-]{subsection.8.1.1}{Configuring the on-board oscillator on the Cyclone V board}{section.8.1}% 69
+\BOOKMARK [2][-]{subsection.8.1.2}{Clock Control software setup}{section.8.1}% 70
+\BOOKMARK [1][-]{chapter*.49}{Appendix}{chapter.8}% 71

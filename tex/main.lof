@@ -1,0 +1,20 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Male (ASP-122952) and female (ASP-122953) HSMC-connectors. The male type is to be connected at the bottom of the HSMC-to-VLDB \gls {pcb} \cite [Figure 2-1]{altera_hsmc09}.\relax }}{8}{figure.caption.11}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Cross-section of a single-ended microstrip with the copper trace on top, followed by a dielectric layer and a ground plane. h is the thickness of the dielectric, t is the copper thickness, l is the microstrip length, and w is the copper width.\relax }}{9}{figure.caption.12}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Cross-section of a corresponding differential microstrip. s is the spacing between the strips.\relax }}{10}{figure.caption.13}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Pull-up resistors on some of the receiver lines.\relax }}{14}{figure.caption.15}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{20}{figure.caption.20}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of an \gls {rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{22}{figure.caption.21}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.22}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.23}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{27}{figure.caption.28}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{38}{figure.caption.43}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{38}{figure.caption.44}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{38}{figure.caption.44}

@@ -70,7 +70,7 @@ For data rates that exceeds $3.125\ \giga\bit\per\second$, \gls{cml} signaling i
 
 A \gls{pll} is a device
 
-\chapter{The Gigabit Transceiver}
+\chapter{The Gigabit Transceiver} \label{chap:gbt}
 \todo{History, mgt, Short about the electronic components, gbt-sca, gbtx}
 
 \section{Encoding modes}
@@ -95,7 +95,7 @@ The \gls{gbt} Tx component is responsible for scrambling and encoding data befor
 The \gls{gbt} Rx component is responsible for receiving, decoding and de-scrambling the data through the \gls{mgt}.
 
 \subsubsection{Multi-Gigabit Transceiver}
-The \gls{mgt} is responsible for the transmitting, receiving, serialization and de-serialization of the \gls{gbt} data. It is divided into a transmitter and a receiver part.\\ The transmitter contains a \gls{piso} with two input clocks; one for parallel data and one for serial data. It shifts in $40~\bit$ words from the GBT Tx with a reference clock of $120~\mega\hertz$, serializes the data and sends it out with the help of a dedicated Tx \gls{pll} that generates a serial clock of $2400 \mega\hertz$.\\ The receiver contains a \gls{cdr} block, a \gls{sipo}, a RXRECCLK Phase Aligner block and a \gls{barrel}. 
+The \gls{mgt} is responsible for the transmitting, receiving, serialization and de-serialization of the \gls{gbt} data. It is divided into a transmitter and a receiver part.\\ The transmitter contains a \gls{piso} with two input clocks; one for parallel data and one for serial data. It shifts in $40~\bit$ words from the GBT Tx with a reference clock of $120~\mega\hertz$, serializes the data and sends it out with the help of a dedicated Tx \gls{pll} that generates a serial clock of $2400 \mega\hertz$.\\ The receiver contains a \gls{cdr} block, a \gls{sipo}, a RXRECCLK Phase Aligner block and a Barrel-shifter. 
 
 %\gls{cpri}
 

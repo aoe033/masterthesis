@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{gpl3}
+{GPL} version 3.
+\newblock \url{http://www.gnu.org/licenses/gpl-3.0.txt}, 2007.
+
+\bibitem{ti08lvds}
+{LVDS} {O}wners {M}anual, {I}ncluding {H}igh-{S}peed {CML} {A}nd {S}ignal
+  {C}onditioning.
+\newblock
+  \url{http://www.ti.com/lit/ml/snla187/snla187.pdf?keyMatch=lvds&tisearch=Search-EN-TechDocs},
+  2008.
+\newblock {A}ccessed: 08/09/2015.
+
+\bibitem{altera_hsmc09}
+{H}igh {S}peed {M}ezzanine {C}ard ({HSMC}) {S}pecification.
+\newblock
+  \url{https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/ds/hsmc_spec.pdf},
+  2009.
+\newblock {A}ccessed: 10/12/2015.
+
+\bibitem{altera_q13}
+{Q}uartus 13.1 {D}ownload {P}age.
+\newblock \url{https://dl.altera.com/13.1/?edition=web}, 2013.
+\newblock {A}ccessed: 24/02/2016.
+
+\bibitem{sfp_schem}
+{\em {SFP} {HSMC} {S}chematic (hsmc\_sfp\_revb.pdf)}, 2013.
+\newblock {A}ccessed: 03/12/2015.
+
+\bibitem{si570}
+{\em {S}i570/{S}i571 {D}atasheet}, 2014.
+\newblock {A}ccessed: 29/02/2016.
+
+\bibitem{altera_terminals14}
+{U}sing {T}erminals {W}ith {DE}-{S}eries {B}oards.
+\newblock
+  \url{ftp://ftp.altera.com/up/pub/Altera_Material/14.0/Tutorials/Using_Terminals.pdf},
+  2014.
+\newblock {A}ccessed: 16/02/2016.
+
+\bibitem{elprint15}
+{E}lprint {K}apabilitet.
+\newblock \url{http://www.elprint.dk/kapabilitet/}, 2015.
+\newblock {A}ccessed: 01/12/2015.
+
+\bibitem{polar15}
+{T}ransmission lines and testing at operating frequency.
+\newblock \url{http://www.polarinstruments.com/support/cits/AP155.html}, 2015.
+\newblock {A}ccessed: 03/12/2015.
+
+\bibitem{altera_cyclonekit}
+{C}yclone {V} {K}it {D}ownload {P}age.
+\newblock
+  \url{https://www.altera.com/products/boards_and_kits/dev-kits/altera/kit-cyclone-v-gt.html},
+  2016.
+\newblock {A}ccessed: 24/02/2016.
+
+\bibitem{gbt_videos}
+{GBT} {FPGA} {V}ideo {T}utorials.
+\newblock \url{https://espace.cern.ch/GBT-Project/GBT-FPGA}, 2016.
+\newblock {A}ccessed: 29/02/2016.
+
+\bibitem{serial2ethernet}
+{S}erial {T}o {E}thernet {A}dapter.
+\newblock
+  \url{http://www.digi.com/products/serial-servers/serial-device-servers/portserverts#overview},
+  2016.
+\newblock {A}ccessed: 05/05/2016.
+
+\bibitem{altera_usb}
+{USB} {B}laster {II} {I}nstall {M}anual.
+\newblock
+  \url{https://www.altera.com/support/support-resources/download/drivers/usb-blaster/dri-usb-blaster-vista.html},
+  2016.
+\newblock {A}ccessed: 24/02/2016.
+
+\bibitem{douglas98}
+{D}ouglas {B}rooks.
+\newblock {D}ifferential {I}mpedance, {W}hats {T}he {D}ifference.
+\newblock \url{http://www.ultracad.com/articles/diff_z.pdf}, 1998.
+\newblock {A}ccessed: 03/12/2015.
+
+\bibitem{douglas01}
+{D}ouglas {B}rooks.
+\newblock {D}ifferential {S}ignals, {R}ules {T}o {L}ive {B}y.
+\newblock \url{http://www.ieee.li/pdf/essay/differential_signals.pdf}, 2001.
+\newblock {A}ccessed: 07/09/2015.
+
+\bibitem{rapid08}
+T.~H. {J}.{O}.~{H}amblen and M.~{F}urman.
+\newblock {\em {R}apid {P}rototyping {O}f {D}igital {S}ystems}.
+\newblock {S}pringer, 2008.
+\newblock {A}ccessed: 12/02/2016.
+
+\bibitem{weste11}
+D.~M.~H. Neil {H}. {E}.~{W}este.
+\newblock {\em {CMOS} {VLSI} {D}esign, {A} {C}ircuit {A}nd {S}ystems
+  {P}erspective}.
+\newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
+
+\bibitem{chu08}
+{P}ong {P}.~{C}hu.
+\newblock {\em {FPGA} {P}rototyping {B}y {VHDL} {E}xamples}.
+\newblock {W}iley-{I}nterscience, 2008.
+\newblock {A}ccessed: 12/02/2016.
+
+\bibitem{gbt_fpga}
+{S}ophie {B}aron and {M}anoel~{B}arros {M}arin.
+\newblock {\em {GBT}-{FPGA} {U}ser {G}uide}, 2015.
+\newblock {A}ccessed: 29/02/2016.
+
+\bibitem{velure10}
+A.~Velure.
+\newblock {U}art2{B}us vhdl module, 2010.
+\newblock {D}esign used as a reference to the serial communication part on the
+  FPGA side. {A}ccessed: 12/02/2016.
+
+\end{thebibliography}

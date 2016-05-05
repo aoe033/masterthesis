@@ -1,0 +1,27 @@
+\BOOKMARK [0][-]{chapter.1}{HSMC-to-VLDB PCB design}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Specification}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Design discussion}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{High Speed PCB Design}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.3.1}{Transmission lines}{section.1.3}% 5
+\BOOKMARK [2][-]{subsection.1.3.2}{Reflections and characteristic impedance}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.3}{Routing}{section.1.3}% 7
+\BOOKMARK [1][-]{section.1.4}{PCB design parameters}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.5}{Further specification and ordering}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.6}{Soldering process}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.6.1}{Martin Rework Station}{section.1.6}% 11
+\BOOKMARK [2][-]{subsection.1.6.2}{Solder Oven}{section.1.6}% 12
+\BOOKMARK [1][-]{section.1.7}{PCB faults and compensations}{chapter.1}% 13
+\BOOKMARK [0][-]{chapter.2}{Testing and verification of the HDMI daughter card}{}% 14
+\BOOKMARK [1][-]{section.2.1}{Connectivity test}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.1.1}{Purpose of test}{section.2.1}% 16
+\BOOKMARK [2][-]{subsection.2.1.2}{Experimental setup}{section.2.1}% 17
+\BOOKMARK [2][-]{subsection.2.1.3}{Results}{section.2.1}% 18
+\BOOKMARK [1][-]{section.2.2}{External loop-back test for the fiber-optic connector}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.2.1}{Purpose of test}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.2}{Experimental setup}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.3}{Results}{section.2.2}% 22
+\BOOKMARK [1][-]{section.2.3}{External loop-back test for the HDMI connectors}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.3.1}{Purpose of tests}{section.2.3}% 24
+\BOOKMARK [2][-]{subsection.2.3.2}{Experimental setup}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.3}{Results}{section.2.3}% 26
+\BOOKMARK [1][-]{section.2.4}{Conclusion and discussions}{chapter.2}% 27
