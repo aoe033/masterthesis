@@ -331,8 +331,8 @@ The program is to contain the following specifications:
 
 \section{Non-standard libraries}
 
-The serial communications software was developed with the help of a few non-standard libraries. Non-standard meaning that the libraries are not a part of the C standard libraries.
-The following sections gives brief descriptions of each of these libraries and associated functions:
+The serial communications software was developed with the help of a few non-standard libraries; non-standard meaning that the libraries are not a part of the C standard libraries. In addition, a library dedicated to hold the \gls{gbt} control-signal information was written.
+The following sections gives brief descriptions of each of these libraries and the associated functions used in the serial communications software:
 
 \subsection{RS232}
 
@@ -354,7 +354,7 @@ Opens the \gls{com}. The user must specify a \gls{com} number, a baudrate number
 \begin{lstlisting}[frame=single] 
 int RS232_PollComport(int comport_number, unsigned char *buf, int size)
 \end{lstlisting}
-Returns the amount of bytes (in integers) from the serial port. The received bytes are stored in a buffer and pointed to by \textit{buf}. One must specify the \textit{size} of the buf pointer. It is recommended to call this function routinely from a timer.\\
+Returns the amount of bytes (in integers) received from the \gls{com}. The received bytes are stored in a buffer and pointed to by \textit{buf}. One must specify the \textit{size} of the buf pointer. It is recommended to call this function routinely from a timer.\\
 
 \begin{lstlisting}[frame=single] 
 int RS232_SendBuf(int comport_number, unsigned char *buf,int size)
@@ -368,7 +368,7 @@ Closes the \gls{com}. To prevent errors, it is important to disable any timers t
 
 \subsection{Timer}
 
-The Timer library (\textit{timer.h} and \textit{timer.c}) is a library for handling timers in a C environment. It was written by Teunis van Beelen, and is licensed under the "GPL version 3" licence \cite{gpl3}. The accuracy of the timer is system dependent; It supports a resolution down to $1~\milli\second$ on the Windows platform and a resolution down to $1~\micro\second$ on the Linux platform (though, in real-life situations, the timer might not be as accurate). The timer function is used with the \textit{RS232\_PollComport}-function in mind (see function definition above). For more information about the library and functions, visit \url{http://www.teuniz.net/RS-232/#}.
+The Timer library (\textit{timer.h} and \textit{timer.c}) is a library for handling timers in a C environment. It was written by Teunis van Beelen, and is licensed under the "GPL version 3" licence \cite{gpl3}. The accuracy of the timer is system dependent. It supports a resolution down to $1~\milli\second$ on the Windows platform and a resolution down to $1~\micro\second$ on the Linux platform (though, in real-life situations, the timer might not be as accurate). The timer function is used with the \textit{RS232\_PollComport}-function in mind (see function definition above). For more information about the library and functions, visit \url{http://www.teuniz.net/RS-232/#}.
 
 \subsubsection{Associated functions}
 
@@ -382,19 +382,19 @@ The Timer library (\textit{timer.h} and \textit{timer.c}) is a library for handl
 int start_timer(int milliSeconds, void (*)(void))
 \end{lstlisting}
 
-Starts the timer, and at a given time interval of \textit{milliSeconds} (milliseconds in Windows, microseconds in Linux), calls a given function. The call-function must be a void function with no inputs (just like a standard main function without the argument calls). The \textit{start\_timer} function are called only ones in main.\\
+Starts the timer. At a given time interval of \textit{milliSeconds} (milliseconds in Windows, microseconds in Linux), it calls a given function. The call-function must be a void function with no inputs (just like a standard main function without the argument calls). The \textit{start\_timer} function are called only ones in main, and repeats calling the given function every \textit{milliSeconds} interval until the \textit{stop\_timer} is called.\\
 
 \begin{lstlisting}[frame=single] 
 int stop_timer( void )
 \end{lstlisting}
 
-Stops the timer if it is running. If the timer routinely calls RS232-functions, \textit{stop\_timer} must be called before closing the \gls{com} at the end of the program.\\
+Stops the timer if \textit{start\_timer} has previously been called. If the timer routinely calls RS232-functions, \textit{stop\_timer} must be called before closing the \gls{com} at the end of the program to prevent errors.\\
 
 \subsection{Signals}
 
-The Signals library (\textit{signals.h} and \textit{signals.c}) was written with the \gls{gbt} control-signals in mind. It features methods for storing and manipulating the control-signal information, and in some extent encapsulates the information by partly hiding the information from the user. This is done by defining the main information-structure inside the \textit{signals.c}-file. In the header file, instead of defining the structure here (and thus exposing it to the main program), a dedicated pointer instead points to the structures namespace, and the functions define the pointer as the structure input. The main program only have access to what is defined in the header, thus limiting the user to only have access to the structure through dedicated library functions.\\
+The Signals library (\textit{signals.h} and \textit{signals.c}) was written with the \gls{gbt} control-signals in mind. It features methods for storing and manipulating the control-signal information, and in some extent encapsulates the information by partly hiding the information from the user. This is done by defining the main information-structure inside the \textit{signals.c}-file, instead of defining it in the header file (and thus exposing it to the main program). A dedicated pointer is used to point to the structures namespace, and the functions defined in the header file calls the pointer as input instead of the structure itself. The main program only have access to what is defined in the header, thus limiting the user to only have access to the structure through dedicated library functions.\\
 
-\subsubsection{Main information structure}
+\subsubsection{Associated structures}
 
 \lstset { %
     language=C++,
@@ -402,7 +402,6 @@ The Signals library (\textit{signals.h} and \textit{signals.c}) was written with
     basicstyle=\footnotesize,% basic font setting
 }
 
-The main information structure is defined as:
 \begin{lstlisting}[frame=single] 
 typedef struct {
   char *name;
@@ -417,14 +416,92 @@ typedef struct {
 };
 \end{lstlisting}
 
-Where the \textit{Type}-structure contains the signal name and index in string-form, and a 1-bit type variable that defines the signal as either a probe (0) or a switch (1). \textit{\_Signal}-structure is the main structure and contains the \textit{Type}-structure along with a "real" index, i, which is the actual data-address used to access the correct register-address on the \gls{fpga} side; and the data byte, data. If the structure is defined as a probe, the data can only be read from the \gls{fpga}. If it is defined as a switch, on the other hand, it can be both read from the \gls{fpga} or the main program can write data to the \gls{fpga}.
+The \textit{Type}-structure contains the signal name and index in string-form, and a 1-bit type variable that defines the signal as either a probe (0) or a switch (1). \textit{\_Signal}-structure is the main structure and contains the \textit{Type}-structure along with a "real" index, i, which is the actual data-address used to access the correct register-address on the \gls{fpga}; and the data byte, data, which stores the data bit of the signal. If the structure is defined as a probe, the data can only be read from the \gls{fpga}. If it is defined as a switch, on the other hand, it can be both read from the \gls{fpga} or the main program can write data to the \gls{fpga}.
 
 \subsubsection{Associated functions}
 
 \lstset { %
     language=C++,
     backgroundcolor=\color{black!5}, % set backgroundcolor
-    basicstyle=\footnotesize,% basic font setting
+    basicstyle=\footnotesize, % basic font setting
+    morekeywords={Signal, _Signal, Byte} 
 }
+
+\begin{lstlisting}[frame=single] 
+Signal Signal_New (void)
+\end{lstlisting}
+Assigns a new pointer to the \textit{\_Signal}-structure and allocates enough memory.\\
+
+\begin{lstlisting}[frame=single] 
+Signal Signal_Init(char *index, char *name, Byte data)
+\end{lstlisting}
+Uses \textit{Signal\_New} to define a new signal, and in addition assigns values to the signal variables. The \textit{index} string must contain either an \textit{'S'} or a \textit{'P'} character followed by two number-characters. This is to indicate that the signal is either a probe or a switch with a given register address, for example: "P00", "S35".\\ 
+The first letter is used to assign the \textit{type}-variable and the two number-characters are converted to an integer and assigned to the "real" index, i, of the structure. The \textit{name} string should contain a descriptive name of the signal, for example: "TX\_FRAMECLK PHASE ALIGNER - PLL LOCKED".\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_InitFromFile(Signal s[], int width, char *filename)
+\end{lstlisting}
+
+Uses \textit{Signal\_Init} to define a signal-array using information given from a file. The array has a width given by the \textit{width}-variable. Refer to \textit{signal\_probe.txt} or \textit{signal\_switch.txt} for examples on how to set up a text-file. In the program, the \textit{Signal\_InitFromFile}-function is used twice to define two signal-arrays; one for the \textit{Switches} and one for the \textit{Probes} of the \gls{gbt} control-signals. Defining two signal-arrays makes it more convenient when separating what is writeable and what is read-only.\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_Free(Signal s)
+\end{lstlisting}
+
+Frees the given signal-pointer and all the associated variables.\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_FreeArray(Signal *s, int n)
+\end{lstlisting}
+
+Uses \textit{Signal\_Free} in a loop to free up an array of signal-pointers.\\
+
+\begin{lstlisting}[frame=single] 
+int Signal_PrintSet(WINDOW *win, int *gy, Signal s[], int width)
+\end{lstlisting}
+
+Prints out all printable signal information of a signal-array to a \textit{curses}-window (see section about ncurses) with a row-position given by \textit{gy}. \textit{gy} is defined as a pointer because it reports back to the program on which line in the window the information is printed on. \\
+
+\begin{lstlisting}[frame=single] 
+void Signal_setData(Signal s, Byte value)
+Byte Signal_getData(Signal s)
+\end{lstlisting}
+
+Functions related to reading and writing to the data-variable, data, of a given signal.\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_setIndex(Signal s, int i)
+int Signal_getIndex(Signal s)
+\end{lstlisting}
+
+Functions related to reading and writing to the "real" index-variable, \textit{i}, of a given signal.\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_setType(Signal s, Byte type, char *name, char *index)
+void Signal_getType(Signal s, Byte *type, char *name, char *index)
+\end{lstlisting}
+
+Functions related to reading and writing to the \textit{Type}-structure of a given signal.\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_setTypeType(Signal s, Byte type)
+Byte Signal_getTypeType(Signal s)
+\end{lstlisting}
+
+Functions related to reading and writing to the type-variable, \textit{type}, of the \textit{Type}-structure of a given signal.\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_setTypeName(Signal s, char *name)
+char *Signal_getTypeName(Signal s)
+\end{lstlisting}
+
+Functions related to reading and writing to the name string, \textit{name}, of the \textit{Type}-structure of a given signal.\\
+
+\begin{lstlisting}[frame=single] 
+void Signal_setTypeIndex(Signal s, char *name)
+char *Signal_getTypeIndex(Signal s)
+\end{lstlisting}
+
+Functions related to reading and writing to the index string, \textit{index}, of the \textit{Type}-structure of a given signal.\\
 
 \end{document}

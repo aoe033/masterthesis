@@ -15,6 +15,6 @@
 \contentsline {figure}{\numberline {6.3}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{27}{figure.caption.28}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{38}{figure.caption.43}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{38}{figure.caption.44}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{38}{figure.caption.44}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{40}{figure.caption.43}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{40}{figure.caption.44}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{40}{figure.caption.44}

@@ -85,11 +85,11 @@
 \contentsline {subsection}{\numberline {7.2.2}Timer}{32}{subsection.7.2.2}
 \contentsline {subsubsection}{Associated functions}{33}{section*.38}
 \contentsline {subsection}{\numberline {7.2.3}Signals}{33}{subsection.7.2.3}
-\contentsline {subsubsection}{Main information structure}{33}{section*.39}
+\contentsline {subsubsection}{Associated structures}{33}{section*.39}
 \contentsline {subsubsection}{Associated functions}{34}{section*.40}
-\contentsline {chapter}{\numberline {8}External and Internal Loopback test of the GBT bank Quartus Example}{35}{chapter.8}
-\contentsline {section}{\numberline {8.1}120 MHz reference clock}{35}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Configuring the on-board oscillator on the Cyclone V board}{36}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}Clock Control software setup}{36}{subsection.8.1.2}
-\contentsline {subsubsection}{Steps for configuring Windows to run the Clock Control software}{36}{section*.42}
-\contentsline {section}{Appendix}{44}{chapter*.49}
+\contentsline {chapter}{\numberline {8}External and Internal Loopback test of the GBT bank Quartus Example}{37}{chapter.8}
+\contentsline {section}{\numberline {8.1}120 MHz reference clock}{37}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Configuring the on-board oscillator on the Cyclone V board}{38}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Clock Control software setup}{38}{subsection.8.1.2}
+\contentsline {subsubsection}{Steps for configuring Windows to run the Clock Control software}{38}{section*.42}
+\contentsline {section}{Appendix}{46}{chapter*.49}
