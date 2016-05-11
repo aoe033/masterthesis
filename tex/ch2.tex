@@ -12,8 +12,7 @@
 
 \chapter{HSMC-to-VLDB PCB design} \label{chap:pcb}
 
-In order to interface the GBTx (see chapter \ref{chap:gbt}) electrically
-In order for communication and the ability to send and monitor test data, a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to the \gls{lvds} transceivers for high-speed communication with the \gls{cru}. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing the \gls{lvds} transceivers. In addition to the \gls{lvds} signals, the connection also needs to contain the Radiation-hard optical link, i.e support for SFP fiber-optic cabling.\\
+In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
 
 \section{Specification}
 
@@ -25,7 +24,8 @@ The design discussion and planning of the \gls{pcb} was done together with Ph. D
 
 The initial plan was to design a \gls{pcb} with a male \gls{sfp}-contact in one end connected with two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into the \gls{sfp}-connectors on the \gls{sfp}-board with \gls{hdmi} cables to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp}-connectors on one side, wired to \gls{hdmi}-connectors on the other side, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with \gls{sfp}- and \gls{hdmi}-cables connecting the three boards together. \\
 
-The end result was a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design files (the one concerning the \gls{xcvr}-protocol, see \cite{sfp_schem}), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and saving costs. The resulting design was a board connected to the \gls{fpga} via the \gls{hsmc}-connector, with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signals running to one \gls{sfp}-connector for fiber-optic communication.
+
+The end result was a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design files (the one concerning the \gls{xcvr}-protocol, see \cite{sfp_schem}), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and lowering the chance of signal reflections. %The resulting design was a board connected to the \gls{fpga} via the \gls{hsmc}-connector, with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signals running to one \gls{sfp}-connector for fiber-optic communication.
 
 \begin{figure}[ht] % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -171,11 +171,13 @@ When looking at the datasheet for cables with differential signals, such as HDMI
 As mentioned in section~\ref{subsec:diffsig}, differential signals have noise advantages over single ended signals. This is the case only if the pairs have \textit{equal} path lengths and the individual wires in each pair are routed as close to one another as possible. In addition, to keep crosstalk to its minimum, individual pairs has to be routed a distance away from other wires (In reality, this only becomes a problem when dealing with wiring in the micro-scale domain). Twisting the individual wires in each pair to some extent will also contribute to common noise rejection \cite{weste11}.
 This was taken into consideration when routing the \gls{pcb}. 
 
-The individual wires in each pair was kept as close as possible, with a space constraint according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See equation \ref{eq:zdiff}). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases). After routing the wires, attempts were made to separate the pairs a distance from one another, but this was not a critical stage.
+The individual wires in each pair was kept as close as possible, with a space constraint (See table \ref{tab:Xsect1}) according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See equation \ref{eq:zdiff}). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases. After routing the wires, attempts were made to separate the pairs a distance from one another, but this was not a critical stage.
 
 \section{PCB design parameters}
 
-To avoid signal reflections, the \gls{pcb} needed a characteristic impedance matching that of the cables and termination, in this case a single wire impedance of $50\ \ohm$, and a differential impedance of $100\ \ohm$. This was derived from the fact that the \gls{hdmi}-cables were specified to have a differential impedance of approximately $100\ \ohm$, which is also the case of the termination resistance at the receiving end (this must be manually set for the \gls{fpga} transceivers).
+The \gls{pcb} schematic was designed using \textit{Orcad Capture CIS} and the layout using \textit{Orcad \gls{pcb} Editor}, with design parameters meeting \textit{Elprint's} capabilities \cite{elprint15}. The \gls{pcb} layout was then exported into \textit{Gerber-files} and imported into \textit{Macaos} for further manufacture specification and validation. The \gls{pcb} was then ordered from Elprint. \\% and arrived in office 21/12/2015.
+
+To avoid signal reflections, the \gls{pcb} needed a characteristic impedance matching that of the cables and termination, in this case a single wire impedance of $50\ \ohm$, and a differential impedance of $100\ \ohm$. This was derived from the fact that the \gls{hdmi}-cables were specified to have a differential impedance of approximately $100\ \ohm$, and that the individual transceiver lines from the \gls{fpga} has a characteristic impedance of $50\ \ohm$, with a selectable termination resistance at the receiving end of $100\ \ohm$, connected between the lines.
 
 The \gls{pcb} was chosen to be four layers, with signals running on the top and bottom copper layers, and the two middle planes for voltages and ground respectively.
 
@@ -196,7 +198,7 @@ With a $300\ \micro\meter$ spacing between the differential traces, the formula 
 
 , which gives a differential impedance $Z_{diff}$ of $102\ \ohm$ @ $3\ \giga\hertz$.\\
 
-Orcad PCB Editor has a built-in impedance calculator which yields similar results as shown above:
+Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a built-in impedance calculator that yields similar results as shown above:
 
 \begin{table} [H]
 \begin{center}
@@ -219,9 +221,8 @@ Orcad PCB Editor has a built-in impedance calculator which yields similar result
 \end{center}
 \end{table}
 
-\section{Further specification and ordering}
+%\section{Further specification and ordering}
 
-The \gls{pcb} schematic was designed using \textit{Orcad Capture CIS} and the layout using \textit{Orcad \gls{pcb} Editor}, with design parameters meeting \textit{Elprint's} capabilities \cite{elprint15}. The \gls{pcb} layout was then exported into \textit{Gerber-files} and imported into \textit{Macaos} for further manufacture specification and validation. The \gls{pcb} was then ordered from Elprint.% and arrived in office 21/12/2015.
 
 \section{Soldering process}
 
@@ -238,19 +239,16 @@ The oven was set to a warm-up temperature of 150  for 60 seconds, and then a cli
 \section{PCB faults and compensations}
 
 After receiving the \glspl{pcb}, further inspection revealed that all viases had missing solder mask. This exposes the metal of the vias to the surface of the \gls{pcb} and can possibly cause connection shorts between the viases and the pads and/or metallic casings when soldering. The reason for the viases not to have a solder mask is because it was missing in the pad file. A solution to fix this in a future \gls{pcb} print would obviously be to include a solder mask in the pad file.
-With the current \gls{pcb} print, however, a temporary solution would be to apply thin \textit{kapton tape} where most critical. \\
+With the current \gls{pcb} print, however, a temporary solution would be to apply thin \textit{kapton tape} where most critical.\\
 
-The exposed viases was later shown not to be as critical as first thought, due to the following points: \\
-\begin{itemize}
+The exposed viases was later shown not to be as critical as first thought, due to the following points:\\
 
-\item The viases that are exposed underneath the \gls{hdmi} casings are in fact connected to ground, making the possible shorts between the viases and the already ground connected casing not a critical problem. \\
-
+\begin{itemize}\setlength{\itemsep}{10pt}
+\item The viases that are exposed underneath the \gls{hdmi} casings are in fact connected to ground, making the possible shorts between the viases and the already ground connected casing not a critical problem.
 \item The exposed viases underneath the \gls{hsmc}-connector could potentially connect to the ground pads when applying solder paste to the pads. This was avoided by carefully applying  a thin line of solder paste in the middle of the ground pads. This prevented the solder paste to float over to the neighboring viases when melting it in the oven. A possible drawback to this would be bad connection between the ground pads and the \gls{hsmc}-connector, but a quick check using a multimeter proved that the \gls{hsmc} was indeed connected to all the ground pads.\\
 \end{itemize}
 
 In fact, when testing the \gls{pcb}, the exposure of viases on the transmitter and receiver lines revealed to be quite useful probe points when using an oscilloscope to measure the signal integrity. Due to the lack of extra added probe points, measuring signals at the \gls{pcb} viases became the most convenient way of directly measuring the signals on the transmitter and receiver lines (see subsection below). A lesson until next \gls{pcb}-prototype is to include easily accessible probe points on lines that are relevant for oscilloscope measurement.\\
-
-On the current version of the \gls{pcb}, some of the receiver lines includes a $10~\kilo\ohm$ pull-up resistor (R91, R92, R95, R96, R97, R99, R100 and R101 in the schematic). The reason why these are included could possibly be due to a misinterpretation of the \gls{sfp}-schematic in which the design of the \gls{pcb} was based on. This is concluded because two of the pull-up resistors (R100 and R101 in the schematic) are connected to receiver signals that are only used in the \gls{sfp}-design, but not in this design. The pull-up resistors are therefore not included, and the lines are left open.
 
 \begin{figure}[H] % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -259,74 +257,9 @@ On the current version of the \gls{pcb}, some of the receiver lines includes a $
 \label{fig:pullups}
 \end{figure}
 
-Later discussions with Arild revealed that the transmitters on the GBT-VLDB did not have voltage pull-ups, which is necessary for the \gls{lvds}-signals. The current \gls{pcb} will therefore not work properly with the GBT-VLDB card. Later versions of the \gls{pcb} should therefore contain resistors pulling up to $1.25 \volt$ on the receiver lines in order for it to work.
-
-\chapter{Testing and verification of the HDMI daughter card}
-To verify a working \gls{pcb}, the \gls{hdmi} daughter card underwent a series of tests. The sections below summarizes these tests. 
-
-\section{Connectivity test}
-
-\textit{Since all the components on the \gls{pcb} was hand soldered (with the exception of the ground pads underneath the \gls{hsmc} contact), it was particularly important to check for accidental shorts between pins and/or pads.}
-
-\subsection{Purpose of test}
-
-\begin{itemize}
-\item Verify that there are no shorts between the pins and/or pads of the \gls{pcb}. 
-\item Check for current draw to confirm that there are no short on the power-lines.
-\end{itemize}
-
-\subsection{Experimental setup}
-
-The setup involves the use of a multimeter to go through all pins and check for connection faults according to the schematic. After all shorts have been eliminated, the \gls{pcb} is to be connected to an external power supply to verify current-draw. 
-
-\subsection{Results}
- Using a multimeter, all connections were checked and verified that there were no shorts (Some pins on the \gls{hsmc} were indeed shorted and had to be re-soldered). The \gls{pcb} was then connected to an external power supply and it was verified that the current draw, with all \gls{hdmi}-connections left open, were no more than the current drawn from the power-\acrshort{led}, i.e $18~\milli\ampere$. \\
-
-To confirm connectivity and that there were no further connecting shorts between the pads and/or pins, a simple test-circuit was written in Quartus. Beginning with the transmit-signals: all the relevant \gls{lvds} transmit-signals that are physically connected to the \gls{hsmc} (port A) connector of the \gls{fpga} were connected to a given clock signal. The \gls{pcb} was then connected to the \gls{fpga} board, and the \gls{hdmi} connectors were probed with the help of an oscilloscope and verified that there was an output signal on every \gls{hdmi}-transmitter. 
-
-The \gls{pcb} is now ready for connection with the host \gls{fpga} for further testing of the transmitter and receiver signals. 
-
-\section{External loop-back test for the fiber-optic connector}
-
-\textit{To verify that the \gls{hdmi} daughter card SFP-connector for fiber-optic communication is working correctly, an external loop-back test was conducted.}
-
-\subsection{Purpose of test}
-\begin{itemize}
-
-\item Test the dedicated SFP-connector on the \gls{hdmi}-daughter card for fiber-optic communication and see that it is capable of sending and receiving information at speeds up to the \gls{gbt}-standard of $4.8 \giga\bit\per\second$. 
-\end{itemize}
-
-\subsection{Experimental setup}
-A fiber-optic cable connected from the transmitter to the receiver using a fiber-module, forming an external loop through the cable, was connected to the SFP-connector of the \gls{hdmi}-daughter card \gls{pcb}. Using the \gls{gbt} Quartus-example together with the In-system-source-and-probe editor and SignalTap II, it was possible to connect the transmitter to a internal counter that counted with increments of one. SignalTap II was then used to monitor and verify that the receiver line received the same incremented counter as the transmitter sent out.
-
-\subsection{Results}
+On the current version of the \gls{pcb}, some of the receiver lines includes a $10~\kilo\ohm$ pull-up resistor (R91, R92, R95, R96, R97, R99, R100 and R101 in the schematic). The reason why these are included could possibly be due to a misinterpretation of the \gls{sfp}-schematic in which the design of the \gls{pcb} was based on. This is concluded because two of the pull-up resistors (R100 and R101 in the schematic) are connected to receiver signals that are only used in the \gls{sfp}-design, but not in this design. The pull-up resistor pads were therefore not soldered on the board, and the lines were left open.
 
 
-\section{External loop-back test for the HDMI connectors}
-
-\subsection{Purpose of tests}
-
-\begin{itemize}
-\item Measure the quality of the signal at different frequencies up to $300~\mega\hertz$ and see how reflections affects the signal.
-\item Measure crosstalk between neighboring signal paths.
-\item Create a test environment using Quartus II in conjunction with SignalTap II to:
-\begin{itemize}
-  \item See if it is possible to sample the received signals at different frequencies up to $300~\mega\hertz$.
-  \item Investigate bit-error rate at different frequencies up to $300~\mega\hertz$.
-\end{itemize}
-\end{itemize}
-
-\subsection{Experimental setup}
-
-Each \gls{hdmi}-connector has at least one transmitter- and receiver line. To simulate signal transmission over a distance, a \gls{hdmi} cable was cut in half and the transmit- and receive lines were soldered together, creating an external loop-back. A pseudo-random generated bit-signal would travel out via one of the transmitters of the \gls{fpga}, out through a \gls{hdmi}-connector, following the cable back into the same \gls{hdmi}-connector into the receiver input.
-
-\subsection{Results}
-
-The following table sums up the cable-length and theoretical travel time versus the measured delay between the transmitted and received signal.
-
-\section{Conclusion and discussions}
-
-The measurement setup has a lot to say when it comes to measur
-
+%Later discussions with Arild revealed that the transmitters on the GBT-VLDB did not have voltage pull-ups, which is necessary for the \gls{lvds}-signals. The current \gls{pcb} will therefore not work properly with the GBT-VLDB card. Later versions of the \gls{pcb} should therefore contain resistors pulling up to $1.25 \volt$ on the receiver lines in order for it to work.
 
 \end{document}

@@ -20,6 +20,7 @@
 %\usepackage{float}  %Allows [H]-positioning in figures
 
 \usepackage{tikz}
+\usepackage{array}% http://ctan.org/pkg/array
 
 \usepackage{amsmath} %includes align and equation. Use * t2o get rid of numbering of formulas
 
@@ -31,6 +32,8 @@
 %\usepackage{courier}
 \usepackage{libertine}
 
+\usepackage{enumitem}
+\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
 
 \usepackage[numbers]{natbib} %Im­ple­ments both au­thor-year and num­bered ref­er­ences, as well as sup­port for other bib­li­og­ra­phy use.
 
@@ -145,7 +148,7 @@
 \newcommand{\blankpage}{\newpage{}\thispagestyle{empty}\mbox{}\newpage{}}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
-\title{Firmware Design for\\Common Readout Unit} %This does not show automatically. Use /maketitle.
+\title{Firmware Design for the GBT\\Common Readout Unit} %This does not show automatically. Use /maketitle.
 \date{\today}
 \author{Anders Østevik}
 

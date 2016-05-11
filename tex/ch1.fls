@@ -267,6 +267,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/tabulary/tabulary.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/tabulary/tabulary.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/a4wide/a4wide.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/a4wide/a4wide.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/ntgclass/a4.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/ntgclass/a4.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/SIunits/SIunits.sty
@@ -416,11 +420,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tl
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-ot1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-ot1--base.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTB-tlf-ot1.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-ot1.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTB-tlf-ot1.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-ot1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-ot1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTB-tlf-ot1.vf

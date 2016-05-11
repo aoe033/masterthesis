@@ -18,47 +18,48 @@ Warning--to sort, need author or key in altera_cyclonekit
 Warning--to sort, need author or key in altera_q13
 Warning--to sort, need author or key in altera_usb
 Warning--to sort, need author, organization, or key in si570
+Warning--to sort, need author or key in bitvis16
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1090 of file abbrv.bst
-You've used 20 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            593 strings with 6632 characters,
-and the built_in function-call counts, 3781 in all, are:
-= -- 377
-> -- 74
+            597 strings with 6801 characters,
+and the built_in function-call counts, 3953 in all, are:
+= -- 395
+> -- 75
 < -- 0
-+ -- 38
++ -- 39
 - -- 18
-* -- 144
-:= -- 539
-add.period$ -- 61
-call.type$ -- 20
-change.case$ -- 64
+* -- 150
+:= -- 559
+add.period$ -- 64
+call.type$ -- 21
+change.case$ -- 67
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 159
-empty$ -- 442
+cite$ -- 35
+duplicate$ -- 166
+empty$ -- 465
 format.name$ -- 18
-if$ -- 881
+if$ -- 924
 int.to.chr$ -- 0
-int.to.str$ -- 20
+int.to.str$ -- 21
 missing$ -- 6
-newline$ -- 104
+newline$ -- 109
 num.names$ -- 14
-pop$ -- 144
+pop$ -- 152
 preamble$ -- 1
-purify$ -- 49
+purify$ -- 51
 quote$ -- 0
-skip$ -- 126
+skip$ -- 132
 stack$ -- 0
-substring$ -- 100
-swap$ -- 21
+substring$ -- 105
+swap$ -- 22
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
-warning$ -- 13
+type$ -- 78
+warning$ -- 14
 while$ -- 14
-width$ -- 22
-write$ -- 205
+width$ -- 23
+write$ -- 215
 (There were 2 error messages)

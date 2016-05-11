@@ -1,0 +1,95 @@
+%location/filename: tex/fig/serial_gui.tex
+%author: Anders Østevik
+%Last edited: 09.05.2016
+%#######--PC to CRU serial interface--#######
+%Content:
+%   Interface/Communications illustrating figure between \gls{pc} and FPGA
+%   
+
+\documentclass[main.tex]{subfiles}
+
+\usetikzlibrary{shapes,arrows}
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
+
+\begin{document}
+
+% We need layers to draw the block diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+% Define a few styles and constants
+\tikzstyle{PCs}=[draw, fill=blue!20, text width=5em, 
+    text centered, minimum height=2.5em]
+\tikzstyle{ann} = [above, text width=5em]
+\tikzstyle{fpgas} = [PCs, text width=5em, fill=black!10, rounded corners, dashed, 
+    minimum height=10em, minimum width=15em]
+\def\blockdist{6.3}
+\def\btmdist{-0.7}
+\def\topdist{1.0}
+\def\edgedist{2.5}
+
+\begin{tikzpicture}
+    \node (fpga) [fpgas] {};
+    % Note the use of \path instead of \node at ... below. 
+    \path (fpga)+(-\blockdist,\topdist) node (interface) [PCs] {Interface};
+    \path (fpga)+(-\blockdist,\btmdist) node (com) [PCs] {COM port};
+
+    \path (fpga)+(-1.8,\btmdist) node (uart) [PCs] {UART};
+    \path (fpga)+(-1.8,\topdist) node (dec) [PCs] {UART decoder};
+
+    \path (fpga)+(1.8,\topdist) node (top) [PCs] {UART top};
+    \path (fpga)+(1.8,\btmdist) node (gbt) [PCs] {GBT example};
+    
+    % Unfortunately we cant use the convenient \path (fromnode) -- (tonode) 
+    % syntax here. This is because TikZ draws the path from the node centers
+    % and clip the path at the node boundaries. We want horizontal lines, but
+    % the PCs and fpga blocks aren't aligned horizontally. Instead we use
+    % the line intersection syntax |- to calculate the correct coordinate
+    \path [draw, <->] (interface.south) -- node [right] {} 
+        (com.north -| interface.south) ;
+    % We could simply have written (interface) .. (fpga.140). However, it's
+    % best to avoid hard coding coordinates
+    \path [draw, ->] (com.10) -- node [above] {$tx$} 
+        (uart.west |- com.10);
+    \path [draw, <-] (com.-10) -- node [above] {$rx$} 
+        (uart.west |- com.-10);
+
+    \path [draw, <->] (uart.north) -- node [right] {} 
+        (dec.south -| uart.north) ;
+
+    \path [draw, <->] (dec.east) -- node [right] {} 
+        (dec.east -| top.west) ;
+
+    \path [draw, <->] (gbt.north) -- node [right] {} 
+        (top.south -| gbt.north) ;        
+
+    %\node (PC) [above of=interface] {PC};
+    \node (PC) [below of=com] {PC};
+
+    \path (fpga.south east)+(-3.2,0.4) node (FPGA) {FPGA};
+
+    %\node (FPGA) [below of=uart] {FPGA};
+
+    %\path (fpga.south west)+(1.2,-0.4) node (INS) {PC to CRU serial interface};
+    
+    % Now it's time to draw the colored IMU and INS rectangles.
+    % To draw them behind the blocks we use pgf layers. This way we  
+    % can use the above block coordinates to place the backgrounds   
+    \begin{pgfonlayer}{background}
+        % Compute a few helper coordinates
+        %\path (interface.west |- fpga.north)+(-0.5,0.3) node (a) {};
+        %\path (INS.south -| fpga.east)+(+0.3,-0.2) node (b) {};
+        %\path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+            %(a) rectangle (b);
+        \path (interface.north west)+(-0.2,0.2) node (a) {};
+        %\path (PC.north -| interface.west)+(-0.2,0.2) node (a) {heia};
+        \path (PC.south -| interface.east)+(+0.2,-0.2) node (b) {};
+        \path[fill=blue!10,rounded corners, draw=black, dashed]
+            (a) rectangle (b);
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+
+\end{document}

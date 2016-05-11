@@ -49,6 +49,12 @@
 \newblock \url{http://www.polarinstruments.com/support/cits/AP155.html}, 2015.
 \newblock {A}ccessed: 03/12/2015.
 
+\bibitem{bitvis16}
+{B}itvis {U}tility {L}ibrary homepage.
+\newblock \url{http://bitvis.no/products/bitvis-utility-library/}, 2016.
+\newblock {L}ibrary used to create the {uart} testbench. {A}ccessed:
+  07/04/2016.
+
 \bibitem{altera_cyclonekit}
 {C}yclone {V} {K}it {D}ownload {P}age.
 \newblock
