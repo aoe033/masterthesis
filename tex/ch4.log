@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  11 MAY 2016 22:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  14 MAY 2016 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1873,7 +1873,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
  []
 
 
-Underfull \vbox (badness 5359) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
@@ -1925,18 +1925,21 @@ Package natbib Warning: Citation `altera_usb' on page 3 undefined on input line
 
 Package natbib Warning: Citation `si570' on page 3 undefined on input line 75.
 
-<../img/clk_cont120.PNG, id=173, 344.78813pt x 283.0575pt>
+<../img/clk_cont120.PNG, id=171, 344.78813pt x 283.0575pt>
 File: ../img/clk_cont120.PNG Graphic file (type png)
 
 <use ../img/clk_cont120.PNG>
 Package pdftex.def Info: ../img/clk_cont120.PNG used on input line 81.
 (pdftex.def)             Requested size: 344.78728pt x 283.0568pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
 Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
-<../img/20160226_tek100.png, id=178, 1027.84pt x 770.88pt>
+<../img/20160226_tek100.png, id=186, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek100.png Graphic file (type png)
 
 <use ../img/20160226_tek100.png>
@@ -1947,7 +1950,7 @@ File: ../img/20160226_tek100.png Graphic file (type png)
 Package pdftex.def Info: ../img/20160226_tek100.png used on input line 92.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/20160226_tek120.png, id=179, 1027.84pt x 770.88pt>
+<../img/20160226_tek120.png, id=187, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek120.png Graphic file (type png)
 
 <use ../img/20160226_tek120.png>
@@ -1977,8 +1980,10 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 97.
 
-[3] [4 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../img
-/20160226_tek120.png (PNG copy)>]
+[4 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../img/201
+60226_tek120.png (PNG copy)>] [5] [6
+
+]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 12.0pt on input line 105.
@@ -1987,13 +1992,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-[5
+[7] [8]
 
-] [6]
+LaTeX Warning: Reference `chap:pcb' on page 9 undefined on input line 158.
 
-LaTeX Warning: Reference `chap:pcb' on page 7 undefined on input line 158.
-
-<../img/hektere_probes.pdf, id=249, 815.84799pt x 797.37903pt>
+<../img/hektere_probes.pdf, id=256, 815.84799pt x 797.37903pt>
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
@@ -2006,8 +2009,8 @@ Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 174.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
-<../img/hektere_oppsett_100mhz.png, id=262, 1027.84pt x 770.88pt>
+ [9]
+<../img/hektere_oppsett_100mhz.png, id=269, 1027.84pt x 770.88pt>
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
@@ -2021,7 +2024,7 @@ Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
 82.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/stubs_oppsett_100mhz.png, id=263, 1027.84pt x 770.88pt>
+<../img/stubs_oppsett_100mhz.png, id=270, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
@@ -2034,13 +2037,13 @@ Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 183
 .
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-[8 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> <
-../img/stubs_oppsett_100mhz.png (PNG copy)>] [9] [10
+[10 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
+<../img/stubs_oppsett_100mhz.png (PNG copy)>] [11] [12
 
 ]
 Chapter 3.
 
-Package natbib Warning: Citation `bitvis16' on page 11 undefined on input line 
+Package natbib Warning: Citation `bitvis16' on page 13 undefined on input line 
 202.
 
 
@@ -2049,7 +2052,7 @@ Overfull \hbox (3.3455pt too wide) in paragraph at lines 208--208
 ng Signal-
  []
 
-[11] [12]
+[13] [14]
 Chapter 4.
 
 Package natbib Warning: There were undefined citations.
@@ -2059,7 +2062,7 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.)
 This document will not have a glossary.
 
-[13
+[15
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 229.
@@ -2077,10 +2080,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 37074 strings out of 493029
- 683819 string characters out of 6136235
- 804160 words of memory out of 5000000
- 39905 multiletter control sequences out of 15000+600000
+ 37078 strings out of 493029
+ 683861 string characters out of 6136235
+ 803269 words of memory out of 5000000
+ 39907 multiletter control sequences out of 15000+600000
  24733 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,14n,87p,10417b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2144,10 +2147,10 @@ ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/ch4.pdf (13 pages, 2213112 bytes).
+/masterthesis/tex/ch4.pdf (15 pages, 2214175 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 338 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
+ 380 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
  299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3,63 +3,64 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
 Database file #1: ../litteratur.bib
+Warning--to sort, need author or key in altera_cvoverview15
 Warning--to sort, need author or key in ti08lvds
+Warning--to sort, need author or key in altera_cyclonekit
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1049 of file abbrv.bst
 Warning--to sort, need author, organization, or key in sfp_schem
 Warning--to sort, need author or key in altera_hsmc09
 Warning--to sort, need author or key in polar15
 Warning--to sort, need author or key in elprint15
+Warning--to sort, need author or key in gbt_videos
 Warning--to sort, need author or key in serial2ethernet
 Warning--to sort, need author or key in altera_terminals14
 Warning--to sort, need author or key in gpl3
-Warning--to sort, need author or key in gbt_videos
-Warning--to sort, need author or key in altera_cyclonekit
 Warning--to sort, need author or key in altera_q13
 Warning--to sort, need author or key in altera_usb
 Warning--to sort, need author, organization, or key in si570
 Warning--to sort, need author or key in bitvis16
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1090 of file abbrv.bst
-You've used 21 entries,
+You've used 22 entries,
             2118 wiz_defined-function locations,
-            597 strings with 6801 characters,
-and the built_in function-call counts, 3953 in all, are:
-= -- 395
-> -- 75
+            601 strings with 6951 characters,
+and the built_in function-call counts, 4125 in all, are:
+= -- 413
+> -- 76
 < -- 0
-+ -- 39
++ -- 40
 - -- 18
-* -- 150
-:= -- 559
-add.period$ -- 64
-call.type$ -- 21
-change.case$ -- 67
+* -- 156
+:= -- 579
+add.period$ -- 67
+call.type$ -- 22
+change.case$ -- 70
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 166
-empty$ -- 465
+cite$ -- 37
+duplicate$ -- 173
+empty$ -- 488
 format.name$ -- 18
-if$ -- 924
+if$ -- 967
 int.to.chr$ -- 0
-int.to.str$ -- 21
+int.to.str$ -- 22
 missing$ -- 6
-newline$ -- 109
+newline$ -- 114
 num.names$ -- 14
-pop$ -- 152
+pop$ -- 160
 preamble$ -- 1
-purify$ -- 51
+purify$ -- 53
 quote$ -- 0
-skip$ -- 132
+skip$ -- 138
 stack$ -- 0
-substring$ -- 105
-swap$ -- 22
+substring$ -- 110
+swap$ -- 23
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 78
-warning$ -- 14
+type$ -- 82
+warning$ -- 15
 while$ -- 14
-width$ -- 23
-write$ -- 215
+width$ -- 24
+write$ -- 225
 (There were 2 error messages)

@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\chapter{PC to CRU serial interface}
+\chapter{PC to CRU serial interface} \label{chap:sercom}
 
 In order to connect and control the \gls{cru} from a user \acrshort{pc}, some sort of serial communication between the user \acrshort{pc} and the \gls{fpga} is needed. The purpose of the serial link in this thesis is mainly to monitor and manipulate the \gls{gbt} control signals. Because of this, the speed requirements of the link is not a crucial matter. \\
 Figure \ref{fig:sergui} illustrates the different blocks that makes up the serial interface: The interface on the \gls{pc} side consists of a terminal-like interface that lets the user type in requests that enables the user to read and/or write to the \gls{gbt} control signals via the link. These requests then gets translated into byte-codes and sent out via the transmitter of the \gls{com} to the \gls{uart} on the fpga side. Here, the bytes are stored in a buffer before they get interpreted by a decoder. Depending on the user-request, the decoder can write to a \gls{gbt}-switch or read from a \gls{gbt}-probe.
@@ -24,7 +24,24 @@ Figure \ref{fig:sergui} illustrates the different blocks that makes up the seria
 \label{fig:sergui}
 \end{figure}
 
-\section{GBT control signals}
+\section{ISSP and the GBT control signals}
+
+The Quartus-bound In-System-Source-And-Probe (ISSP) Editor offers a way for the user to control and monitor the \gls{gbt} control signals. This section gives a brief description of these signals. The information was obtained from the \gls{gbt} \gls{fpga} video tutorials \cite{gbt_videos}.
+
+\textit{LATENCY-OPTIMIZED GBT LINK} indicates whether the \gls{gbt} example design is using the latency optimized ('1') version or not ('0'). \\
+\textit{ISSP PLL LOCKED} shows the status of the issp pll, and is obviously not needed in the serial interface.\\
+Status and control fields related to the \textit{TX\_FRAMECLK PHASE ALIGNER} and \textit{TX\_WORDCLK MONITORING} are related to the latency optimized version. \\
+\textit{MGT READY}, \textit{RX\_FRAMECLK READY}, \textit{RX\_WORDCLK READY} and \textit{RX GBT READY} are asserted high ('1') to show that the GBT-link is ready. \\
+\textit{RX BITSLIP NUMBER} is related to the latency optimized version, and must remain at "00h" to indicate that the RX and TX are properly aligned. \\
+With the \textit{LOOPBACK} signal you can select whether you want an internal loopback inside the transceiver, or an external loopback via cabling. \\
+\textit{GENERAL RESET} is the main reset signal of the example design. \\
+\textit{MGT TX PLL RESET}, \textit{TX RESET} and \textit{RX RESET} are reset signals that resets the independent parts of the link, instead of all at the same time that is the case for \textit{GENERAL RESET}. \\
+\textit{PATTERN SELECT} selects what kind of pattern the example is going to send through the transmitter line. It can send a counter value ("1h") that increments by 1, or a static value ("2h").\\ 
+\textit{RX DATA ERROR SEEN FLAG} is asserted high ('1') if the pattern checker detects an indifference in the transmitted and received pattern. \\
+If an error is detected, the \textit{RX DATA ERROR SEEN FLAG} signal remains high until the \textit{RESET DATA \& EXTRA DATA ERROR SEEN FLAG} is asserted high ('1') by the user. \\
+\textit{RX GBT READY LOST FLAG} indicates that the connection has been lost, and remains high until \textit{RESET RX GBT READY LOST FLAG} is asserted high. \\
+The \textit{TX HEADER SELECTOR} chooses the header of the frame: '0' for idle and '1' for data. \\
+The \textit{RX HEADER SELECTOR} indicates whether the received data has a header of the frame that is idle ('0') or data ('0').\\
 
 % \begin{center}
 %   \begin{tabulary}{1\textwidth}{|L|L|L|L|L|}
@@ -55,10 +72,10 @@ Figure \ref{fig:sergui} illustrates the different blocks that makes up the seria
 % \end{center}
 
 \section{Readily available standards}
-The \gls{fpga} unit used in this thesis (section \ref{sec:cyclone}) has (although sparse) various forms of communication standards readily available. The following sections starts off with an evaluation of the different communication standards available on the \gls{fpga}, and continues with a description of the final implementation of the serial communication software and hardware.
+The \gls{fpga} board used in this thesis (section \ref{sec:cyclone}) has (although sparse) various forms of communication standards readily available. The following sections starts off with an evaluation of the different communication standards available on the \gls{fpga}, and continues with a description of the final implementation of the serial communication software and hardware.
 \\
 
-When choosing the serial communication between the \gls{fpga} and the \acrshort{pc}, factors like physical compatibility, implementation, availability and complexity were taken into consideration. The \gls{fpga} unit has the following communication capabilities readily available: \gls{pci}-express, Ethernet, JTAG UART (through the USB Blaster II), and an SDI-transceiver. The following short sections describe advantages and disadvantages of using one of the standards mentioned above in context with the thesis.
+When choosing the serial communication between the \gls{fpga} and the \acrshort{pc}, factors like physical compatibility, implementation, availability and complexity were taken into consideration. The \gls{fpga} board has the following communication capabilities readily available: \gls{pci}-express, Ethernet, JTAG UART (through the USB Blaster II), and an SDI-transceiver. The following short sections describe advantages and disadvantages of using one of the standards mentioned above in context with the thesis.
 
 \subsubsection{PCI-express}
 The \gls{pci}-express connection requires the \gls{fpga} to be directly mounted on the motherboard of the \acrshort{pc}, which is in this situation impractical and not necessary for a simple communication link. This option also limits the compatibility with some \gls{fpga} boards and \acrshort{pc}s that do not have a \gls{pci}-express connection available. It does, however, enable for very fast data transmission and removes potential noise generated by using external cabling. 
@@ -85,7 +102,7 @@ Attempts were made to implement the Nios II and write a simple send- and receive
 
 In addition to the communication standards described above, which in turn requires specific cable- and socket types for connection, it is possible to connect the transmit and receive signals directly to the \gls{fpga} pinout. The only requirement is that the given \gls{fpga} has unoccupied transmitter and receiver signal pins available for the user; either through a HSMC-port (with the help of an additional GPIO-extension board), or through a prototype area or header.\footnote{The user has to assign the available pins to the associated transmitter and receive signals in the \textit{Pin Planner} program, as part of the Quartus II suite.}\\
 
-The \gls{fpga} unit used in this thesis has no dedicated prototyping area for external signal connection. It instead comes with an GPIO-extension board that connects to one of the two on-board HSMC-ports.\footnote{By using both the HSMC-ports on the \gls{fpga}, the GPIO-\gls{pcb} could not fit properly side-by-side with the \acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} (see chapter \ref{chap:pcb}) because the latter \gls{pcb} is a bit to wide.} However, if removing the on-mounted LCD-display, it is possible to use the exposed header for signaling. The header (J10 in the board schematic) is connected to a transmitter- and receiver pair (both running on a voltage of $5~\volt$), several $5~\volt$ output pins and a ground pin. By using the transmitter- and receiver pair from the available header on the \gls{fpga}, it is possible to implement a type of asynchronous serial protocol.\footnote{Most \gls{fpga} developement boards comes with a built-in \gls{uart}-to-USB interface, which connects directly to the USB-port of the \acrshort{pc}. The particular \gls{fpga} used in this thesis had no \gls{uart} interface already built in, so this had to be implemented manually.}
+The \gls{fpga} board used in this thesis has no dedicated prototyping area for external signal connection. It instead comes with an GPIO-extension board that connects to one of the two on-board HSMC-ports.\footnote{By using both the HSMC-ports on the \gls{fpga}, the GPIO-\gls{pcb} could not fit properly side-by-side with the \acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} (see chapter \ref{chap:pcb}) because the latter \gls{pcb} is a bit to wide.} However, if removing the on-mounted LCD-display, it is possible to use the exposed header for signaling. The header (J10 in the board schematic) is connected to a transmitter- and receiver pair (both running on a voltage of $5~\volt$), several $5~\volt$ output pins and a ground pin. By using the transmitter- and receiver pair from the available header on the \gls{fpga}, it is possible to implement a type of asynchronous serial protocol. Most \gls{fpga} developement boards, including the Terasic Cyclone GX board (see section \ref{sec:cyclone}), comes with a built-in \gls{uart}-to-USB interface. This allows you to connect the board directly to the USB-port of the \acrshort{pc} as a serial connection. The \gls{fpga} board used in this thesis has no integrated \gls{uart} interface, so this has to be implemented manually.
 
 \section{Duplex systems}
 
@@ -549,5 +566,7 @@ char *Signal_getTypeIndex(Signal s)
 Functions related to reading and writing to the index string, \textit{index}, of the \textit{Type}-structure of a given signal.\\
 
 \section{Software structure and flowchart}
+
+
 
 \end{document}

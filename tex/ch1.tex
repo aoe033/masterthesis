@@ -11,7 +11,6 @@
 \begin{document}
 
 \chapter{Introduction}
-
 The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
 
 To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\
@@ -19,7 +18,7 @@ To address these needs, the \gls{gbt} architecture and transmission protocol was
 The \gls{gbt} system can be described in two parts: First part of the system consists of radiation hard GBT \glspl{asic} that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bidirectional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments. \\
 The last part of the system is located in the counting room and consists of the \gls{cru} that will provide an interface between the detector \glspl{asic} and an online computerfarm. The \gls{cru} consists of \gls{cots} components (mainly an \acrshort{fpga}), and will through optical links receive the data from the radiation detector. \\
 
-This thesis will mainly focus on the \gls{cru} software interface on the \acrshort{pc} side, and the physical connection between the \gls{cru} and the \gls{vldb} card, where the radiation hard \gls{asic}, the \gls{gbt}x is located.
+This thesis will mainly focus on the \gls{cru} software interface on the \acrshort{pc} side, and the physical connection between the \gls{cru} and the \gls{vldb} card, where the radiation hard \gls{asic}, the \gls{gbt}x, is located.
 
 %\todo{General:\\PLLs\\CPRI?\\}
 
@@ -31,18 +30,61 @@ A \gls{fpga} is a high density \gls{ic} that is designed to be completely progra
 
 The \gls{fpga} (section \ref{sec:cyclone}) used in this thesis is a re-programmable type. It stores the user hardware setup in an \gls{sram} memory to configure routing and logic functions (for a permanent program storage, the \gls{fpga} can be configures to store the hardware setup in the on-board \gls{flash} memory, which then programs the \gls{sram} when powered on).
 
-\subsection{Cyclone V GT} \label{sec:cyclone}
-The Cyclone V GT by Altera is a modern \gls{fpga} with many features. It was chosen for this thesis mainly because of the on-board high speed transceivers that is compatible with the GBT-FPGA. Originally, a Terasic Cyclone V GX development board was tested to use with the GBT-Fpga, which in hand offered many more possibilities in terms of communication with the outside world. However, it was discovered that the transceivers were not fast enough for the GBT-FPGA, so it had to be replaced by the more powerful Cyclone V GT fpga development board (see comparison).  
+
+\subsection{Altera's Cyclone V GT} \label{sec:cyclone}
+
+The \gls{fpga} used in this thesis is the Cyclone V GT by Altera. GT indicates that the \gls{fpga} has transceivers that supports speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}. It was chosen for this thesis mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$. Originally, a Terasic Cyclone V GX development board was intended to be used for this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world such as on-board Usb-to-Uart (more on this in chapter \ref{chap:sercom}. However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
 
 
 \section{Hardware Description Language}
-The most common way to program an \gls{fpga} is by \gls{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. \glspl{hdl} have become more and more useful as system complexity have increased \cite{weste11}. The hardware described in this thesis is done using \acrshort{vhdl}, a strongly typed \gls{hdl} that is known for its capability of describing parallel processes. 
 
-Below is a small example of logic described using \acrshort{vhdl}:
+The most common way to program an \gls{fpga} is by \gls{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. This can then be compiled into an \gls{fpga} which re-wires the available internal \glspl{clb} according to the given instructions. \glspl{hdl} have become more and more useful as system complexity have increased \cite{weste11}. The hardware described in this thesis is done using \acrshort{vhdl}, a strongly typed \gls{hdl} that is known for its capability of describing parallel processes.\\ 
 
-\section{Transceiver Technology}
+Below is a small example describing the logic of a D Flip-Flop using \acrshort{vhdl}:
 
-To be able to send serial data in the gigahertz domain, a high-speed transceiver is required. The Cyclone V GT-series \glspl{fpga} supports a number of transceiver technologies that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of some of these protocols.
+\lstset { %
+    language=VHDL,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+\begin{lstlisting}[frame=single] 
+-- Example of a D Flip-Flop triggered on the rising edge of the clock.
+library IEEE; 
+use IEEE.std_logic_1164.all; 
+ 
+entity DFF_high is 
+  port( 
+    D : in STD_LOGIC; 
+    Q : out STD_LOGIC; 
+    Qbar : out STD_LOGIC; 
+    RESET : in STD_LOGIC; 
+    CLK : in STD_LOGIC 
+  ); 
+end DFF_high; 
+ 
+architecture rtl of DFF_high is 
+begin 
+ 
+process(CLK,RESET) 
+begin 
+  if (RESET='0') then 
+    Q <= '0'; 
+    Qbar <= '1'; 
+  elsif (CLK'event and CLK='1') then -- Can also use rising_edge(clk)
+    Q <= D; 
+    Qbar <= not D; 
+  end if; 
+end process;
+  
+end rtl; 
+\end{lstlisting}
+
+
+\section{Cyclone V transceiver Technology}
+
+To be able to send serial data in the gigahertz domain, a high-speed transceiver is required. The Cyclone V GT-series \glspl{fpga} supports a number of transceiver technologies through the \gls{hsmc} physical interface that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of some of these protocols.
+
 
 \subsection{Differential Signals} \label{subsec:diffsig}
 
@@ -52,21 +94,32 @@ While a single ended signal involves one conductor between the transmitter and r
 
 When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The disadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
 
+
 \subsection{Low-Voltage Differential Signaling}
 
-\gls{lvds} is said to be the most commonly used differential interface. The interface offers a low power consumption with a voltage swing of $350\ \milli\volt$ and good noise immunity. LVDS can deliver data rates up to $3.125\ \giga\bit\per\second$ \cite{ti08lvds}.
+\gls{lvds} is said to be the most commonly used differential interface. The interface offers a low power consumption with a voltage swing of $350\ \milli\volt$ and good noise immunity. LVDS can deliver data rates up to $3.125\ \giga\bit\per\second$ \cite{ti08lvds}.\\
+
+The Cyclone V GT board has 17 \gls{lvds} channels available on the \gls{hsmc} port A connector. The channels have the ability to transmit and receive data at a rate up to $840\ \mega\bit\per\second$, with support for serialization and deserialization through internal logic. \cite{altera_cvoverview15}
+
 
 \subsection{Current-Mode Logic}
 
-For data rates that exceeds $3.125\ \giga\bit\per\second$, \gls{cml} signaling is preferred. This is due to the fact that certain communication standards such as \acrshort{pcie}, \acrshort{sata} and \acrshort{hdmi}, shares consistency with CML in signal amplitude and reference to $Vcc$. CML can reach a data rate in excess of $10\ \giga\bit\per\second$, but has a higher power consumption than \gls{lvds}, with a voltage swing of approximately $800\ \milli\volt$ \cite{ti08lvds}.
+For data rates that exceeds $3.125\ \giga\bit\per\second$, \gls{cml} signaling is preferred. This is due to the fact that certain communication standards such as \acrshort{pcie}, \acrshort{sata} and \acrshort{hdmi}, shares consistency with CML in signal amplitude and reference to $Vcc$. CML can reach a data rate in excess of $10\ \giga\bit\per\second$, but has a higher power consumption than \gls{lvds}, with a voltage swing of approximately $800\ \milli\volt$ \cite{ti08lvds}.\\
 
-\subsection{CPRI/XCVR}
+The Cyclone V GT board has 4 Pseudo-\gls{cml} (PCML) channels available on both port A and B \gls{hsmc} connectors. The channels have the ability to transmit and receive data at a rate up to $5.0\ \giga\bit\per\second$, just over the $4.8\ \giga\bit\per\second$ range required by the \gls{gbt} \gls{mgt}. \cite{altera_cyclonekit}
+
+
+%\subsection{CPRI}
+
 
 \subsection{Phase-Locked Loops}
 
 %A \gls{pll} is a device
 
+
+
 \chapter{The Gigabit Transceiver} \label{chap:gbt}
+
 \todo{History, mgt, Short about the electronic components, gbt-sca, gbtx}
 
 \section{Encoding modes}

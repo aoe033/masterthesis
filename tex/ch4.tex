@@ -29,7 +29,7 @@ The approach of implementing an extra \gls{pll} into the \gls{gbt}-example desig
 
 The below sections gives the following descriptions:
 \begin{itemize}\setlength{\itemsep}{10pt}
-\item How to setup the internal oscillator on the Cyclone V \gls{fpga} board for use as reference clock.
+\item How to setup the internal oscillator on the Cyclone V board for use as reference clock.
 \item How to setup the $Si338$ external oscillator for use as reference clock.
 \end{itemize}
 
@@ -55,7 +55,7 @@ By using Windows, the following steps have been proven to be the best approach t
       \item QUARTUS\_ROOTDIR -- \path{"D:\Quartus_13.1\quartus"}
       \item SOPC\_KIT\_NIOS2 -- \path{"D:\Quartus_13.1\nios2eds"}
     \end{itemize}
-  \item Connect the \gls{fpga} board to the \gls{pc} using USB Blaster II (Refer to the manual for instructions on how to install the USB Blaster II \cite{altera_usb}).
+  \item Connect the Cyclone V board to the \gls{pc} using USB Blaster II (Refer to the manual for instructions on how to install the USB Blaster II \cite{altera_usb}).
   \item In Command Prompt (cmd.exe):
   \begin{itemize}\setlength{\itemsep}{10pt}
       \item Navigate to the "board\_test\_system" folder located inside the Cyclone V kit.
@@ -75,7 +75,7 @@ If done correctly, the Clock Control software will start up and display "Connect
 , where $f_{XTAL}$ is a fixed frequency of $114,2857~\mega\hertz$; RFREQ is a floating point 38-bit word; and HSDIV and N1 is the output dividers \cite{si570}. The parameters are determined by the Clock Control software based on the user typed frequency. The parameters are then sent serially via the USB Blaster II to the $Si570$ chip, where the above formula is used to set the internal registers for the new frequency.
 Figure \ref{fig:clk_cont120} shows the Clock Control software after a new frequency of $120~\mega\hertz$ is set. 
 
-\begin{figure}[ht] % H(strictly put HERE > h!)
+\begin{figure}[H] % H(strictly put HERE > h!)
 \begin{center}
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \includegraphics[scale=1]{../img/clk_cont120}  \\[0.1 cm]
@@ -87,7 +87,7 @@ Figure \ref{fig:clk_cont120} shows the Clock Control software after a new freque
 The $Si570$ is volatile, meaning that the output frequency is reset back to $100~\mega\hertz$ if power is lost. The procedure must therefore be repeated every time the \gls{fpga} is powered on.\\
 To confirm correct operation, a quick measurement of the output clock was done using an oscilloscope. Figures \ref{fig:tek100} and \ref{fig:tek120} shows the output frequency, before and after configuration.\\
 
-\begin{figure}[!ht]
+\begin{figure}[H]
    \begin{floatrow}
      \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek100}}{\caption{$Si570$ Before configuration: 100 MHz.}\label{fig:tek100}}
      \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek120}}{\caption{$Si570$ After configuration: 120 MHz.}\label{fig:tek120}}
@@ -118,7 +118,7 @@ The setup involves the use of a multimeter to go through all pins and check for 
 \subsection{Results}
  Using a multimeter, all connections were checked and verified that there were no shorts (Some pins on the \gls{hsmc} were indeed shorted and had to be re-soldered). The \gls{pcb} was then connected to an external power supply, with a $3.3~\volt$ output and a current output limited to $100~\milli\ampere$. It was verified that the current draw, with all \gls{hdmi}-connections left open, were no more than the current drawn from the power-\acrshort{led}, i.e around $40~\milli\ampere$. \\
 
-To confirm connectivity and that there were no further connecting shorts between the pads and/or pins, a simple test-circuit was written in Quartus. Beginning with the transmit-signals: all the relevant \gls{lvds} transmit-signals that are physically connected to the \gls{hsmc} (port A) connector of the \gls{fpga} were connected to a given clock signal. The \gls{pcb} was then connected to the \gls{fpga} board, and the \gls{hdmi} connectors were probed with the help of an oscilloscope and verified that there was an output signal on every \gls{hdmi}-transmitter. 
+To confirm connectivity and that there were no further connecting shorts between the pads and/or pins, a simple test-circuit was written in Quartus. Beginning with the transmit-signals: all the relevant \gls{lvds} transmit-signals that are physically connected to the \gls{hsmc} (port A) connector of the \gls{fpga} were connected to a given clock signal. The \gls{pcb} was then connected to the Cyclone V board, and the \gls{hdmi} connectors were probed with the help of an oscilloscope and verified that there was an output signal on every \gls{hdmi}-transmitter. 
 
 The \gls{pcb} is now ready for connection with the host \gls{fpga} for further testing of the transmitter and receiver signals. 
 
@@ -167,7 +167,7 @@ To measure the quality of the \gls{lvds} signals with an oscilloscope, different
 \section{Conclusion and discussions}
 
 
-When measuring the quality of a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
+When measuring the quality of a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
 
 \begin{figure}[H] 
    \begin{center}
@@ -184,7 +184,7 @@ The measurement resulted in signals that were heavily distorted by reflections. 
    \end{floatrow}
 \end{figure}
 
-As shown in figure \ref{fig:measdiff2}, reflections still occurs and were measured to be in the range of $360~\mega\hertz$. By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It is concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
+As shown in figure \ref{fig:measdiff2}, reflections still occurs. By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It is concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
 
 \chapter{Testing and verification of the Serial interface} \label{chap:sertest}
 
@@ -220,7 +220,7 @@ The \textit{Bitvis Utility Library} is an open source \gls{vhdl} testbench infra
 
 \subsection{Results}
 
-While testing the \gls{fpga} design, it occured that the \gls{uart} would hang after a random period of time. The reason as to why this was happening has yet to be found. A quick fix to this, however, was to simply implement a timer that would reset the \gls{uart} on the condition that no bytes have arrived in a given amount of time when the \gls{uart} is in the idle state. This is not a permanent fix, since there is a chance that the \gls{uart} might reset while a byte is under transmission. This might give an explanation as to why the C-program in some cases did not receive all the data it requested during transmission to the \gls{fpga}.
+While testing the \gls{fpga} design, it occured that the \gls{uart} would hang after a random period of time. The reason as to why this was happening has yet to be found. A quick fix to this, however, was to simply implement a timer that would reset the \gls{uart} on the condition that no bytes have arrived in a given amount of time when the \gls{uart} is in the idle state. This is not a permanent fix, since there is a chance that the \gls{uart} might reset while a byte is under transmission. This might give an explanation as to why the C-program in some cases did not receive all the data it requested during transmission.
 
 \section{Conclusion and discussions}
 

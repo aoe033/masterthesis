@@ -456,6 +456,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-ot1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-ot1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-ot1.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-ot1.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTI-tlf-ot1.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-ot1--base.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTB-tlf-ot1.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTI-tlf-ot1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-ot1--base.tfm
 INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/ch2.tex
@@ -510,9 +516,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrarys
 INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/../img/altera_jtag.pdf
 INPUT ../img/altera_jtag.pdf
 INPUT ../img/altera_jtag.pdf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-ot1.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTI-tlf-ot1.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTI-tlf-ot1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxBiolinumT-TLF.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxBiolinumT-TLF.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-ot1.tfm
@@ -536,10 +539,7 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-ts1.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineTB-tlf-ot1.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineTB-tlf-ot1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-ts1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-ts1--base.tfm
 INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/ch4.tex
@@ -609,6 +609,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.p
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
