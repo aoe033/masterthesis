@@ -75,7 +75,7 @@ If done correctly, the Clock Control software will start up and display "Connect
 , where $f_{XTAL}$ is a fixed frequency of $114,2857~\mega\hertz$; RFREQ is a floating point 38-bit word; and HSDIV and N1 is the output dividers \cite{si570}. The parameters are determined by the Clock Control software based on the user typed frequency. The parameters are then sent serially via the USB Blaster II to the $Si570$ chip, where the above formula is used to set the internal registers for the new frequency.
 Figure \ref{fig:clk_cont120} shows the Clock Control software after a new frequency of $120~\mega\hertz$ is set. 
 
-\begin{figure}[H] % H(strictly put HERE > h!)
+\begin{figure}[] % H(strictly put HERE > h!)
 \begin{center}
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \includegraphics[scale=1]{../img/clk_cont120}  \\[0.1 cm]
@@ -87,7 +87,7 @@ Figure \ref{fig:clk_cont120} shows the Clock Control software after a new freque
 The $Si570$ is volatile, meaning that the output frequency is reset back to $100~\mega\hertz$ if power is lost. The procedure must therefore be repeated every time the \gls{fpga} is powered on.\\
 To confirm correct operation, a quick measurement of the output clock was done using an oscilloscope. Figures \ref{fig:tek100} and \ref{fig:tek120} shows the output frequency, before and after configuration.\\
 
-\begin{figure}[H]
+\begin{figure}[]
    \begin{floatrow}
      \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek100}}{\caption{$Si570$ Before configuration: 100 MHz.}\label{fig:tek100}}
      \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek120}}{\caption{$Si570$ After configuration: 120 MHz.}\label{fig:tek120}}
@@ -116,7 +116,7 @@ To verify a working \gls{pcb}, the \gls{hdmi} daughter card underwent a series o
 The setup involves the use of a multimeter to go through all pins and check for connection faults according to the schematic. After all shorts have been eliminated, the \gls{pcb} is to be connected to an external power supply to verify current-draw. 
 
 \subsection{Results}
- Using a multimeter, all connections were checked and verified that there were no shorts (Some pins on the \gls{hsmc} were indeed shorted and had to be re-soldered). The \gls{pcb} was then connected to an external power supply, with a $3.3~\volt$ output and a current output limited to $100~\milli\ampere$. It was verified that the current draw, with all \gls{hdmi}-connections left open, were no more than the current drawn from the power-\acrshort{led}, i.e around $40~\milli\ampere$. \\
+ Using a multimeter, all connections were checked and verified that there were no shorts (Some pins on the \gls{hsmc} were indeed shorted and had to be re-soldered). The \gls{pcb} was then connected to an external power supply, with a $3.3~\volt$ output and a current output limited to $100~\milli\ampere$. It was verified that the current draw, with all \gls{hdmi}-connections left open, were no more than the current drawn from the power-\acrshort{led} and the $1.25~\volt$ voltage divider, i.e around $40~\milli\ampere$. \\
 
 To confirm connectivity and that there were no further connecting shorts between the pads and/or pins, a simple test-circuit was written in Quartus. Beginning with the transmit-signals: all the relevant \gls{lvds} transmit-signals that are physically connected to the \gls{hsmc} (port A) connector of the \gls{fpga} were connected to a given clock signal. The \gls{pcb} was then connected to the Cyclone V board, and the \gls{hdmi} connectors were probed with the help of an oscilloscope and verified that there was an output signal on every \gls{hdmi}-transmitter. 
 

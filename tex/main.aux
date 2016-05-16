@@ -111,97 +111,108 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:sercom}{{4}{15}{PC to CRU serial interface}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}ISSP and the GBT control signals}{15}{section.4.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram over the PC to CRU serial interface.\relax }}{15}{figure.caption.15}}
 \newlabel{fig:sergui}{{4.1}{15}{Diagram over the PC to CRU serial interface.\relax }{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Readily available standards}{16}{section.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}ISSP and the GBT control signals}{15}{section.4.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces GBT control signals overview, switches.\relax }}{16}{table.caption.16}}
+\newlabel{tab:switch}{{4.1}{16}{GBT control signals overview, switches.\relax }{table.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces GBT control signals overview, probes.\relax }}{17}{table.caption.17}}
+\newlabel{tab:probe}{{4.2}{17}{GBT control signals overview, probes.\relax }{table.caption.17}{}}
 \citation{serial2ethernet}
 \citation{altera_terminals14}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Readily available standards}{18}{section.4.2}}
+\@writefile{toc}{\contentsline {subsubsection}{PCI-express}{18}{section*.18}}
+\@writefile{toc}{\contentsline {subsubsection}{Ethernet}{18}{section*.19}}
+\@writefile{toc}{\contentsline {subsubsection}{SDI-transceiver}{18}{section*.20}}
+\@writefile{toc}{\contentsline {subsubsection}{Altera JTAG}{18}{section*.21}}
 \citation{altera_terminals14}
 \citation{altera_terminals14}
-\@writefile{toc}{\contentsline {subsubsection}{PCI-express}{17}{section*.16}}
-\@writefile{toc}{\contentsline {subsubsection}{Ethernet}{17}{section*.17}}
-\@writefile{toc}{\contentsline {subsubsection}{SDI-transceiver}{17}{section*.18}}
-\@writefile{toc}{\contentsline {subsubsection}{Altera JTAG}{17}{section*.19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite  [Figure 1]{altera_terminals14}.\relax }}{18}{figure.caption.20}}
-\newlabel{fig:altjtag}{{4.2}{18}{JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}User defined communication}{18}{section.4.3}}
-\newlabel{sec:usercom}{{4.3}{18}{User defined communication}{section.4.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Duplex systems}{19}{section.4.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Choosing communication protocol}{19}{section.4.5}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Hardware design on the FPGA side}{21}{chapter.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite  [Figure 1]{altera_terminals14}.\relax }}{19}{figure.caption.22}}
+\newlabel{fig:altjtag}{{4.2}{19}{JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}User defined communication}{19}{section.4.3}}
+\newlabel{sec:usercom}{{4.3}{19}{User defined communication}{section.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single ended transmitter and receiver signals.\relax }}{20}{figure.caption.23}}
+\newlabel{fig:lcdheader}{{4.3}{20}{J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single ended transmitter and receiver signals.\relax }{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Duplex systems}{20}{section.4.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Choosing communication protocol}{20}{section.4.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Hardware design on the FPGA side}{23}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:hardware}{{5}{21}{Hardware design on the FPGA side}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Specification}{21}{section.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Transmission protocol: RS-232}{21}{section.5.2}}
+\newlabel{chap:hardware}{{5}{23}{Hardware design on the FPGA side}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Specification}{23}{section.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Transmission protocol: RS-232}{23}{section.5.2}}
 \citation{chu08}
 \citation{chu08}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of an \acrshort {rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{22}{figure.caption.21}}
-\newlabel{fig:rs232}{{5.1}{22}{Example of an \acrshort {rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Hardware Components}{22}{section.5.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}UART}{22}{subsection.5.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}UART oversampling and the Baud Rate Generator}{22}{subsection.5.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of an \acrshort {rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{24}{figure.caption.24}}
+\newlabel{fig:rs232}{{5.1}{24}{Example of an \acrshort {rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Hardware Components}{24}{section.5.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}UART}{24}{subsection.5.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}UART oversampling and the Baud Rate Generator}{24}{subsection.5.3.2}}
 \citation{rapid08}
 \citation{velure10}
 \citation{velure10}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{23}{figure.caption.22}}
-\newlabel{fig:uartsample}{{5.2}{23}{\gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}UART Receiver}{24}{subsection.5.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces \gls {uart} receiver state machine.\relax }}{24}{figure.caption.23}}
-\newlabel{fig:uartrx}{{5.3}{24}{\gls {uart} receiver state machine.\relax }{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Idle state}{24}{section*.24}}
-\@writefile{toc}{\contentsline {subsubsection}{Start state}{24}{section*.25}}
-\@writefile{toc}{\contentsline {subsubsection}{Data state}{25}{section*.26}}
-\@writefile{toc}{\contentsline {subsubsection}{Stop state}{25}{section*.27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}UART Transmitter}{25}{subsection.5.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{25}{figure.caption.28}}
-\newlabel{fig:uarttx}{{5.4}{25}{\gls {uart} transmitter state machine, similar to that of the receiver.\relax }{figure.caption.28}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Idle state}{25}{section*.29}}
-\@writefile{toc}{\contentsline {subsubsection}{Start state}{26}{section*.30}}
-\@writefile{toc}{\contentsline {subsubsection}{Data state}{26}{section*.31}}
-\@writefile{toc}{\contentsline {subsubsection}{Stop state}{26}{section*.32}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}FIFO buffers}{26}{subsection.5.3.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}UART decoder}{26}{subsection.5.3.6}}
-\@writefile{toc}{\contentsline {subsubsection}{Idle state}{27}{section*.33}}
-\@writefile{toc}{\contentsline {subsubsection}{Read1 state}{27}{section*.34}}
-\@writefile{toc}{\contentsline {subsubsection}{Wait1 state}{27}{section*.35}}
-\@writefile{toc}{\contentsline {subsubsection}{Read2 state}{27}{section*.36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.25}}
+\newlabel{fig:uartsample}{{5.2}{25}{\gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}UART Receiver}{26}{subsection.5.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.26}}
+\newlabel{fig:uartrx}{{5.3}{26}{\gls {uart} receiver state machine.\relax }{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Idle state}{26}{section*.27}}
+\@writefile{toc}{\contentsline {subsubsection}{Start state}{26}{section*.28}}
+\@writefile{toc}{\contentsline {subsubsection}{Data state}{27}{section*.29}}
+\@writefile{toc}{\contentsline {subsubsection}{Stop state}{27}{section*.30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}UART Transmitter}{27}{subsection.5.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{27}{figure.caption.31}}
+\newlabel{fig:uarttx}{{5.4}{27}{\gls {uart} transmitter state machine, similar to that of the receiver.\relax }{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Idle state}{27}{section*.32}}
+\@writefile{toc}{\contentsline {subsubsection}{Start state}{28}{section*.33}}
+\@writefile{toc}{\contentsline {subsubsection}{Data state}{28}{section*.34}}
+\@writefile{toc}{\contentsline {subsubsection}{Stop state}{28}{section*.35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}FIFO buffers}{28}{subsection.5.3.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}UART decoder}{28}{subsection.5.3.6}}
+\@writefile{toc}{\contentsline {subsubsection}{Idle state}{29}{section*.36}}
+\@writefile{toc}{\contentsline {subsubsection}{Read1 state}{29}{section*.37}}
+\@writefile{toc}{\contentsline {subsubsection}{Wait1 state}{29}{section*.38}}
+\@writefile{toc}{\contentsline {subsubsection}{Read2 state}{29}{section*.39}}
 \citation{gpl3}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Software on the PC side}{29}{chapter.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Software on the PC side}{31}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:software}{{6}{29}{Software on the PC side}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Specification}{29}{section.6.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Non-standard libraries}{29}{section.6.2}}
+\newlabel{chap:software}{{6}{31}{Software on the PC side}{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Specification}{31}{section.6.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Non-standard libraries}{31}{section.6.2}}
 \citation{gpl3}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}RS232}{30}{subsection.6.2.1}}
-\@writefile{toc}{\contentsline {subsubsection}{Associated functions}{30}{section*.37}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Timer}{30}{subsection.6.2.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Associated functions}{31}{section*.38}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Signals}{31}{subsection.6.2.3}}
-\@writefile{toc}{\contentsline {subsubsection}{Associated structures}{31}{section*.39}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}RS232}{32}{subsection.6.2.1}}
 \@writefile{toc}{\contentsline {subsubsection}{Associated functions}{32}{section*.40}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Software structure and flowchart}{33}{section.6.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Timer}{32}{subsection.6.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{Associated functions}{33}{section*.41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Signals}{33}{subsection.6.2.3}}
+\@writefile{toc}{\contentsline {subsubsection}{Associated structures}{33}{section*.42}}
+\@writefile{toc}{\contentsline {subsubsection}{Associated functions}{34}{section*.43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}ncurses}{35}{subsection.6.2.4}}
+\newlabel{sec:ncurses}{{6.2.4}{35}{ncurses}{subsection.6.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Associated functions}{36}{section*.44}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Software structure and flowchart}{36}{section.6.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Conclusion and Discussion}{36}{section.6.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Notable problems}{36}{subsection.6.4.1}}
 \citation{gbt_videos}
 \citation{altera_cyclonekit}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}External and Internal Loopback test of the GBT bank Quartus Example}{35}{chapter.7}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}External and Internal Loopback test of the GBT bank Quartus Example}{37}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}120 MHz reference clock}{35}{section.7.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}120 MHz reference clock}{37}{section.7.1}}
 \citation{altera_q13}
 \citation{altera_usb}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Configuring the on-board oscillator on the Cyclone V board}{36}{section.7.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Clock Control software setup}{36}{subsection.7.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Steps for configuring Windows to run the Clock Control software}{36}{subsection.7.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Configuring the on-board oscillator on the Cyclone V board}{38}{section.7.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Clock Control software setup}{38}{subsection.7.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Steps for configuring Windows to run the Clock Control software}{38}{subsection.7.2.2}}
 \citation{si570}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{38}{figure.caption.41}}
-\newlabel{fig:clk_cont120}{{7.1}{38}{Clock Control software by Altera used to program the $Si570$.\relax }{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{38}{figure.caption.42}}
-\newlabel{fig:tek100}{{7.2}{38}{$Si570$ Before configuration: 100 MHz.\relax }{figure.caption.42}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{38}{figure.caption.42}}
-\newlabel{fig:tek120}{{7.3}{38}{$Si570$ After configuration: 120 MHz.\relax }{figure.caption.42}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {7.3}Configuring the $Si338$ external oscillator}{39}{section.7.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{40}{figure.caption.45}}
+\newlabel{fig:clk_cont120}{{7.1}{40}{Clock Control software by Altera used to program the $Si570$.\relax }{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{40}{figure.caption.46}}
+\newlabel{fig:tek100}{{7.2}{40}{$Si570$ Before configuration: 100 MHz.\relax }{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{40}{figure.caption.46}}
+\newlabel{fig:tek120}{{7.3}{40}{$Si570$ After configuration: 120 MHz.\relax }{figure.caption.46}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {8}Testing and verification of the HDMI daughter card}{41}{chapter.8}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -218,12 +229,12 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.3.2}Experimental setup}{43}{subsection.8.3.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.3.3}Results}{43}{subsection.8.3.3}}
 \@writefile{toc}{\contentsline {section}{\numberline {8.4}Conclusion and discussions}{43}{section.8.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{44}{figure.caption.43}}
-\newlabel{fig:hektere}{{8.1}{44}{Small clamps was first used to measure the high-speed signal.\relax }{figure.caption.43}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces $100\nobreakspace  {}\ensuremath  {\SI@fstyle  {M}}\ensuremath  {\SI@fstyle  {Hz}}$ measured using clamps.\relax }}{44}{figure.caption.44}}
-\newlabel{fig:measdiff1}{{8.2}{44}{$100~\mega \hertz $ measured using clamps.\relax }{figure.caption.44}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces $100\nobreakspace  {}\ensuremath  {\SI@fstyle  {M}}\ensuremath  {\SI@fstyle  {Hz}}$ measured using stubs.\relax }}{44}{figure.caption.44}}
-\newlabel{fig:measdiff2}{{8.3}{44}{$100~\mega \hertz $ measured using stubs.\relax }{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{44}{figure.caption.47}}
+\newlabel{fig:hektere}{{8.1}{44}{Small clamps was first used to measure the high-speed signal.\relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces $100\nobreakspace  {}\ensuremath  {\SI@fstyle  {M}}\ensuremath  {\SI@fstyle  {Hz}}$ measured using clamps.\relax }}{44}{figure.caption.48}}
+\newlabel{fig:measdiff1}{{8.2}{44}{$100~\mega \hertz $ measured using clamps.\relax }{figure.caption.48}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces $100\nobreakspace  {}\ensuremath  {\SI@fstyle  {M}}\ensuremath  {\SI@fstyle  {Hz}}$ measured using stubs.\relax }}{44}{figure.caption.48}}
+\newlabel{fig:measdiff2}{{8.3}{44}{$100~\mega \hertz $ measured using stubs.\relax }{figure.caption.48}{}}
 \citation{bitvis16}
 \@writefile{toc}{\contentsline {chapter}{\numberline {9}Testing and verification of the Serial interface}{47}{chapter.9}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -269,7 +280,7 @@
 \bibcite{chu08}{{20}{}{{}}{{}}}
 \bibcite{gbt_fpga}{{21}{}{{}}{{}}}
 \bibcite{velure10}{{22}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {section}{Appendix}{56}{chapter*.49}}
+\@writefile{toc}{\contentsline {section}{Appendix}{56}{chapter*.53}}
 \citation{altera_hsmc09}
 \citation{altera_terminals14}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers

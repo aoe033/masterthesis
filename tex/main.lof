@@ -7,20 +7,21 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Pull-up resistors on some of the receiver lines.\relax }}{13}{figure.caption.14}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram over the PC to CRU serial interface.\relax }}{15}{figure.caption.15}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{18}{figure.caption.20}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single ended transmitter and receiver signals.\relax }}{20}{figure.caption.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of an \acrshort {rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{22}{figure.caption.21}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{23}{figure.caption.22}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces \gls {uart} receiver state machine.\relax }}{24}{figure.caption.23}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{25}{figure.caption.28}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of an \acrshort {rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{24}{figure.caption.24}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.25}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.26}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{27}{figure.caption.31}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{38}{figure.caption.41}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{38}{figure.caption.42}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{38}{figure.caption.42}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{40}{figure.caption.45}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{40}{figure.caption.46}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{40}{figure.caption.46}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{44}{figure.caption.43}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using clamps.\relax }}{44}{figure.caption.44}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using stubs.\relax }}{44}{figure.caption.44}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{44}{figure.caption.47}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using clamps.\relax }}{44}{figure.caption.48}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using stubs.\relax }}{44}{figure.caption.48}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

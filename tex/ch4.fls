@@ -267,12 +267,14 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-INPUT /usr/share/texlive/texmf-dist/tex/latex/tabulary/tabulary.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/tabulary/tabulary.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/a4wide/a4wide.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/a4wide/a4wide.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/ntgclass/a4.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/ntgclass/a4.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/SIunits/SIunits.sty

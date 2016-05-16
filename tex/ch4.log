@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  14 MAY 2016 16:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  16 MAY 2016 19:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1460,13 +1460,15 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(/usr/share/texlive/texmf-dist/tex/latex/tabulary/tabulary.sty
-Package: tabulary 2014/06/11 v0.10 tabulary package (DPC)
-\TY@count=\count194
-\TY@linewidth=\dimen277
-\tymin=\dimen278
-\tymax=\dimen279
-\TY@tablewidth=\dimen280
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
+\TX@col@width=\dimen277
+\TX@old@table=\dimen278
+\TX@old@col=\dimen279
+\TX@target=\dimen280
+\TX@delta=\dimen281
+\TX@cols=\count194
+\TX@ftn=\toks45
 )
 (/usr/share/texlive/texmf-dist/tex/latex/a4wide/a4wide.sty
 Package: a4wide 1994/08/30
@@ -1474,6 +1476,12 @@ Package: a4wide 1994/08/30
 (/usr/share/texlive/texmf-dist/tex/latex/ntgclass/a4.sty
 Package: a4 2004/04/15 v1.2g A4 based page layout
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count195
+\c@@ppsavesec=\count196
+\c@@ppsaveapp=\count197
+)
 (/usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2012/05/23 Federico Garcia
 )
@@ -1513,12 +1521,12 @@ Package: suffix 2006/07/15 1.5a Variant command support
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write4
-\integerpart=\count195
-\decimalpart=\count196
+\integerpart=\count198
+\decimalpart=\count266
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\AC@clearlist=\toks45
+\AC@clearlist=\toks46
 )
 (/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
@@ -1533,25 +1541,25 @@ File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count197
-\calc@Bcount=\count198
-\calc@Adimen=\dimen281
-\calc@Bdimen=\dimen282
+\calc@Acount=\count267
+\calc@Bcount=\count268
+\calc@Adimen=\dimen282
+\calc@Bdimen=\dimen283
 \calc@Askip=\skip151
 \calc@Bskip=\skip152
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count266
+\calc@Ccount=\count269
 \calc@Cskip=\skip153
 )
-\c@@todonotes@numberoftodonotes=\count267
+\c@@todonotes@numberoftodonotes=\count270
 )
-Package hyperref Info: Option `unicode' set `false' on input line 105.
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 105.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 105.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 105.
-Package hyperref Info: Option `pdfnewwindow' set `true' on input line 105.
-Package hyperref Info: Option `colorlinks' set `false' on input line 105.
+Package hyperref Info: Option `unicode' set `false' on input line 108.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 108.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 108.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 108.
+Package hyperref Info: Option `pdfnewwindow' set `true' on input line 108.
+Package hyperref Info: Option `colorlinks' set `false' on input line 108.
 )
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /../acronyms.sty
@@ -1562,8 +1570,8 @@ Package: glossaries 2016/01/24 v4.21 (NLCT)
 
 (/usr/share/texlive/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
 Package: mfirstuc 2015/12/17 v2.02 (NLCT)
-\@glsmfirst=\toks46
-\@glsmrest=\toks47
+\@glsmfirst=\toks47
+\@glsmrest=\toks48
 )
 (/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty
 Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
@@ -1576,7 +1584,7 @@ Package: datatool-base 2016/01/18 v2.25 (NLCT)
 
 (/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
 Package: substr 2009/10/20 v1.2 Handle substrings
-\c@su@anzahl=\count268
+\c@su@anzahl=\count271
 )
 (/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-fp.sty
 Package: datatool-fp 2016/01/18 v2.25 (NLCT)
@@ -1587,19 +1595,19 @@ Package: fp 1995/04/02
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 (/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count269
+\actioncount=\count272
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count270
-\FP@xia=\count271
-\FP@xib=\count272
-\FP@xfa=\count273
-\FP@xfb=\count274
-\FP@rega=\count275
-\FP@regb=\count276
-\FP@regs=\count277
-\FP@times=\count278
+\FP@xs=\count273
+\FP@xia=\count274
+\FP@xib=\count275
+\FP@xfa=\count276
+\FP@xfb=\count277
+\FP@rega=\count278
+\FP@regb=\count279
+\FP@regs=\count280
+\FP@times=\count281
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
@@ -1618,7 +1626,7 @@ Package: fp-pas 1994/08/29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count279
+\FPseed=\count282
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
@@ -1629,27 +1637,27 @@ Package: fp-upn 1996/10/21
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
 Package: fp-eval 1995/04/03
 )))
-\@dtl@toks=\toks48
-\@dtl@tmpcount=\count280
+\@dtl@toks=\toks49
+\@dtl@tmpcount=\count283
 \dtl@tmplength=\skip154
-\dtl@sortresult=\count281
-\@dtl@numgrpsepcount=\count282
-\@dtl@datatype=\count283
-\dtl@codeA=\count284
-\dtl@codeB=\count285
-\@dtl@foreach@level=\count286
+\dtl@sortresult=\count284
+\@dtl@numgrpsepcount=\count285
+\@dtl@datatype=\count286
+\dtl@codeA=\count287
+\dtl@codeB=\count288
+\@dtl@foreach@level=\count289
 )
 (/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries-compatible-
 307.sty
 Package: glossaries-compatible-307 2016/01/24 v4.21 (NLCT)
 )
-\gls@level=\count287
-\@gls@tmpb=\toks49
+\gls@level=\count290
+\@gls@tmpb=\toks50
 \gls@tmplen=\skip155
-\glskeylisttok=\toks50
-\glslabeltok=\toks51
-\glsshorttok=\toks52
-\glslongtok=\toks53
+\glskeylisttok=\toks51
+\glslabeltok=\toks52
+\glsshorttok=\toks53
+\glslongtok=\toks54
 
 (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.st
 y
@@ -1666,17 +1674,17 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTright=\skip158
 \LTpre=\skip159
 \LTpost=\skip160
-\LTchunksize=\count288
-\LTcapwidth=\dimen283
+\LTchunksize=\count291
+\LTcapwidth=\dimen284
 \LT@head=\box68
 \LT@firsthead=\box69
 \LT@foot=\box70
 \LT@lastfoot=\box71
-\LT@cols=\count289
-\LT@rows=\count290
-\c@LT@tables=\count291
-\c@LT@chunks=\count292
-\LT@p@ftn=\toks54
+\LT@cols=\count292
+\LT@rows=\count293
+\c@LT@tables=\count294
+\c@LT@chunks=\count295
+\LT@p@ftn=\toks55
 )
 \glsdescwidth=\skip161
 \glspagelistwidth=\skip162
@@ -1686,21 +1694,21 @@ Package: glossary-super 2016/01/24 v4.21 (NLCT)
 
 (/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
 Package: supertabular 2004/02/20 v4.1e the supertabular environment
-\c@tracingst=\count293
-\ST@wd=\dimen284
+\c@tracingst=\count296
+\ST@wd=\dimen285
 \ST@rightskip=\skip163
 \ST@leftskip=\skip164
 \ST@parfillskip=\skip165
-\ST@pageleft=\dimen285
-\ST@headht=\dimen286
-\ST@tailht=\dimen287
-\ST@pagesofar=\dimen288
-\ST@pboxht=\dimen289
-\ST@lineht=\dimen290
-\ST@stretchht=\dimen291
-\ST@prevht=\dimen292
-\ST@toadd=\dimen293
-\ST@dimen=\dimen294
+\ST@pageleft=\dimen286
+\ST@headht=\dimen287
+\ST@tailht=\dimen288
+\ST@pagesofar=\dimen289
+\ST@pboxht=\dimen290
+\ST@lineht=\dimen291
+\ST@stretchht=\dimen292
+\ST@prevht=\dimen293
+\ST@toadd=\dimen294
+\ST@dimen=\dimen295
 \ST@pbox=\box72
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
@@ -1753,17 +1761,17 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count294
-\scratchdimen=\dimen295
+\scratchcounter=\count297
+\scratchdimen=\dimen296
 \scratchbox=\box73
-\nofMPsegments=\count295
-\nofMParguments=\count296
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count297
-\MPscratchDim=\dimen296
-\MPnumerator=\count298
-\makeMPintoPDFobject=\count299
-\everyMPtoPDFconversion=\toks56
+\nofMPsegments=\count298
+\nofMParguments=\count299
+\everyMPshowfont=\toks56
+\MPscratchCnt=\count300
+\MPscratchDim=\dimen297
+\MPnumerator=\count301
+\makeMPintoPDFobject=\count302
+\everyMPtoPDFconversion=\toks57
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1796,13 +1804,13 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 
 \flrow@LT@lasthead=\box74
 \flrow@LT@prelastfoot=\box75
-\c@FBLTpage=\count300
+\c@FBLTpage=\count303
 )
 \AtBeginShipoutBox=\box76
 
 ABD: EveryShipout initializing macros
-\c@mv@tabular=\count301
-\c@mv@boldtabular=\count302
+\c@mv@tabular=\count304
+\c@mv@boldtabular=\count305
 Package hyperref Info: Link coloring OFF on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1811,7 +1819,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count303
+\c@section@level=\count306
 )
 LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
@@ -1824,7 +1832,7 @@ LaTeX Info: Redefining \nameref on input line 11.
 \@outlinefile=\write8
 \openout8 = `ch4.out'.
 
-\c@lstlisting=\count304
+\c@lstlisting=\count307
 
 Option `squaren' provided! 
  Command \squaren defined by SIunits package!
@@ -1925,6 +1933,10 @@ Package natbib Warning: Citation `altera_usb' on page 3 undefined on input line
 
 Package natbib Warning: Citation `si570' on page 3 undefined on input line 75.
 
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 78.
+
 <../img/clk_cont120.PNG, id=171, 344.78813pt x 283.0575pt>
 File: ../img/clk_cont120.PNG Graphic file (type png)
 
@@ -1932,14 +1944,15 @@ File: ../img/clk_cont120.PNG Graphic file (type png)
 Package pdftex.def Info: ../img/clk_cont120.PNG used on input line 81.
 (pdftex.def)             Requested size: 344.78728pt x 283.0568pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
 Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
-<../img/20160226_tek100.png, id=186, 1027.84pt x 770.88pt>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 90.
+
+<../img/20160226_tek100.png, id=176, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek100.png Graphic file (type png)
 
 <use ../img/20160226_tek100.png>
@@ -1950,7 +1963,7 @@ File: ../img/20160226_tek100.png Graphic file (type png)
 Package pdftex.def Info: ../img/20160226_tek100.png used on input line 92.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/20160226_tek120.png, id=187, 1027.84pt x 770.88pt>
+<../img/20160226_tek120.png, id=177, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek120.png Graphic file (type png)
 
 <use ../img/20160226_tek120.png>
@@ -1980,10 +1993,8 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 97.
 
-[4 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../img/201
-60226_tek120.png (PNG copy)>] [5] [6
-
-]
+[3] [4 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../img
+/20160226_tek120.png (PNG copy)>]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 12.0pt on input line 105.
@@ -1992,11 +2003,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-[7] [8]
+[5
 
-LaTeX Warning: Reference `chap:pcb' on page 9 undefined on input line 158.
+] [6]
 
-<../img/hektere_probes.pdf, id=256, 815.84799pt x 797.37903pt>
+LaTeX Warning: Reference `chap:pcb' on page 7 undefined on input line 158.
+
+<../img/hektere_probes.pdf, id=247, 815.84799pt x 797.37903pt>
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
@@ -2009,8 +2022,8 @@ Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 174.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
-<../img/hektere_oppsett_100mhz.png, id=269, 1027.84pt x 770.88pt>
+ [7]
+<../img/hektere_oppsett_100mhz.png, id=261, 1027.84pt x 770.88pt>
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
@@ -2024,7 +2037,7 @@ Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
 82.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/stubs_oppsett_100mhz.png, id=270, 1027.84pt x 770.88pt>
+<../img/stubs_oppsett_100mhz.png, id=262, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
@@ -2037,13 +2050,13 @@ Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 183
 .
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-[10 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
-<../img/stubs_oppsett_100mhz.png (PNG copy)>] [11] [12
+[8 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> <
+../img/stubs_oppsett_100mhz.png (PNG copy)>] [9] [10
 
 ]
 Chapter 3.
 
-Package natbib Warning: Citation `bitvis16' on page 13 undefined on input line 
+Package natbib Warning: Citation `bitvis16' on page 11 undefined on input line 
 202.
 
 
@@ -2052,7 +2065,7 @@ Overfull \hbox (3.3455pt too wide) in paragraph at lines 208--208
 ng Signal-
  []
 
-[13] [14]
+[11] [12]
 Chapter 4.
 
 Package natbib Warning: There were undefined citations.
@@ -2062,7 +2075,7 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.)
 This document will not have a glossary.
 
-[15
+[13
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 229.
@@ -2080,10 +2093,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 37078 strings out of 493029
- 683861 string characters out of 6136235
- 803269 words of memory out of 5000000
- 39907 multiletter control sequences out of 15000+600000
+ 37163 strings out of 493029
+ 685131 string characters out of 6136235
+ 805149 words of memory out of 5000000
+ 39992 multiletter control sequences out of 15000+600000
  24733 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,14n,87p,10417b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2147,10 +2160,10 @@ ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/ch4.pdf (15 pages, 2214175 bytes).
+/masterthesis/tex/ch4.pdf (13 pages, 2213217 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
- 72 named destinations out of 1000 (max. 500000)
+ 372 PDF objects out of 1000 (max. 8388607)
+ 336 compressed objects within 4 object streams
+ 70 named destinations out of 1000 (max. 500000)
  299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

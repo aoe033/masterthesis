@@ -68,7 +68,7 @@ begin
  
 process(CLK,RESET) 
 begin 
-  if (RESET='0') then 
+  if (RESET='1') then 
     Q <= '0'; 
     Qbar <= '1'; 
   elsif (CLK'event and CLK='1') then -- Can also use rising_edge(clk)

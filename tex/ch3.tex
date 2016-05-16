@@ -17,7 +17,7 @@
 In order to connect and control the \gls{cru} from a user \acrshort{pc}, some sort of serial communication between the user \acrshort{pc} and the \gls{fpga} is needed. The purpose of the serial link in this thesis is mainly to monitor and manipulate the \gls{gbt} control signals. Because of this, the speed requirements of the link is not a crucial matter. \\
 Figure \ref{fig:sergui} illustrates the different blocks that makes up the serial interface: The interface on the \gls{pc} side consists of a terminal-like interface that lets the user type in requests that enables the user to read and/or write to the \gls{gbt} control signals via the link. These requests then gets translated into byte-codes and sent out via the transmitter of the \gls{com} to the \gls{uart} on the fpga side. Here, the bytes are stored in a buffer before they get interpreted by a decoder. Depending on the user-request, the decoder can write to a \gls{gbt}-switch or read from a \gls{gbt}-probe.
 
-\begin{figure}[] % H(strictly put HERE > h!)
+\begin{figure}[H] % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \subfile{./serial_gui.tex}
 \caption{Diagram over the PC to CRU serial interface.}
@@ -26,54 +26,97 @@ Figure \ref{fig:sergui} illustrates the different blocks that makes up the seria
 
 \section{ISSP and the GBT control signals}
 
-The Quartus-bound In-System-Source-And-Probe (ISSP) Editor offers a way for the user to control and monitor the \gls{gbt} control signals. This section gives a brief description of these signals. The information was obtained from the \gls{gbt} \gls{fpga} video tutorials \cite{gbt_videos}.
+The Quartus-bound In-System-Source-And-Probe (ISSP) Editor offers a way for the user to control and monitor the control signals of the \gls{gbt} example design. Table \ref{tab:probe} and \ref{tab:switch} gives a brief description of these signals. The information was obtained from the \gls{gbt} \gls{fpga} video tutorials \cite{gbt_videos}.
+\begin{table}[H]
+\small
+\begin{center}
+  \begin{tabular}{| l | p{5cm} | p{8cm} |}
+  \hline
+    Index & Name & Description   \\
+    \hline
+  S00     & LOOPBACK                        & Select internal loopback inside the transceiver ('1'), or an external loopback via cabling ('0'). \\ \hline
+  S01     & GENERAL RESET                     & Main reset signal of the example design. \\ \hline
+  S02     & MGT TX PLL RESET                    & Individual reset signal for the MGT pll. \\ \hline
+  S03     & TX RESET                        & Individual reset signal for the transceiver. \\ \hline
+  S04     & RX RESET                        & Individual reset signal for the receiver. \\ \hline
+  S[05..06]   & PATTERN SELECT                    & Selects the pattern that is sent through the transmitter line.
+  It can send a counter value ("1h") that increments by 1, or a static value ("2h"). \\ \hline
+  S07     & TX HEADER SELECTOR                  & Chooses the header of the frame: '0' for idle and '1' for data. \\ \hline
+  S08     & RESET DATA \& EXTRA DATA ERROR SEEN FLAGS       & Resets \textbf{P26}.\\ \hline
+  S09     & RESET RX GBT READY LOST FLAG              & Resets \textbf{P25}.\\ \hline
+  S10     & TX\_FRAMECLK PHASE ALIGNER - MANUAL RESET         & Related to the latency optimized version.\\ \hline
+  S[11..16] & TX\_FRAMECLK PHASE ALIGNER - GBT LINK 1 STEPS       & Related to the latency optimized version.\\ \hline
+  S17     & TX\_FRAMECLK PHASE ALIGNER - ENABLE           & Related to the latency optimized version.\\ \hline
+  S18     & TX\_FRAMECLK PHASE ALIGNER - TRIGGER          & Related to the latency optimized version.\\ \hline
+  S[19..26]   & TX\_WORDCLOCK MONITORING - THRESHOLD UP         & Related to the latency optimized version.\\ \hline
+  S[27..34]   & TX\_WORDCLOCK MONITORING - THRESHOLD LOW        & Related to the latency optimized version.\\ \hline
+  S35     & TX\_WORDCLOCK MONITORING - TX RESET ENABLE      & Related to the latency optimized version.\\ \hline
+  \end{tabular}
+    \caption{GBT control signals overview, switches.}
+  \label{tab:switch}  
+\end{center}
+\end{table}
 
-\textit{LATENCY-OPTIMIZED GBT LINK} indicates whether the \gls{gbt} example design is using the latency optimized ('1') version or not ('0'). \\
-\textit{ISSP PLL LOCKED} shows the status of the issp pll, and is obviously not needed in the serial interface.\\
-Status and control fields related to the \textit{TX\_FRAMECLK PHASE ALIGNER} and \textit{TX\_WORDCLK MONITORING} are related to the latency optimized version. \\
-\textit{MGT READY}, \textit{RX\_FRAMECLK READY}, \textit{RX\_WORDCLK READY} and \textit{RX GBT READY} are asserted high ('1') to show that the GBT-link is ready. \\
-\textit{RX BITSLIP NUMBER} is related to the latency optimized version, and must remain at "00h" to indicate that the RX and TX are properly aligned. \\
-With the \textit{LOOPBACK} signal you can select whether you want an internal loopback inside the transceiver, or an external loopback via cabling. \\
-\textit{GENERAL RESET} is the main reset signal of the example design. \\
-\textit{MGT TX PLL RESET}, \textit{TX RESET} and \textit{RX RESET} are reset signals that resets the independent parts of the link, instead of all at the same time that is the case for \textit{GENERAL RESET}. \\
-\textit{PATTERN SELECT} selects what kind of pattern the example is going to send through the transmitter line. It can send a counter value ("1h") that increments by 1, or a static value ("2h").\\ 
-\textit{RX DATA ERROR SEEN FLAG} is asserted high ('1') if the pattern checker detects an indifference in the transmitted and received pattern. \\
-If an error is detected, the \textit{RX DATA ERROR SEEN FLAG} signal remains high until the \textit{RESET DATA \& EXTRA DATA ERROR SEEN FLAG} is asserted high ('1') by the user. \\
-\textit{RX GBT READY LOST FLAG} indicates that the connection has been lost, and remains high until \textit{RESET RX GBT READY LOST FLAG} is asserted high. \\
-The \textit{TX HEADER SELECTOR} chooses the header of the frame: '0' for idle and '1' for data. \\
-The \textit{RX HEADER SELECTOR} indicates whether the received data has a header of the frame that is idle ('0') or data ('0').\\
 
-% \begin{center}
-%   \begin{tabulary}{1\textwidth}{|L|L|L|L|L|}
-%   \hline
-%     Index & Group & Name &  Data & Description   \\
-%     \hline
-%      P0   & \# & Latency-Optimized GBT Link - Tx                     & 0 & Low when standard GBT    \\
-%      \hline
-%      P1   & \# & Latency-Optimized GBT Link - Rx                    & 0 & Low when standard GBT      \\
-%      \hline
-%      P29 & \# & ISSP PLL Locked                                                       & 1 & Text \\
-%      \hline
-%      P3   & \# & Tx\_FrameCLK Phase Aligner - PLL Locked & 1 & Text \\     
-%      \hline
-%       S10   & \# & Tx\_FrameCLK Phase Aligner - Manual Reset & 0 & Text \\     
-%      \hline
-%       S[11..16]   & \# & Tx\_FrameCLK Phase Aligner - GBT Link 1 Steps & 0 & Each Step is 520ps \\     
-%      \hline
-%       S17   & \# & Tx\_FrameCLK Phase Aligner - Enable & 0 & Enable when ...? \\    
-%      \hline
-%       S18   & \# & Tx\_FrameCLK Phase Aligner - Trigger & 0 & Set to '1' for autoalignment. \\    
-%      \hline
-%       P4   & \# & Tx\_FrameCLK Phase Aligner - Phase Shift Done & 0 & Enabled ...? \\    
-%      \hline
-%       P2   & \# & MGT Tx PLL Locked & 1 & Text \\    
-%      \hline     
-%   \end{tabulary}  
-% \end{center}
+\begin{table}[H]
+\small
+\begin{center}
+  \begin{tabular}{| l | p{5cm} | p{8cm} |}
+  \hline
+    Index & Name & Description   \\
+    \hline
+  P00     & LATENCY-OPTIMIZED GBT LINK - TX   & Indicates whether the \gls{gbt} example design is using the latency optimized ('1') version or not ('0').    \\
+  \hline
+  P01     & LATENCY-OPTIMIZED GBT LINK - RX   & Indicates whether the \gls{gbt} example design is using the latency optimized ('1') version or not ('0').      \\
+  \hline
+  %S10      & Tx\_FrameCLK Phase Aligner - Manual Reset & Text \\     
+  %\hline
+  %S[11..16]  & Tx\_FrameCLK Phase Aligner - GBT Link 1 Steps & Each Step is 520ps \\     
+  %\hline
+  %S17      & Tx\_FrameCLK Phase Aligner - Enable & Enable when ...? \\    
+  %\hline
+  %S18      & Tx\_FrameCLK Phase Aligner - Trigger & Set to '1' for autoalignment. \\    
+  %\hline 
+  P02       & MGT TX PLL LOCKED               & Shows the status of the MGT pll, and remains high ('1') if the pll is locked.  \\    
+  \hline
+  P03     & TX\_FRAMECLK PHASE ALIGNER - PLL LOCKED     & Related to the latency optimized version. \\     
+  \hline
+  P04       & TX\_FRAMECLK PHASE ALIGNER - PHASE SHIFT DONE   & Related to the latency optimized version \\    
+  \hline
+  P[05..12]   & TX\_WORDCLOCK MONITORING - STATS        & Related to the latency optimized version \\    
+  \hline
+  P13     & TX\_WORDCLOCK MONITORING - TX\_WORDCLK PHASE OK & Related to the latency optimized version \\    
+  \hline
+  P14       & MGT READY             & Asserted high ('1') to show that the MGT transceiver is ready. \\
+  \hline
+  P15       & RX\_WORDCLK READY         & Asserted high ('1') to show that the RX\_WORDCLK is ready. \\
+  \hline
+  P16       & RX\_FRAMECLK READY        & Asserted high ('1') to show that the RX\_FRAMECLK is ready. \\
+  \hline
+  P17       & RX GBT READY            & Asserted high ('1') to show that the receiver of the GBT-link is ready. \\
+  \hline
+  P[18..23]   & RX BITSLIP NUMBER         & Related to the latency optimized version, and must remain at "00h" to indicate that the RX and TX are properly aligned. \\
+  \hline
+  P24       & RX HEADER IS DATA FLAG      & Indicates whether the received data has a header of the frame that is idle ('0') or data ('1'). \\
+  \hline
+  P25       & RX GBT READY LOST FLAG      & Indicates that the connection has been lost, and remains high until \textbf{S09} is asserted high.\\
+  \hline
+  P26       & RX DATA ERROR SEEN FLAGS      & Is asserted high ('1') if the pattern checker detects an indifference in the transmitted and received pattern. \\
+  \hline
+  P27       & RX EXTRA DATA WIDE-BUS ERROR SEEN FLAG      & Same as for \textbf{P26}, only related to the \textit{wide-bus} mode. \\  
+  \hline
+  P28       & RX EXTRA DATA GBT8B10B ERROR SEEN FLAG      & Same as for \textbf{P26}, only related to the \textit{8B10B} mode. \\
+  \hline  
+  P29     & ISSP PLL Locked             & Shows the status of the issp pll. This signal does not need to be monitored by the serial interface. \\
+  \hline     
+  \end{tabular}  
+  \caption{GBT control signals overview, probes.}
+  \label{tab:probe}
+\end{center}
+\end{table}
 
 \section{Readily available standards}
-The \gls{fpga} board used in this thesis (section \ref{sec:cyclone}) has (although sparse) various forms of communication standards readily available. The following sections starts off with an evaluation of the different communication standards available on the \gls{fpga}, and continues with a description of the final implementation of the serial communication software and hardware.
-\\
+The \gls{fpga} board used in this thesis (section \ref{sec:cyclone}) has (although sparse) various forms of communication standards readily available. The following sections starts off with an evaluation of the different communication standards available on the \gls{fpga}, and continues with a description of the final implementation of the serial communication software and hardware.\\
 
 When choosing the serial communication between the \gls{fpga} and the \acrshort{pc}, factors like physical compatibility, implementation, availability and complexity were taken into consideration. The \gls{fpga} board has the following communication capabilities readily available: \gls{pci}-express, Ethernet, JTAG UART (through the USB Blaster II), and an SDI-transceiver. The following short sections describe advantages and disadvantages of using one of the standards mentioned above in context with the thesis.
 
@@ -102,7 +145,14 @@ Attempts were made to implement the Nios II and write a simple send- and receive
 
 In addition to the communication standards described above, which in turn requires specific cable- and socket types for connection, it is possible to connect the transmit and receive signals directly to the \gls{fpga} pinout. The only requirement is that the given \gls{fpga} has unoccupied transmitter and receiver signal pins available for the user; either through a HSMC-port (with the help of an additional GPIO-extension board), or through a prototype area or header.\footnote{The user has to assign the available pins to the associated transmitter and receive signals in the \textit{Pin Planner} program, as part of the Quartus II suite.}\\
 
-The \gls{fpga} board used in this thesis has no dedicated prototyping area for external signal connection. It instead comes with an GPIO-extension board that connects to one of the two on-board HSMC-ports.\footnote{By using both the HSMC-ports on the \gls{fpga}, the GPIO-\gls{pcb} could not fit properly side-by-side with the \acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} (see chapter \ref{chap:pcb}) because the latter \gls{pcb} is a bit to wide.} However, if removing the on-mounted LCD-display, it is possible to use the exposed header for signaling. The header (J10 in the board schematic) is connected to a transmitter- and receiver pair (both running on a voltage of $5~\volt$), several $5~\volt$ output pins and a ground pin. By using the transmitter- and receiver pair from the available header on the \gls{fpga}, it is possible to implement a type of asynchronous serial protocol. Most \gls{fpga} developement boards, including the Terasic Cyclone GX board (see section \ref{sec:cyclone}), comes with a built-in \gls{uart}-to-USB interface. This allows you to connect the board directly to the USB-port of the \acrshort{pc} as a serial connection. The \gls{fpga} board used in this thesis has no integrated \gls{uart} interface, so this has to be implemented manually.
+The \gls{fpga} board used in this thesis has no dedicated prototyping area for external signal connection. It instead comes with an GPIO-extension board that connects to one of the two on-board HSMC-ports.\footnote{By using both the HSMC-ports on the \gls{fpga}, the GPIO-\gls{pcb} could not fit properly side-by-side with the \acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} (see chapter \ref{chap:pcb}) because the latter \gls{pcb} is a bit to wide.} However, if removing the on-mounted LCD-display, it is possible to use the exposed header for signaling. The header (J10 in the board schematic, as shown in figure \ref{fig:lcdheader}) is connected to a transmitter- and receiver pair (both running on a voltage of $5~\volt$), several $5~\volt$ output pins and a ground pin. By using the transmitter- and receiver pair from the available header on the \gls{fpga}, it is possible to implement a type of asynchronous serial protocol. Most \gls{fpga} developement boards, including the Terasic Cyclone GX board (see section \ref{sec:cyclone}), comes with a built-in \gls{uart}-to-USB interface. This allows you to connect the board directly to the USB-port of the \acrshort{pc} as a serial connection. The \gls{fpga} board used in this thesis has no integrated \gls{uart} interface, so this has to be implemented manually.
+
+\begin{figure}[] % H(strictly put HERE > h!)
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=0.5\linewidth]{../img/lcdheader.pdf}  \\[0.1 cm]
+\caption{J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single ended transmitter and receiver signals.}
+\label{fig:lcdheader}
+\end{figure}
 
 \section{Duplex systems}
 
@@ -521,7 +571,7 @@ Uses \textit{Signal\_Free} in a loop to free up an array of signal-pointers.\\
 int Signal_PrintSet(WINDOW *win, int *gy, Signal s[], int width)
 \end{lstlisting}
 
-Prints out all printable signal information of a signal-array to a \textit{curses}-window (see section about ncurses) with a row-position given by \textit{gy}. \textit{gy} is defined as a pointer because it reports back to the program on which line in the window the information is printed on. \\
+Prints out all printable signal information of a signal-array to a \textit{curses}-window (see section \ref{sec:ncurses}) with a row-position given by \textit{gy}. \textit{gy} is defined as a pointer because it reports back to the program on which line in the window the information is printed on. \\
 
 \begin{lstlisting}[frame=single] 
 void Signal_setData(Signal s, Byte value)
@@ -563,10 +613,37 @@ void Signal_setTypeIndex(Signal s, char *name)
 char *Signal_getTypeIndex(Signal s)
 \end{lstlisting}
 
-Functions related to reading and writing to the index string, \textit{index}, of the \textit{Type}-structure of a given signal.\\
+Functions related to reading and writing to the index string, \textit{index}, of the \textit{Type}-structure of a given signal.
+
+\subsection{ncurses} \label{sec:ncurses}
+
+ncurses is a terminal control library commonly used with Unix-systems. The library enables you to construct interfaces using the terminal as the base. The main purpose of using ncurses for the software interface was to enable multiple windows; one window to continuously update and display the \gls{gbt} control signals, and another window for the user to write commands. To compile ncurses-based programs in Windows, one can use the \textit{pdcurses} library instead, which has the same function names and overall functionality, so no alterations of code is needed.
+
+\subsubsection{Associated functions}
+
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize, % basic font setting
+    morekeywords={Signal, _Signal, Byte} 
+}
+
+\begin{lstlisting}[frame=single] 
+
+\end{lstlisting}
+
+
 
 \section{Software structure and flowchart}
 
+\section{Conclusion and Discussion}
 
+As for now, the serial interface software consists of two modules: one module for sending and receiving data, to and from the \gls{fpga}; and one module that acts as the actual software interface. Both modules works more or less as they should: The send/receive module writes a pattern to the \gls{gbt}-register in the \gls{fpga} and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the \gls{gbt} control signals. What remains is to integrate the send/receive module into the interface module. In the latest version of the interface module, this is half-way done. The main transmit and receive routines are not done, and a final test of the software as a whole remains.\\
+
+\subsection{Notable problems}
+
+As for now, to keep the \gls{gbt}-register persistent with the data-pattern, the software has to continuously write to it. Tests were conducted were the software would send a write-pattern only once, and then read it back continuously: When running the software over a period of time, certain bits would at random times switch back to their initiated values. For instance, if the data-bit of address "x0C" is initiated '0' when the \gls{fpga} is turned on; when written a '1' to it by the software, it would change back to '0' after a random period of time if it is not written to again. This seemed to occur more often for certain bits than others, but when running the software in "read-only" for longer periods of time, more and more bits would eventually switch back to their initiated values. The problem seemed to become worse at higher baud rates. However, when the program kept writing to the register after every read, the bits would remain at the desired values.\\
+
+ When writing command-strings in the commandline of the interface module, one can only use \textit{backspace} and \textit{enter} to get rid of the string that is typed in. \textit{Backspace} removes the last character typed in, and \textit{enter} will result in the program trying to execute the typed-in string and then remove it completely from the commandline (and respond with an error if the string does not match any built in commands). Attempts were made to implement similar behaviour found in linux-terminals: using the keyboard buttons, \textit{up} and \textit{down}, to copy previous written commands into the commandline, and use the \textit{left} and \textit{right} buttons to move the cursor in between the characters of the string. As for today, these options does not work very well, and the user is limited to only use \textit{backspace} and \textit{enter}.  
 
 \end{document}

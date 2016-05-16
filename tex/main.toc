@@ -32,52 +32,56 @@
 \contentsline {section}{\numberline {3.6}PCB faults and compensations}{12}{section.3.6}
 \contentsline {chapter}{\numberline {4}PC to CRU serial interface}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}ISSP and the GBT control signals}{15}{section.4.1}
-\contentsline {section}{\numberline {4.2}Readily available standards}{16}{section.4.2}
-\contentsline {subsubsection}{PCI-express}{17}{section*.16}
-\contentsline {subsubsection}{Ethernet}{17}{section*.17}
-\contentsline {subsubsection}{SDI-transceiver}{17}{section*.18}
-\contentsline {subsubsection}{Altera JTAG}{17}{section*.19}
-\contentsline {section}{\numberline {4.3}User defined communication}{18}{section.4.3}
-\contentsline {section}{\numberline {4.4}Duplex systems}{19}{section.4.4}
-\contentsline {section}{\numberline {4.5}Choosing communication protocol}{19}{section.4.5}
-\contentsline {chapter}{\numberline {5}Hardware design on the FPGA side}{21}{chapter.5}
-\contentsline {section}{\numberline {5.1}Specification}{21}{section.5.1}
-\contentsline {section}{\numberline {5.2}Transmission protocol: RS-232}{21}{section.5.2}
-\contentsline {section}{\numberline {5.3}Hardware Components}{22}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}UART}{22}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}UART oversampling and the Baud Rate Generator}{22}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}UART Receiver}{24}{subsection.5.3.3}
-\contentsline {subsubsection}{Idle state}{24}{section*.24}
-\contentsline {subsubsection}{Start state}{24}{section*.25}
-\contentsline {subsubsection}{Data state}{25}{section*.26}
-\contentsline {subsubsection}{Stop state}{25}{section*.27}
-\contentsline {subsection}{\numberline {5.3.4}UART Transmitter}{25}{subsection.5.3.4}
-\contentsline {subsubsection}{Idle state}{25}{section*.29}
-\contentsline {subsubsection}{Start state}{26}{section*.30}
-\contentsline {subsubsection}{Data state}{26}{section*.31}
-\contentsline {subsubsection}{Stop state}{26}{section*.32}
-\contentsline {subsection}{\numberline {5.3.5}FIFO buffers}{26}{subsection.5.3.5}
-\contentsline {subsection}{\numberline {5.3.6}UART decoder}{26}{subsection.5.3.6}
-\contentsline {subsubsection}{Idle state}{27}{section*.33}
-\contentsline {subsubsection}{Read1 state}{27}{section*.34}
-\contentsline {subsubsection}{Wait1 state}{27}{section*.35}
-\contentsline {subsubsection}{Read2 state}{27}{section*.36}
-\contentsline {chapter}{\numberline {6}Software on the PC side}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Specification}{29}{section.6.1}
-\contentsline {section}{\numberline {6.2}Non-standard libraries}{29}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}RS232}{30}{subsection.6.2.1}
-\contentsline {subsubsection}{Associated functions}{30}{section*.37}
-\contentsline {subsection}{\numberline {6.2.2}Timer}{30}{subsection.6.2.2}
-\contentsline {subsubsection}{Associated functions}{31}{section*.38}
-\contentsline {subsection}{\numberline {6.2.3}Signals}{31}{subsection.6.2.3}
-\contentsline {subsubsection}{Associated structures}{31}{section*.39}
+\contentsline {section}{\numberline {4.2}Readily available standards}{18}{section.4.2}
+\contentsline {subsubsection}{PCI-express}{18}{section*.18}
+\contentsline {subsubsection}{Ethernet}{18}{section*.19}
+\contentsline {subsubsection}{SDI-transceiver}{18}{section*.20}
+\contentsline {subsubsection}{Altera JTAG}{18}{section*.21}
+\contentsline {section}{\numberline {4.3}User defined communication}{19}{section.4.3}
+\contentsline {section}{\numberline {4.4}Duplex systems}{20}{section.4.4}
+\contentsline {section}{\numberline {4.5}Choosing communication protocol}{20}{section.4.5}
+\contentsline {chapter}{\numberline {5}Hardware design on the FPGA side}{23}{chapter.5}
+\contentsline {section}{\numberline {5.1}Specification}{23}{section.5.1}
+\contentsline {section}{\numberline {5.2}Transmission protocol: RS-232}{23}{section.5.2}
+\contentsline {section}{\numberline {5.3}Hardware Components}{24}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}UART}{24}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}UART oversampling and the Baud Rate Generator}{24}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}UART Receiver}{26}{subsection.5.3.3}
+\contentsline {subsubsection}{Idle state}{26}{section*.27}
+\contentsline {subsubsection}{Start state}{26}{section*.28}
+\contentsline {subsubsection}{Data state}{27}{section*.29}
+\contentsline {subsubsection}{Stop state}{27}{section*.30}
+\contentsline {subsection}{\numberline {5.3.4}UART Transmitter}{27}{subsection.5.3.4}
+\contentsline {subsubsection}{Idle state}{27}{section*.32}
+\contentsline {subsubsection}{Start state}{28}{section*.33}
+\contentsline {subsubsection}{Data state}{28}{section*.34}
+\contentsline {subsubsection}{Stop state}{28}{section*.35}
+\contentsline {subsection}{\numberline {5.3.5}FIFO buffers}{28}{subsection.5.3.5}
+\contentsline {subsection}{\numberline {5.3.6}UART decoder}{28}{subsection.5.3.6}
+\contentsline {subsubsection}{Idle state}{29}{section*.36}
+\contentsline {subsubsection}{Read1 state}{29}{section*.37}
+\contentsline {subsubsection}{Wait1 state}{29}{section*.38}
+\contentsline {subsubsection}{Read2 state}{29}{section*.39}
+\contentsline {chapter}{\numberline {6}Software on the PC side}{31}{chapter.6}
+\contentsline {section}{\numberline {6.1}Specification}{31}{section.6.1}
+\contentsline {section}{\numberline {6.2}Non-standard libraries}{31}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}RS232}{32}{subsection.6.2.1}
 \contentsline {subsubsection}{Associated functions}{32}{section*.40}
-\contentsline {section}{\numberline {6.3}Software structure and flowchart}{33}{section.6.3}
-\contentsline {chapter}{\numberline {7}External and Internal Loopback test of the GBT bank Quartus Example}{35}{chapter.7}
-\contentsline {section}{\numberline {7.1}120 MHz reference clock}{35}{section.7.1}
-\contentsline {section}{\numberline {7.2}Configuring the on-board oscillator on the Cyclone V board}{36}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Clock Control software setup}{36}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Steps for configuring Windows to run the Clock Control software}{36}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {6.2.2}Timer}{32}{subsection.6.2.2}
+\contentsline {subsubsection}{Associated functions}{33}{section*.41}
+\contentsline {subsection}{\numberline {6.2.3}Signals}{33}{subsection.6.2.3}
+\contentsline {subsubsection}{Associated structures}{33}{section*.42}
+\contentsline {subsubsection}{Associated functions}{34}{section*.43}
+\contentsline {subsection}{\numberline {6.2.4}ncurses}{35}{subsection.6.2.4}
+\contentsline {subsubsection}{Associated functions}{36}{section*.44}
+\contentsline {section}{\numberline {6.3}Software structure and flowchart}{36}{section.6.3}
+\contentsline {section}{\numberline {6.4}Conclusion and Discussion}{36}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Notable problems}{36}{subsection.6.4.1}
+\contentsline {chapter}{\numberline {7}External and Internal Loopback test of the GBT bank Quartus Example}{37}{chapter.7}
+\contentsline {section}{\numberline {7.1}120 MHz reference clock}{37}{section.7.1}
+\contentsline {section}{\numberline {7.2}Configuring the on-board oscillator on the Cyclone V board}{38}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Clock Control software setup}{38}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Steps for configuring Windows to run the Clock Control software}{38}{subsection.7.2.2}
 \contentsline {section}{\numberline {7.3}Configuring the $Si338$ external oscillator}{39}{section.7.3}
 \contentsline {chapter}{\numberline {8}Testing and verification of the HDMI daughter card}{41}{chapter.8}
 \contentsline {section}{\numberline {8.1}Connectivity test}{41}{section.8.1}
@@ -105,4 +109,4 @@
 \contentsline {subsection}{\numberline {9.2.3}Results}{48}{subsection.9.2.3}
 \contentsline {section}{\numberline {9.3}Conclusion and discussions}{48}{section.9.3}
 \contentsline {chapter}{\numberline {10}Conclusion and discussion}{49}{chapter.10}
-\contentsline {section}{Appendix}{56}{chapter*.49}
+\contentsline {section}{Appendix}{56}{chapter*.53}

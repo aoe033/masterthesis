@@ -47,7 +47,8 @@
 \usepackage{hyperref} %Enables hyperlinks
 \usepackage{listings}%include the source code of any programming language within your document.
 
-\usepackage{tabulary}
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X} % centered version of 'X' columns
 %\usepackage{setspace} %allows more fine-grained control over line spacing. ex.: \onehalfspacing
 %\singlespacing
 %\onehalfspacing
@@ -57,6 +58,8 @@
 
 \usepackage{a4wide} %Comment out this for book-style
 %\usepackage{layouts}
+
+\usepackage[toc,page]{appendix}
 
 \usepackage{subfiles} %alternative to include/input, gives you the advantage that you can compile in subfiles (chapters)
 
