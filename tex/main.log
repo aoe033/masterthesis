@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  16 MAY 2016 19:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  17 MAY 2016 20:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2433,18 +2433,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 609--610
  []
 
 [35]
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 641--642
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--646
+Underfull \hbox (badness 10000) in paragraph at lines 647--648
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 653--654
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 665--666
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 671--672
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 677--678
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 697--698
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 703--704
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
+
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 725--726
 
  []
 
 )
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ch4.tex [36]
+/ch4.tex [38]
 Chapter 7.
 
 Underfull \hbox (badness 10000) in paragraph at lines 26--27
@@ -2464,7 +2519,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37
+ [39
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 40--41
@@ -2485,12 +2540,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-[38]
+[40]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 78.
 
-<../img/clk_cont120.PNG, id=1330, 344.78813pt x 283.0575pt>
+<../img/clk_cont120.PNG, id=1371, 344.78813pt x 283.0575pt>
 File: ../img/clk_cont120.PNG Graphic file (type png)
 
 <use ../img/clk_cont120.PNG>
@@ -2505,7 +2560,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--89
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 90.
 
-<../img/20160226_tek100.png, id=1335, 1027.84pt x 770.88pt>
+<../img/20160226_tek100.png, id=1376, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek100.png Graphic file (type png)
 
 <use ../img/20160226_tek100.png>
@@ -2516,7 +2571,7 @@ File: ../img/20160226_tek100.png Graphic file (type png)
 Package pdftex.def Info: ../img/20160226_tek100.png used on input line 92.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/20160226_tek120.png, id=1336, 1027.84pt x 770.88pt>
+<../img/20160226_tek120.png, id=1377, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek120.png Graphic file (type png)
 
 <use ../img/20160226_tek120.png>
@@ -2546,7 +2601,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 97.
 
-[39] [40 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../i
+[41] [42 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../i
 mg/20160226_tek120.png (PNG copy)>]
 Chapter 8.
 
@@ -2554,9 +2609,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-[41
+[43
 
-] [42] <../img/hektere_probes.pdf, id=1401, 815.84799pt x 797.37903pt>
+] [44] <../img/hektere_probes.pdf, id=1442, 815.84799pt x 797.37903pt>
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
@@ -2569,8 +2624,8 @@ Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 174.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [43]
-<../img/hektere_oppsett_100mhz.png, id=1414, 1027.84pt x 770.88pt>
+ [45]
+<../img/hektere_oppsett_100mhz.png, id=1455, 1027.84pt x 770.88pt>
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
@@ -2584,7 +2639,7 @@ Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
 82.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/stubs_oppsett_100mhz.png, id=1415, 1027.84pt x 770.88pt>
+<../img/stubs_oppsett_100mhz.png, id=1456, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
@@ -2597,8 +2652,8 @@ Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 183
 .
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-[44 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
-<../img/stubs_oppsett_100mhz.png (PNG copy)>] [45] [46
+[46 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
+<../img/stubs_oppsett_100mhz.png (PNG copy)>] [47] [48
 
 ]
 Chapter 9.
@@ -2608,25 +2663,25 @@ Overfull \hbox (3.3455pt too wide) in paragraph at lines 208--208
 ng Signal-
  []
 
-[47] [48]
+[49] [50]
 Chapter 10.
 )
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.gls [49
-
-] [50
-
-])
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.acr [51
+/main.gls [51
 
 ] [52
 
-] [53
+])
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/main.acr [53
+
+] [54
+
+] [55
 
 ])
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.bbl [54]
+/main.bbl [56]
 Underfull \hbox (badness 10000) in paragraph at lines 8--14
 []\OT1/LinuxLibertineT-TLF/m/n/12 LVDS Own-ers Man-ual, In-clud-ing High-Speed 
 CML And Sig-nal Con-di-tion-ing.
@@ -2674,7 +2729,7 @@ Underfull \hbox (badness 1769) in paragraph at lines 73--76
 bertineMonoT-TLF/m/n/12 https : / / espace . cern . ch / GBT-[]Project /
  []
 
-[55
+[57
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 78--83
@@ -2700,15 +2755,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--90
 usb-[]blaster /
  []
 
-) [56]
+) [58]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /main.lof)
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [57
+ [59
 
-] [58
+] [60
 
 ]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
@@ -2716,7 +2771,7 @@ usb-[]blaster /
 \tf@lot=\write11
 \openout11 = `main.lot'.
 
- [59]
+ [61]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
 
@@ -2725,17 +2780,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 96092F9FE7896CADCCC2F0048CAA1109;6246.
+(rerunfilecheck)             Checksum: B3DC30D0CB9B0D7D3B1EB65ABC9084B1;6246.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 41623 strings out of 493029
- 790638 string characters out of 6136235
- 932655 words of memory out of 5000000
- 44017 multiletter control sequences out of 15000+600000
+ 41706 strings out of 493029
+ 791679 string characters out of 6136235
+ 932671 words of memory out of 5000000
+ 44069 multiletter control sequences out of 15000+600000
  49839 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,14n,98p,10394b,2947s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2763,10 +2818,10 @@ dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/euler/eurm10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/main.pdf (69 pages, 2701066 bytes).
+/masterthesis/tex/main.pdf (71 pages, 2708727 bytes).
 PDF statistics:
- 1888 PDF objects out of 2073 (max. 8388607)
- 1758 compressed objects within 18 object streams
- 380 named destinations out of 1000 (max. 500000)
+ 1938 PDF objects out of 2073 (max. 8388607)
+ 1805 compressed objects within 19 object streams
+ 411 named destinations out of 1000 (max. 500000)
  772 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  15 MAY 2016 21:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  17 MAY 2016 20:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2049,7 +2049,7 @@ Package natbib Warning: Citation `serial2ethernet' on page 4 undefined on input
 Package natbib Warning: Citation `altera_terminals14' on page 4 undefined on in
 put line 133.
 
-[4] <../img/altera_jtag.pdf, id=197, 903.375pt x 252.945pt>
+[4] <../img/altera_jtag.pdf, id=201, 903.375pt x 252.945pt>
 File: ../img/altera_jtag.pdf Graphic file (type pdf)
 
 <use ../img/altera_jtag.pdf>
@@ -2090,7 +2090,7 @@ LaTeX Warning: Reference `sec:cyclone' on page 5 undefined on input line 148.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 150.
 
-<../img/lcdheader.pdf, id=234, 549.25201pt x 354.12299pt>
+<../img/lcdheader.pdf, id=238, 549.25201pt x 354.12299pt>
 File: ../img/lcdheader.pdf Graphic file (type pdf)
 
 <use ../img/lcdheader.pdf>
@@ -2323,20 +2323,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 609--610
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 616--617
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
-
- []
+Package natbib Warning: Citation `ncursesdoc' on page 21 undefined on input lin
+e 620.
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 626--627
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 647--648
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 653--654
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 665--666
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 671--672
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 677--678
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 697--698
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--716
+
+ []
+
+[23]
 
 Package natbib Warning: There were undefined citations.
 
@@ -2345,16 +2390,16 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.)
 This document will not have a glossary.
 
-[22]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 630.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 630.
+[24]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 719.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 719.
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /ch3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 630.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 630.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 719.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 719.
 Package rerunfilecheck Info: File `ch3.out' has not changed.
-(rerunfilecheck)             Checksum: 2638EF2E9793025377F016DEF42B89D8;1702.
+(rerunfilecheck)             Checksum: 29596BD675AF399FFE9621C704D0CE44;1763.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2364,10 +2409,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 41016 strings out of 493029
- 779811 string characters out of 6136235
- 927165 words of memory out of 5000000
- 43686 multiletter control sequences out of 15000+600000
+ 41094 strings out of 493029
+ 780774 string characters out of 6136235
+ 926207 words of memory out of 5000000
+ 43735 multiletter control sequences out of 15000+600000
  45292 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,12n,97p,10417b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2461,10 +2506,10 @@ cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/ch3.pdf (22 pages, 482292 bytes).
+/masterthesis/tex/ch3.pdf (24 pages, 491873 bytes).
 PDF statistics:
- 608 PDF objects out of 1000 (max. 8388607)
- 558 compressed objects within 6 object streams
- 159 named destinations out of 1000 (max. 500000)
- 223 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 657 PDF objects out of 1000 (max. 8388607)
+ 604 compressed objects within 7 object streams
+ 188 named destinations out of 1000 (max. 500000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

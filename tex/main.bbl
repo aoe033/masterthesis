@@ -129,4 +129,10 @@ A.~Velure.
 \newblock {D}esign used as a reference to the serial communication part on the
   FPGA side. {A}ccessed: 12/02/2016.
 
+\bibitem{ncursesdoc}
+T.~E.~D. Zeyd M. Ben-Halim, Eric S.~Raymond.
+\newblock ncurses documentation site.
+\newblock \url{http://invisible-island.net/ncurses/man/ncurses.3x.html}, 2016.
+\newblock {A}ccessed: 17/05/2016.
+
 \end{thebibliography}
