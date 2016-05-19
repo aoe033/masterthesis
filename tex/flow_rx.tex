@@ -1,0 +1,60 @@
+%location/filename: tex/fig/flow_tx.tex
+%author: Anders Østevik
+%Last edited: 19.05.2016
+%#######--Flowchart for rs232 transmitt function--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\begin{document}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=0cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, text centered, text width=2.5cm, draw=black]
+\tikzstyle{describe} = [ellipse, minimum width=0cm, minimum height=0cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text width=2.0cm, text badly centered, inner sep=1pt]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\begin{tikzpicture}
+	\small
+
+	\node (start) [startstop] {Start};
+	\node (dec1) [decision, below = 1cm of start] {\textit{txStatus} = READ?};
+
+	\node (pro1a) [process, below = 1cm of dec1] {Read bytes from \gls{com}};
+
+	\node (dec2) [decision, right = 0.5cm of pro1a] {n $>$ 0?};
+	\node (pro2a) [process, right = 1cm of dec2] {Set \textit{txStatus} = REPEAT};
+	\node (pro2b) [process, below = 0.5cm of dec2] {Set \textit{txStatus} = IDLE};
+	
+	\node (pro3a) [process, left = 0.5cm of pro2b] {i = 0};
+
+	\node (dec3) [decision, below = 0.5cm of pro3a] {i $<$ n};
+
+	\node (pro4a) [process, below = 0.5cm of dec3] {Filter out data and address from byte[i]};
+	\node (pro4b) [process, below = 0.5cm of pro4a] {rxData[Adr] = data};
+
+	\node (inci) [process, right = 0.5cm of dec3] {i++};
+
+
+	\draw [arrow] (start) -- (dec1);
+	\draw [arrow] (dec1) -- node[yshift=0em, xshift=1.0em] {yes} (pro1a);
+	\draw [arrow] (pro1a) -- (dec2);
+
+	\draw [arrow] (dec2) -- node[yshift=0.5em, xshift=0em] {no} (pro2a);
+	\draw [arrow] (dec2) -- node[yshift=0em, xshift=1.0em] {yes} (pro2b);
+
+	\draw [arrow] (pro2b) -- (pro3a);
+	\draw [arrow] (pro3a) -- (dec3);
+
+	\draw [arrow] (dec3) -- node[yshift=0em, xshift=1.0em] {yes} (pro4a);
+
+	\draw [arrow] (pro4a) -- (pro4b);
+	\draw [arrow] (pro4b) -| (inci);
+	\draw [arrow] (inci) -- (dec3);
+
+\end{tikzpicture}
+
+\end{document}

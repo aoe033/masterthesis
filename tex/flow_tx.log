@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  19 MAY 2016 23:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  19 MAY 2016 23:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ch3.tex
+**flow_tx.tex
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ch3.tex
+/flow_tx.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.cls
@@ -1717,13 +1717,13 @@ Package: glossary-tree 2016/01/24 v4.21 (NLCT)
 ))
 \glswrite=\write5
 \glo@main@file=\write6
-\openout6 = `ch3.glo'.
+\openout6 = `flow_tx.glo'.
 
-Package glossaries Info: Writing glossary file ch3.glo on input line 12.
+Package glossaries Info: Writing glossary file flow_tx.glo on input line 12.
 \glo@acronym@file=\write7
-\openout7 = `ch3.acn'.
+\openout7 = `flow_tx.acn'.
 
-Package glossaries Info: Writing glossary file ch3.acn on input line 12.
+Package glossaries Info: Writing glossary file flow_tx.acn on input line 12.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryarrows.code.tex
@@ -1811,8 +1811,8 @@ zlibraryshapes.callouts.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.callouts.code.tex)))))
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ch3.aux)
-\openout1 = `ch3.aux'.
+/flow_tx.aux)
+\openout1 = `flow_tx.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -1911,648 +1911,62 @@ LaTeX Info: Redefining \pageref on input line 11.
 LaTeX Info: Redefining \nameref on input line 11.
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ch3.out)
+/flow_tx.out)
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ch3.out)
+/flow_tx.out)
 \@outlinefile=\write8
-\openout8 = `ch3.out'.
+\openout8 = `flow_tx.out'.
 
 \c@lstlisting=\count307
 
 Option `squaren' provided! 
  Command \squaren defined by SIunits package!
 
-Chapter 1.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 24.88pt on input line 13.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 24.88pt on input line 13.
-
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/./serial_gui.tex
-\pgf@layerbox@foreground=\box97
-\pgf@layerboxsaved@foreground=\box98
-)
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 21.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 25.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 17.28pt on input line 25.
-
-
-Package natbib Warning: Citation `gbt_videos' on page 1 undefined on input line
- 27.
-
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 29.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 43.
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - MAN-UAL RE-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--46
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--46
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - GBT LINK 1
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--48
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-[1
-
-\openout5 = `ch3.ist'.
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 LATENCY-OPTIMIZED GBT
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 LATENCY-OPTIMIZED GBT
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - PHASE SHIFT
- []
-
-
-Underfull \hbox (badness 1292) in paragraph at lines 86--86
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ING - TX[]WORDCLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 Asserted high ('1') to show that the MGT
- []
-
+(Font)              scaled to size 10.95pt on input line 21.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 104.
-
-Underfull \hbox (badness 1436) in paragraph at lines 106--106
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 RX EX-TRA DATA GBT8B10B
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-
-LaTeX Warning: Reference `sec:cyclone' on page 3 undefined on input line 117.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
-
-Package natbib Warning: Citation `serial2ethernet' on page 4 undefined on input
- line 125.
-
-
-Package natbib Warning: Citation `altera_terminals14' on page 4 undefined on in
-put line 131.
-
-[4] <../img/altera_jtag.pdf, id=209, 903.375pt x 252.945pt>
-File: ../img/altera_jtag.pdf Graphic file (type pdf)
-
-<use ../img/altera_jtag.pdf>
-Package pdftex.def Info: ../img/altera_jtag.pdf used on input line 135.
-(pdftex.def)             Requested size: 341.43306pt x 95.6029pt.
-
-
-Package natbib Warning: Citation `altera_terminals14' on page 5 undefined on in
-put line 136.
-
-
-Package natbib Warning: Citation `altera_terminals14' on page 5 undefined on in
-put line 136.
-
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 144.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 144.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 144.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 144.
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
-
- []
-
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 146.
-
-LaTeX Warning: Reference `chap:pcb' on page 5 undefined on input line 146.
-
-
-LaTeX Warning: Reference `sec:cyclone' on page 5 undefined on input line 146.
-
-[5 <../img/altera_jtag.pdf>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 148.
-
-<../img/lcdheader.pdf, id=246, 549.25201pt x 354.12299pt>
-File: ../img/lcdheader.pdf Graphic file (type pdf)
-
-<use ../img/lcdheader.pdf>
-Package pdftex.def Info: ../img/lcdheader.pdf used on input line 150.
-(pdftex.def)             Requested size: 230.36061pt x 148.5199pt.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 12.0pt on input line 157.
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
-
- []
-
-[6 <../img/lcdheader.pdf>] [7] [8
-
-]
-Chapter 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
-
- []
-
-LaTeX Font Info:    Try loading font information for TS1+LinuxLibertineT-TLF on
- input line 173.
-(/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
-File: TS1LinuxLibertineT-TLF.fd 2012/11/26 (autoinst) Font definitions for TS1/
-LinuxLibertineT-TLF.
-)
-LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 173.
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--186
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
-
- []
-
-[9]
-LaTeX Font Info:    Try loading font information for OT1+LinuxBiolinumT-TLF on 
-input line 214.
- (/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxBiolinumT-TLF.fd
-File: OT1LinuxBiolinumT-TLF.fd 2012/11/26 (autoinst) Font definitions for OT1/L
-inuxBiolinumT-TLF.
-)
-LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 214.
-LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 214.
-
-
-Package natbib Warning: Citation `chu08' on page 10 undefined on input line 227
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--228
-
- []
-
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 231.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 231.
-
-Package natbib Warning: Citation `chu08' on page 10 undefined on input line 233
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--234
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
-
- []
-
-
-Underfull \vbox (badness 1748) has occurred while \output is active []
-
- [10]
-
-Package natbib Warning: Citation `rapid08' on page 11 undefined on input line 2
-47.
-
-LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 286.
-
-Package natbib Warning: Citation `velure10' on page 11 undefined on input line 
-309.
-
-[11]
-
-Package natbib Warning: Citation `velure10' on page 12 undefined on input line 
-318.
-
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 323.
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
-
- []
-
-[13] [14] [15] [16
-
-]
-Chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
-
- []
-
-
-Package natbib Warning: Citation `gpl3' on page 17 undefined on input line 448.
-
-
-LaTeX Font Info:    Try loading font information for OT1+LinuxLibertineMonoT-TL
-F on input line 448.
-
-(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineMonoT-TLF.f
-d
-File: OT1LinuxLibertineMonoT-TLF.fd 2012/12/06 (autoinst) Font definitions for 
-OT1/LinuxLibertineMonoT-TLF.
-)
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineMonoT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 448.
- [17] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
-LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 459.
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
-
- []
-
-
-Package natbib Warning: Citation `gpl3' on page 18 undefined on input line 480.
-
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 493--494
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+LinuxLibertineT-TLF on
- input line 513.
-LaTeX Font Info:    No file OMSLinuxLibertineT-TLF.fd. on input line 513.
-
-LaTeX Font Warning: Font shape `OMS/LinuxLibertineT-TLF/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 513.
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 540--541
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 551--552
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 566--567
-
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 578--579
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 584--585
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 590--591
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 596--597
-
- []
-
-
-Package natbib Warning: Citation `ncursesdoc' on page 21 undefined on input lin
-e 606.
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 625--626
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 630--631
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 635--636
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 645--646
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 650--651
-
- []
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 667--668
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 672--673
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 677--678
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 694--695
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 700--701
-
- []
-
-
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/./flow_gui.tex
-Overfull \hbox (28.07903pt too wide) in paragraph at lines 74--75
- [] 
- []
-
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24]
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/./flow_tx.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/./flow_rx.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26]
-Underfull \hbox (badness 10000) in paragraph at lines 740--741
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
-
-Package natbib Warning: There were undefined citations.
-
+(Font)              scaled to size 10.95pt on input line 24.
 
 Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.)
 This document will not have a glossary.
 
-[28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 744.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 744.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+\openout5 = `flow_tx.ist'.
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ch3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 744.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 744.
-Package rerunfilecheck Info: File `ch3.out' has not changed.
-(rerunfilecheck)             Checksum: 36F9B569B2FC8DC7D3BC7BBA8B2040D2;1906.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
+/flow_tx.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
+Package rerunfilecheck Info: File `flow_tx.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 41352 strings out of 493029
- 785349 string characters out of 6136235
- 932564 words of memory out of 5000000
- 43971 multiletter control sequences out of 15000+600000
- 45292 words of font info for 81 fonts, out of 8000000 for 9000
+ 39550 strings out of 493029
+ 755269 string characters out of 6136235
+ 904180 words of memory out of 5000000
+ 42428 multiletter control sequences out of 15000+600000
+ 13264 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,12n,97p,10417b,1327s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{glo:msb} has been referenced but does not exist, 
+ 77i,11n,71p,10421b,732s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{glo:com} has been referenced but does not exist, 
 replaced by a fixed one
 
-pdfTeX warning (dest): name{glo:lsb} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:fifo} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{glo:vhdl} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{glo:dce} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:dte} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:os} has been referenced but does not exist, rep
-laced by a fixed one
-
-pdfTeX warning (dest): name{glo:rs232} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{glo:vldb} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{glo:hsmc} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{glo:pcb} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:ide} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:hps} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:usb} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:bnc} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:sdi} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:usbrs} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{glo:pci} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:uart} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{glo:com} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:gbt} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:fpga} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{glo:pc} has been referenced but does not exist, rep
-laced by a fixed one
-
-pdfTeX warning (dest): name{glo:cru} has been referenced but does not exist, re
-placed by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_4jqvtd.enc}{/usr/
-share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_c6xmqr.enc}{/usr/share/
-texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/libertine/lbtn_xogrpz.enc}{/usr/share/texlive/texm
-f-dist/fonts/enc/dvips/libertine/lbtn_c7kyj5.enc}{/usr/share/texlive/texmf-dist
-/fonts/enc/dvips/libertine/lbtn_lu7m2n.enc}</usr/share/texlive/texmf-dist/fonts
-/type1/public/libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/libertine/LinLibertineMT.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb>
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_xogrpz.enc}{/usr/
+share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_c7kyj5.enc}</usr/share/
+texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/ch3.pdf (28 pages, 513398 bytes).
+/masterthesis/tex/flow_tx.pdf (1 page, 140059 bytes).
 PDF statistics:
- 703 PDF objects out of 1000 (max. 8388607)
- 645 compressed objects within 7 object streams
- 201 named destinations out of 1000 (max. 500000)
- 247 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

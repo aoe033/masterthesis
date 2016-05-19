@@ -559,6 +559,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-ts1--base.tfm
 INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/./flow_gui.tex
 INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/./flow_gui.tex
+INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/./flow_tx.tex
+INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/./flow_tx.tex
+INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/./flow_rx.tex
+INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/./flow_rx.tex
 INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/ch4.tex
 INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/ch4.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-ot1.tfm

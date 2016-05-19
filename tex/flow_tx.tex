@@ -1,0 +1,93 @@
+%location/filename: tex/fig/flow_tx.tex
+%author: Anders Østevik
+%Last edited: 19.05.2016
+%#######--Flowchart for rs232 transmitt function--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\begin{document}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=0cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, text centered, text width=2.5cm, draw=black]
+\tikzstyle{describe} = [ellipse, minimum width=0cm, minimum height=0cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text width=2.0cm, text badly centered, inner sep=1pt]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\begin{tikzpicture}
+	\small
+
+	\node (start) [startstop] {Start};
+	\node (dec1) [decision, below = 1cm of start] {\textit{txStatus} = IDLE?};
+
+	\node (dec1a) [decision, left = 0.5cm of dec1] {\textit{txStatus} = REPEAT?};
+	\node (pro1a) [process, below left = 0.5cm of dec1a] {Send \textit{txData} to \gls{com}};
+	\node (pro1b) [process, below = 0.5cm of pro1a] {Set \textit{txStatus} = READ};
+
+	\node (dec2) [decision, below = 0.5cm of dec1] {\textit{txReq?}};
+	\node (pro2a) [process, below left = 0.5cm of dec2] {Set \textit{txStatus} = WRITE};
+	
+	\node (dec3) [decision, below = 0.5cm of pro2a] {Check table with \textit{txAdr} as index};
+	\node (pro3a) [process, below left = 0.5cm of dec3] {\textit{txData[0]} = 0xFF};
+	\node (pro3b) [process, below right = 0.5cm of dec3] {\textit{txData[0]} = 0xEE};
+	
+	\node (pro2b1) [process, below right = 0.5cm of dec2] {Set \textit{txStatus} = READ};
+	\node (pro2b2) [process, below = 0.5cm of pro2b1] {\textit{txData[0]} = 0xDD};
+
+	\node (pro4) [process, below = 0.5cm of pro3b] {\textit{txData[1]} = txAdr};
+	\node (pro5) [process, below = 0.5cm of pro4] {Send \textit{txData} to \gls{com}};
+
+	\node (dec4) [decision, left = 1cm of pro5] {\textit{txAdr} $>$ tablewidth-1?};
+	\node (pro6a) [process, below left = 0.5cm of dec4] {Increment \textit{txAdr}};
+	\node (pro6b) [process, below right = 0.5cm of dec4] {Set \textit{txAdr} = 0};
+	
+	\node (dec5) [decision, below = 0.5cm of pro6b] {\textit{txReq}?};
+	\node (pro7a) [process, right = 0.7cm of dec5] {\textit{txReq} = WRITE};
+	\node (pro7b) [process, left = 0.7cm of dec5] {\textit{txReq} = READ};
+
+	\node (dec6) [decision, below = 0.5cm of pro7b] {Table index $>$ 4?};
+	\node (pro8a) [process, right = 0.5cm of dec6] {Increment index};
+	\node (pro8b) [process, left = 0.5cm of dec6] {Set index = 0};
+
+
+	\draw [arrow] (start) -- (dec1);
+	\draw [arrow] (dec1) -- node[yshift=0.5em, xshift=0em] {no} (dec1a);
+
+	\draw [arrow] (dec1a) -- node[yshift=0.2em, xshift=-0.7em] {yes} (pro1a);
+	\draw [arrow] (pro1a) -- (pro1b);
+
+	\draw [arrow] (dec1) -- node[yshift=0em, xshift=1.0em] {yes} (dec2);
+	
+	\draw [arrow] (dec2) -- node[yshift=0.5em, xshift=1.2em] {read} (pro2b1);
+	\draw [arrow] (pro2b1) -- (pro2b2);
+	\draw [arrow] (pro2b2) |- (pro4);
+	\draw [arrow] (dec2) -- node[yshift=0.5em, xshift=-1.2em] {write} (pro2a);
+	\draw [arrow] (pro2a) -- (dec3);
+
+	\draw [arrow] (dec3) -- node[yshift=0.2em, xshift=-1.2em] {'1'} (pro3a);
+	\draw [arrow] (dec3) -- node[yshift=0.2em, xshift=1.2em] {'0'} (pro3b);
+
+	\draw [arrow] (pro3a) |- (pro4);
+	\draw [arrow] (pro3b) -- (pro4);
+
+	\draw [arrow] (pro4) -- (pro5);
+	\draw [arrow] (pro5) -- (dec4);
+
+	\draw [arrow] (dec4) -- node[yshift=0.5em, xshift=-1.2em] {no} (pro6a);
+	\draw [arrow] (dec4) -- node[yshift=0.5em, xshift=1.2em] {yes} (pro6b);
+
+	\draw [arrow] (pro6b) -- (dec5);
+	\draw [arrow] (dec5) -- node[yshift=0.7em, xshift=-0.1em] {read} (pro7a);
+	\draw [arrow] (dec5) -- node[yshift=0.7em, xshift=0.2em] {write} (pro7b);
+	
+	\draw [arrow] (pro7b) -- (dec6);
+
+	\draw [arrow] (dec6) -- node[yshift=0.7em, xshift=0.2em] {yes} (pro8b);
+	\draw [arrow] (dec6) -- node[yshift=0.7em, xshift=-0.2em] {no} (pro8a);
+
+\end{tikzpicture}
+
+\end{document}

@@ -21,7 +21,7 @@
 	\small
 
 	\node (start) [startstop] {Start};
-	\node (dec1) [decision, below of=start] {Change in screen size?};
+	\node (dec1) [decision, below of=start, yshift=1cm] {Change in screen size?};
 	\node (pro1a) [process, right of=dec1, xshift=3.5cm] {Resize all windows and clear content};
 
 	\node (dec1a) [decision, below of=dec1, yshift=-0.5cm] {Key pressed?};
