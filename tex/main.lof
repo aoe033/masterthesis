@@ -6,7 +6,7 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Cross-section of a corresponding differential microstrip. s is the spacing between the strips.\relax }}{10}{figure.caption.12}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Pull-up resistors on some of the receiver lines.\relax }}{13}{figure.caption.14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram over the PC to CRU serial interface.\relax }}{15}{figure.caption.15}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Simplified diagram over the PC to CRU serial interface.\relax }}{15}{figure.caption.15}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{19}{figure.caption.22}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single ended transmitter and receiver signals.\relax }}{20}{figure.caption.23}
 \addvspace {10\p@ }
@@ -15,13 +15,14 @@
 \contentsline {figure}{\numberline {5.3}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.26}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{27}{figure.caption.31}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Flowchart over the main loop of the interface module.\relax }}{39}{figure.caption.46}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{42}{figure.caption.46}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{42}{figure.caption.47}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{42}{figure.caption.47}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{44}{figure.caption.47}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{44}{figure.caption.48}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{44}{figure.caption.48}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{46}{figure.caption.48}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using clamps.\relax }}{46}{figure.caption.49}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using stubs.\relax }}{46}{figure.caption.49}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{48}{figure.caption.49}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using clamps.\relax }}{48}{figure.caption.50}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ measured using stubs.\relax }}{48}{figure.caption.50}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

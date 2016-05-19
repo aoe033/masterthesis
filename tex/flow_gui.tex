@@ -1,0 +1,76 @@
+%location/filename: tex/fig/flow_gui.tex
+%author: Anders Østevik
+%Last edited: 18.05.2016
+%#######--Flowchart for ncurses serial interface--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\begin{document}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=0cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=0cm, minimum height=0cm, text centered, text width=2.5cm, draw=black]
+\tikzstyle{describe} = [ellipse, minimum width=0cm, minimum height=0cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text width=2.0cm, text badly centered, node distance=3cm, inner sep=1pt]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\begin{tikzpicture}[node distance=1cm]
+	\small
+
+	\node (start) [startstop] {Start};
+	\node (dec1) [decision, below of=start] {Change in screen size?};
+	\node (pro1a) [process, right of=dec1, xshift=3.5cm] {Resize all windows and clear content};
+
+	\node (dec1a) [decision, below of=dec1, yshift=-0.5cm] {Key pressed?};
+
+	\node (dec2) [decision, right of=dec1a, xshift=1cm] {Is character?};
+	\node (pro2a) [process, below of=dec2, yshift=-1.5cm] {Append character to buffers};
+
+	\node (dec3) [decision, right of=dec2, xshift=0.7cm] {Is return?};
+	\node (pro3a) [process, below of=dec3, yshift=-1.5cm] {Process input, print input to window};
+
+	\node (pro4a) [process, right of=pro3a, xshift=2.5cm] {Process special key, if any};
+	%\node (pro4a) [process, below of=dec4, yshift=-1.5cm] {Process key};
+
+	%\node (err) [describe, right of= dec4, xshift=1.5cm] {ERR};
+
+
+	\node (pro5) [process, below of=dec1a, yshift=-3cm] {Redraw all windows};
+	\node (sleep) [startstop, below of=pro5, yshift=-0.5cm] {Sleep};
+	\node (while) [describe, left of= dec1a, xshift=-2.5cm] {while(1)};
+
+	\draw [arrow] (start) -- (dec1);
+	\draw [arrow] (dec1) -- node[yshift=0.5em, xshift=0em] {yes} (pro1a);
+
+	\draw [arrow] (dec1) -- node[anchor=south, xshift=1em] {no} (dec1a);
+
+	\draw [arrow] (pro1a) -- (dec1a);
+
+	\draw [arrow] (dec1a) -- node[yshift=0.5em, xshift=0.2em] {yes} (dec2);
+
+	\draw [arrow] (dec1a) -- node[anchor=south, xshift=1.0em] {no} (pro5);
+
+	\draw [arrow] (dec2) -- node[yshift=0.5em, xshift=0.2em] {no} (dec3);
+	\draw [arrow] (dec2) -- node[anchor=south, xshift=1.5em] {yes} (pro2a);
+
+	\draw [arrow] (dec3) -| node[yshift=0.5em, xshift=0.2em] {no} (pro4a);
+	\draw [arrow] (dec3) -- node[anchor=south, xshift=1.5em] {yes} (pro3a);
+
+	%\draw [arrow] (dec4) -- node[anchor=south, xshift=1em] {yes} (pro4a);
+
+	\draw [arrow] (pro2a) |- (pro5);
+	\draw [arrow] (pro3a) |- (pro5);
+	\draw [arrow] (pro4a) |- (pro5);
+
+	%\draw [arrow] (err) |- (pro5);
+
+	\draw [arrow] (pro5) -- (sleep);
+	\draw [arrow] (sleep) -| (while);
+	\draw [arrow] (while) |- (dec1);
+
+\end{tikzpicture}
+
+\end{document}
