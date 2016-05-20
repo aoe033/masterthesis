@@ -169,6 +169,7 @@
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{15}
 \glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{15}
 \glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{15}
+\glossaryentry{ISSP?\glossentry{issp}|setentrycounter[]{page}\glsnumberformat}{15}
 \glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{15}
 \glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{15}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{15}
@@ -337,6 +338,8 @@
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{48}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{48}
 \glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{48}
+\glossaryentry{ISSP?\glossentry{issp}|setentrycounter[]{page}\glsnumberformat}{48}
+\glossaryentry{ISSP?\glossentry{issp}|setentrycounter[]{page}\glsnumberformat}{48}
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{49}
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{49}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{49}
@@ -354,10 +357,10 @@
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{50}
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{50}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{50}
+\glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{51}
 \glossaryentry{VHDL?\glossentry{vhdl}|setentrycounter[]{page}\glsnumberformat}{51}
-\glossaryentry{VHDL?\glossentry{vhdl}|setentrycounter[]{page}\glsnumberformat}{51}
-\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{51}
-\glossaryentry{PC?\glossentry{pc}|setentrycounter[]{page}\glsnumberformat}{51}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{52}
+\glossaryentry{PC?\glossentry{pc}|setentrycounter[]{page}\glsnumberformat}{52}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{52}
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{52}
 \glossaryentry{PC?\glossentry{pc}|setentrycounter[]{page}\glsnumberformat}{52}
@@ -372,3 +375,4 @@
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{61}
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{61}
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{61}
+\glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{65}

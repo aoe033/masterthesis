@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\chapter{HSMC-to-VLDB PCB design} \label{chap:pcb}
+\chapter{HSMC-to-VLDB PCB Design} \label{chap:pcb}
 
 In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
 
@@ -18,7 +18,7 @@ In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}),
 
 
 
-\section{Design discussion}
+\section{Design Discussion}
 
 The design discussion and planning of the \gls{pcb} was done together with Ph. D. Arild Velure.\\
 
@@ -38,7 +38,7 @@ The end result was a design that could be directly mounted on the \gls{fpga} thr
 
 When transmitting signals through a conductor at high frequencies, the conductor no longer acts as an ideal wire. The signal voltage stops acting instantaneous across the conducting path, and factors like impedance mismatch and reflections becomes important for the quality of the signal to remain the same through the whole transmission. This section gives a brief explanation of high frequency signal behavior and the compensation methods that was practiced during the design of the \gls{hsmc}-to-\gls{vldb} \gls{pcb}.
 
-\subsection{Transmission lines}
+\subsection{Transmission Lines}
 
 When signal rise/fall times becomes comparable with the propagation delay of the conductor, the signal no longer acts instantaneous. The conductor becomes what is known as a transmission line, with the signals voltage and current acting like waves propagation through the conductor. 
 The general rule for determining if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period, so that the high and low states are recognizable \cite{weste11}.
@@ -58,7 +58,7 @@ A signal thus propagates through the conductor at a velocity of approximately $1
 
 Thus, by assuming a constant transmitting frequency of $3.125\ \giga\bit\per\second$, a conductor becomes a transmission line if the length of the conductor stretches longer than $12\ \milli\meter$ between transmitter and receiver. This short length is very difficult to avoid when designing a \gls{pcb} with microstrip traces running from one connector out to eleven other connectors. The traces on the HSMC-to-VLDB \gls{pcb} are therefore considered as transmission lines. 
 
-\subsection{Reflections and characteristic impedance}
+\subsection{Reflections and Characteristic Impedance}
 
 Since the signals no longer acts instantaneous, the transmitter can not see what is connected at the receiving end at the time it sends a pulse down the conducting channel. All it sees is the channel impedance, called the characteristic impedance, $Z_0$, of the channel \cite{weste11}.
 
@@ -173,7 +173,7 @@ This was taken into consideration when routing the \gls{pcb}.
 
 The individual wires in each pair was kept as close as possible, with a space constraint (See table \ref{tab:Xsect1}) according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See equation \ref{eq:zdiff}). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases. After routing the wires, attempts were made to separate the pairs a distance from one another, but this was not a critical stage.
 
-\section{PCB design parameters}
+\section{PCB Design Parameters}
 
 The \gls{pcb} schematic was designed using \textit{Orcad Capture CIS} and the layout using \textit{Orcad \gls{pcb} Editor}, with design parameters meeting \textit{Elprint's} capabilities \cite{elprint15}. The \gls{pcb} layout was then exported into \textit{Gerber-files} and imported into \textit{Macaos} for further manufacture specification and validation. The \gls{pcb} was then ordered from Elprint. \\% and arrived in office 21/12/2015.
 
@@ -224,7 +224,7 @@ Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a b
 %\section{Further specification and ordering}
 
 
-\section{Soldering process}
+\section{Soldering Process}
 
 All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered using solder paste and a solder oven.
 
@@ -236,7 +236,7 @@ The \gls{hsmc}-connector has several ground pads underneath the connector itself
 
 The oven was set to a warm-up temperature of 150  for 60 seconds, and then a climb temperature of max 220 with a climb-time of 120 seconds.
 
-\section{PCB faults and compensations}
+\section{PCB Faults and Compensations}
 
 After receiving the \glspl{pcb}, further inspection revealed that all viases had missing solder mask. This exposes the metal of the vias to the surface of the \gls{pcb} and can possibly cause connection shorts between the viases and the pads and/or metallic casings when soldering. The reason for the viases not to have a solder mask is because it was missing in the pad file. A solution to fix this in a future \gls{pcb} print would obviously be to include a solder mask in the pad file.
 With the current \gls{pcb} print, however, a temporary solution would be to apply thin \textit{kapton tape} where most critical.\\

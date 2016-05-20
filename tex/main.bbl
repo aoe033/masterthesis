@@ -25,11 +25,17 @@
 \newblock {A}ccessed: 24/02/2016.
 
 \bibitem{sfp_schem}
-{\em {SFP} {HSMC} {S}chematic (hsmc\_sfp\_revb.pdf)}, 2013.
+{SFP} {HSMC} {S}chematic (hsmc\_sfp\_revb.pdf).
+\newblock
+  \url{http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=39&No=342&PartNo=3},
+  2013.
 \newblock {A}ccessed: 03/12/2015.
 
 \bibitem{si570}
-{\em {S}i570/{S}i571 {D}atasheet}, 2014.
+{S}i570/{S}i571 {D}atasheet.
+\newblock
+  \url{https://www.silabs.com/Support%20Documents/TechnicalDocs/si570.pdf},
+  2014.
 \newblock {A}ccessed: 29/02/2016.
 
 \bibitem{altera_terminals14}
@@ -127,7 +133,7 @@ D.~M.~H. Neil {H}. {E}.~{W}este.
 A.~Velure.
 \newblock {U}art2{B}us vhdl module, 2010.
 \newblock {D}esign used as a reference to the serial communication part on the
-  FPGA side. {A}ccessed: 12/02/2016.
+  FPGA side. {P}rivate communication.
 
 \bibitem{ncursesdoc}
 T.~E.~D. Zeyd M. Ben-Halim, Eric S.~Raymond.

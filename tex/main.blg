@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
@@ -8,7 +8,7 @@ Warning--to sort, need author or key in ti08lvds
 Warning--to sort, need author or key in altera_cyclonekit
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1049 of file abbrv.bst
-Warning--to sort, need author, organization, or key in sfp_schem
+Warning--to sort, need author or key in sfp_schem
 Warning--to sort, need author or key in altera_hsmc09
 Warning--to sort, need author or key in polar15
 Warning--to sort, need author or key in elprint15
@@ -18,40 +18,40 @@ Warning--to sort, need author or key in altera_terminals14
 Warning--to sort, need author or key in gpl3
 Warning--to sort, need author or key in altera_q13
 Warning--to sort, need author or key in altera_usb
-Warning--to sort, need author, organization, or key in si570
+Warning--to sort, need author or key in si570
 Warning--to sort, need author or key in bitvis16
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1090 of file abbrv.bst
 You've used 23 entries,
             2118 wiz_defined-function locations,
-            606 strings with 7123 characters,
-and the built_in function-call counts, 4342 in all, are:
-= -- 435
+            606 strings with 7124 characters,
+and the built_in function-call counts, 4390 in all, are:
+= -- 441
 > -- 83
 < -- 0
 + -- 43
 - -- 20
-* -- 162
-:= -- 616
-add.period$ -- 71
+* -- 158
+:= -- 620
+add.period$ -- 73
 call.type$ -- 23
-change.case$ -- 74
+change.case$ -- 76
 chr.to.int$ -- 0
 cite$ -- 38
-duplicate$ -- 180
-empty$ -- 510
+duplicate$ -- 178
+empty$ -- 518
 format.name$ -- 20
-if$ -- 1015
+if$ -- 1031
 int.to.chr$ -- 0
 int.to.str$ -- 23
 missing$ -- 6
-newline$ -- 120
+newline$ -- 122
 num.names$ -- 16
-pop$ -- 168
+pop$ -- 180
 preamble$ -- 1
 purify$ -- 56
 quote$ -- 0
-skip$ -- 144
+skip$ -- 142
 stack$ -- 0
 substring$ -- 115
 swap$ -- 24
@@ -62,5 +62,5 @@ type$ -- 86
 warning$ -- 15
 while$ -- 16
 width$ -- 25
-write$ -- 237
+write$ -- 241
 (There were 2 error messages)
