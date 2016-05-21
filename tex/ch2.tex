@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\chapter{HSMC-to-VLDB PCB design} \label{chap:pcb}
+\chapter{HSMC-to-VLDB PCB Design} \label{chap:pcb}
 
 In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
 
@@ -18,7 +18,7 @@ In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}),
 
 
 
-\section{Design discussion}
+\section{Design Discussion}
 
 The design discussion and planning of the \gls{pcb} was done together with Ph. D. Arild Velure.\\
 
@@ -38,7 +38,7 @@ The end result was a design that could be directly mounted on the \gls{fpga} thr
 
 When transmitting signals through a conductor at high frequencies, the conductor no longer acts as an ideal wire. The signal voltage stops acting instantaneous across the conducting path, and factors like impedance mismatch and reflections becomes important for the quality of the signal to remain the same through the whole transmission. This section gives a brief explanation of high frequency signal behavior and the compensation methods that was practiced during the design of the \gls{hsmc}-to-\gls{vldb} \gls{pcb}.
 
-\subsection{Transmission lines}
+\subsection{Transmission Lines}
 
 When signal rise/fall times becomes comparable with the propagation delay of the conductor, the signal no longer acts instantaneous. The conductor becomes what is known as a transmission line, with the signals voltage and current acting like waves propagation through the conductor. 
 The general rule for determining if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period, so that the high and low states are recognizable \cite{weste11}.
@@ -58,48 +58,11 @@ A signal thus propagates through the conductor at a velocity of approximately $1
 
 Thus, by assuming a constant transmitting frequency of $3.125\ \giga\bit\per\second$, a conductor becomes a transmission line if the length of the conductor stretches longer than $12\ \milli\meter$ between transmitter and receiver. This short length is very difficult to avoid when designing a \gls{pcb} with microstrip traces running from one connector out to eleven other connectors. The traces on the HSMC-to-VLDB \gls{pcb} are therefore considered as transmission lines. 
 
-\subsection{Reflections and characteristic impedance}
+\subsection{Reflections and Characteristic Impedance}
 
 Since the signals no longer acts instantaneous, the transmitter can not see what is connected at the receiving end at the time it sends a pulse down the conducting channel. All it sees is the channel impedance, called the characteristic impedance, $Z_0$, of the channel \cite{weste11}.
 
 The type of trace that is used in the \gls{hsmc}-to-\gls{vldb} \gls{pcb} design is called a microstrip, which is when the signal traces run along traces on the outer layers of the \gls{pcb} with the ground plane on the layer underneath. 
-
-    \definecolor{FR4}{HTML}{20B356}
-    \definecolor{COPPER}{HTML}{FFA500}
-
-\begin{figure}[ht]
-
-    \centering
-    %Microstrip single-ended
-    \begin{tikzpicture}
-        
-      %Ground Plane
-      \draw[yslant=0,fill=COPPER,opacity=1] (0,-1.0) rectangle (4,-0.8);  %Front
-      \draw[yslant=0.5, fill=COPPER,opacity=1] (4,-2.8) rectangle (6,-3); %Side
-      %\draw[yslant=0.5,xslant=-2] (0.4,0.2) rectangle (2.4,-1.8);           %Top
-
-      %FR4 Plane
-      \draw[yslant=0.0, fill=FR4,opacity=1] (0,-0.8) rectangle (4,0.2);                %Front
-      \draw[yslant=0.5, fill=FR4,opacity=1] (4,-2.8) rectangle (6,-1.8);               %Side
-      \draw[yslant=0.5,xslant=-2, fill=FR4!90,opacity=1] (0.4,0.2) rectangle (2.4,-1.8);  %Top
-
-       %Trace
-      \draw[yslant=0,fill=COPPER] (1.45,0.2) rectangle (2.45,0.38);                   %Front
-      \draw[yslant=0.5,fill=COPPER] (2.44,-0.85) rectangle (4.45,-1.02);            %Side
-      \draw[yslant=0.5,xslant=-2, fill=COPPER!80] (0.75,-0.85) rectangle (2.74,-0.35); %Top
-
-      \draw[<->] (0.4,-0.8) -- (0.4,0.2) node [midway,fill=FR4] {h};
-      \draw[|<->|] (1.45,-0.2) -- (2.45,-0.2) node [midway,fill=FR4] {w};
-    
-       \draw[] (-0.4,0.38) -- (1.6,1.38) node [midway, fill=white] {l};
-
-      \draw[|<->|] (1.2,0.195) -- (1.2,0.38) node [left] {t};
-
-    \end{tikzpicture}
-    \caption{Cross-section of a single-ended microstrip with the copper trace on top, followed by a dielectric layer and a ground plane. h is the thickness of the dielectric, t is the copper thickness, l is the microstrip length, and w is the copper width.}
-    \label{fig:microstrip}
-
-\end{figure}
 
 A microstrip has a characteristic impedance that is given by:
 
@@ -127,43 +90,84 @@ When looking at the datasheet for cables with differential signals, such as HDMI
 
 , where $Z_0$ is the characteristic impedance of the individual microstrips (assuming they are equal and have the same length), s is the spacing between the microstrips and h is the same as in the equation above \cite{douglas98}.
 
-\begin{figure}[h]
-%Microstrip differential
-\centering
-\begin{tikzpicture}
+\definecolor{FR4}{HTML}{20B356}
+\definecolor{COPPER}{HTML}{FFA500}
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    %Microstrip single-ended
+    \resizebox{\linewidth}{!}{
+    \begin{tikzpicture}
+        
+      %Ground Plane
+      \draw[yslant=0,fill=COPPER,opacity=1] (0,-1.0) rectangle (4,-0.8);  %Front
+      \draw[yslant=0.5, fill=COPPER,opacity=1] (4,-2.8) rectangle (6,-3); %Side
+      %\draw[yslant=0.5,xslant=-2] (0.4,0.2) rectangle (2.4,-1.8);           %Top
+
+      %FR4 Plane
+      \draw[yslant=0.0, fill=FR4,opacity=1] (0,-0.8) rectangle (4,0.2);                %Front
+      \draw[yslant=0.5, fill=FR4,opacity=1] (4,-2.8) rectangle (6,-1.8);               %Side
+      \draw[yslant=0.5,xslant=-2, fill=FR4!90,opacity=1] (0.4,0.2) rectangle (2.4,-1.8);  %Top
+
+       %Trace
+      \draw[yslant=0,fill=COPPER] (1.45,0.2) rectangle (2.45,0.38);                   %Front
+      \draw[yslant=0.5,fill=COPPER] (2.44,-0.85) rectangle (4.45,-1.02);            %Side
+      \draw[yslant=0.5,xslant=-2, fill=COPPER!80] (0.75,-0.85) rectangle (2.74,-0.35); %Top
+
+      \draw[<->] (0.4,-0.8) -- (0.4,0.2) node [midway,fill=FR4] {h};
+      \draw[|<->|] (1.45,-0.2) -- (2.45,-0.2) node [midway,fill=FR4] {w};
     
-  %Ground Plane
-  \draw[yslant=0,fill=COPPER,opacity=1] (0,-1.0) rectangle (4,-0.8);  %Front
-  \draw[yslant=0.5, fill=COPPER,opacity=1] (4,-2.8) rectangle (6,-3); %Side
+       \draw[] (-0.4,0.38) -- (1.6,1.38) node [midway, fill=white] {l};
 
-  %FR4 Plane
-  \draw[yslant=0.0, fill=FR4,opacity=1] (0,-0.8) rectangle (4,0.2);                %Front
-  \draw[yslant=0.5, fill=FR4,opacity=1] (4,-2.8) rectangle (6,-1.8);               %Side
-  \draw[yslant=0.5,xslant=-2, fill=FR4!90,opacity=1] (0.4,0.2) rectangle (2.4,-1.8);  %Top
+      \draw[|<->|] (1.2,0.195) -- (1.2,0.38) node [left] {t};
 
-  %Trace#1
-  \draw[yslant=0,fill=COPPER] (0.45,0.2) rectangle (1.45,0.38);                   %Front
-  \draw[yslant=0.5,fill=COPPER] (1.45,-0.35) rectangle (3.45,-0.53);            %Side
-  \draw[yslant=0.5,xslant=-2, fill=COPPER!80] (0.75,0.15) rectangle (2.74,-0.35); %Top
+    \end{tikzpicture}
+    }
+    \caption{Single-ended.}
+  \end{subfigure}
+  ~
+ %Microstrip differential
+  \begin{subfigure}[t]{0.45\textwidth}
+  \centering
+    \resizebox{\linewidth}{!}{
+  \begin{tikzpicture}
+      
+    %Ground Plane
+    \draw[yslant=0,fill=COPPER,opacity=1] (0,-1.0) rectangle (4,-0.8);  %Front
+    \draw[yslant=0.5, fill=COPPER,opacity=1] (4,-2.8) rectangle (6,-3); %Side
 
-  %Trace#2
-  \draw[yslant=0,fill=COPPER] (2.45,0.2) rectangle (3.45,0.38);                   %Front
-  \draw[yslant=0.5,fill=COPPER] (3.45,-1.35) rectangle (5.45,-1.53);            %Side
- \draw[yslant=0.5,xslant=-2, fill=COPPER!80] (0.75,-0.85) rectangle (2.74,-1.35); %Top
+    %FR4 Plane
+    \draw[yslant=0.0, fill=FR4,opacity=1] (0,-0.8) rectangle (4,0.2);                %Front
+    \draw[yslant=0.5, fill=FR4,opacity=1] (4,-2.8) rectangle (6,-1.8);               %Side
+    \draw[yslant=0.5,xslant=-2, fill=FR4!90,opacity=1] (0.4,0.2) rectangle (2.4,-1.8);  %Top
 
-  \draw[<->] (0.25,-0.8) -- (0.25,0.2) node [midway,fill=FR4] {h};
+    %Trace#1
+    \draw[yslant=0,fill=COPPER] (0.45,0.2) rectangle (1.45,0.38);                   %Front
+    \draw[yslant=0.5,fill=COPPER] (1.45,-0.35) rectangle (3.45,-0.53);            %Side
+    \draw[yslant=0.5,xslant=-2, fill=COPPER!80] (0.75,0.15) rectangle (2.74,-0.35); %Top
 
-  \draw[|<->|] (0.45,-0.2) -- (1.45,-0.2) node [midway,fill=FR4] {w};
-  \draw[<->] (1.45,-0.2) -- (2.45,-0.2) node [midway,fill=FR4] {s};
-  \draw[|<->|] (2.45,-0.2) -- (3.45,-0.2) node [midway,fill=FR4] {w};
-  
-  \draw[|<->|] (2.1,0.19) -- (2.1,0.38) node [right] {t};
-  
-  \draw[] (-0.4,0.38) -- (1.6,1.38) node [midway, fill=white] {l};
+    %Trace#2
+    \draw[yslant=0,fill=COPPER] (2.45,0.2) rectangle (3.45,0.38);                   %Front
+    \draw[yslant=0.5,fill=COPPER] (3.45,-1.35) rectangle (5.45,-1.53);            %Side
+   \draw[yslant=0.5,xslant=-2, fill=COPPER!80] (0.75,-0.85) rectangle (2.74,-1.35); %Top
 
-\end{tikzpicture}
-   \caption{Cross-section of a corresponding differential microstrip. s is the spacing between the strips.}
-    \label{fig:diffstrip}
+    \draw[<->] (0.25,-0.8) -- (0.25,0.2) node [midway,fill=FR4] {h};
+
+    \draw[|<->|] (0.45,-0.2) -- (1.45,-0.2) node [midway,fill=FR4] {w};
+    \draw[<->] (1.45,-0.2) -- (2.45,-0.2) node [midway,fill=FR4] {s};
+    \draw[|<->|] (2.45,-0.2) -- (3.45,-0.2) node [midway,fill=FR4] {w};
+    
+    \draw[|<->|] (2.1,0.19) -- (2.1,0.38) node [right] {t};
+    
+    \draw[] (-0.4,0.38) -- (1.6,1.38) node [midway, fill=white] {l};
+
+  \end{tikzpicture}
+  }
+     \caption{Differential.}
+  \end{subfigure}
+      \caption{Microstrip, cross-section. The microstrip is the copper trace(s) on top, followed by a dielectric layer and a ground plane. h is the thickness of the dielectric, t is the copper thickness, l is the microstrip length, and w is the copper width. s is the spacing between the differential strips.}
+    \label{fig:microstrip}
 \end{figure}
 
 \subsection{Routing}
@@ -173,7 +177,7 @@ This was taken into consideration when routing the \gls{pcb}.
 
 The individual wires in each pair was kept as close as possible, with a space constraint (See table \ref{tab:Xsect1}) according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See equation \ref{eq:zdiff}). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases. After routing the wires, attempts were made to separate the pairs a distance from one another, but this was not a critical stage.
 
-\section{PCB design parameters}
+\section{PCB Design Parameters}
 
 The \gls{pcb} schematic was designed using \textit{Orcad Capture CIS} and the layout using \textit{Orcad \gls{pcb} Editor}, with design parameters meeting \textit{Elprint's} capabilities \cite{elprint15}. The \gls{pcb} layout was then exported into \textit{Gerber-files} and imported into \textit{Macaos} for further manufacture specification and validation. The \gls{pcb} was then ordered from Elprint. \\% and arrived in office 21/12/2015.
 
@@ -223,20 +227,39 @@ Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a b
 
 %\section{Further specification and ordering}
 
+\section{Pads and Footprints}
 
-\section{Soldering process}
+All pads and footprints were custom made using \textit{Cadence Pad Designer}, with dimensions collected from datasheets of the different components. The only excepting was for the \gls{hsmc} footprint and pads, which were acquired from the manufacturer. The pads were dimensioned a bit longer than the actual pins, making it a bit easier to make contact with the soldering iron when soldering by hand.
 
-All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered using solder paste and a solder oven.
+\section{Soldering Process}
 
-\subsection{Martin Rework Station}
+All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered using solder paste and a solder oven. The solder paste, which is a lead contained paste of type \textit{EFD SolderPlus 221 RMA}, was ordered from \url{www.krepro.no} in late January 2016.
 
-The \gls{hsmc}-connector has several ground pads underneath the connector itself, making it impossible to reach when soldering by hand. The solution to this was to apply solder paste on the pads with the help the Martin Rework Station dispenser module that was available in the lab. The dispenser module forces the solder paste out of the syringe using pressurized air. By pressing a foot pedal connected to the dispenser, you apply a controlled air pulse that pushes on the piston of the solder paste syringe. The force of the air pulse can be adjusted using the dispenser \gls{gui}. For the ground pads, a force of $2.50 ccm$ was suitable.  
+\subsection{Soldering the Ground Pads Underneath the HSMC Contact}
 
-\subsection{Solder Oven}
+The \gls{hsmc}-connector has several ground pads underneath the connector itself, making it impossible to reach when soldering by hand. The solution to this use a solder oven with solder paste on the pads. The solder paste was applied on the pads with the help of the dispenser module on the \textit{Martin Rework Station}, which was available in the lab. The dispenser module forces the solder paste out of the syringe using pressurized air. By pressing a foot pedal connected to the dispenser, you apply a controlled air pulse that pushes on the piston of the solder paste syringe. The force of the air pulse can be adjusted using the dispenser \gls{gui}. For the ground pads, a force of $2.50~ccm$ was suitable.
 
-The oven was set to a warm-up temperature of 150  for 60 seconds, and then a climb temperature of max 220 with a climb-time of 120 seconds.
+The solder oven that was used had the option to set up a \textit{Ramp-Soak-Spike} type thermal profile. Samtec, the manufacturer for the \gls{hsmc} contact, recommends a maximum peak temperature of no more than $260~\degree C$ with no more than 30 seconds above $255\degree C$. The thermal profile setup is based on the profile recommended by EFD, the manufacturer for the particular solder paste used (see figure \ref{fig:krepro}). After some trial and error with a dummy-PCB, the oven was set to a activation temperature of $150\degree C$ for $60~seconds$, and then a reflow temperature of $220\degree C$ with a climb-time of $120~seconds$. 
 
-\section{PCB faults and compensations}
+\begin{figure}[H] % H(strictly put HERE > h!)
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=0.8\linewidth]{../img/temp_prof}  \\[0.1 cm]
+\caption{EFD reflow thermal profile recommendations \cite{krepro_reflow}.}
+\label{fig:krepro}
+\end{figure}
+
+The finished PCB is shown in figure \ref{fig:pcb_1}. The \gls{hsmc} contact is located at the bottom of the \gls{pcb}.
+
+\begin{figure}[H] % H(strictly put HERE > h!)
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=0.8\linewidth, trim={15cm 0 15cm 0},clip]{../img/pcb_1.JPG}  \\[0.1 cm]
+\caption{HDMI-to-VLDB PCB with components soldered on.}
+\label{fig:pcb_1}
+\end{figure}
+
+\section{PCB Faults and Compensations}
+
+During the process of hand soldering, it was discovered that the \gls{hsmc} pads were dimensioned for the purpose of reflow soldering using a solder oven. This meant that the pads were dimensioned to match exactly that of the pins, making it very difficult to solder by hand. With 160 individual pins to be soldered to the \gls{pcb} board, this resulted in a time-consuming work with a lot of effort trying to keep the pins from shorting. To ease the soldering process of the \gls{hsmc}, the pads should be dimensioned a bit longer.
 
 After receiving the \glspl{pcb}, further inspection revealed that all viases had missing solder mask. This exposes the metal of the vias to the surface of the \gls{pcb} and can possibly cause connection shorts between the viases and the pads and/or metallic casings when soldering. The reason for the viases not to have a solder mask is because it was missing in the pad file. A solution to fix this in a future \gls{pcb} print would obviously be to include a solder mask in the pad file.
 With the current \gls{pcb} print, however, a temporary solution would be to apply thin \textit{kapton tape} where most critical.\\

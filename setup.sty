@@ -10,6 +10,9 @@
 \usepackage{floatrow} %For displaying pictures side by side
 \usepackage[usenames,dvipsnames]{xcolor} %driver-in­de­pen­dent ac­cess to sev­eral kinds of color tints, shades, tones, and mixes of ar­bi­trary col­ors.
 
+\usepackage{rotating} %Enables for rotating figures. use \begin{sidewaysfigure}
+\usepackage{subcaption}
+
 \usepackage{mdframed} % Allows you to frame figures with \begin{mdframed} below \begin{figure}
 
 
@@ -45,6 +48,7 @@
 %\usepackage{parskip} % disables auto-indentation and adds a little bit of (stretchable) space in between paragraphs
 
 \usepackage{hyperref} %Enables hyperlinks
+\urlstyle{same}
 \usepackage{listings}%include the source code of any programming language within your document.
 
 \usepackage{tabularx}
@@ -64,13 +68,16 @@
 \usepackage[toc,page]{appendix}
 
 \usepackage{subfiles} %alternative to include/input, gives you the advantage that you can compile in subfiles (chapters)
+\usepackage[final]{pdfpages}
 
 \usepackage[mediumspace,squaren,binary]{SIunits}
 
 \usepackage{fancyhdr}
 
-\usepackage{acronym}
+%\usepackage{acronym}
 \usepackage{todonotes} %Lets you create notes and put them in the appropriate places in the text. Use \todo{text}
+
+%\usepackage{leading}
 
 %\usepackage[ampersand]{easylist} %easylist
 %\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,

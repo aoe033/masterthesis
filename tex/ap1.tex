@@ -1,0 +1,24 @@
+%location/filename: tex/fig/ap1.tex
+%author: Anders Østevik
+%Last edited: 20.05.2016
+%#######--Appendix - HSMC-to-VLDB gerber files--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{SignalTap II: Receiving end of the fiber-optic external loopback test}
+
+Results from the test of the dedicated SFP-connector on the HDMI-daughter card for fiber-optic communication. The purpose was to see if it was possible for the connector to send and receive information at speeds corresponding the \gls{gbt}-standard of $4.8 \giga\bit\per\second$. The result was positive that the receiver was able to receive the transmitted incremental counter, and figure \ref{fig:lb_rx} shows parts of the counter received at the receiving end (see \ref{sec:exlooptest} for more information).   
+
+\begin{sidewaysfigure}[] % H(strictly put HERE > h!)
+\begin{center}
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=\linewidth]{../img/gbt_rx_loopback}  \\[0.1 cm]
+\caption{Receiving end of the fiber-optic external loopback test.}
+\label{fig:lb_rx}
+\end{center}
+\end{sidewaysfigure}
+
+\end{document}

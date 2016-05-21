@@ -81,10 +81,9 @@ end rtl;
 \end{lstlisting}
 
 
-\section{Cyclone V transceiver Technology}
+\section{Cyclone V Transceiver Technology}
 
 To be able to send serial data in the gigahertz domain, a high-speed transceiver is required. The Cyclone V GT-series \glspl{fpga} supports a number of transceiver technologies through the \gls{hsmc} physical interface that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of some of these protocols.
-
 
 \subsection{Differential Signals} \label{subsec:diffsig}
 
@@ -94,13 +93,11 @@ While a single ended signal involves one conductor between the transmitter and r
 
 When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The disadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
 
-
 \subsection{Low-Voltage Differential Signaling}
 
 \gls{lvds} is said to be the most commonly used differential interface. The interface offers a low power consumption with a voltage swing of $350\ \milli\volt$ and good noise immunity. LVDS can deliver data rates up to $3.125\ \giga\bit\per\second$ \cite{ti08lvds}.\\
 
 The Cyclone V GT board has 17 \gls{lvds} channels available on the \gls{hsmc} port A connector. The channels have the ability to transmit and receive data at a rate up to $840\ \mega\bit\per\second$, with support for serialization and deserialization through internal logic. \cite{altera_cvoverview15}
-
 
 \subsection{Current-Mode Logic}
 
@@ -111,8 +108,7 @@ The Cyclone V GT board has 4 Pseudo-\gls{cml} (PCML) channels available on both 
 
 %\subsection{CPRI}
 
-
-\subsection{Phase-Locked Loops}
+%\subsection{Phase-Locked Loops}
 
 %A \gls{pll} is a device
 
