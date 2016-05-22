@@ -76,41 +76,41 @@
 \contentsline {subsubsection}{Associated functions - Various}{39}{section*.46}
 \contentsline {section}{\numberline {6.3}Software Structure and Flowchart}{40}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Interface module}{40}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Send/Receive Module}{41}{subsection.6.3.2}
-\contentsline {section}{\numberline {6.4}Conclusion and Discussion}{43}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Notable Problems}{44}{subsection.6.4.1}
-\contentsline {chapter}{\numberline {7}External and Internal Loopback Test of the GBT Bank Quartus Example}{45}{chapter.7}
-\contentsline {section}{\numberline {7.1}120 MHz Reference Clock}{45}{section.7.1}
-\contentsline {section}{\numberline {7.2}Configuring the On-board Oscillator on the Cyclone V Board}{46}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Clock Control Software Setup}{46}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Steps for Configuring Windows to run the Clock Control Software}{46}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}Configuring the $Si338$ External Oscillator}{47}{section.7.3}
-\contentsline {chapter}{\numberline {8}Testing and Verification of the HDMI Daughter Card}{49}{chapter.8}
-\contentsline {section}{\numberline {8.1}Connectivity Test}{49}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Purpose of Test}{49}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}Experimental Setup}{49}{subsection.8.1.2}
-\contentsline {subsection}{\numberline {8.1.3}Results}{49}{subsection.8.1.3}
-\contentsline {section}{\numberline {8.2}External Loop-back Test for the Fiber-Optic Connector}{50}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Purpose of Test}{50}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}Experimental Setup}{50}{subsection.8.2.2}
-\contentsline {subsection}{\numberline {8.2.3}Results}{50}{subsection.8.2.3}
-\contentsline {section}{\numberline {8.3}External Loop-back Test for the HDMI Connectors}{51}{section.8.3}
-\contentsline {subsection}{\numberline {8.3.1}Purpose of Tests}{51}{subsection.8.3.1}
-\contentsline {subsection}{\numberline {8.3.2}Experimental Setup}{51}{subsection.8.3.2}
-\contentsline {subsection}{\numberline {8.3.3}Results}{51}{subsection.8.3.3}
-\contentsline {section}{\numberline {8.4}Conclusion and Discussions}{51}{section.8.4}
-\contentsline {chapter}{\numberline {9}Testing and Verification of the Serial Interface}{53}{chapter.9}
-\contentsline {section}{\numberline {9.1}Hardware Simulation using Testbench in Modelsim}{53}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Purpose of Tests}{53}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Experimental Setup}{53}{subsection.9.1.2}
-\contentsline {subsubsection}{Bitvis Utility Library}{53}{section*.54}
-\contentsline {subsection}{\numberline {9.1.3}Results}{54}{subsection.9.1.3}
-\contentsline {section}{\numberline {9.2}Connection between COM port and UART using SignalTap II}{54}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Purpose of Tests}{54}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Experimental Setup}{54}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}Results}{54}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Conclusion and Discussions}{55}{section.9.3}
-\contentsline {chapter}{\numberline {10}Conclusion and Discussion}{57}{chapter.10}
-\contentsline {section}{Appendix}{64}{chapter*.59}
-\contentsline {chapter}{\numberline {A}SignalTap II: Receiving end of the fiber-optic external loopback test}{69}{appendix.A}
-\contentsline {chapter}{\numberline {B}Schematic and PCB Layout}{71}{appendix.B}
+\contentsline {subsection}{\numberline {6.3.2}Send/Receive module}{41}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Conclusion and Discussion}{44}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Notable Problems}{45}{subsection.6.4.1}
+\contentsline {chapter}{\numberline {7}External and Internal Loopback Test of the GBT Bank Quartus Example}{47}{chapter.7}
+\contentsline {section}{\numberline {7.1}120 MHz Reference Clock}{47}{section.7.1}
+\contentsline {section}{\numberline {7.2}Configuring the On-board Oscillator on the Cyclone V Board}{48}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Clock Control Software Setup}{48}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Steps for Configuring Windows to run the Clock Control Software}{48}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}Configuring the $Si338$ External Oscillator}{49}{section.7.3}
+\contentsline {chapter}{\numberline {8}Testing and Verification of the HDMI Daughter Card}{51}{chapter.8}
+\contentsline {section}{\numberline {8.1}Connectivity Test}{51}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Purpose of Test}{51}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Experimental Setup}{51}{subsection.8.1.2}
+\contentsline {subsection}{\numberline {8.1.3}Results}{51}{subsection.8.1.3}
+\contentsline {section}{\numberline {8.2}External Loop-back Test for the Fiber-Optic Connector}{52}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Purpose of Test}{52}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Experimental Setup}{52}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Results}{52}{subsection.8.2.3}
+\contentsline {section}{\numberline {8.3}External Loop-back Test for the HDMI Connectors}{53}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}Purpose of Tests}{53}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}Experimental Setup}{53}{subsection.8.3.2}
+\contentsline {subsection}{\numberline {8.3.3}Results}{54}{subsection.8.3.3}
+\contentsline {section}{\numberline {8.4}Conclusion and Discussions}{54}{section.8.4}
+\contentsline {chapter}{\numberline {9}Testing and Verification of the Serial Interface}{57}{chapter.9}
+\contentsline {section}{\numberline {9.1}Hardware Simulation using Testbench in Modelsim}{57}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Purpose of Tests}{57}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Experimental Setup}{57}{subsection.9.1.2}
+\contentsline {subsubsection}{Bitvis Utility Library}{57}{section*.55}
+\contentsline {subsection}{\numberline {9.1.3}Results}{58}{subsection.9.1.3}
+\contentsline {section}{\numberline {9.2}Connection between COM port and UART using SignalTap II}{58}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Purpose of Tests}{58}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Experimental Setup}{58}{subsection.9.2.2}
+\contentsline {subsection}{\numberline {9.2.3}Results}{58}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}Conclusion and Discussions}{59}{section.9.3}
+\contentsline {chapter}{\numberline {10}Conclusion and Discussion}{61}{chapter.10}
+\contentsline {section}{Appendix}{68}{chapter*.60}
+\contentsline {chapter}{\numberline {A}SignalTap II: Receiving end of the fiber-optic external loopback test}{73}{appendix.A}
+\contentsline {chapter}{\numberline {B}Schematic and PCB Layout}{75}{appendix.B}

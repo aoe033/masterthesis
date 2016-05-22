@@ -30,7 +30,7 @@
 	\node (dec2) [decision, below = 0.5cm of dec1] {\textit{txReq?}};
 	\node (pro2a) [process, below left = 0.5cm of dec2] {Set \textit{txStatus} = WRITE};
 	
-	\node (dec3) [decision, below = 0.5cm of pro2a] {Check table with \textit{txAdr} as index};
+	\node (dec3) [decision, below = 0.5cm of pro2a] {Check pattern table with \textit{txAdr} as index};
 	\node (pro3a) [process, below left = 0.5cm of dec3] {\textit{txData[0]} = 0xFF};
 	\node (pro3b) [process, below right = 0.5cm of dec3] {\textit{txData[0]} = 0xEE};
 	
@@ -49,8 +49,8 @@
 	\node (pro7b) [process, left = 0.7cm of dec5] {\textit{txReq} = READ};
 
 	\node (dec6) [decision, below = 0.5cm of pro7b] {Table index $>$ 4?};
-	\node (pro8a) [process, right = 0.5cm of dec6] {Increment index};
-	\node (pro8b) [process, left = 0.5cm of dec6] {Set index = 0};
+	\node (pro8a) [process, right = 0.5cm of dec6] {Increment pattern index};
+	\node (pro8b) [process, left = 0.5cm of dec6] {Set pattern index = 0};
 
 
 	\draw [arrow] (start) -- (dec1);

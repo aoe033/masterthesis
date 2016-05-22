@@ -299,13 +299,13 @@ Sample ticks        & h 125{c}\\
 \end{figure}
 
 
-To achieve a sampling rate of 16 times the baud rate, a Baud Rate Generator module is implemented into the design. The module generates a one-clock-cycle tick once every $\frac{clock}{16 \times baud\ rate}$ clock cycles. For a baud rate of $19200~\bit\per\second$ and a clock of $50\ \mega\hertz$, there must be a one-clock-cycle tick once every $163$ clock cycle. This is achieved by counting in certain steps given by the formula below:
+To achieve a sampling rate of 16 times the baud rate, a Baud Rate Generator module is implemented into the design. The module generates a one-clock-cycle tick once every $\frac{clock}{16 \times baud\ rate}$ clock cycles. This is achieved by counting in certain steps given by the formula below:
 
 \begin{equation}
 Baud\ frequency = \frac{16 \times baud\ rate}{GCD(clock, 16 \times baud\ rate)}
 \end{equation}
 
-, where baud frequency is the count steps, GCD is the greatest common divisor between the global clock and the baud rate times 16 \cite{velure10}. \\
+, where baud frequency is the count steps, and \textit{GCD} is the greatest common divisor between the global clock and the baud rate times 16 \cite{velure10}. \\
 For a baud rate of $19200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, the counter must count in steps of $96$ per clock cycle. 
 
 Once the counter reaches a given baud limit, the counter resets and the tick-signal is pulled high. After one clock cycle, the tick-signal is pulled low and the counter starts to count upwards again. The baud limit is given by:
@@ -418,8 +418,6 @@ Being initially in the idle state, the decoder is triggered by the $rx\_empty$ s
   In the read2 state, the value of the first byte, the request-byte, decides if the decoder should perform a read or a write operation on the gbt-register. The value of the last received byte is treated as an address to the data of the gbt-register the client wants to read or write to.  
 
 
-
-
 \chapter{Software on the PC Side} \label{chap:software}
 
 The program was written with the goal of one day replacing the Quartus-bound In-System-Source-And-Probe Editor, which is used today to access the \gls{gbt} control-signals; and instead introduce a cross-platform, open-source solution.
@@ -442,7 +440,7 @@ The program is to contain the following specifications:\\
 The serial communications software was developed with the help of a few non-standard libraries; non-standard meaning that the libraries are not a part of the C standard libraries. In addition, a library dedicated to hold the \gls{gbt} control-signal information was written.
 The following sections gives brief descriptions of each of these libraries and the associated functions used in the serial communications software:
 
-\subsection{RS232}
+\subsection{RS232} \label{sec:rs232}
 
 The RS232 library (\textit{rs232.h} and \textit{rs232.c}) is a cross-platform C-library for sending and receiving bytes from the \gls{com} of a \acrshort{pc}. It was written by Teunis van Beelen, and is licensed under the "GPL version 3" licence \cite{gpl3}. The library compiles with GCC on Linux and Mingw-w64 on Windows. By specifying baud rate, the name of the relevant \gls{com}, and the transmission mode (8N1 is standard), the library provides access to the \gls{com} and allows for both reading and writing to it. For more information about the library and functions, visit \url{http://www.teuniz.net/RS-232/#}.
 
@@ -604,7 +602,7 @@ Functions related to reading and writing to the index string, \textit{index}, of
 
 The ncurses library is a terminal control library commonly used with Unix-systems. It is "freely redistributable in source form" \cite{ncursesdoc}, and enables you to construct interfaces using the terminal as the base. The main purpose of using ncurses for the \gls{gbt} software interface was to enable multiple windows; one window to continuously update and display the \gls{gbt} control signals, and another window for the user to write commands. To compile ncurses-based programs in Windows, one can use the \textit{pdcurses} library. The \textit{pdcurses} library has the same function names and overall functionality, so no alterations of code is needed. The following library and function information has been taken from \url{http://linux.die.net/man/}, which is a website collection of Linux-related documentation (ncurses is integrated into the Linux system). 
 
-\subsubsection{Associated functions - Initialization} \label{sub:ncinit}
+\subsubsection{Associated functions - Initialization}
 
 \lstset { %
     language=C++,
@@ -692,7 +690,7 @@ The software is divided into two modules; one module for sending and receiving d
 \subsection{Interface module}
 Figure \ref{fig:flowgui} illustrates the behaviour of the interface module. The main loop start by checking for any changes in screen size of the main terminal window. This allows the user to freely change the window size, although full screen is preferred. If a resize has occurred, the program stores the size-parameter and uses it to further resize and properly align all the internal windows ("Command History", "Commandline" and "Signals") using \textit{wresize}, and clears the content using \textit{wclear}. The content will later be redrawn with coordinates aligned according to the new size.\\
 
-With ncurses, by using \textit{getch} in conjunction with \textit{nodelay}, one can check for key-presses without having to pause the entire program (see \ref{sub:ncinit}). If a key is pressed, the program analyses the input: If a character is typed, it is appended to a command-string and displayed in the "Commandline" window. 
+With ncurses, by using \textit{getch} in conjunction with \textit{nodelay}, one can check for key-presses without having to pause the entire program (see \ref{sec:ncurses}). If a key is pressed, the program analyses the input: If a character is typed, it is appended to a command-string and displayed in the "Commandline" window. 
 
 If it is a return-character ('\textbackslash n'), the program processes the command-string and compares it up against a table of legal commands. The legal commands has associated functions that executes if there is a match between the input and an entry in the table. For it to be a match, the first word of the input-string must be a legal command followed by legal arguments. To see the usage of a command, one can just type in the command without any arguments. It is also possible to type in just a letter or a partial word to print out possible commands that contain the letter or partial word typed in. Legal commands include: \textit{write}, which writes a bit value to one or more of the switch-signals; \textit{read}, which sends read requests for one or more signals to the \gls{fpga}; \textit{open}, which opens the \gls{com} if it is not already open; \textit{close}, which closes the comport if it is open; \textit{status}, which prints out information about the \gls{com} and its current status; and \textit{exit}, which closes the \gls{com} and exits the program.
 
@@ -709,11 +707,11 @@ After checking for key-presses, the program redraws the windows using \textit{wr
 \end{center}
 \end{figure}
 
-\subsection{Send/Receive Module}
+\subsection{Send/Receive module}
 
-The following figures \ref{fig:flowtx} and \ref{fig:flowrx} illustrates the behaviour of the main transmitter and receiver functions of the send/receive module. The basic operation goes as follows: The program writes a data-pattern from a table to the \gls{gbt}-registers on the \gls{fpga} side and then reads the register values back to confirm correct data pattern. There are five different patterns that are sent in sequence to the registers, and each time a pattern is sent it is read back to the program on the PC side and displayed. This is to confirm that the communication link is working properly. 
+Figures \ref{fig:flowtx} and \ref{fig:flowrx} illustrates the behaviour of the main transmitter and receiver functions of the send/receive module. The basic operation goes as follows: The program sends a data-pattern from a 2d-array via the \gls{com} to the \gls{gbt}-registers on the \gls{fpga} side. It then sends a read request to read all values of the \gls{gbt}-register back to confirm that the data pattern was transmittet properly. There are five different patterns that are sent in sequence to the registers, and each time a pattern is sent it is read back to the program on the PC side and displayed. This is to confirm that the communication link is working properly. \\
 
-The transmitter function is always called before the receiver function, with a specified delay in between the two function calls. The \textit{txStatus} variable controls the behaviour of both transmitter and receiver function. For the program to be able to send a new byte out the \gls{com}, the \textit{txStatus} variable must be either set to IDLE or REPEAT. When set to IDLE, the program is not waiting for any received address-byte and is ready to transmit a new request-byte out the \gls{com}. The \textit{txReq} variable determines what request is to be sent to the \gls{fpga}. When equal to a read-byte (0xDD), the When set to REPEAT, the program has already sent a request, but has not received the desired data and address byte.  
+There are four variables that controls the transmitter: \textit{txStatus}, \textit{txReq}, \textit{txData[2]} and \textit{txAdr}. The \textit{txStatus} variable controls the behaviour of both transmitter and receiver function. For the program to be able to send a new byte out the \gls{com}, the \textit{txStatus} variable must either be flagged either as idle (0x00) or as repeat (0xFD). When flagged idle, the program is not waiting for any received address-byte and is ready to transmit a new request-byte to the \gls{com}. When set to repeat, the program has already sent a request, but has not received the desired data and address byte, and must send the same read-request again. The \textit{txReq} variable determines what request is to be sent to the \gls{fpga}. When equal to a read-request (0xDD), both \textit{txStatus} and \textit{txData[0]} is set to 0xDD. If \textit{txReq} is equal to a write-request (0xEE), however, data from the \textit{GBT data table} is copied into \textit{txData[0]} using \textit{txAdr} as index. \textit{txData[1]} is set always equal to \textit{txAdr}, which is now the desired address to the \gls{gbt}-register in which to read from or write to. Sending data to the \gls{com} involves using the \textit{RS232\_Sendbuf}-function (see \ref{sec:rs232}). \textit{txAdr} is then incremented by one or reset to 0 if it exceeds the width of the \gls{gbt} data-register. If the latter is the case, it means that the read/write operation is finished, and \textit{txReq} is set to the opposite operation. If a write operation is done, the pattern index is also incremented, so that the next write operation sends out a different pattern. The transmitter function is always called before the receiver function, with a specified delay in between the two function calls. \\
 
 \begin{figure}[H] % H(strictly put HERE > h!)
 \begin{center}
@@ -723,6 +721,8 @@ The transmitter function is always called before the receiver function, with a s
 \label{fig:flowtx}
 \end{center}
 \end{figure}
+
+For the receiver function to read out what is stored in the \gls{com} buffer, \textit{txStatus} must be set to read (0xDD). The process of reading out a byte from the \gls{com} involves using the \textit{RS232\_PollComport}-function (see \ref{sec:rs232}). The \textit{n} variable is equal to the number of bytes read from the \gls{com}. If no bytes are present, this means that the previous read-request has not been received or processed properly by the \gls{fpga} \gls{uart} state machine. \textit{txStatus} is therefore set equal to repeat (0xFD), signaling the transmitter function to send the same previous read-request to the \gls{com}. If \textit{n} is larger than 0, the data and address values are filtered out of the byte(s); the data bit being the \gls{msb} and the address the remaining bits.
 
 \begin{figure}[H] % H(strictly put HERE > h!)
 \begin{center}

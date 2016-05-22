@@ -51,7 +51,7 @@
 \BOOKMARK [2][-]{subsection.6.2.4}{ncurses}{section.6.2}% 51
 \BOOKMARK [1][-]{section.6.3}{Software Structure and Flowchart}{chapter.6}% 52
 \BOOKMARK [2][-]{subsection.6.3.1}{Interface module}{section.6.3}% 53
-\BOOKMARK [2][-]{subsection.6.3.2}{Send/Receive Module}{section.6.3}% 54
+\BOOKMARK [2][-]{subsection.6.3.2}{Send/Receive module}{section.6.3}% 54
 \BOOKMARK [1][-]{section.6.4}{Conclusion and Discussion}{chapter.6}% 55
 \BOOKMARK [2][-]{subsection.6.4.1}{Notable Problems}{section.6.4}% 56
 \BOOKMARK [0][-]{chapter.7}{External and Internal Loopback Test of the GBT Bank Quartus Example}{}% 57
@@ -85,6 +85,6 @@
 \BOOKMARK [2][-]{subsection.9.2.3}{Results}{section.9.2}% 85
 \BOOKMARK [1][-]{section.9.3}{Conclusion and Discussions}{chapter.9}% 86
 \BOOKMARK [0][-]{chapter.10}{Conclusion and Discussion}{}% 87
-\BOOKMARK [1][-]{chapter*.59}{Appendix}{chapter.10}% 88
+\BOOKMARK [1][-]{chapter*.60}{Appendix}{chapter.10}% 88
 \BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 89
 \BOOKMARK [0][-]{appendix.B}{Schematic and PCB Layout}{}% 90

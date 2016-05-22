@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  22 MAY 2016 00:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  22 MAY 2016 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1828,17 +1828,7 @@ zlibraryshapes.callouts.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.callouts.code.tex)))))
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/flow_tx.aux
-! Undefined control sequence.
-l.20 \AC@reset@newl@bel
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-)
+/flow_tx.aux)
 \openout1 = `flow_tx.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -1983,7 +1973,7 @@ Package rerunfilecheck Info: File `flow_tx.out' has not changed.
 Here is how much of TeX's memory you used:
  39851 strings out of 493029
  760948 string characters out of 6136235
- 908792 words of memory out of 5000000
+ 908794 words of memory out of 5000000
  42719 multiletter control sequences out of 15000+600000
  13264 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1997,7 +1987,7 @@ texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/flow_tx.pdf (1 page, 140059 bytes).
+/masterthesis/tex/flow_tx.pdf (1 page, 140339 bytes).
 PDF statistics:
  33 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream

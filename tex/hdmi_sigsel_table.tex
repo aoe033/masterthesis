@@ -191,18 +191,35 @@ sig_comp -> compares tx_sample(0-> 7) with mux_Select (rx_sample0, rising / rx_s
 
 global clk 	LED 	Cable length 	Rising edge/falling on rx-sample 	Comments
 
-100Mhz	1 	short (5ns) 	rising seems to work best. 		Some spikes, but are small enough to not be detected. On falling edge: more spikes
+100Mhz		1 	short (5ns) 	rising seems to work best. 				Some spikes, but are small enough to not be detected. On falling edge: more spikes
 
-200Mhz 	2 	short (5ns) 	rising edge works best.			No spikes whatsoever. Good sign.
+200Mhz 		2 	short (5ns) 	rising edge works best.					No spikes whatsoever. Good sign.
 
-300 Mhz 	4 	short (5ns) 	either edge works 			Seems to work fairly good
+300 Mhz 	4 	short (5ns) 	either edge works 						Seems to work fairly good
 
 
 100 Mhz 	1 	long (10 ns) 	Same as above with short delay
 
 200 Mhz 	3	long (10ns) 	Rising edge, with some periodical spikes
 
-300 MHz 	5 	long (10ns)	Rising edge, no spikes 		
+300 MHz 	5 	long (10ns)		Rising edge, no spikes 		
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+ Clock [Mhz] 	& DFF  	& Length [cm] 	& Rising/Falling DFF 	& Comments \\ \hline
+ 100 			& 1 	& 110 			& Rising 				& Some spikes occur, but are small enough to not be detected. More spikes using falling edge DFF.  \\ \hline
+ 200 			& 2 	& 110 			& Rising 				& No spikes. \\ \hline
+ 300 			& 4 	& 110 			& Either 				& No spikes. \\ \hline
+ \multicolumn{5}{|l|}{} \\ \hline
+ 100 			& 1 	& 220 			& Rising 				& Some spikes occur, but are small enough to not be detected.\\ \hline
+ 200 			& 3 	& 220 			& Rising 				& Some periodical spikes.\\ \hline
+ 300 			& 5 	& 220 			& Rising 				& No spikes.\\ \hline
+\end{tabular}
+\end{table}
 
 
 
@@ -214,9 +231,9 @@ global clk 	LED 	Cable length 	Rising edge/falling on rx-sample 	Comments
 
 100 Mhz 	2 	long (10 ns) 	either works fine.			Small spikes, but are not counted by bit-error counter
 
-200 Mhz	4 	long (10 ns)	either works the same.			Small spikes as above.
+200 Mhz		4 	long (10 ns)	either works the same.			Small spikes as above.
 
-300 Mhz	none 	long (10 ns)	? 					rx_sample0 seems to align perfectly with tx_sample5. rx_sample 1 and 2 have wrong values.
+300 Mhz		none 	long (10 ns)	? 					rx_sample0 seems to align perfectly with tx_sample5. rx_sample 1 and 2 have wrong values.
 
 
 

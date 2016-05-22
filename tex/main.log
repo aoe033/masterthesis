@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  22 MAY 2016 01:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  22 MAY 2016 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2368,7 +2368,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--364
 ]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
 
@@ -2382,162 +2382,162 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 458.
+(Font)              scaled to size 10.0pt on input line 456.
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 465--466
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--471
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--476
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
  []
 
 LaTeX Font Info:    Try loading font information for OMS+LinuxLibertineT-TLF on
- input line 512.
-LaTeX Font Info:    No file OMSLinuxLibertineT-TLF.fd. on input line 512.
+ input line 510.
+LaTeX Font Info:    No file OMSLinuxLibertineT-TLF.fd. on input line 510.
 
 LaTeX Font Warning: Font shape `OMS/LinuxLibertineT-TLF/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 512.
+(Font)              for symbol `textbraceleft' on input line 510.
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 539--540
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--546
+Underfull \hbox (badness 10000) in paragraph at lines 542--544
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--551
+Underfull \hbox (badness 10000) in paragraph at lines 548--549
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
+Underfull \hbox (badness 10000) in paragraph at lines 558--559
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 571--572
+Underfull \hbox (badness 10000) in paragraph at lines 569--570
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 577--578
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 583--584
+Underfull \hbox (badness 10000) in paragraph at lines 581--582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--590
+Underfull \hbox (badness 10000) in paragraph at lines 587--588
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 595--596
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 619--620
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 627--628
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
+Underfull \hbox (badness 10000) in paragraph at lines 632--633
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
+Underfull \hbox (badness 10000) in paragraph at lines 637--638
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--650
+Underfull \hbox (badness 10000) in paragraph at lines 647--648
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
+Underfull \hbox (badness 10000) in paragraph at lines 664--665
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
+Underfull \hbox (badness 10000) in paragraph at lines 669--670
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--677
+Underfull \hbox (badness 10000) in paragraph at lines 674--675
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 681--682
+Underfull \hbox (badness 10000) in paragraph at lines 679--680
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 699--700
+Underfull \hbox (badness 10000) in paragraph at lines 697--698
 
  []
 
@@ -2552,23 +2552,33 @@ Overfull \hbox (28.07903pt too wide) in paragraph at lines 74--75
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [40]
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/./flow_tx.tex) [41]
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/./flow_rx.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42]
-Underfull \hbox (badness 10000) in paragraph at lines 743--744
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 714--715
+
+ []
+
+[41]
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/./flow_tx.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [43])
+ [42]
+[43]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ch4.tex [44]
+/./flow_rx.tex) [44]
+Underfull \hbox (badness 10000) in paragraph at lines 743--744
+
+ []
+
+)
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/ch4.tex [45] [46
+
+]
 Chapter 7.
 
 Underfull \hbox (badness 10000) in paragraph at lines 26--27
@@ -2588,9 +2598,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [45
-
-]
+ [47]
 Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
@@ -2619,12 +2627,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-[46]
+[48]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 78.
 
-<../img/clk_cont120.PNG, id=1451, 344.78813pt x 283.0575pt>
+<../img/clk_cont120.PNG, id=1473, 344.78813pt x 283.0575pt>
 File: ../img/clk_cont120.PNG Graphic file (type png)
 
 <use ../img/clk_cont120.PNG>
@@ -2639,7 +2647,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--89
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 90.
 
-<../img/20160226_tek100.png, id=1456, 1027.84pt x 770.88pt>
+<../img/20160226_tek100.png, id=1478, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek100.png Graphic file (type png)
 
 <use ../img/20160226_tek100.png>
@@ -2650,7 +2658,7 @@ File: ../img/20160226_tek100.png Graphic file (type png)
 Package pdftex.def Info: ../img/20160226_tek100.png used on input line 92.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/20160226_tek120.png, id=1457, 1027.84pt x 770.88pt>
+<../img/20160226_tek120.png, id=1479, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek120.png Graphic file (type png)
 
 <use ../img/20160226_tek120.png>
@@ -2680,7 +2688,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 97.
 
-[47] [48 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../i
+[49] [50 <../img/clk_cont120.PNG> <../img/20160226_tek100.png (PNG copy)> <../i
 mg/20160226_tek120.png (PNG copy)>]
 Chapter 8.
 
@@ -2688,66 +2696,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-[49
+[51
 
-] [50] <../img/hektere_probes.pdf, id=1525, 815.84799pt x 797.37903pt>
+] [52]
+Underfull \hbox (badness 10000) in paragraph at lines 160--162
+
+ []
+
+[53]
+Overfull \hbox (25.29074pt too wide) in paragraph at lines 179--190
+ [][] 
+ []
+
+<../img/hektere_probes.pdf, id=1565, 815.84799pt x 797.37903pt>
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 174.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 200.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
  <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 174.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 200.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 
-Underfull \vbox (badness 5893) has occurred while \output is active []
+Underfull \vbox (badness 4378) has occurred while \output is active []
 
- [51]
-<../img/hektere_oppsett_100mhz.png, id=1539, 1027.84pt x 770.88pt>
+ [54]
+<../img/hektere_oppsett_100mhz.png, id=1578, 1027.84pt x 770.88pt>
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
-Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
-82.
+Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 2
+08.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
-Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
-82.
+Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 2
+08.
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-<../img/stubs_oppsett_100mhz.png, id=1540, 1027.84pt x 770.88pt>
+<../img/stubs_oppsett_100mhz.png, id=1579, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
-Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 183
+Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 209
 .
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
  <use ../img/stubs_oppsett_100mhz.png>
-Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 183
+Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 209
 .
 (pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-[52 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
-<../img/stubs_oppsett_100mhz.png (PNG copy)>]
-Chapter 9.
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-[53
+[55 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
+<../img/stubs_oppsett_100mhz.png (PNG copy)>] [56
 
 ]
-Overfull \hbox (3.3455pt too wide) in paragraph at lines 213--213
+Chapter 9.
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
+
+ []
+
+[57]
+Overfull \hbox (3.3455pt too wide) in paragraph at lines 241--241
 []\OT1/LinuxLibertineT-TLF/b/n/17.28 Connection be-tween COM port and UART us-i
 ng Signal-
  []
@@ -2755,29 +2773,29 @@ ng Signal-
 
 Underfull \vbox (badness 1152) has occurred while \output is active []
 
- [54]
-[55] [56
+ [58]
+[59] [60
 
 ]
 Chapter 10.
 )
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.gls [57] [58
+/main.gls [61] [62
 
 ])
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.acr [59
+/main.acr [63
 
-] [60
+] [64
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61
+ [65
 
 ])
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.bbl [62]
+/main.bbl [66]
 Underfull \hbox (badness 1484) in paragraph at lines 8--14
 \OT1/LinuxLibertineT-TLF/m/n/12 ti . com / lit / ml / snla187 / snla187 . pdf ?
  keyMatch = lvds & tisearch = Search-[]EN-[]TechDocs$[], 2008.
@@ -2801,7 +2819,7 @@ Underfull \hbox (badness 2285) in paragraph at lines 77--82
 www . altera . com / products / boards[]and[]kits /
  []
 
-[63
+[67
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 89--94
@@ -2815,15 +2833,15 @@ Underfull \hbox (badness 2359) in paragraph at lines 96--101
  / www . altera . com / support / support-[]resources /
  []
 
-) [64]
+) [68]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.lof [65
+/main.lof [69
 
 ])
 \tf@lof=\write9
 \openout9 = `main.lof'.
 
- [66]
+ [70]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /main.lot)
 \tf@lot=\write10
@@ -2831,9 +2849,9 @@ Underfull \hbox (badness 2359) in paragraph at lines 96--101
 
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap1.tex [67
+/ap1.tex [71
 
-] [68
+] [72
 
 ]
 Appendix A.
@@ -2841,7 +2859,7 @@ Appendix A.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 15.
 
-<../img/gbt_rx_loopback.pdf, id=1737, 1512.85194pt x 114.026pt>
+<../img/gbt_rx_loopback.pdf, id=1787, 1512.85194pt x 114.026pt>
 File: ../img/gbt_rx_loopback.pdf Graphic file (type pdf)
 
 <use ../img/gbt_rx_loopback.pdf>
@@ -2849,9 +2867,9 @@ Package pdftex.def Info: ../img/gbt_rx_loopback.pdf used on input line 18.
 (pdftex.def)             Requested size: 621.0pt x 46.80663pt.
 )
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap2.tex [69] [70 <../img/gbt_rx_loopback.pdf>]
+/ap2.tex [73] [74 <../img/gbt_rx_loopback.pdf>]
 Appendix B.
-<../img/pcb_sch1.pdf, id=1756, 692.5875pt x 317.185pt>
+<../img/pcb_sch1.pdf, id=1805, 692.5875pt x 317.185pt>
 File: ../img/pcb_sch1.pdf Graphic file (type pdf)
 
 <use ../img/pcb_sch1.pdf>
@@ -2860,52 +2878,52 @@ Package pdftex.def Info: ../img/pcb_sch1.pdf used on input line 18.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71
+ [75
 
 ]
-<../img/pcb_sch2.pdf, id=1762, 751.80875pt x 495.8525pt>
+<../img/pcb_sch2.pdf, id=1811, 751.80875pt x 495.8525pt>
 File: ../img/pcb_sch2.pdf Graphic file (type pdf)
 
 <use ../img/pcb_sch2.pdf>
 Package pdftex.def Info: ../img/pcb_sch2.pdf used on input line 27.
 (pdftex.def)             Requested size: 621.0pt x 409.60542pt.
- [72 <../img/pcb_sch1.pdf, page is rotated 90 degrees>] <../img/pcb_sch3.pdf, i
-d=1769, 793.96625pt x 518.93875pt>
+ [76 <../img/pcb_sch1.pdf, page is rotated 90 degrees>] <../img/pcb_sch3.pdf, i
+d=1818, 793.96625pt x 518.93875pt>
 File: ../img/pcb_sch3.pdf Graphic file (type pdf)
 
 <use ../img/pcb_sch3.pdf>
 Package pdftex.def Info: ../img/pcb_sch3.pdf used on input line 36.
 (pdftex.def)             Requested size: 621.0pt x 405.895pt.
- [73 <../img/pcb_sch2.pdf, page is rotated 90 degrees>]
+ [77 <../img/pcb_sch2.pdf, page is rotated 90 degrees>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 42.
 
-<../img/pcb_top.pdf, id=1776, 304.13625pt x 269.005pt>
+<../img/pcb_top.pdf, id=1825, 304.13625pt x 269.005pt>
 File: ../img/pcb_top.pdf Graphic file (type pdf)
 
 <use ../img/pcb_top.pdf>
 Package pdftex.def Info: ../img/pcb_top.pdf used on input line 46.
 (pdftex.def)             Requested size: 230.36061pt x 203.75633pt.
 
-<../img/pcb_btm.pdf, id=1777, 304.13625pt x 269.005pt>
+<../img/pcb_btm.pdf, id=1826, 304.13625pt x 269.005pt>
 File: ../img/pcb_btm.pdf Graphic file (type pdf)
 
 <use ../img/pcb_btm.pdf>
 Package pdftex.def Info: ../img/pcb_btm.pdf used on input line 52.
 (pdftex.def)             Requested size: 230.36061pt x 203.75633pt.
- [74 <../img/pcb_sch3.pdf, page is rotated 90 degrees>]
+ [78 <../img/pcb_sch3.pdf, page is rotated 90 degrees>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 59.
 
-<../img/pcb_in1.pdf, id=1785, 313.17pt x 269.005pt>
+<../img/pcb_in1.pdf, id=1834, 313.17pt x 269.005pt>
 File: ../img/pcb_in1.pdf Graphic file (type pdf)
  <use ../img/pcb_in1.pdf>
 Package pdftex.def Info: ../img/pcb_in1.pdf used on input line 63.
 (pdftex.def)             Requested size: 230.36061pt x 197.87842pt.
 
-<../img/pcb_in2.pdf, id=1786, 313.17pt x 269.005pt>
+<../img/pcb_in2.pdf, id=1835, 313.17pt x 269.005pt>
 File: ../img/pcb_in2.pdf Graphic file (type pdf)
  <use ../img/pcb_in2.pdf>
 Package pdftex.def Info: ../img/pcb_in2.pdf used on input line 69.
@@ -2913,8 +2931,8 @@ Package pdftex.def Info: ../img/pcb_in2.pdf used on input line 69.
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 110.
 
-[75 <../img/pcb_top.pdf, page is rotated 270 degrees> <../img/pcb_btm.pdf, page
- is rotated 270 degrees>] [76 <../img/pcb_in1.pdf, page is rotated 270 degrees>
+[79 <../img/pcb_top.pdf, page is rotated 270 degrees> <../img/pcb_btm.pdf, page
+ is rotated 270 degrees>] [80 <../img/pcb_in1.pdf, page is rotated 270 degrees>
  <../img/pcb_in2.pdf, page is rotated 270 degrees>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
 
@@ -2923,17 +2941,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 110.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 67E7D92C2BEC846E32EEB505EBE4E4EA;6441.
+(rerunfilecheck)             Checksum: 35B743E8EE60F9275D0AD03B98DECE4F;6441.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 42322 strings out of 493029
- 803355 string characters out of 6136235
- 945615 words of memory out of 5000000
- 44619 multiletter control sequences out of 15000+600000
+ 42360 strings out of 493029
+ 803855 string characters out of 6136235
+ 945253 words of memory out of 5000000
+ 44650 multiletter control sequences out of 15000+600000
  49839 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,14n,98p,10394b,1888s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2953,18 +2971,19 @@ public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/euler/eurm10.pfb>
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/euler/eurm10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/main.pdf (86 pages, 6291585 bytes).
+/masterthesis/tex/main.pdf (90 pages, 6309885 bytes).
 PDF statistics:
- 1978 PDF objects out of 2073 (max. 8388607)
- 1816 compressed objects within 19 object streams
- 441 named destinations out of 1000 (max. 500000)
+ 2030 PDF objects out of 2073 (max. 8388607)
+ 1863 compressed objects within 19 object streams
+ 448 named destinations out of 1000 (max. 500000)
  844 words of extra memory for PDF output out of 10000 (max. 10000000)
 
