@@ -10,6 +10,8 @@
 \usepackage{floatrow} %For displaying pictures side by side
 \usepackage[usenames,dvipsnames]{xcolor} %driver-in­de­pen­dent ac­cess to sev­eral kinds of color tints, shades, tones, and mixes of ar­bi­trary col­ors.
 
+\usepackage[subpreambles=true]{standalone}
+
 \usepackage[figuresright]{rotating} %Enables for rotating figures. use \begin{sidewaysfigure}
 \usepackage{subcaption}
 
@@ -22,7 +24,7 @@
 
 %\usepackage{float}  %Allows [H]-positioning in figures
 
-\usepackage{tikz}
+\usepackage{pgf, tikz}
 \usepackage{array}% http://ctan.org/pkg/array
 
 \usepackage{amsmath} %includes align and equation. Use * t2o get rid of numbering of formulas
@@ -160,7 +162,7 @@
 \newcommand{\blankpage}{\newpage{}\thispagestyle{empty}\mbox{}\newpage{}}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
-\title{Firmware Design for the GBT\\Common Readout Unit} %This does not show automatically. Use /maketitle.
+\title{Interface for the GBT\\Common Readout Unit} %This does not show automatically. Use /maketitle.
 \date{\today}
 \author{Anders Østevik}
 

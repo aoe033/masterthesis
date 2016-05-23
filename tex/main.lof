@@ -22,19 +22,20 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {7.1}{\ignorespaces The $Si5338$ evaluation board \cite {si16}.\relax }}{49}{figure.caption.50}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{55}{figure.caption.52}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{56}{figure.caption.53}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Transmitter and receiver delay chains.\relax }}{54}{figure.caption.51}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{56}{figure.caption.53}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{56}{figure.caption.54}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{74}{figure.caption.62}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{74}{figure.caption.63}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{76}{figure.caption.63}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{77}{figure.caption.64}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{77}{figure.caption.64}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{76}{figure.caption.64}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{77}{figure.caption.65}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{77}{figure.caption.65}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{80}{figure.caption.65}
-\contentsline {figure}{\numberline {C.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{81}{figure.caption.66}
-\contentsline {figure}{\numberline {C.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{82}{figure.caption.67}
-\contentsline {figure}{\numberline {C.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{83}{figure.caption.68}
-\contentsline {figure}{\numberline {C.5}{\ignorespaces PCB Layout, inner layers.\relax }}{84}{figure.caption.69}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{80}{figure.caption.66}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{81}{figure.caption.67}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{82}{figure.caption.68}
+\contentsline {figure}{\numberline {C.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{83}{figure.caption.69}
+\contentsline {figure}{\numberline {C.5}{\ignorespaces PCB Layout, inner layers.\relax }}{84}{figure.caption.70}

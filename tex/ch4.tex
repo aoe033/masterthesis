@@ -112,8 +112,25 @@ Running the test resulted in a continuous stream of bits sent from the transmitt
 
 Each \gls{hdmi}-connector has at least one transmitter- and receiver line. To simulate signal transmission over a distance, a \gls{hdmi} cable was cut in half and the transmit- and receive lines were soldered together, creating an external loop-back. VHDL code was written to simulate a data-stream using a pseudo-random generator to generate random bit-patterns. The data-stream would travel out via one of the transmitters of the \gls{fpga}, out through the \gls{hdmi}-connector, following the cable back into the same \gls{hdmi}-connector into the receiver input. This would simulate the transmission path to the \gls{vldb} card. The transmitted and received bits would then be compared using xor-logic. A bit-counter register would count each transmitted bit, and a bit-error register would count each time two bits are different in comparison. The bit error rate is thus given by $\frac{bit~errors}{number~of~bits}$.
 
-Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using xor-logic. The \gls{dff} that has the least amount of toggling is the one that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A delay-chain, although smaller, was also added at the receiver line to synchronize the incoming bits with the clock.
+Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using xor-logic. The \gls{dff} that has the least amount of toggling is the one that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A delay-chain, although smaller, was also added at the receiver line to synchronize the incoming bits with the clock (figure \ref{fig:delaych}.
 \\
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\subfile{fig_rxdelay.tex}}
+        \caption{Delay chain on the receiver line.}
+    \end{subfigure}%
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\subfile{fig_txdelay.tex}}
+        \caption{Delay chain on the transmitter line.}
+    \end{subfigure}
+    \caption{Transmitter and receiver delay chains.}
+    \label{fig:delaych}
+\end{figure}
 
 Cables with different lengths were used to see how this would affect the bit-error rate. This would thus introduce varying delay differences between the transmitter and receiver, and would therefore produce different results comparing the signals in the delay chain. A series of attempts were therefore made to find the most synchronized outputs of the delay-chains at different cable lengths. 
 
@@ -127,7 +144,7 @@ To measure the quality of the \gls{lvds} signals with an oscilloscope, different
 It was suspected that the received signal was sometimes sampled by the clock when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, two \glspl{dff} that would trigger on different clock edges (rising and falling) were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. 
 
 With the help of SignalTap II it was possible to sample the delay chain signals and produce the results displayed in table \ref{tab:delch}. 
-\begin{table}[!b]
+\begin{table}
 \centering
 \caption{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.}
 \label{tab:delch}

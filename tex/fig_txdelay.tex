@@ -2,15 +2,14 @@
 % Original: "D flip-flops (DFFs) and shift register" by Martin Scharrer
 % (http://www.texample.net/tikz/examples/d-flip-flops-and-shift-register/)
 % Modified: Anders Østevik
+%\documentclass[a4paper,landscape]{article}
+\documentclass[main.tex]{subfiles}
 
-\documentclass[a4paper,landscape]{article}
-
-\usepackage{pgf,tikz}
-\usetikzlibrary{calc,arrows}
-\usetikzlibrary{shapes.geometric}
-\usepackage{amsmath}
-\usepackage[left=1cm,right=1cm]{geometry}
-\pagestyle{empty}
+%\usepackage{pgf,tikz}
+%\usetikzlibrary{calc,arrows}
+%\usepackage{amsmath}
+%\usepackage[left=1cm,right=1cm]{geometry}
+%\pagestyle{empty}
 
 \makeatletter
 
@@ -108,49 +107,69 @@
 height=2.828427125cm,very thick,inner sep=1mm,outer sep=0pt,cap=round,add 
 font=\sffamily}}
 
+\makeatother
+
 \tikzset{
-  multiplexer/.style={
+  xortiplexer/.style={
     draw,
-    trapezium,
+    circle,
+    ultra thick,
     shape border uses incircle, 
     shape border rotate=270,
-    minimum size=38pt
+    minimum size=30pt
   }  
 }
 
 \begin{document}
 
 \begin{tikzpicture}[font=\sffamily,>=triangle 45]
-  \def\N{1}  % Number of Flip-Flops minus one
+  \def\N{5}  % Number of Flip-Flops minus one
 
   % Place FFs
   \foreach \m in {0,...,\N}
-    \node [shape=dff] (DFF\m) at ($ 3*(0,\m) $) {DFF \#\m};
+    \node [shape=dff] (DFF\m) at ($ 3*(\m,0) $) {DFF\m};
+  
+  \foreach \m in {0,...,\N}
+  {
+    \node[xortiplexer]
+    (xor\m) at ($ 3*(\m+0.8,-0.8) $) {XOR};
+   % \draw (xor\m.east) --++(10pt,0); 
+    %\draw (xor\m.south west) --++(-10pt,0); 
+    %\draw (xor\m.north west) --++(-10pt,0);
 
-    \node [shape=dff] (DFF2) at ($ 3*(2,0) $) {DFF \#2};
+    \draw [-*] (xor\m.north west) -| ($ (DFF\m.Q) + (7mm,1mm) $) ;
 
-  \node[multiplexer]
-    (mul) at (3,1) {};
-  \draw (mul.top side) --++(10pt,0) ; 
-  \draw (mul.south west) --++(-10pt,0) ; 
-  \draw (mul.north west) --++(-10pt,0) ;
+    %\draw [->] (xor\m.east) -| ($ (DFF\m.Q) + (7mm,1mm) $) ;
+    \draw [->] (xor\m.east) -- +(15pt,0) node [anchor=north] {sync\m} ;
+
+
+  }
 
   % Connect FFs (Q1 with D1, etc.)
   \def\p{0}  % Used to save the previous number
   \foreach \m in {1,...,\N} { % Note that it starts with 1, not 0
-    \draw [->] (DFF\p.Q) -- (DFF\m.D);
+    \draw [-] (DFF\p.Q) -- (DFF\m.D);
     \global\let\p\m
   }
 
   % Connect and label data in- and output port
-  \draw [<-] (DFF0.D) -- +(-1,0) node [anchor=east] {input} ;
-  \draw [->] (DFF\N.Q) -- +(1,0) node [anchor=west] {output};
+  \draw [<-] (DFF0.D) -- +(-1,0) node [anchor=east] {tx input} ;
+  \draw [-] (DFF\N.Q) -- +(18pt,0) node [anchor=west] {};
+  
+  \foreach \m in {0,...,\N}
+  \draw [] (DFF\m) +(-15pt,-12pt) node [anchor=west] {\small rising};
 
   % Clock port label
   \path (DFF0) +(-2cm,-1.5cm) coordinate (temp)
     node [anchor=east] {clock};
   \foreach \m in {0,...,\N}
-    \draw [->] (temp) -| ($ (DFF\m.CLK) + (-5mm,0) $) --(DFF\m.CLK);
+    \draw [-] (temp) -| ($ (DFF\m.CLK) + (-5mm,0) $) --(DFF\m.CLK);
+
+  % rx port label
+  \path (xor0) +(-2cm,-1.0cm) coordinate (temp)
+    node [anchor=east] {rx sampled};
+  \foreach \m in {0,...,\N}
+    \draw [-] (temp) -| ($ (xor\m.south west) + (-5mm,0) $) --(xor\m.south west);
 
 \end{tikzpicture}
 
