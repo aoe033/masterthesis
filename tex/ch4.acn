@@ -8,8 +8,10 @@
 \glossaryentry{PLL?\glossentry{pll}|setentrycounter[]{page}\glsnumberformat}{1}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{I2C?\glossentry{iic}|setentrycounter[]{page}\glsnumberformat}{2}
-\glossaryentry{PC?\glossentry{pc}|setentrycounter[]{page}\glsnumberformat}{3}
-\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{3}
+\glossaryentry{I2C?\glossentry{iic}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{PC?\glossentry{pc}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{USB?\glossentry{usb}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{5}
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{5}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{5}
@@ -49,7 +51,7 @@
 \glossaryentry{DFF?\glossentry{dff}|setentrycounter[]{page}\glsnumberformat}{8}
 \glossaryentry{DFF?\glossentry{dff}|setentrycounter[]{page}\glsnumberformat}{8}
 \glossaryentry{DFF?\glossentry{dff}|setentrycounter[]{page}\glsnumberformat}{8}
-\glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{8}
+\glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{9}
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{9}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{9}
 \glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{9}
@@ -70,5 +72,5 @@
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{12}
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{12}
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{12}
-\glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{12}
-\glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{12}
+\glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{13}
+\glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{13}

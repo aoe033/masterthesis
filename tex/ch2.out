@@ -6,7 +6,7 @@
 \BOOKMARK [2][-]{subsection.1.3.2}{Reflections and Characteristic Impedance}{section.1.3}% 6
 \BOOKMARK [2][-]{subsection.1.3.3}{Routing}{section.1.3}% 7
 \BOOKMARK [1][-]{section.1.4}{PCB Design Parameters}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.5}{Pads and footprints}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.5}{Pads and Footprints}{chapter.1}% 9
 \BOOKMARK [1][-]{section.1.6}{Soldering Process}{chapter.1}% 10
-\BOOKMARK [2][-]{subsection.1.6.1}{Soldering the pad underneath the HSMC contact}{section.1.6}% 11
+\BOOKMARK [2][-]{subsection.1.6.1}{Soldering the Ground Pads Underneath the HSMC Contact}{section.1.6}% 11
 \BOOKMARK [1][-]{section.1.7}{PCB Faults and Compensations}{chapter.1}% 12

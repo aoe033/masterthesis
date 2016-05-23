@@ -30,20 +30,16 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}120 MHz Reference Clock}{1}{section.1.1}}
-\citation{altera_q13}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Configuring the On-board Oscillator on the Cyclone V Board}{2}{section.1.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Clock Control Software Setup}{2}{subsection.1.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Steps for Configuring Windows to run the Clock Control Software}{2}{subsection.1.2.2}}
-\citation{altera_usb}
-\citation{si570}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Configuring the $Si338$ External Oscillator}{3}{section.1.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{4}{figure.caption.1}}
+\citation{siclk}
+\citation{si16}
+\citation{si16}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Configuring the onboard Oscillator on the Cyclone V Board}{2}{section.1.2}}
+\newlabel{sec:inclk}{{1.2}{2}{Configuring the onboard Oscillator on the Cyclone V Board}{section.1.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Configuring the Si5338 External Oscillator}{2}{section.1.3}}
+\newlabel{sec:exclk}{{1.3}{2}{Configuring the Si5338 External Oscillator}{section.1.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces The $Si5338$ evaluation board \cite  {si16}.\relax }}{3}{figure.caption.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:clk_cont120}{{1.1}{4}{Clock Control software by Altera used to program the $Si570$.\relax }{figure.caption.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{4}{figure.caption.2}}
-\newlabel{fig:tek100}{{1.2}{4}{$Si570$ Before configuration: 100 MHz.\relax }{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{4}{figure.caption.2}}
-\newlabel{fig:tek120}{{1.3}{4}{$Si570$ After configuration: 120 MHz.\relax }{figure.caption.2}{}}
+\newlabel{fig:si5338}{{1.1}{3}{The $Si5338$ evaluation board \cite {si16}.\relax }{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Testing and Verification of the HDMI Daughter Card}{5}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -60,15 +56,13 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Purpose of Tests}{7}{subsection.2.3.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Experimental Setup}{7}{subsection.2.3.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Results}{8}{subsection.2.3.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate travelling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{8}{table.caption.3}}
-\newlabel{tab:delch}{{2.1}{8}{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate travelling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }{table.caption.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Conclusion and Discussions}{8}{section.2.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{9}{figure.caption.4}}
-\newlabel{fig:hektere}{{2.1}{9}{Small clamps was first used to measure the high-speed signal.\relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces $100\nobreakspace  {}\ensuremath  {\SI@fstyle  {M}}\ensuremath  {\SI@fstyle  {Hz}}$ measured using clamps.\relax }}{9}{figure.caption.5}}
-\newlabel{fig:measdiff1}{{2.2}{9}{$100~\mega \hertz $ measured using clamps.\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces $100\nobreakspace  {}\ensuremath  {\SI@fstyle  {M}}\ensuremath  {\SI@fstyle  {Hz}}$ measured using stubs.\relax }}{9}{figure.caption.5}}
-\newlabel{fig:measdiff2}{{2.3}{9}{$100~\mega \hertz $ measured using stubs.\relax }{figure.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{8}{table.caption.2}}
+\newlabel{tab:delch}{{2.1}{8}{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }{table.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{9}{figure.caption.3}}
+\newlabel{fig:hektere}{{2.1}{9}{Small clamps was first used to measure the high-speed signal.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Conclusion and Discussions}{9}{section.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces $100\nobreakspace  {}\ensuremath  {\SI@fstyle  {M}}\ensuremath  {\SI@fstyle  {Hz}}$ transmitter signal measured with differential probes.\relax }}{10}{figure.caption.4}}
+\newlabel{fig:measdiff}{{2.2}{10}{$100~\mega \hertz $ transmitter signal measured with differential probes.\relax }{figure.caption.4}{}}
 \citation{bitvis16}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Testing and Verification of the Serial Interface}{11}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -77,7 +71,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Hardware Simulation using Testbench in Modelsim}{11}{section.3.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Purpose of Tests}{11}{subsection.3.1.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Experimental Setup}{11}{subsection.3.1.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Bitvis Utility Library}{11}{section*.6}}
+\@writefile{toc}{\contentsline {subsubsection}{Bitvis Utility Library}{11}{section*.5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Results}{12}{subsection.3.1.3}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Connection between COM port and UART using SignalTap II}{12}{section.3.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Purpose of Tests}{12}{subsection.3.2.1}}

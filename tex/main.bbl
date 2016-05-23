@@ -24,6 +24,13 @@
   2009.
 \newblock {A}ccessed: 10/12/2015.
 
+\bibitem{si16}
+{S}i5338-{EVB} {D}ocumentation.
+\newblock
+  \url{https://www.silabs.com/Support%20Documents/TechnicalDocs/Si5338-EVB.pdf},
+  2011.
+\newblock {A}ccessed: 23/05/2016.
+
 \bibitem{altera_q13}
 {Q}uartus 13.1 {D}ownload {P}age.
 \newblock \url{https://dl.altera.com/13.1/?edition=web}, 2013.
@@ -91,6 +98,13 @@
   \url{http://www.digi.com/products/serial-servers/serial-device-servers/portserverts#overview},
   2016.
 \newblock {A}ccessed: 05/05/2016.
+
+\bibitem{siclk}
+{S}ilabs {C}lock {S}oftware {D}evelopment {T}ools.
+\newblock
+  \url{http://www.silabs.com/products/clocksoscillators/Pages/Timing-Software-Development-Tools.aspx},
+  2016.
+\newblock {A}ccessed: 23/05/2016.
 
 \bibitem{altera_usb}
 {USB} {B}laster {II} {I}nstall {M}anual.

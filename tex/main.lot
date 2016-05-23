@@ -9,7 +9,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {8.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate travelling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{54}{table.caption.52}
+\contentsline {table}{\numberline {8.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{54}{table.caption.51}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

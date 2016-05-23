@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
@@ -17,51 +17,53 @@ Warning--to sort, need author or key in gbt_videos
 Warning--to sort, need author or key in serial2ethernet
 Warning--to sort, need author or key in altera_terminals14
 Warning--to sort, need author or key in gpl3
+Warning--to sort, need author or key in siclk
+Warning--to sort, need author or key in si16
+Warning--to sort, need author or key in bitvis16
 Warning--to sort, need author or key in altera_q13
 Warning--to sort, need author or key in altera_usb
 Warning--to sort, need author or key in si570
-Warning--to sort, need author or key in bitvis16
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1090 of file abbrv.bst
-You've used 24 entries,
+You've used 26 entries,
             2118 wiz_defined-function locations,
-            611 strings with 7262 characters,
-and the built_in function-call counts, 4562 in all, are:
-= -- 459
-> -- 84
+            618 strings with 7548 characters,
+and the built_in function-call counts, 4906 in all, are:
+= -- 495
+> -- 86
 < -- 0
-+ -- 44
++ -- 46
 - -- 20
-* -- 164
-:= -- 640
-add.period$ -- 76
-call.type$ -- 24
-change.case$ -- 79
+* -- 176
+:= -- 680
+add.period$ -- 82
+call.type$ -- 26
+change.case$ -- 85
 chr.to.int$ -- 0
-cite$ -- 40
-duplicate$ -- 185
-empty$ -- 541
+cite$ -- 44
+duplicate$ -- 199
+empty$ -- 587
 format.name$ -- 20
-if$ -- 1074
+if$ -- 1160
 int.to.chr$ -- 0
-int.to.str$ -- 24
+int.to.str$ -- 26
 missing$ -- 6
-newline$ -- 127
+newline$ -- 137
 num.names$ -- 16
-pop$ -- 188
+pop$ -- 204
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 62
 quote$ -- 0
-skip$ -- 148
+skip$ -- 160
 stack$ -- 0
-substring$ -- 120
-swap$ -- 25
+substring$ -- 130
+swap$ -- 27
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 90
-warning$ -- 16
+type$ -- 98
+warning$ -- 18
 while$ -- 16
-width$ -- 26
-write$ -- 251
+width$ -- 28
+write$ -- 271
 (There were 2 error messages)

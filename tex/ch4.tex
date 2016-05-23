@@ -19,83 +19,38 @@
 To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} must have a input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: 
 \begin{itemize}\setlength{\itemsep}{10pt}
 \item Using an external clock, like a square wave signal generator.
-\item Using one of the on-board programmable oscillators.
-\item Implementing a \gls{pll} into the design that multiplies the on-board $50~\mega\hertz$ global clock up to the desired frequency of $120~\mega\hertz$.
+\item Using one of the onboard programmable oscillators.
+\item Implementing a \gls{pll} into the design that multiplies the onboard $50~\mega\hertz$ global clock up to the desired frequency of $120~\mega\hertz$.\\
 \end{itemize}
 
-The original approach is to use an external signal generator with differential output to generate the reference clock, as shown in the \gls{gbt} tutorial videos \cite{gbt_videos}. However, at the time of conducting the first tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. Because of this, some time was spent to investigate how to use the internal programmable oscillator as a reference clock.\\
+The original approach is to use an external signal generator with differential output to generate the reference clock, as shown in the \gls{gbt} tutorial videos \cite{gbt_videos}. However, at the time of conducting the first tests, there was no available signal generators that could generate a $120~\mega\hertz$ square wave clock for the experiment. Because of this, some time was spent to investigate how to use the internal programmable oscillator as a reference clock.
 
 The approach of implementing an extra \gls{pll} into the \gls{gbt}-example design was also investigated, but attempts of doing so resulted in conflicts between the already implemented transceiver \glspl{pll} in the design. \\
 
 The below sections gives the following descriptions:
 \begin{itemize}\setlength{\itemsep}{10pt}
-\item How to setup the internal oscillator on the Cyclone V board for use as reference clock.
-\item How to setup the $Si338$ external oscillator for use as reference clock.
+\item How to setup the onboard oscillator on the Cyclone V GT board for use as reference clock (\ref{sec:inclk}). 
+\item How to setup the $Si5338$ external oscillator for use as reference clock (\ref{sec:exclk}).
 \end{itemize}
 
-\section{Configuring the On-board Oscillator on the Cyclone V Board}
+\section{Configuring the onboard Oscillator on the Cyclone V Board} \label{sec:inclk}
 
-To achieve a reference clock of $120~\mega\hertz$ without an external clock, the \gls{fpga} has an on-board programmable oscillator; the $Si570$ from Silabs. It uses \gls{iic} for serial communication and can be programmed to output frequencies up to $810~\mega\hertz \pm 50 ppm$. To program the oscillator, Altera provides a dedicated software called "Clock Control". The Clock Control software is part of the Java based "Board Test System" software, included in the Cyclone V kit which can be found at Altera's websites \cite{altera_cyclonekit}. The Cyclone V kit is board specific, so it is therefore important to use the right kit with the right board.\\
+To achieve a reference clock of $120~\mega\hertz$ without an external clock, the \gls{fpga} has an onboard programmable oscillator; the $Si570$ from Silabs. It uses \gls{iic} for serial communication and can be programmed to output frequencies up to $810~\mega\hertz \pm 50 ppm$. To program the oscillator, Altera provides a dedicated software called "Clock Control". The Clock Control software is part of the Java based "Board Test System" software, included in the Cyclone V kit which can be found at Altera's websites \cite{altera_cyclonekit}. The Cyclone V kit is board specific, so it is therefore important to use the right kit with the right board.\\
 
-To make use of the Clock Control software has been proven difficult, mainly because of the software being outdated in relevance to the current version of Quartus (at the time of writing, Quartus 15.0 is the newest edition). The solution was to install an older Quartus (version 13.1) using the Windows Operating System (Linux was also attempted, but without any success) and specify the right paths for the related environment variables. The below sections gives a brief description on how this was achieved.\\
+To make use of the Clock Control software has been proven difficult, mainly because of the software being outdated in relevance to the current version of Quartus (at the time of writing, Quartus 15.0 is the newest edition). The solution was to install an older Quartus (version 13.1) using the Windows Operating System (Linux was also attempted, but without any success) and specify the right paths for the related environment variables. See appendix \ref{chap:clksetup} for a description on how to setup the clock control software using Windows.
 
-\subsection{Clock Control Software Setup}
+\section{Configuring the Si5338 External Oscillator} \label{sec:exclk}
 
-The Cyclone V kit is dependent on a number of Quartus related files, including the USB Blaster II device driver, the jtagconfig software and various device libraries included in the Quartus environment. It is therefore important to have the right version of Quartus installed for the Clock Control program to work properly. The version number of the kit (13.0.0.1 at the time of writing) corresponds to the supported version of Quartus, in this case Quartus 13.x (newer versions of Quartus have not proven to be backwards compatible with the Cyclone V kit).\\
+For an external clock, the $Si5338$ evaluation board was used (figure \ref{fig:si5338}). It has an onboard $25~\mega\hertz$ XTAL oscillator in addition to six SMA connectors reserved for external input clocks. For simplicity, the onboard oscillator was used in the thesis experiments. The remaining eight SMA connectors is reserved for differential output clocks. The evaluation board communicates with \gls{iic} and connects to the \gls{pc} via \gls{usb} cabling. A dedicated clock builder software \cite{siclk} lets you select clock outputs and type of signaling. For the experiments, a $2.5~\volt$ \gls{lvds} clock with $120~\mega\hertz$ was selected, and connected to the Cyclone V GT board using SMA cabling. To enable the SMA connectors as input to the reference clock on the Cyclone V GT board, \textit{CLKSEL} on DIP switch SW4 must be selected ON (default is OFF).
 
-By using Windows, the following steps have been proven to be the best approach to make the Clock Control software work properly. The installed path to Quartus is in this case: \path{D:\Quartus_13.1}.\\
-
-\subsection{Steps for Configuring Windows to run the Clock Control Software}
-
-\begin{enumerate}\setlength{\itemsep}{10pt}
-  \item Install Quartus 13.x (includes jtagconfig) together with the Cyclone V device support \cite{altera_q13}.
-  \item Set appropriate environment variables. In Windows, this should be set automatically.
-  \begin{itemize}\setlength{\itemsep}{10pt}
-      \item PATH -- \path{"D:\Quartus_13.1"}
-      \item QUARTUS\_ROOTDIR -- \path{"D:\Quartus_13.1\quartus"}
-      \item SOPC\_KIT\_NIOS2 -- \path{"D:\Quartus_13.1\nios2eds"}
-    \end{itemize}
-  \item Connect the Cyclone V board to the \gls{pc} using USB Blaster II (Refer to the manual for instructions on how to install the USB Blaster II \cite{altera_usb}).
-  \item In Command Prompt (cmd.exe):
-  \begin{itemize}\setlength{\itemsep}{10pt}
-      \item Navigate to the "board\_test\_system" folder located inside the Cyclone V kit.
-      \item run "jtagconfig" and confirm connection with the board. If the Command Prompt cannot find jtagconfig, navigate to \path{D:\Quartus_13.1\quartus\bin} using a file explorer and manually start jtagconfig.exe from there
-      \item run "java -Djava.library.path=\path{"D:\Quartus\_13.1\bin"} -jar clk\_cont.jar". The library path is to ensure that the Java environment have access to the appropriate Quartus libraries it needs to connect with the board.
-    \end{itemize}
-\end{enumerate}
-
-If done correctly, the Clock Control software will start up and display "Connected to the target" in the message window. The default output frequency of the $Si570$ oscillator is $100~\mega\hertz$. The output frequency is calculated using the following equation:
-
-\begin{equation}
-%\[
-    f_{out} = \frac{f_{XTAL} \times RFREQ}{HSDIV \times N1}
-%\]
-\end{equation} 
-
-, where $f_{XTAL}$ is a fixed frequency of $114,2857~\mega\hertz$; RFREQ is a floating point 38-bit word; and HSDIV and N1 is the output dividers \cite{si570}. The parameters are determined by the Clock Control software based on the user typed frequency. The parameters are then sent serially via the USB Blaster II to the $Si570$ chip, where the above formula is used to set the internal registers for the new frequency.
-Figure \ref{fig:clk_cont120} shows the Clock Control software after a new frequency of $120~\mega\hertz$ is set. 
-
-\begin{figure}[] % H(strictly put HERE > h!)
+\begin{figure} % H(strictly put HERE > h!)
 \begin{center}
 % h(here), !(force), t(top), b(bottom), p(on extra page)
-\includegraphics[scale=1]{../img/clk_cont120}  \\[0.1 cm]
-\caption{Clock Control software by Altera used to program the $Si570$.}
-\label{fig:clk_cont120}
+\includegraphics[scale=0.5]{../img/si5338}  \\[0.1 cm]
+\caption{The $Si5338$ evaluation board \cite{si16}.}
+\label{fig:si5338}
 \end{center}
 \end{figure} 
-
-The $Si570$ is volatile, meaning that the output frequency is reset back to $100~\mega\hertz$ if power is lost. The procedure must therefore be repeated every time the \gls{fpga} is powered on.\\
-To confirm correct operation, a quick measurement of the output clock was done using an oscilloscope. Figures \ref{fig:tek100} and \ref{fig:tek120} shows the output frequency, before and after configuration.\\
-
-\begin{figure}[]
-   \begin{floatrow}
-     \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek100}}{\caption{$Si570$ Before configuration: 100 MHz.}\label{fig:tek100}}
-     \ffigbox{\includegraphics[scale = 0.2]{../img/20160226_tek120}}{\caption{$Si570$ After configuration: 120 MHz.}\label{fig:tek120}}
-   \end{floatrow}
-\end{figure}
-
-\section{Configuring the $Si338$ External Oscillator}
-
 
 \chapter{Testing and Verification of the HDMI Daughter Card}
 To verify a working \gls{pcb}, the \gls{hdmi} daughter card underwent a series of tests. The sections below summarizes these tests. 
@@ -157,10 +112,10 @@ Running the test resulted in a continuous stream of bits sent from the transmitt
 
 Each \gls{hdmi}-connector has at least one transmitter- and receiver line. To simulate signal transmission over a distance, a \gls{hdmi} cable was cut in half and the transmit- and receive lines were soldered together, creating an external loop-back. VHDL code was written to simulate a data-stream using a pseudo-random generator to generate random bit-patterns. The data-stream would travel out via one of the transmitters of the \gls{fpga}, out through the \gls{hdmi}-connector, following the cable back into the same \gls{hdmi}-connector into the receiver input. This would simulate the transmission path to the \gls{vldb} card. The transmitted and received bits would then be compared using xor-logic. A bit-counter register would count each transmitted bit, and a bit-error register would count each time two bits are different in comparison. The bit error rate is thus given by $\frac{bit~errors}{number~of~bits}$.
 
-Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using xor-logic. The \gls{dff} that has the least amount of toggling is the one that is synchronized with the receiver, and can be used to count bit errors. A delay-chain, although smaller, was also added at the receiver line to synchronize the incoming bits with the clock.
+Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using xor-logic. The \gls{dff} that has the least amount of toggling is the one that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A delay-chain, although smaller, was also added at the receiver line to synchronize the incoming bits with the clock.
 \\
 
-Cables with different lengths were used to see how this would affect the bit-error rate. This would thus introduce varying delay differences between the transmitter and receiver, and would therefore produce different results comparing the signals in the delay chain. A series of attempts were made to find the most synchronized outputs of the delay-chains. 
+Cables with different lengths were used to see how this would affect the bit-error rate. This would thus introduce varying delay differences between the transmitter and receiver, and would therefore produce different results comparing the signals in the delay chain. A series of attempts were therefore made to find the most synchronized outputs of the delay-chains at different cable lengths. 
 
 To measure the quality of the \gls{lvds} signals with an oscilloscope, differential probes were used.  
 
@@ -169,20 +124,20 @@ To measure the quality of the \gls{lvds} signals with an oscilloscope, different
 
 %The following table sums up the cable-length and theoretical travel time versus the measured delay between the transmitted and received signal.
 
-It was suspected that the received signal was sometimes sampled by the clock when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, two \glspl{dff} that would trigger on different clock edges (rising and falling) were placed in parallel as the first stage of the receiver delay chain. By using a mux, one of the outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. 
+It was suspected that the received signal was sometimes sampled by the clock when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, two \glspl{dff} that would trigger on different clock edges (rising and falling) were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. 
 
 With the help of SignalTap II it was possible to sample the delay chain signals and produce the results displayed in table \ref{tab:delch}. 
-\begin{table}[H]
+\begin{table}[!b]
 \centering
-\caption{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate travelling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.}
+\caption{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.}
 \label{tab:delch}
-\begin{tabular}{|l|l|l|l|p{5cm}|}
+\begin{tabular}{|p{1cm}|p{1.5cm}|p{2cm}|p{2.5cm}|p{5cm}|}
 \hline
- Clock [Mhz]  & In-sync DFF   & Sig. path [cm]   & Rising/Falling DFF  & Comments \\ \hline
+ Clock [Mhz]  & In-sync DFF   & Signal path [cm]   & Rising/Falling DFF  & Comments \\ \hline
  100          & 1     & 110           & Rising              & Some spikes occur, but are small enough to not be detected. More spikes using a falling edge DFF.  \\ \hline
  200          & 2     & 110           & Rising              & No spikes. \\ \hline
- 300          & 4     & 110           & Either              & No spikes. \\ \hline
- \multicolumn{5}{|l|}{} \\ \hline
+ 300          & 4     & 110           & Both              & No spikes. \\ \hline
+ %\multicolumn{5}{|l|}{} \\ \hline
  100          & 1     & 220           & Rising              & Some spikes occur, but are small enough to not be detected.\\ \hline
  200          & 3     & 220           & Rising              & Some periodical spikes.\\ \hline
  300          & 5     & 220           & Rising              & No spikes.\\ \hline
@@ -195,24 +150,32 @@ With the help of SignalTap II it was possible to sample the delay chain signals 
 
 When measuring the quality of a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
 
-\begin{figure}[H] 
+\begin{figure}
    \begin{center}
      \ffigbox{\includegraphics[scale = 0.2]{../img/hektere_probes.pdf}}{\caption{Small clamps was first used to measure the high-speed signal.}\label{fig:hektere}}
    \end{center}
 \end{figure}
 
-The measurement resulted in signals that were heavily distorted by reflections. It was first thought that these reflections might originate from the traces on the \gls{fpga} itself, since the same results were produced when sending the clock signals through a different \gls{pcb} (a GPIO-card) in place of the \gls{hdmi}-daughter card. However, the theory was quickly rejected when using a completely different \gls{fpga} board produced the same reflections. The cause was in fact due to the small clamps that was used to connect the differential probes. By replacing these with small stubs and redo the measure, the result was quite different, as shown in figures \ref{fig:measdiff1} and \ref{fig:measdiff2}.
+The measurement resulted in signals that were heavily distorted by reflections. It was first thought that these reflections might originate from the traces on the \gls{fpga} itself, since the same results were produced when sending the clock signals through a different \gls{pcb} (a GPIO-card) in place of the \gls{hdmi}-daughter card. However, the theory was quickly rejected when using a completely different \gls{fpga} board produced the same reflections. The cause was in fact due to the small clamps that was used to connect the differential probes. By replacing these with small stubs and redo the measure, the result was quite different, as shown in figure \ref{fig:measdiff}.
 
-\begin{figure}[H]
-   \begin{floatrow}
-     \ffigbox{\includegraphics[scale = 0.2]{../img/hektere_oppsett_100mhz.png}}{\caption{$100~\mega\hertz$ measured using clamps.}\label{fig:measdiff1}}
-     \ffigbox{\includegraphics[scale = 0.2]{../img/stubs_oppsett_100mhz.png}}{\caption{$100~\mega\hertz$ measured using stubs.}\label{fig:measdiff2}}
-   \end{floatrow}
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../img/hektere_oppsett_100mhz.png}
+        \caption{Using clamps.}
+    \end{subfigure}%
+    ~~
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../img/stubs_oppsett_100mhz.png}
+        \caption{Using stubs.}
+    \end{subfigure}
+    \caption{$100~\mega\hertz$ transmitter signal measured with differential probes.}
+    \label{fig:measdiff}
 \end{figure}
 
-As shown in figure \ref{fig:measdiff2}, reflections still occurs. By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It is concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
-
-
+By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It is concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
 
 \chapter{Testing and Verification of the Serial Interface} \label{chap:sertest}
 
