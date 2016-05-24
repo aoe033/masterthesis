@@ -27,11 +27,11 @@
 \glossaryentry{SFP?\glossentry{sfp}|setentrycounter[]{page}\glsnumberformat}{1}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{1}
 \glossaryentry{SFP?\glossentry{sfp}|setentrycounter[]{page}\glsnumberformat}{1}
-\glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{2}
-\glossaryentry{SFP?\glossentry{sfp}|setentrycounter[]{page}\glsnumberformat}{2}
-\glossaryentry{VLDB?\glossentry{vldb}|setentrycounter[]{page}\glsnumberformat}{2}
-\glossaryentry{SFP?\glossentry{sfp}|setentrycounter[]{page}\glsnumberformat}{2}
-\glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{2}
+\glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{1}
+\glossaryentry{SFP?\glossentry{sfp}|setentrycounter[]{page}\glsnumberformat}{1}
+\glossaryentry{VLDB?\glossentry{vldb}|setentrycounter[]{page}\glsnumberformat}{1}
+\glossaryentry{SFP?\glossentry{sfp}|setentrycounter[]{page}\glsnumberformat}{1}
+\glossaryentry{HDMI?\glossentry{hdmi}|setentrycounter[]{page}\glsnumberformat}{1}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{SFP?\glossentry{sfp}|setentrycounter[]{page}\glsnumberformat}{2}
@@ -44,7 +44,7 @@
 \glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{VLDB?\glossentry{vldb}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{2}
-\glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{3}
+\glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{2}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{3}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{3}
@@ -69,7 +69,7 @@
 \glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{6}
 \glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{6}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}\glsnumberformat}{6}
-\glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{7}
+\glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{6}
 \glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{7}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{7}
 \glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{8}

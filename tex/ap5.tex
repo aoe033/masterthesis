@@ -1,0 +1,102 @@
+%location/filename: tex/fig/ap5.tex
+%author: Anders Østevik
+%Last edited: 24.05.2016
+%#######--Appendix - GBT Control Signals--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{GBT Control Signals}
+
+The Quartus-bound \gls{issp} offers a way for the user to control and monitor the control signals of the \gls{gbt} example design. Table \ref{tab:probe} and \ref{tab:switch} gives a brief description of these signals. Since the latency optimized version of the \gls{gbt} is not covered in this thesis, the signals related to this version is not described. The information was obtained from the \gls{gbt} \gls{fpga} video tutorials \cite{gbt_videos}.
+
+\begin{table}[H]
+\small
+\begin{center}
+  \begin{tabular}{| l | p{5cm} | p{8cm} |}
+  \hline
+    Index & Name & Description   \\
+    \hline
+  S00     & LOOPBACK                        & Select internal loopback inside the transceiver ('1'), or an external loopback via cabling ('0'). \\ \hline
+  S01     & GENERAL RESET                     & Main reset signal of the example design. \\ \hline
+  S02     & MGT TX PLL RESET                    & Individual reset signal for the MGT pll. \\ \hline
+  S03     & TX RESET                        & Individual reset signal for the transceiver. \\ \hline
+  S04     & RX RESET                        & Individual reset signal for the receiver. \\ \hline
+  S[05..06]   & PATTERN SELECT                    & Selects the pattern that is sent through the transmitter line.
+  It can send a counter value ("1h") that increments by 1, or a static value ("2h"). \\ \hline
+  S07     & TX HEADER SELECTOR                  & Chooses the header of the frame: '0' for idle and '1' for data. \\ \hline
+  S08     & RESET DATA \& EXTRA DATA ERROR SEEN FLAGS       & Resets \textbf{P26}.\\ \hline
+  S09     & RESET RX GBT READY LOST FLAG              & Resets \textbf{P25}.\\ \hline
+  S10     & TX\_FRAMECLK PHASE ALIGNER - MANUAL RESET         & Related to the latency optimized version.\\ \hline
+  S[11..16] & TX\_FRAMECLK PHASE ALIGNER - GBT LINK 1 STEPS       & Related to the latency optimized version.\\ \hline
+  S17     & TX\_FRAMECLK PHASE ALIGNER - ENABLE           & Related to the latency optimized version.\\ \hline
+  S18     & TX\_FRAMECLK PHASE ALIGNER - TRIGGER          & Related to the latency optimized version.\\ \hline
+  S[19..26]   & TX\_WORDCLOCK MONITORING - THRESHOLD UP         & Related to the latency optimized version.\\ \hline
+  S[27..34]   & TX\_WORDCLOCK MONITORING - THRESHOLD LOW        & Related to the latency optimized version.\\ \hline
+  S35     & TX\_WORDCLOCK MONITORING - TX RESET ENABLE      & Related to the latency optimized version.\\ \hline
+  \end{tabular}
+    \caption{GBT control signals overview, switches.}
+  \label{tab:switch}  
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\small
+\begin{center}
+  \begin{tabular}{| l | p{5cm} | p{8cm} |}
+  \hline
+    Index & Name & Description   \\
+    \hline
+  P00     & LATENCY-OPTIMIZED GBT LINK - TX   & Indicates whether the \gls{gbt} example design is using the latency optimized ('1') version or not ('0').    \\
+  \hline
+  P01     & LATENCY-OPTIMIZED GBT LINK - RX   & Indicates whether the \gls{gbt} example design is using the latency optimized ('1') version or not ('0').      \\
+  \hline
+  %S10      & Tx\_FrameCLK Phase Aligner - Manual Reset & Text \\     
+  %\hline
+  %S[11..16]  & Tx\_FrameCLK Phase Aligner - GBT Link 1 Steps & Each Step is 520ps \\     
+  %\hline
+  %S17      & Tx\_FrameCLK Phase Aligner - Enable & Enable when ...? \\    
+  %\hline
+  %S18      & Tx\_FrameCLK Phase Aligner - Trigger & Set to '1' for autoalignment. \\    
+  %\hline 
+  P02       & MGT TX PLL LOCKED               & Shows the status of the MGT pll, and remains high ('1') if the pll is locked.  \\    
+  \hline
+  P03     & TX\_FRAMECLK PHASE ALIGNER - PLL LOCKED     & Related to the latency optimized version. \\     
+  \hline
+  P04       & TX\_FRAMECLK PHASE ALIGNER - PHASE SHIFT DONE   & Related to the latency optimized version \\    
+  \hline
+  P[05..12]   & TX\_WORDCLOCK MONITORING - STATS        & Related to the latency optimized version \\    
+  \hline
+  P13     & TX\_WORDCLOCK MONITORING - TX\_WORDCLK PHASE OK & Related to the latency optimized version \\    
+  \hline
+  P14       & MGT READY             & Asserted high ('1') to show that the MGT transceiver is ready. \\
+  \hline
+  P15       & RX\_WORDCLK READY         & Asserted high ('1') to show that the RX\_WORDCLK is ready. \\
+  \hline
+  P16       & RX\_FRAMECLK READY        & Asserted high ('1') to show that the RX\_FRAMECLK is ready. \\
+  \hline
+  P17       & RX GBT READY            & Asserted high ('1') to show that the receiver of the GBT-link is ready. \\
+  \hline
+  P[18..23]   & RX BITSLIP NUMBER         & Related to the latency optimized version, and must remain at "00h" to indicate that the RX and TX are properly aligned. \\
+  \hline
+  P24       & RX HEADER IS DATA FLAG      & Indicates whether the received data has a header of the frame that is idle ('0') or data ('1'). \\
+  \hline
+  P25       & RX GBT READY LOST FLAG      & Indicates that the connection has been lost, and remains high until \textbf{S09} is asserted high.\\
+  \hline
+  P26       & RX DATA ERROR SEEN FLAGS      & Is asserted high ('1') if the pattern checker detects an indifference in the transmitted and received pattern. \\
+  \hline
+  P27       & RX EXTRA DATA WIDE-BUS ERROR SEEN FLAG      & Same as for \textbf{P26}, only related to the \textit{wide-bus} mode. \\  
+  \hline
+  P28       & RX EXTRA DATA GBT8B10B ERROR SEEN FLAG      & Same as for \textbf{P26}, only related to the \textit{8B10B} mode. \\
+  \hline  
+  P29     & ISSP PLL Locked             & Shows the status of the issp pll. This signal does not need to be monitored by the serial interface. \\
+  \hline     
+  \end{tabular}  
+  \caption{GBT control signals overview, probes.}
+  \label{tab:probe}
+\end{center}
+\end{table}
+
+\end{document}

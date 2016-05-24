@@ -12,7 +12,7 @@
 
 \chapter{HSMC-to-VLDB PCB Design} \label{chap:pcb}
 
-In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} board has twenty additional \acrshort{hdmi} female connectors which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
+In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty \acrshort{hdmi} connectors with elinks which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
 
 \section{Design Discussion}
 
@@ -187,9 +187,7 @@ For thicknesses of the different \gls{pcb} copper layers and the FR4 in between,
 Z_0 = \frac{60}{\sqrt{(0.475 \times 4.05) + 0.67}}\ln{3.96}
 \end{equation}
 
-, which gives a characteristic impedance $Z_0$ of $51.3\ \ohm$ @ $3\ \giga\hertz$. 
-
-With a $300\ \micro\meter$ spacing between the differential traces, the formula for differential impedance yields:
+, which gives a characteristic impedance $Z_0$ of $51.3\ \ohm$ @ $3\ \giga\hertz$. With a $300\ \micro\meter$ spacing between the differential traces, the formula for differential impedance yields:
 
 \begin{equation}
     Z_{diff} = 2 \times 51.3\ \ohm [1 - 0.48 e^{(-0.96 \times \frac{300}{65})}]
@@ -202,7 +200,7 @@ Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a b
 
 \begin{table} [H]
 \begin{center}
-    \begin{tabular}{ l | l | l | l | l | l | l | l | l }
+    \begin{tabular}{| l | l | l | l | l | l | l | l | l |}
     \hline
      & Layer & Type & t $[\micro\meter]$ & $\epsilon_r$ & w $[\micro\meter]$  & $Z_0 [\ohm]$ & Spacing $[\micro\meter]$  & $Z_{diff} [\ohm]$ \\ 
      \hline
@@ -229,11 +227,11 @@ All pads and footprints were custom made using \textit{Cadence Pad Designer}, wi
 
 \section{Soldering Process}
 
-All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered using solder paste and a solder oven. The solder paste, which is a lead contained paste of type \textit{EFD SolderPlus 221 RMA}, was ordered from \url{www.krepro.no} in late January 2016.
+All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered using solder paste and a solder oven. The solder paste, which is a lead contained paste of type \textit{EFD SolderPlus 221 RMA}, was ordered from \url{www.krepro.no} in late January 2016. See
 
 \subsection{Soldering the Ground Pads Underneath the HSMC Contact}
 
-The \gls{hsmc}-connector has several ground pads underneath the connector itself, making it impossible to reach when soldering by hand. The solution to this use a solder oven with solder paste on the pads. The solder paste was applied on the pads with the help of the dispenser module on the \textit{Martin Rework Station}, which was available in the lab. The dispenser module forces the solder paste out of the syringe using pressurized air. By pressing a foot pedal connected to the dispenser, you apply a controlled air pulse that pushes on the piston of the solder paste syringe. The force of the air pulse can be adjusted using the dispenser \gls{gui}. For the ground pads, a force of $2.50~ccm$ was suitable.
+The \gls{hsmc}-connector has several ground pads underneath the connector itself, making it impossible to reach when soldering by hand. The solution was to use a solder oven with solder paste on the pads. The solder paste was applied on the pads with the help of the dispenser module on the \textit{Martin Rework Station}, which was available in the lab. The dispenser module forces the solder paste out of the syringe using pressurized air. By pressing a foot pedal connected to the dispenser, you apply a controlled air pulse that pushes on the piston of the solder paste syringe. The force of the air pulse can be adjusted using the dispenser \acrshort{gui}. For the ground pads, a force of $2.50~ccm$ was suitable.
 
 The solder oven that was used had the option to set up a \textit{Ramp-Soak-Spike} type thermal profile. Samtec, the manufacturer for the \gls{hsmc} contact, recommends a maximum peak temperature of no more than $260~\degree C$ with no more than 30 seconds above $255\degree C$. The thermal profile setup is based on the profile recommended by EFD, the manufacturer for the particular solder paste used (see figure \ref{fig:krepro}). After some trial and error with a dummy-PCB, the oven was set to a activation temperature of $150\degree C$ for $60~seconds$, and then a reflow temperature of $220\degree C$ with a climb-time of $120~seconds$. 
 
@@ -276,7 +274,7 @@ In fact, when testing the \gls{pcb}, the exposure of viases on the transmitter a
 \label{fig:pullups}
 \end{figure}
 
-On the current version of the \gls{pcb}, some of the receiver lines includes a $10~\kilo\ohm$ pull-up resistor (R91, R92, R95, R96, R97, R99, R100 and R101 in the schematic). The reason why these are included could possibly be due to a misinterpretation of the \gls{sfp}-schematic in which the design of the \gls{pcb} was based on. This is concluded because two of the pull-up resistors (R100 and R101 in the schematic) are connected to receiver signals that are only used in the \gls{sfp}-design, but not in this design. The pull-up resistor pads were therefore not soldered on the board, and the lines were left open.
+On the current version of the \gls{pcb}, some of the receiver lines includes a $10~\kilo\ohm$ pull-up resistor (R91, R92, R95, R96, R97, R99, R100 and R101 in figure \ref{fig:pullups}). The reason why these are included could possibly be due to a misinterpretation of the \gls{sfp}-schematic in which the design of the \gls{pcb} was based on. This is concluded because two of the pull-up resistors (R100 and R101 in the schematic) are connected to receiver signals that are only used in the \gls{sfp}-design, but not in this design. The pull-up resistor pads were therefore not soldered on the board, and the lines were left open.
 
 
 %Later discussions with Arild revealed that the transmitters on the GBT-VLDB did not have voltage pull-ups, which is necessary for the \gls{lvds}-signals. The current \gls{pcb} will therefore not work properly with the GBT-VLDB card. Later versions of the \gls{pcb} should therefore contain resistors pulling up to $1.25 \volt$ on the receiver lines in order for it to work.

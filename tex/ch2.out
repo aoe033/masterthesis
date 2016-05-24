@@ -1,12 +1,11 @@
 \BOOKMARK [0][-]{chapter.1}{HSMC-to-VLDB PCB Design}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Specification}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Design Discussion}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{High Speed PCB Design}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.3.1}{Transmission Lines}{section.1.3}% 5
-\BOOKMARK [2][-]{subsection.1.3.2}{Reflections and Characteristic Impedance}{section.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.3.3}{Routing}{section.1.3}% 7
-\BOOKMARK [1][-]{section.1.4}{PCB Design Parameters}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.5}{Pads and Footprints}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.6}{Soldering Process}{chapter.1}% 10
-\BOOKMARK [2][-]{subsection.1.6.1}{Soldering the Ground Pads Underneath the HSMC Contact}{section.1.6}% 11
-\BOOKMARK [1][-]{section.1.7}{PCB Faults and Compensations}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.1}{Design Discussion}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{High Speed PCB Design}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Transmission Lines}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Reflections and Characteristic Impedance}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{Routing}{section.1.2}% 6
+\BOOKMARK [1][-]{section.1.3}{PCB Design Parameters}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.4}{Pads and Footprints}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.5}{Soldering Process}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.5.1}{Soldering the Ground Pads Underneath the HSMC Contact}{section.1.5}% 10
+\BOOKMARK [1][-]{section.1.6}{PCB Faults and Compensations}{chapter.1}% 11

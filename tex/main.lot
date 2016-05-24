@@ -3,15 +3,18 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces The layers of the PCB and their traits, where t is the layer thickness and w is the width of the trace. The PCB has an overall thickness of $1.6\ \ensuremath {\SI@fstyle {m}}\meter $\relax }}{12}{table.caption.12}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces GBT control signals overview, switches.\relax }}{18}{table.caption.17}
-\contentsline {table}{\numberline {4.2}{\ignorespaces GBT control signals overview, probes.\relax }}{19}{table.caption.18}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {8.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{55}{table.caption.53}
+\contentsline {table}{\numberline {8.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{45}{table.caption.44}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces GBT control signals overview, switches.\relax }}{74}{table.caption.57}
+\contentsline {table}{\numberline {C.2}{\ignorespaces GBT control signals overview, probes.\relax }}{75}{table.caption.58}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

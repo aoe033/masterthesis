@@ -18,67 +18,13 @@ To address these needs, the \gls{gbt} architecture and transmission protocol was
 The \gls{gbt} system can be described in two parts: First part of the system consists of radiation hard GBT \acrshort{asic}s that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bidirectional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments. \\
 The last part of the system is located in the counting room and consists of the \gls{cru} that will provide an interface between the detector \acrshort{asic} and an online computerfarm. The \gls{cru} consists of \gls{cots} components (mainly an \acrshort{fpga}), and will through optical links receive the data from the radiation detector. \\
 
-This thesis will mainly focus on the \gls{cru} software interface on the \acrshort{pc} side, and the physical connection between the \gls{cru} and the \gls{vldb} card, where the radiation hard \gls{asic}, the \gls{gbt}x, is located.
+This thesis will mainly focus on the design of the \gls{cru} control interface and the physical connection between the \gls{cru} and the \gls{vldb} card, where the radiation hard \gls{asic}, the \gls{gbt}x, is located.
 
 %\todo{General:\\PLLs\\CPRI?\\}
 
-\section{Field Programmable Gate Array}
+\section{Altera's Cyclone V GT} \label{sec:cyclone}
 
-A \gls{fpga} is a high density \gls{ic} that is designed to be completely programmable by the customer after manufacturing (i.e. when the chip is shipped and "in the field"). The chips are shipped completely "blank", meaning that there are no pre-programmed logic.\footnote{With the exception of \gls{fpga} evaluation boards, which comes shipped with a pre-programmed hardware setup for demo purposes.} An \gls{fpga} can either be re-programmed using \gls{sram} technology, or one-time programmed by burning antifuses. The latter method makes it less prone to soft errors when exposed to radiation.\\
-
-\Glspl{fpga} are composed of arrays of \glspl{clb} surrounded by programmable routing resources and I/O pads. A \gls{clb} consists of a \gls{lut} together with a clock and simple write logic, and uses the address bus of the \gls{lut} as the function input pins and the value at the selected address as the function output. \glspl{lut} are considered fast logic, since computing a complex function only requires a single memory lookup. The \gls{lut} can be made out of an \gls{sram} memory-block \cite{weste11}. \\
-
-The \gls{fpga} (section \ref{sec:cyclone}) used in this thesis is a re-programmable type. It stores the user hardware setup in an \gls{sram} memory to configure routing and logic functions (for a permanent program storage, the \gls{fpga} can be configures to store the hardware setup in the on-board \gls{flash} memory, which then programs the \gls{sram} when powered on).
-
-
-\subsection{Altera's Cyclone V GT} \label{sec:cyclone}
-
-The \gls{fpga} used in this thesis is the Cyclone V GT by Altera. GT indicates that the \gls{fpga} has transceivers that supports speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}. It was chosen for this thesis mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$. Originally, a Terasic Cyclone V GX development board was intended to be used for this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world such as on-board Usb-to-Uart (more on this in chapter \ref{chap:sercom}. However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
-
-
-\section{Hardware Description Language}
-
-The most common way to program an \gls{fpga} is by \gls{hdl}, with the major ones being SystemVerilog and \acrshort{vhdl}. \Gls{hdl} consists of text-based expressions used to describe digital hardware and use this to further simulate and synthesize the hardware described. A hardware module is simulated by applying information at the inputs and then do a check on the corresponding outputs and verify that they behave as intended. Synthesis of hardware means transforming the \gls{hdl} code into a netlist of logic and wire connections describing the hardware. This can then be compiled into an \gls{fpga} which re-wires the available internal \glspl{clb} according to the given instructions. \glspl{hdl} have become more and more useful as system complexity have increased \cite{weste11}. The hardware described in this thesis is done using \acrshort{vhdl}, a strongly typed \gls{hdl} that is known for its capability of describing parallel processes.\\ 
-
-Below is a small example describing the logic of a D Flip-Flop using \acrshort{vhdl}:
-
-\lstset { %
-    language=VHDL,
-    backgroundcolor=\color{black!5}, % set backgroundcolor
-    basicstyle=\footnotesize,% basic font setting
-}
-
-\begin{lstlisting}[frame=single] 
--- Example of a D Flip-Flop triggered on the rising edge of the clock.
-library IEEE; 
-use IEEE.std_logic_1164.all; 
- 
-entity DFF_high is 
-  port( 
-    D : in STD_LOGIC; 
-    Q : out STD_LOGIC; 
-    Qbar : out STD_LOGIC; 
-    RESET : in STD_LOGIC; 
-    CLK : in STD_LOGIC 
-  ); 
-end DFF_high; 
- 
-architecture rtl of DFF_high is 
-begin 
- 
-process(CLK,RESET) 
-begin 
-  if (RESET='1') then 
-    Q <= '0'; 
-    Qbar <= '1'; 
-  elsif (CLK'event and CLK='1') then -- Can also use rising_edge(clk)
-    Q <= D; 
-    Qbar <= not D; 
-  end if; 
-end process;
-  
-end rtl; 
-\end{lstlisting}
+The \gls{fpga} used in this thesis is the Cyclone V GT by Altera. GT indicates that the \gls{fpga} has transceivers that supports speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}. It was chosen for this thesis mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$. Originally, a Terasic Cyclone V GX development board was intended to be used for this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world such as on-board Usb-to-Uart (more on this  in chapter \ref{chap:sercom}). However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
 
 
 \section{Cyclone V Transceiver Technology}
