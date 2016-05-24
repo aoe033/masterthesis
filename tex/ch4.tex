@@ -112,23 +112,22 @@ Running the test resulted in a continuous stream of bits sent from the transmitt
 
 Each \gls{hdmi}-connector has at least one transmitter- and receiver line. To simulate signal transmission over a distance, a \gls{hdmi} cable was cut in half and the transmit- and receive lines were soldered together, creating an external loop-back. VHDL code was written to simulate a data-stream using a pseudo-random generator to generate random bit-patterns. The data-stream would travel out via one of the transmitters of the \gls{fpga}, out through the \gls{hdmi}-connector, following the cable back into the same \gls{hdmi}-connector into the receiver input. This would simulate the transmission path to the \gls{vldb} card. The transmitted and received bits would then be compared using xor-logic. A bit-counter register would count each transmitted bit, and a bit-error register would count each time two bits are different in comparison. The bit error rate is thus given by $\frac{bit~errors}{number~of~bits}$.
 
-Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using xor-logic. The \gls{dff} that has the least amount of toggling is the one that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A delay-chain, although smaller, was also added at the receiver line to synchronize the incoming bits with the clock (figure \ref{fig:delaych}.
-\\
+Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using xor-logic. The \gls{dff} that has the least amount of toggling is the one that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A smaller delay-chain was also added at the receiver line to synchronize the incoming bits with the clock. Figure \ref{fig:delaych} a and b illustrates these delay chains.
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.7\textwidth}
-        \centering
-        \resizebox{1\linewidth}{!}{\subfile{fig_rxdelay.tex}}
-        \caption{Delay chain on the receiver line.}
-    \end{subfigure}%
-
     \begin{subfigure}{\textwidth}
         \centering
         \resizebox{1\linewidth}{!}{\subfile{fig_txdelay.tex}}
         \caption{Delay chain on the transmitter line.}
     \end{subfigure}
+
     \caption{Transmitter and receiver delay chains.}
+    \begin{subfigure}{0.6\textwidth}
+        \centering
+        \resizebox{1\linewidth}{!}{\subfile{fig_rxdelay_0.tex}}
+        \caption{Delay chain on the receiver line.}
+    \end{subfigure}
     \label{fig:delaych}
 \end{figure}
 
@@ -136,12 +135,18 @@ Cables with different lengths were used to see how this would affect the bit-err
 
 To measure the quality of the \gls{lvds} signals with an oscilloscope, differential probes were used.  
 
-
 \subsection{Results}
 
 %The following table sums up the cable-length and theoretical travel time versus the measured delay between the transmitted and received signal.
 
-It was suspected that the received signal was sometimes sampled by the clock when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, two \glspl{dff} that would trigger on different clock edges (rising and falling) were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. 
+During the first samplings using SignalTap II, it became apparent that, when running at a $300~\mega\hertz$ clock, the received signal were being sampled when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, two \glspl{dff} that would trigger on different clock edges (rising and falling), were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the \gls{dff} outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. This is shown in figure \ref{fig:rxpardelay}.
+
+\begin{figure}
+    \centering
+    \resizebox{0.7\linewidth}{!}{\subfile{fig_rxdelay.tex}}
+    \caption{Muxed delay chain on the receiver line.}
+     \label{fig:rxpardelay}
+\end{figure}
 
 With the help of SignalTap II it was possible to sample the delay chain signals and produce the results displayed in table \ref{tab:delch}. 
 \begin{table}
@@ -212,11 +217,27 @@ By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-
 \subsubsection{Bitvis Utility Library}
 The \textit{Bitvis Utility Library} by Bitvis is an open source VHDL testbench infrastructure library for verification of FPGAs and ASICs \cite{bitvis16}. It was developed with the aim of simplifying the testbench development process when testing \acrshort{vhdl} designs. It was chosen for this test because of the ease of use and fast implementation (see uart\_tb.vhd for testbench implementation).\\
 
-The main test procedure goes as follows: Send a request byte to the rx-signal, followed by a register-address. The request can be a read-request (0xDD) or a write-request (0xEE for '1' and 0xFF for '0'), and the address must be between 0x00 - 0xC1. Then, the tx-signal are sampled and compared with the requested address byte and checked for equality. If it is not equal, the test goes to a halt with a corresponding fault-message. The \textit{UART\_WRITE\_BYTE} and \textit{UART\_READ\_BYTE} testbench procedures were written with the main test procedure in mind. To simulate an incoming byte at the receiver, \textit{UART\_WRITE\_BYTE} inputs a vector of 8 bits as the data-byte. With the period of a transmitted bit, which is equal to $1/baud rate$, it outputs first a start bit, then the data bits and finally the stop bit. The rx-line takes the output of \textit{UART\_WRITE\_BYTE} as input. \textit{UART\_READ\_BYTE} takes the tx-line as input, and with the period of a transmitted bit shifts the tx-value into a data vector. Using the Bitvis \textit{check\_value}-function, the data vector is then checked and compared with the address-byte previously sent to the receiver. The \textit{UART\_READ\_BYTE} procedure must be executed after the \textit{UART\_WRITE\_BYTE} procedure. \\
+The main testbench process goes as follows: Send a request byte to the rx-signal, followed by a register-address. The request can be a read-request (0xDD) or a write-request (0xEE for '1' and 0xFF for '0'), and the address must be between 0x00 - 0xC1. Then, the tx-signal are sampled and compared with the requested address byte and checked for equality. If it is not equal, the test goes to a halt with a corresponding fault-message. The \textit{UART\_WRITE\_BYTE} and \textit{UART\_READ\_BYTE} testbench procedures were written with this in mind. To simulate an incoming byte at the receiver, \textit{UART\_WRITE\_BYTE} inputs a vector of 8 bits as the data-byte. With the period of a transmitted bit, which is equal to $1/baud rate$, it outputs first a start bit, then the data bits and finally the stop bit. The rx-line takes the output of \textit{UART\_WRITE\_BYTE} as input. \textit{UART\_READ\_BYTE} takes the tx-line as input, and with the period of a transmitted bit shifts the tx-value into a data vector. Using the Bitvis \textit{check\_value}-function, the data vector is then checked and compared with the address-byte previously sent to the receiver. The \textit{UART\_READ\_BYTE} procedure must be executed after the \textit{UART\_WRITE\_BYTE} procedure. \\
 
 Other test procedures involves checking the constants found in \textit{uart\_gbt\_pkg.vhd} up against legal values, and also make sure that the tx- and rx-lines are in an idle state at the start of the test, i.e a high state.
 
 \subsection{Results}
+
+Figure \ref{fig:uarttb} shows three read operations followed by a write operation. The $tx\_data\_compare$ vector compares the address received with the address transmitted to confirm that the \gls{uart} decoder does what it is requested to, i.e send out the correct addresses when receiving a read-request and write a bit-value to the \gls{gbt} register when receiving a write-operation. The data-bit (\gls{msb} of the transmitted signal) is not included in the $tx\_data\_compare$ comparison, nor is the write operation. 
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.18\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../img/uart_tb_0}
+    \end{subfigure}%
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../img/uart_tb_1}
+    \end{subfigure}
+    \caption{Three read operations followed by a write. }
+    \label{fig:uarttb}
+\end{figure}
 
 \section{Connection between COM port and UART using SignalTap II}
 

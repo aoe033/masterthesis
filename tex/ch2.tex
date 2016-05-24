@@ -12,11 +12,7 @@
 
 \chapter{HSMC-to-VLDB PCB Design} \label{chap:pcb}
 
-In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty additional \acrshort{hdmi} female connectors which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
-
-\section{Specification}
-
-
+In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} board has twenty additional \acrshort{hdmi} female connectors which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
 
 \section{Design Discussion}
 
