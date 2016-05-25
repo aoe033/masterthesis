@@ -1,0 +1,57 @@
+%location/filename: tex/fig/ap7.tex
+%author: Anders Østevik
+%Last edited: 25.05.2016
+%#######--Appendix - C Code--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{C Code}
+
+Table \ref{tab:ccode} lists the different C files that make up the GBT control interface module and the send/receive module. For more information about the actual functions described in the files, see chapter \ref{chap:clibs}. Files are available from 
+
+\begin{table}[H]
+\centering
+
+\begin{tabular}{l p{8cm}}
+\hline
+ File & Description \\ \hline
+ cmds.h/cmds.c & Contain functions and definitions related to analysis, treatment and excecution of user input.\\ %\hline
+ main.h & Contains global variables and structures, such as the signal structures and rs232 related variables. \\ %\hline
+ main.c & Main program. There are one main.c for each module.\\ %\hline
+ rs232.h/rs232.c & Contains functions related to rs232 communication (See \ref{sec:rs232})\\ %\hline
+ signals.h/signals.c & Contains the signal structure and related functions (See \ref{sec:signals}).\\ %\hline
+ timer.h/timer.c & Contains functions related to the program timer. (See \ref{sec:timer}) \\ \hline
+\end{tabular}
+\label{tab:ccode}
+\caption{List of C files used in the GBT Control Interface module and the Send/Receive module}
+\end{table}
+
+\chapter{VHDL Code}
+
+Table \ref{tab:vhdcode} lists the different VHDL files used in this thesis. For more information about the actual functionality of the files, see chapter \ref{chap:vhdcomp}. Files are available from 
+
+\begin{table}[H]
+\centering
+
+\begin{tabular}{l p{8cm}}
+\hline
+ File & Description \\ \hline
+ baudGen.vhd & Baud generator that generates a tick signal every 16. clock cycles. \\ %\hline
+ fifo\_buffer\_chu.vhd & Describes the fifo-buffers used in the uart unit. \\
+ uart.vhd & Combines fifo\_buffer\_chu.vhd, baudGen.vhd, uart\_rx.vhd and uart\_tx.vhd into an uart unit. \\ %\hline
+ uart\_decoder.vhd & Reads bytes from the uart and manipulates the gbt registers (not done).\\ %\hline
+ uart\_gbt\_pkg.vhd & Contains constants and records. \\ %\hline
+ uart\_rx.vhd & Uart receiver. \\ %\hline
+ uart\_tx.vhd & Uart transmitter. \\ %\hline
+ uart\_top.vhd & Combines all components together into one entity. \\ \hline
+\end{tabular}
+\label{tab:vhdcode}
+\caption{List of VHDL files used in this thesis.}
+\end{table}
+
+\end{document}
+
+

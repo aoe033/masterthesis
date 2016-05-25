@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  24 MAY 2016 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  25 MAY 2016 23:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2079,7 +2079,7 @@ Option `squaren' provided!
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- <../img/uib-emblem-svart.pdf, id=388, 80.3pt x 80.3pt>
+ <../img/uib-emblem-svart.pdf, id=396, 80.3pt x 80.3pt>
 File: ../img/uib-emblem-svart.pdf Graphic file (type pdf)
 
 <use ../img/uib-emblem-svart.pdf>
@@ -2116,15 +2116,31 @@ f>])
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /acknowledgements.tex [3] [4
 
-]) [5] [6
+])
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/main.gls [5] [6
+
+])
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/main.acr [7
+
+] [8
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9
+
+])
+[10]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.toc [7] [8])
+/main.toc [11
+
+] [12])
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
- [9] [10
+ [13] [14
 
 ]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
@@ -2147,7 +2163,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 17.28pt on input line 25.
-[1
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
 
 ]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
@@ -2164,7 +2183,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
-[2]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
@@ -2196,7 +2218,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
 [7
 
-] <../img/HSMC_52_53_hsmcspec.pdf, id=717, 760.44098pt x 269.80798pt>
+] <../img/HSMC_52_53_hsmcspec.pdf, id=782, 760.44098pt x 269.80798pt>
 File: ../img/HSMC_52_53_hsmcspec.pdf Graphic file (type pdf)
 
 <use ../img/HSMC_52_53_hsmcspec.pdf>
@@ -2240,13 +2262,13 @@ Overfull \hbox (0.51968pt too wide) in paragraph at lines 203--217
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-[12] <../img/temp_prof.pdf, id=815, 847.165pt x 394.273pt>
+[12] <../img/temp_prof.pdf, id=878, 847.165pt x 394.273pt>
 File: ../img/temp_prof.pdf Graphic file (type pdf)
 
 <use ../img/temp_prof.pdf>
 Package pdftex.def Info: ../img/temp_prof.pdf used on input line 240.
 (pdftex.def)             Requested size: 341.43437pt x 158.90361pt.
- <../img/pcb_1.JPG, id=821, 3854.4pt x 2168.1pt>
+ <../img/pcb_1.JPG, id=884, 3854.4pt x 2168.1pt>
 File: ../img/pcb_1.JPG Graphic file (type jpg)
 
 <use ../img/pcb_1.JPG>
@@ -2284,7 +2306,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
-<../img/pullups.pdf, id=849, 446.46799pt x 487.421pt>
+<../img/pullups.pdf, id=912, 446.46799pt x 487.421pt>
 File: ../img/pullups.pdf Graphic file (type pdf)
  <use ../img/pullups.pdf>
 Package pdftex.def Info: ../img/pullups.pdf used on input line 272.
@@ -2306,7 +2328,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 
  []
 
-[17] <../img/altera_jtag.pdf, id=929, 903.375pt x 252.945pt>
+[17] <../img/altera_jtag.pdf, id=989, 903.375pt x 252.945pt>
 File: ../img/altera_jtag.pdf Graphic file (type pdf)
 
 <use ../img/altera_jtag.pdf>
@@ -2331,7 +2353,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 57.
 
-<../img/lcdheader.pdf, id=984, 549.25201pt x 354.12299pt>
+<../img/lcdheader.pdf, id=1037, 549.25201pt x 354.12299pt>
 File: ../img/lcdheader.pdf Graphic file (type pdf)
 
 <use ../img/lcdheader.pdf>
@@ -2481,7 +2503,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [37
 
 ]
-<../img/si5338.pdf, id=1238, 633.56702pt x 617.50702pt>
+<../img/si5338.pdf, id=1284, 633.56702pt x 617.50702pt>
 File: ../img/si5338.pdf Graphic file (type pdf)
 
 <use ../img/si5338.pdf>
@@ -2529,7 +2551,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--158
 Underfull \vbox (badness 2409) has occurred while \output is active []
 
  [44]
-<../img/hektere_probes.pdf, id=1341, 815.84799pt x 797.37903pt>
+<../img/hektere_probes.pdf, id=1382, 815.84799pt x 797.37903pt>
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
@@ -2540,7 +2562,7 @@ File: ../img/hektere_probes.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 177.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 
-<../img/hektere_oppsett_100mhz.png, id=1347, 1027.84pt x 770.88pt>
+<../img/hektere_oppsett_100mhz.png, id=1388, 1027.84pt x 770.88pt>
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
@@ -2548,7 +2570,7 @@ Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
 87.
 (pdftex.def)             Requested size: 213.39568pt x 160.04283pt.
 
-<../img/stubs_oppsett_100mhz.png, id=1348, 1027.84pt x 770.88pt>
+<../img/stubs_oppsett_100mhz.png, id=1389, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
@@ -2581,14 +2603,14 @@ Overfull \hbox (12.8439pt too wide) in paragraph at lines 226--227
 ol-lowed by a write op-er-a-tion. The $\OML/cmm/m/it/12 tx[]data[]compare$
  []
 
-<../img/uart_tb_0.pdf, id=1380, 107.60199pt x 41.756pt>
+<../img/uart_tb_0.pdf, id=1422, 107.60199pt x 41.756pt>
 File: ../img/uart_tb_0.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_0.pdf>
 Package pdftex.def Info: ../img/uart_tb_0.pdf used on input line 232.
 (pdftex.def)             Requested size: 76.8193pt x 29.81006pt.
 
-<../img/uart_tb_1.pdf, id=1381, 424.78702pt x 42.559pt>
+<../img/uart_tb_1.pdf, id=1423, 424.78702pt x 42.559pt>
 File: ../img/uart_tb_1.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_1.pdf>
@@ -2604,22 +2626,533 @@ dfs with page group included in a single page
 Chapter 10.
 )
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.gls [51] [52
-
-])
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.acr [53
-
-] [54
+/ap1.tex [51] [52
 
 ]
+Appendix A.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 15.
+
+<../img/gbt_rx_loopback.pdf, id=1469, 1512.85194pt x 114.026pt>
+File: ../img/gbt_rx_loopback.pdf Graphic file (type pdf)
+
+<use ../img/gbt_rx_loopback.pdf>
+Package pdftex.def Info: ../img/gbt_rx_loopback.pdf used on input line 18.
+(pdftex.def)             Requested size: 629.82918pt x 47.47127pt.
+)
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/ap6.tex [53] [54 <../img/gbt_rx_loopback.pdf>]
+Appendix B.
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+[55
+
+]
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 10.0pt on input line 37.
+LaTeX Font Info:    Try loading font information for OML+LinuxLibertineT-TLF on
+ input line 56.
+LaTeX Font Info:    No file OMLLinuxLibertineT-TLF.fd. on input line 56.
+
+
+LaTeX Font Warning: Font shape `OML/LinuxLibertineT-TLF/m/n' undefined
+(Font)              using `OML/cmm/m/it' instead
+(Font)              for symbol `textless' on input line 56.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
+
+ []
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+)
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/ap4.tex [57] [58
+
+]
+Appendix C.
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
+LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 29.
+
+Overfull \hbox (17.21317pt too wide) in paragraph at lines 29--30
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
+
+ []
+
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+
+ []
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
+
+ []
+
+)
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/ap5.tex [65] [66
+
+]
+Appendix D.
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - MAN-UAL RE-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - GBT LINK 1
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
+ []
+
+
+Overfull \hbox (18.98651pt too wide) in paragraph at lines 18--40
+ [] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [55
+ [67]
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 LATENCY-OPTIMIZED GBT
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 LATENCY-OPTIMIZED GBT
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--66
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - PHASE SHIFT
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 72--72
+\OT1/LinuxLibertineT-TLF/m/n/10.95 ING - TX[]WORDCLK PHASE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 Asserted high ('1') to show that the MGT
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 92--92
+[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 RX EX-TRA DATA GBT8B10B
+ []
+
+
+Overfull \hbox (19.59973pt too wide) in paragraph at lines 48--97
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [68])
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/ap3.tex [69] [70
+
+]
+Appendix E.
+LaTeX Font Info:    Try loading font information for OT1+LinuxLibertineMonoT-TL
+F on input line 15.
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineMonoT-TLF.f
+d
+File: OT1LinuxLibertineMonoT-TLF.fd 2012/12/06 (autoinst) Font definitions for 
+OT1/LinuxLibertineMonoT-TLF.
+)
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineMonoT-TLF/m/n' will be
+(Font)              scaled to size 12.0pt on input line 15.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineMonoT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 15.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineMonoT-TLF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 15.
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+[71]
+Overfull \hbox (17.85437pt too wide) in paragraph at lines 32--33
+[]\OT1/LinuxLibertineT-TLF/m/n/12 run "java -Djava.library.path=$\OT1/LinuxLibe
+rtineMonoT-TLF/m/n/12 "D : \OMS/cmsy/m/n/12 n\OT1/LinuxLibertineMonoT-TLF/m/n/1
+2 Quartus \OMS/cmsy/m/n/12 n []\OT1/LinuxLibertineMonoT-TLF/m/n/12 13 . 1 \OMS/
+cmsy/m/n/12 n \OT1/LinuxLibertineMonoT-TLF/m/n/12 bin"$ \OT1/LinuxLibertineT-TL
+F/m/n/12 -jar clk[]cont.jar".
+ []
+
+<../img/clk_cont120.PNG, id=1772, 344.78813pt x 283.0575pt>
+File: ../img/clk_cont120.PNG Graphic file (type png)
+
+<use ../img/clk_cont120.PNG>
+Package pdftex.def Info: ../img/clk_cont120.PNG used on input line 50.
+(pdftex.def)             Requested size: 275.83087pt x 226.44629pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
+
+ []
+
+[72 <../img/clk_cont120.PNG>]
+<../img/20160226_tek100.png, id=1785, 1027.84pt x 770.88pt>
+File: ../img/20160226_tek100.png Graphic file (type png)
+
+<use ../img/20160226_tek100.png>
+Package pdftex.def Info: ../img/20160226_tek100.png used on input line 61.
+(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
+
+Underfull \hbox (badness 4981) in paragraph at lines 61--61
+[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 B
+e-fore con-fig-u-ra-tion:
+ []
+
+File: ../img/20160226_tek100.png Graphic file (type png)
+<use ../img/20160226_tek100.png>
+Package pdftex.def Info: ../img/20160226_tek100.png used on input line 61.
+(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
+
+Underfull \hbox (badness 4981) in paragraph at lines 61--61
+[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 B
+e-fore con-fig-u-ra-tion:
+ []
+
+<../img/20160226_tek120.png, id=1786, 1027.84pt x 770.88pt>
+File: ../img/20160226_tek120.png Graphic file (type png)
+
+<use ../img/20160226_tek120.png>
+Package pdftex.def Info: ../img/20160226_tek120.png used on input line 62.
+(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--62
+[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 A
+f-ter con-fig-u-ra-tion:
+ []
+
+File: ../img/20160226_tek120.png Graphic file (type png)
+<use ../img/20160226_tek120.png>
+Package pdftex.def Info: ../img/20160226_tek120.png used on input line 62.
+(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--62
+[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 A
+f-ter con-fig-u-ra-tion:
+ []
+
+)
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/ap7.tex [73 <../img/20160226_tek100.png (PNG copy)> <../img/20160226_tek120.pn
+g (PNG copy)>] [74
+
+]
+Appendix F.
+
+Package caption Warning: \label without proper reference on input line 28.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:ccode' on page 75 undefined on input line 13.
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 26--26
+[]|\OT1/LinuxLibertineT-TLF/m/n/12 Contains func-tions re-lated to the pro-gram
+
+ []
+
+[75] [76
+
+]
+Appendix G.
+
+Package caption Warning: \label without proper reference on input line 51.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:vhdcode' on page 77 undefined on input line 34.
+
+
+LaTeX Warning: Reference `chap:vhdcomp' on page 77 undefined on input line 34.
+
+
+Underfull \hbox (badness 1867) in paragraph at lines 44--45
+[]|\OT1/LinuxLibertineT-TLF/m/n/12 Combines fifo[]buffer[]chu.vhd, baud-Gen.vhd
+,
+ []
+
+)
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/ap2.tex [77] [78
+
+]
+Appendix H.
+<../img/pcb_sch1.pdf, id=1827, 692.5875pt x 317.185pt>
+File: ../img/pcb_sch1.pdf Graphic file (type pdf)
+
+<use ../img/pcb_sch1.pdf>
+Package pdftex.def Info: ../img/pcb_sch1.pdf used on input line 18.
+(pdftex.def)             Requested size: 629.82918pt x 288.45003pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [79]
+<../img/pcb_sch2.pdf, id=1836, 751.80875pt x 495.8525pt>
+File: ../img/pcb_sch2.pdf Graphic file (type pdf)
+
+<use ../img/pcb_sch2.pdf>
+Package pdftex.def Info: ../img/pcb_sch2.pdf used on input line 27.
+(pdftex.def)             Requested size: 629.82918pt x 415.4313pt.
+ [80 <../img/pcb_sch1.pdf, page is rotated 90 degrees>] <../img/pcb_sch3.pdf, i
+d=1843, 793.96625pt x 518.93875pt>
+File: ../img/pcb_sch3.pdf Graphic file (type pdf)
+
+<use ../img/pcb_sch3.pdf>
+Package pdftex.def Info: ../img/pcb_sch3.pdf used on input line 36.
+(pdftex.def)             Requested size: 629.82918pt x 411.66748pt.
+ [81 <../img/pcb_sch2.pdf, page is rotated 90 degrees>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 42.
+
+<../img/pcb_top.pdf, id=1850, 304.13625pt x 269.005pt>
+File: ../img/pcb_top.pdf Graphic file (type pdf)
+
+<use ../img/pcb_top.pdf>
+Package pdftex.def Info: ../img/pcb_top.pdf used on input line 46.
+(pdftex.def)             Requested size: 298.75264pt x 264.2511pt.
+
+<../img/pcb_btm.pdf, id=1851, 304.13625pt x 269.005pt>
+File: ../img/pcb_btm.pdf Graphic file (type pdf)
+
+<use ../img/pcb_btm.pdf>
+Package pdftex.def Info: ../img/pcb_btm.pdf used on input line 52.
+(pdftex.def)             Requested size: 298.75264pt x 264.2511pt.
+ [82 <../img/pcb_sch3.pdf, page is rotated 90 degrees>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 59.
+
+<../img/pcb_in1.pdf, id=1859, 313.17pt x 269.005pt>
+File: ../img/pcb_in1.pdf Graphic file (type pdf)
+ <use ../img/pcb_in1.pdf>
+Package pdftex.def Info: ../img/pcb_in1.pdf used on input line 63.
+(pdftex.def)             Requested size: 298.75264pt x 256.62871pt.
+
+<../img/pcb_in2.pdf, id=1860, 313.17pt x 269.005pt>
+File: ../img/pcb_in2.pdf Graphic file (type pdf)
+ <use ../img/pcb_in2.pdf>
+Package pdftex.def Info: ../img/pcb_in2.pdf used on input line 69.
+(pdftex.def)             Requested size: 298.75264pt x 256.62871pt.
+)
+[83 <../img/pcb_top.pdf, page is rotated 270 degrees> <../img/pcb_btm.pdf, page
+ is rotated 270 degrees>] [84 <../img/pcb_in1.pdf, page is rotated 270 degrees>
+ <../img/pcb_in2.pdf, page is rotated 270 degrees>]
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/main.lof
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [85
 
 ])
+\tf@lof=\write10
+\openout10 = `main.lof'.
+
+
+[86]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.bbl [56]
+/main.lot)
+\tf@lot=\write11
+\openout11 = `main.lot'.
+
+
+(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
+/main.bbl [87
+
+] [88
+
+]
 Underfull \hbox (badness 2846) in paragraph at lines 8--14
 []\OT1/LinuxLibertineT-TLF/m/n/12 LVDS Own-ers Man-ual, In-clud-ing High-Speed 
 CML And Sig-nal Con-di-tion-
@@ -2673,9 +3206,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--76
 ng fre-quency.  []$häp : / / www .
  []
 
-[57
-
-]
+[89]
 Underfull \hbox (badness 6910) in paragraph at lines 96--101
 []\OT1/LinuxLibertineT-TLF/m/n/12 Serial To Eth-er-net Adapter.  []$häp : / / w
 ww . digi . com / products / serial-[]servers /
@@ -2699,515 +3230,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--115
 []blaster-[]vista . html$[], 2016.  Ac-cessed:
  []
 
-) [58]
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.lof
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59
-
-])
-\tf@lof=\write10
-\openout10 = `main.lof'.
-
-
-[60]
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/main.lot)
-\tf@lot=\write11
-\openout11 = `main.lot'.
-
-
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap1.tex [61
-
-] [62
-
-]
-Appendix A.
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 15.
-
-<../img/gbt_rx_loopback.pdf, id=1598, 1512.85194pt x 114.026pt>
-File: ../img/gbt_rx_loopback.pdf Graphic file (type pdf)
-
-<use ../img/gbt_rx_loopback.pdf>
-Package pdftex.def Info: ../img/gbt_rx_loopback.pdf used on input line 18.
-(pdftex.def)             Requested size: 629.82918pt x 47.47127pt.
-)
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap4.tex [63] [64 <../img/gbt_rx_loopback.pdf>]
-Appendix B.
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 29.
-LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 29.
-
-Overfull \hbox (17.21317pt too wide) in paragraph at lines 29--30
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-
- []
-
-[65
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
-
- []
-
-[66]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
-
- []
-
-[67]
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
-
- []
-
-[68]
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
-
- []
-
-[69]
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
-
- []
-
-[70]
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-
- []
-
-)
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap5.tex [71] [72
-
-]
-Appendix C.
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - MAN-UAL RE-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--33
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--33
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - GBT LINK 1
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--35
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Overfull \hbox (18.98651pt too wide) in paragraph at lines 18--40
- [] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [73]
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 LATENCY-OPTIMIZED GBT
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 LATENCY-OPTIMIZED GBT
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 TX[]FRAMECLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ALIGNER - PHASE SHIFT
- []
-
-
-Underfull \hbox (badness 1292) in paragraph at lines 72--72
-\OT1/LinuxLibertineT-TLF/m/n/10.95 ING - TX[]WORDCLK PHASE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 Asserted high ('1') to show that the MGT
- []
-
-
-Underfull \hbox (badness 1436) in paragraph at lines 92--92
-[]|\OT1/LinuxLibertineT-TLF/m/n/10.95 RX EX-TRA DATA GBT8B10B
- []
-
-
-Overfull \hbox (19.59973pt too wide) in paragraph at lines 48--97
- [] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [74])
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap3.tex [75] [76
-
-]
-Appendix D.
-LaTeX Font Info:    Try loading font information for OT1+LinuxLibertineMonoT-TL
-F on input line 15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineMonoT-TLF.f
-d
-File: OT1LinuxLibertineMonoT-TLF.fd 2012/12/06 (autoinst) Font definitions for 
-OT1/LinuxLibertineMonoT-TLF.
-)
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineMonoT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 15.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineMonoT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 15.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineMonoT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 15.
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-[77]
-Overfull \hbox (17.85437pt too wide) in paragraph at lines 32--33
-[]\OT1/LinuxLibertineT-TLF/m/n/12 run "java -Djava.library.path=$\OT1/LinuxLibe
-rtineMonoT-TLF/m/n/12 "D : \OMS/cmsy/m/n/12 n\OT1/LinuxLibertineMonoT-TLF/m/n/1
-2 Quartus \OMS/cmsy/m/n/12 n []\OT1/LinuxLibertineMonoT-TLF/m/n/12 13 . 1 \OMS/
-cmsy/m/n/12 n \OT1/LinuxLibertineMonoT-TLF/m/n/12 bin"$ \OT1/LinuxLibertineT-TL
-F/m/n/12 -jar clk[]cont.jar".
- []
-
-<../img/clk_cont120.PNG, id=1801, 344.78813pt x 283.0575pt>
-File: ../img/clk_cont120.PNG Graphic file (type png)
-
-<use ../img/clk_cont120.PNG>
-Package pdftex.def Info: ../img/clk_cont120.PNG used on input line 50.
-(pdftex.def)             Requested size: 275.83087pt x 226.44629pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
-
- []
-
-[78 <../img/clk_cont120.PNG>]
-<../img/20160226_tek100.png, id=1812, 1027.84pt x 770.88pt>
-File: ../img/20160226_tek100.png Graphic file (type png)
-
-<use ../img/20160226_tek100.png>
-Package pdftex.def Info: ../img/20160226_tek100.png used on input line 61.
-(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
-
-Underfull \hbox (badness 3579) in paragraph at lines 61--61
-[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 B
-e-fore con-fig-u-ra-tion:
- []
-
-File: ../img/20160226_tek100.png Graphic file (type png)
-<use ../img/20160226_tek100.png>
-Package pdftex.def Info: ../img/20160226_tek100.png used on input line 61.
-(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
-
-Underfull \hbox (badness 3579) in paragraph at lines 61--61
-[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 B
-e-fore con-fig-u-ra-tion:
- []
-
-<../img/20160226_tek120.png, id=1813, 1027.84pt x 770.88pt>
-File: ../img/20160226_tek120.png Graphic file (type png)
-
-<use ../img/20160226_tek120.png>
-Package pdftex.def Info: ../img/20160226_tek120.png used on input line 62.
-(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
-[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 A
-f-ter con-fig-u-ra-tion:
- []
-
-File: ../img/20160226_tek120.png Graphic file (type png)
-<use ../img/20160226_tek120.png>
-Package pdftex.def Info: ../img/20160226_tek120.png used on input line 62.
-(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
-[][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ \OT1/LinuxLibertineT-TLF/m/n/12 A
-f-ter con-fig-u-ra-tion:
- []
-
-)
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap6.tex [79 <../img/20160226_tek100.png (PNG copy)> <../img/20160226_tek120.pn
-g (PNG copy)>] [80
-
-]
-Appendix E.
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-[81]
-LaTeX Font Info:    Try loading font information for OML+LinuxLibertineT-TLF on
- input line 56.
-LaTeX Font Info:    No file OMLLinuxLibertineT-TLF.fd. on input line 56.
-
-
-LaTeX Font Warning: Font shape `OML/LinuxLibertineT-TLF/m/n' undefined
-(Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textless' on input line 56.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--72
-
- []
-
-[82]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-)
-(/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
-/ap2.tex [83] [84
-
-]
-Appendix F.
-<../img/pcb_sch1.pdf, id=1920, 692.5875pt x 317.185pt>
-File: ../img/pcb_sch1.pdf Graphic file (type pdf)
-
-<use ../img/pcb_sch1.pdf>
-Package pdftex.def Info: ../img/pcb_sch1.pdf used on input line 18.
-(pdftex.def)             Requested size: 629.82918pt x 288.45003pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [85]
-<../img/pcb_sch2.pdf, id=1925, 751.80875pt x 495.8525pt>
-File: ../img/pcb_sch2.pdf Graphic file (type pdf)
-
-<use ../img/pcb_sch2.pdf>
-Package pdftex.def Info: ../img/pcb_sch2.pdf used on input line 27.
-(pdftex.def)             Requested size: 629.82918pt x 415.4313pt.
- [86 <../img/pcb_sch1.pdf, page is rotated 90 degrees>] <../img/pcb_sch3.pdf, i
-d=1932, 793.96625pt x 518.93875pt>
-File: ../img/pcb_sch3.pdf Graphic file (type pdf)
-
-<use ../img/pcb_sch3.pdf>
-Package pdftex.def Info: ../img/pcb_sch3.pdf used on input line 36.
-(pdftex.def)             Requested size: 629.82918pt x 411.66748pt.
- [87 <../img/pcb_sch2.pdf, page is rotated 90 degrees>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 42.
-
-<../img/pcb_top.pdf, id=1940, 304.13625pt x 269.005pt>
-File: ../img/pcb_top.pdf Graphic file (type pdf)
-
-<use ../img/pcb_top.pdf>
-Package pdftex.def Info: ../img/pcb_top.pdf used on input line 46.
-(pdftex.def)             Requested size: 298.75264pt x 264.2511pt.
-
-<../img/pcb_btm.pdf, id=1941, 304.13625pt x 269.005pt>
-File: ../img/pcb_btm.pdf Graphic file (type pdf)
-
-<use ../img/pcb_btm.pdf>
-Package pdftex.def Info: ../img/pcb_btm.pdf used on input line 52.
-(pdftex.def)             Requested size: 298.75264pt x 264.2511pt.
- [88 <../img/pcb_sch3.pdf, page is rotated 90 degrees>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 59.
-
-<../img/pcb_in1.pdf, id=1949, 313.17pt x 269.005pt>
-File: ../img/pcb_in1.pdf Graphic file (type pdf)
- <use ../img/pcb_in1.pdf>
-Package pdftex.def Info: ../img/pcb_in1.pdf used on input line 63.
-(pdftex.def)             Requested size: 298.75264pt x 256.62871pt.
-
-<../img/pcb_in2.pdf, id=1950, 313.17pt x 269.005pt>
-File: ../img/pcb_in2.pdf Graphic file (type pdf)
- <use ../img/pcb_in2.pdf>
-Package pdftex.def Info: ../img/pcb_in2.pdf used on input line 69.
-(pdftex.def)             Requested size: 298.75264pt x 256.62871pt.
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
-
-[89 <../img/pcb_top.pdf, page is rotated 270 degrees> <../img/pcb_btm.pdf, page
- is rotated 270 degrees>] [90 <../img/pcb_in1.pdf, page is rotated 270 degrees>
- <../img/pcb_in2.pdf, page is rotated 270 degrees>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 116.
+) [90]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 116.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 116.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6CFF9D69699063A9A1646E6B9C0D6B6E;6726.
+(rerunfilecheck)             Checksum: 93D0719573C94A07109383C97FEA57BC;6821.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 43943 strings out of 493029
- 831584 string characters out of 6136235
- 992740 words of memory out of 5000000
- 46151 multiletter control sequences out of 15000+600000
+ 43933 strings out of 493029
+ 831642 string characters out of 6136235
+ 988321 words of memory out of 5000000
+ 46130 multiletter control sequences out of 15000+600000
  50287 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 81i,12n,101p,10394b,2208s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 81i,12n,101p,10394b,2192s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_4jqvtd.enc}{/us
 r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_c6xmqr.enc}{/usr/shar
 e/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texl
@@ -3232,10 +3280,10 @@ dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/euler/eurm10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/main.pdf (100 pages, 7382197 bytes).
+/masterthesis/tex/main.pdf (104 pages, 7386061 bytes).
 PDF statistics:
- 2145 PDF objects out of 2487 (max. 8388607)
- 1960 compressed objects within 20 object streams
- 463 named destinations out of 1000 (max. 500000)
- 899 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2185 PDF objects out of 2487 (max. 8388607)
+ 1996 compressed objects within 20 object streams
+ 471 named destinations out of 1000 (max. 500000)
+ 915 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -8,7 +8,7 @@
 
 \begin{document}
 
-\chapter{Non-standard Libraries}
+\chapter{Non-standard Libraries} \label{chap:clibs}
 
 The serial communications software was developed with the help of a few non-standard libraries; non-standard meaning that the libraries are not a part of the C standard libraries. In addition, a library dedicated to hold the \gls{gbt} control-signal information was written.
 The following sections gives brief descriptions of each of these libraries and the associated functions used in the serial communications software:
@@ -45,7 +45,7 @@ void RS232_CloseComport(int comport_number)
 \end{lstlisting}
 Closes the \gls{com}. To prevent errors, it is important to disable any timers that calls \gls{com} related functions before closing the \gls{com}.\\
 
-\section{Timer}
+\section{Timer} \label{sec:timer}
 
 The Timer library (\textit{timer.h} and \textit{timer.c}) is a library for handling timers in a C environment. It was written by Teunis van Beelen, and is licensed under the "GPL version 3" licence \cite{gpl3}. The accuracy of the timer is system dependent. It supports a resolution down to $1~\milli\second$ on the Windows platform and a resolution down to $1~\micro\second$ on the Linux platform (though, in real-life situations, the timer might not be as accurate). The timer function is used with the \textit{RS232\_PollComport}-function in mind (see function definition above). For more information about the library and functions, visit \url{http://www.teuniz.net/RS-232/#}.
 
@@ -67,7 +67,7 @@ int stop_timer( void )
 \end{lstlisting}
 Stops the timer if \textit{start\_timer} has previously been called. If the timer routinely calls RS232-functions, \textit{stop\_timer} must be called before closing the \gls{com} at the end of the program to prevent errors.
 
-\section{Signals}
+\section{Signals} \label{sec:signals}
 
 The Signals library (\textit{signals.h} and \textit{signals.c}) was written with the \gls{gbt} control-signals in mind. It features methods for storing and manipulating the control-signal information, and in some extent encapsulates the information by partly hiding the information from the user. This is done by defining the main information-structure inside the \textit{signals.c}-file, instead of defining it in the header file (and thus exposing it to the main program). A dedicated pointer is used to point to the structures namespace, and the functions defined in the header file calls the pointer as input instead of the structure itself. The main program only have access to what is defined in the header, thus limiting the user to only have access to the structure through dedicated library functions.
 

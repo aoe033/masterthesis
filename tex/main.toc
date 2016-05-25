@@ -1,20 +1,20 @@
 \contentsline {section}{Abstract}{iii}{chapter*.3}
 \contentsline {section}{Acknowledgements}{v}{chapter*.4}
-\contentsline {section}{Table of Contents}{ix}{chapter*.5}
+\contentsline {section}{Table of Contents}{xiii}{chapter*.9}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Altera's Cyclone V GT}{1}{section.1.1}
+\contentsline {section}{\numberline {1.1}Altera's Cyclone V GT}{2}{section.1.1}
 \contentsline {section}{\numberline {1.2}Cyclone V Transceiver Technology}{2}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Differential Signals}{2}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Low-Voltage Differential Signaling}{2}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.2}Low-Voltage Differential Signaling}{3}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Current-Mode Logic}{3}{subsection.1.2.3}
 \contentsline {chapter}{\numberline {2}The Gigabit Transceiver}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Encoding modes}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}GBT-FPGA Core}{5}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}GBT Bank}{5}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}GBT Link}{5}{subsection.2.2.2}
-\contentsline {subsubsection}{GBT Tx}{5}{section*.7}
-\contentsline {subsubsection}{GBT Rx}{6}{section*.8}
-\contentsline {subsubsection}{Multi-Gigabit Transceiver}{6}{section*.9}
+\contentsline {subsubsection}{GBT Tx}{5}{section*.11}
+\contentsline {subsubsection}{GBT Rx}{6}{section*.12}
+\contentsline {subsubsection}{Multi-Gigabit Transceiver}{6}{section*.13}
 \contentsline {chapter}{\numberline {3}HSMC-to-VLDB PCB Design}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Design Discussion}{7}{section.3.1}
 \contentsline {section}{\numberline {3.2}High Speed PCB Design}{8}{section.3.2}
@@ -28,10 +28,10 @@
 \contentsline {section}{\numberline {3.6}PCB Faults and Compensations}{14}{section.3.6}
 \contentsline {chapter}{\numberline {4}PC to CRU control interface}{17}{chapter.4}
 \contentsline {section}{\numberline {4.1}Readily Available Standards}{17}{section.4.1}
-\contentsline {subsubsection}{PCI-Express}{18}{section*.17}
-\contentsline {subsubsection}{Ethernet}{18}{section*.18}
-\contentsline {subsubsection}{SDI-Transceiver}{18}{section*.19}
-\contentsline {subsubsection}{Altera JTAG}{18}{section*.20}
+\contentsline {subsubsection}{PCI-Express}{18}{section*.21}
+\contentsline {subsubsection}{Ethernet}{18}{section*.22}
+\contentsline {subsubsection}{SDI-Transceiver}{18}{section*.23}
+\contentsline {subsubsection}{Altera JTAG}{18}{section*.24}
 \contentsline {section}{\numberline {4.2}User Defined Communication}{19}{section.4.2}
 \contentsline {section}{\numberline {4.3}Duplex Systems}{20}{section.4.3}
 \contentsline {section}{\numberline {4.4}Choosing Communication Protocol}{20}{section.4.4}
@@ -41,21 +41,21 @@
 \contentsline {subsection}{\numberline {5.2.1}UART}{24}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}UART Oversampling and the Baud Rate Generator}{24}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}UART Receiver}{25}{subsection.5.2.3}
-\contentsline {subsubsection}{Idle state}{25}{section*.25}
-\contentsline {subsubsection}{Start state}{26}{section*.26}
-\contentsline {subsubsection}{Data state}{26}{section*.27}
-\contentsline {subsubsection}{Stop state}{26}{section*.28}
+\contentsline {subsubsection}{Idle state}{25}{section*.29}
+\contentsline {subsubsection}{Start state}{26}{section*.30}
+\contentsline {subsubsection}{Data state}{26}{section*.31}
+\contentsline {subsubsection}{Stop state}{26}{section*.32}
 \contentsline {subsection}{\numberline {5.2.4}UART Transmitter}{26}{subsection.5.2.4}
-\contentsline {subsubsection}{Idle state}{27}{section*.30}
-\contentsline {subsubsection}{Start state}{27}{section*.31}
-\contentsline {subsubsection}{Data state}{27}{section*.32}
-\contentsline {subsubsection}{Stop state}{27}{section*.33}
+\contentsline {subsubsection}{Idle state}{27}{section*.34}
+\contentsline {subsubsection}{Start state}{27}{section*.35}
+\contentsline {subsubsection}{Data state}{27}{section*.36}
+\contentsline {subsubsection}{Stop state}{27}{section*.37}
 \contentsline {subsection}{\numberline {5.2.5}FIFO Buffers}{28}{subsection.5.2.5}
 \contentsline {subsection}{\numberline {5.2.6}UART Decoder}{28}{subsection.5.2.6}
-\contentsline {subsubsection}{Idle state}{28}{section*.34}
-\contentsline {subsubsection}{Read1 state}{28}{section*.35}
-\contentsline {subsubsection}{Wait1 state}{28}{section*.36}
-\contentsline {subsubsection}{Read2 state}{29}{section*.37}
+\contentsline {subsubsection}{Idle state}{28}{section*.38}
+\contentsline {subsubsection}{Read1 state}{28}{section*.39}
+\contentsline {subsubsection}{Wait1 state}{28}{section*.40}
+\contentsline {subsubsection}{Read2 state}{29}{section*.41}
 \contentsline {chapter}{\numberline {6}Software on the PC Side}{31}{chapter.6}
 \contentsline {section}{\numberline {6.1}Specification}{31}{section.6.1}
 \contentsline {section}{\numberline {6.2}Software Structure and Flowchart}{31}{section.6.2}
@@ -84,7 +84,7 @@
 \contentsline {section}{\numberline {9.1}Hardware Simulation using Testbench in Modelsim}{47}{section.9.1}
 \contentsline {subsection}{\numberline {9.1.1}Purpose of Tests}{47}{subsection.9.1.1}
 \contentsline {subsection}{\numberline {9.1.2}Experimental Setup}{47}{subsection.9.1.2}
-\contentsline {subsubsection}{Bitvis Utility Library}{47}{section*.47}
+\contentsline {subsubsection}{Bitvis Utility Library}{47}{section*.51}
 \contentsline {subsection}{\numberline {9.1.3}Results}{48}{subsection.9.1.3}
 \contentsline {section}{\numberline {9.2}Connection between COM port and UART using SignalTap II}{48}{section.9.2}
 \contentsline {subsection}{\numberline {9.2.1}Purpose of Tests}{48}{subsection.9.2.1}
@@ -92,24 +92,26 @@
 \contentsline {subsection}{\numberline {9.2.3}Results}{49}{subsection.9.2.3}
 \contentsline {section}{\numberline {9.3}Conclusion and Discussions}{49}{section.9.3}
 \contentsline {chapter}{\numberline {10}Conclusion and Discussion}{51}{chapter.10}
-\contentsline {section}{Appendix}{58}{chapter*.53}
-\contentsline {chapter}{\numberline {A}SignalTap II: Receiving end of the fiber-optic external loopback test}{63}{appendix.A}
-\contentsline {chapter}{\numberline {B}Non-standard Libraries}{65}{appendix.B}
-\contentsline {section}{\numberline {B.1}RS232}{65}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}Associated functions}{65}{subsection.B.1.1}
-\contentsline {section}{\numberline {B.2}Timer}{66}{section.B.2}
-\contentsline {subsection}{\numberline {B.2.1}Associated functions}{66}{subsection.B.2.1}
-\contentsline {section}{\numberline {B.3}Signals}{66}{section.B.3}
-\contentsline {subsection}{\numberline {B.3.1}Associated structures}{67}{subsection.B.3.1}
-\contentsline {subsection}{\numberline {B.3.2}Associated functions}{67}{subsection.B.3.2}
-\contentsline {section}{\numberline {B.4}ncurses}{69}{section.B.4}
-\contentsline {subsection}{\numberline {B.4.1}Associated functions - Initialization}{69}{subsection.B.4.1}
-\contentsline {subsection}{\numberline {B.4.2}Associated functions - Various}{70}{subsection.B.4.2}
-\contentsline {chapter}{\numberline {C}GBT Control Signals}{73}{appendix.C}
-\contentsline {chapter}{\numberline {D}Clock Control Software Setup}{77}{appendix.D}
-\contentsline {section}{\numberline {D.1}Steps for Configuring Windows to run the Clock Control Software}{77}{section.D.1}
-\contentsline {chapter}{\numberline {E}Basics}{81}{appendix.E}
-\contentsline {section}{\numberline {E.1}Field Programmable Gate Array}{81}{section.E.1}
-\contentsline {subsection}{\numberline {E.1.1}Hardware Description Language}{81}{subsection.E.1.1}
-\contentsline {section}{\numberline {E.2}RS-232}{82}{section.E.2}
-\contentsline {chapter}{\numberline {F}Schematic and PCB Layout}{85}{appendix.F}
+\contentsline {chapter}{\numberline {A}SignalTap II: Receiving end of the fiber-optic external loopback test}{53}{appendix.A}
+\contentsline {chapter}{\numberline {B}Basics}{55}{appendix.B}
+\contentsline {section}{\numberline {B.1}Field Programmable Gate Array}{55}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Hardware Description Language}{55}{subsection.B.1.1}
+\contentsline {section}{\numberline {B.2}RS-232}{56}{section.B.2}
+\contentsline {chapter}{\numberline {C}Non-standard Libraries}{59}{appendix.C}
+\contentsline {section}{\numberline {C.1}RS232}{59}{section.C.1}
+\contentsline {subsection}{\numberline {C.1.1}Associated functions}{59}{subsection.C.1.1}
+\contentsline {section}{\numberline {C.2}Timer}{60}{section.C.2}
+\contentsline {subsection}{\numberline {C.2.1}Associated functions}{60}{subsection.C.2.1}
+\contentsline {section}{\numberline {C.3}Signals}{60}{section.C.3}
+\contentsline {subsection}{\numberline {C.3.1}Associated structures}{61}{subsection.C.3.1}
+\contentsline {subsection}{\numberline {C.3.2}Associated functions}{61}{subsection.C.3.2}
+\contentsline {section}{\numberline {C.4}ncurses}{63}{section.C.4}
+\contentsline {subsection}{\numberline {C.4.1}Associated functions - Initialization}{63}{subsection.C.4.1}
+\contentsline {subsection}{\numberline {C.4.2}Associated functions - Various}{64}{subsection.C.4.2}
+\contentsline {chapter}{\numberline {D}GBT Control Signals}{67}{appendix.D}
+\contentsline {chapter}{\numberline {E}Clock Control Software Setup}{71}{appendix.E}
+\contentsline {section}{\numberline {E.1}Steps for Configuring Windows to run the Clock Control Software}{71}{section.E.1}
+\contentsline {chapter}{\numberline {F}C Code}{75}{appendix.F}
+\contentsline {chapter}{\numberline {G}VHDL Code}{77}{appendix.G}
+\contentsline {chapter}{\numberline {H}Schematic and PCB Layout}{79}{appendix.H}
+\contentsline {section}{Appendix}{85}{figure.caption.65}

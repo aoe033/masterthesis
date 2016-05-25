@@ -71,6 +71,12 @@
 \subfile{abstract}
 %\blankpage
 \subfile{acknowledgements}
+
+\setlist[description]{leftmargin=!, labelwidth=2cm, itemsep=10pt}
+%\leading{15pt}
+\printglossaries	
+\setlist[description]{style=standard}
+
 %\blankpage
 %\blankpage 
 \tableofcontents
@@ -92,25 +98,24 @@
 
 %\pagestyle{plain}
 %\thispagestyle{plain}
-\setlist[description]{leftmargin=!, labelwidth=2cm, itemsep=10pt}
-%\leading{15pt}
-\printglossaries	
-\setlist[description]{style=standard}
-
-\bibliographystyle{abbrv}%ieeetr
-\bibliography{../litteratur}
 
 \begin{appendix}	%Create appendix
+
+\subfile{ap1} %SignalTap II: Receiving end of the fiber-optic external loopback test
+\subfile{ap6} %Basics
+\subfile{ap4} %Non-standard Libraries
+\subfile{ap5} %GBT Control Signals
+\subfile{ap3} %Clock Control Software Setup
+\subfile{ap7} %C and VHDL files.
+\subfile{ap2} %Schematic and PCB Layout
+
 \addcontentsline{toc}{section}{Appendix}
 \listoffigures
 \listoftables
 
-\subfile{ap1} %SignalTap II: Receiving end of the fiber-optic external loopback test
-\subfile{ap4} %Non-standard Libraries
-\subfile{ap5} %GBT Control Signals
-\subfile{ap3} %Clock Control Software Setup
-\subfile{ap6} %Basics
-\subfile{ap2} %Schematic and PCB Layout
+\bibliographystyle{abbrv}%ieeetr
+\bibliography{../litteratur}
+
 \end{appendix}
 
 \end{document}

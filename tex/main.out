@@ -1,6 +1,6 @@
 \BOOKMARK [1][-]{chapter*.3}{Abstract}{}% 1
 \BOOKMARK [1][-]{chapter*.4}{Acknowledgements}{}% 2
-\BOOKMARK [1][-]{chapter*.5}{Table of Contents}{}% 3
+\BOOKMARK [1][-]{chapter*.9}{Table of Contents}{}% 3
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
 \BOOKMARK [1][-]{section.1.1}{Altera's Cyclone V GT}{chapter.1}% 5
 \BOOKMARK [1][-]{section.1.2}{Cyclone V Transceiver Technology}{chapter.1}% 6
@@ -72,24 +72,26 @@
 \BOOKMARK [2][-]{subsection.9.2.3}{Results}{section.9.2}% 72
 \BOOKMARK [1][-]{section.9.3}{Conclusion and Discussions}{chapter.9}% 73
 \BOOKMARK [0][-]{chapter.10}{Conclusion and Discussion}{}% 74
-\BOOKMARK [1][-]{chapter*.53}{Appendix}{chapter.10}% 75
-\BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 76
-\BOOKMARK [0][-]{appendix.B}{Non-standard Libraries}{}% 77
-\BOOKMARK [1][-]{section.B.1}{RS232}{appendix.B}% 78
-\BOOKMARK [2][-]{subsection.B.1.1}{Associated functions}{section.B.1}% 79
-\BOOKMARK [1][-]{section.B.2}{Timer}{appendix.B}% 80
-\BOOKMARK [2][-]{subsection.B.2.1}{Associated functions}{section.B.2}% 81
-\BOOKMARK [1][-]{section.B.3}{Signals}{appendix.B}% 82
-\BOOKMARK [2][-]{subsection.B.3.1}{Associated structures}{section.B.3}% 83
-\BOOKMARK [2][-]{subsection.B.3.2}{Associated functions}{section.B.3}% 84
-\BOOKMARK [1][-]{section.B.4}{ncurses}{appendix.B}% 85
-\BOOKMARK [2][-]{subsection.B.4.1}{Associated functions - Initialization}{section.B.4}% 86
-\BOOKMARK [2][-]{subsection.B.4.2}{Associated functions - Various}{section.B.4}% 87
-\BOOKMARK [0][-]{appendix.C}{GBT Control Signals}{}% 88
-\BOOKMARK [0][-]{appendix.D}{Clock Control Software Setup}{}% 89
-\BOOKMARK [1][-]{section.D.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.D}% 90
-\BOOKMARK [0][-]{appendix.E}{Basics}{}% 91
-\BOOKMARK [1][-]{section.E.1}{Field Programmable Gate Array}{appendix.E}% 92
-\BOOKMARK [2][-]{subsection.E.1.1}{Hardware Description Language}{section.E.1}% 93
-\BOOKMARK [1][-]{section.E.2}{RS-232}{appendix.E}% 94
-\BOOKMARK [0][-]{appendix.F}{Schematic and PCB Layout}{}% 95
+\BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 75
+\BOOKMARK [0][-]{appendix.B}{Basics}{}% 76
+\BOOKMARK [1][-]{section.B.1}{Field Programmable Gate Array}{appendix.B}% 77
+\BOOKMARK [2][-]{subsection.B.1.1}{Hardware Description Language}{section.B.1}% 78
+\BOOKMARK [1][-]{section.B.2}{RS-232}{appendix.B}% 79
+\BOOKMARK [0][-]{appendix.C}{Non-standard Libraries}{}% 80
+\BOOKMARK [1][-]{section.C.1}{RS232}{appendix.C}% 81
+\BOOKMARK [2][-]{subsection.C.1.1}{Associated functions}{section.C.1}% 82
+\BOOKMARK [1][-]{section.C.2}{Timer}{appendix.C}% 83
+\BOOKMARK [2][-]{subsection.C.2.1}{Associated functions}{section.C.2}% 84
+\BOOKMARK [1][-]{section.C.3}{Signals}{appendix.C}% 85
+\BOOKMARK [2][-]{subsection.C.3.1}{Associated structures}{section.C.3}% 86
+\BOOKMARK [2][-]{subsection.C.3.2}{Associated functions}{section.C.3}% 87
+\BOOKMARK [1][-]{section.C.4}{ncurses}{appendix.C}% 88
+\BOOKMARK [2][-]{subsection.C.4.1}{Associated functions - Initialization}{section.C.4}% 89
+\BOOKMARK [2][-]{subsection.C.4.2}{Associated functions - Various}{section.C.4}% 90
+\BOOKMARK [0][-]{appendix.D}{GBT Control Signals}{}% 91
+\BOOKMARK [0][-]{appendix.E}{Clock Control Software Setup}{}% 92
+\BOOKMARK [1][-]{section.E.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.E}% 93
+\BOOKMARK [0][-]{appendix.F}{C Code}{}% 94
+\BOOKMARK [0][-]{appendix.G}{VHDL Code}{}% 95
+\BOOKMARK [0][-]{appendix.H}{Schematic and PCB Layout}{}% 96
+\BOOKMARK [1][-]{figure.caption.65}{Appendix}{appendix.H}% 97
