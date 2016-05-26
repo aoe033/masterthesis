@@ -113,6 +113,14 @@
   2016.
 \newblock {A}ccessed: 24/02/2016.
 
+\bibitem{gbtsca15}
+K.~K. A. M. P. M. R. D.~O. A.~Caratelli, S.~Bonacini and C.~Paillard.
+\newblock {T}he {GBT}-{SCA}, a radiation tolerant {ASIC} for detector control
+  applications in {SLHC} experiments.
+\newblock
+  \url{http://iopscience.iop.org/article/10.1088/1748-0221/10/03/C03034/pdf},
+  2015.
+
 \bibitem{douglas98}
 {D}ouglas {B}rooks.
 \newblock {D}ifferential {I}mpedance, {W}hats {T}he {D}ifference.
@@ -137,6 +145,11 @@ D.~M.~H. Neil {H}. {E}.~{W}este.
   {P}erspective}.
 \newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
 
+\bibitem{gbtxman}
+K.~W. P.~Moreira, J.~Christiansen.
+\newblock {GBT}x {M}anual v0.8.
+\newblock \url{http://cern.ch/proj-gbt}, 2016.
+
 \bibitem{chu08}
 {P}ong {P}.~{C}hu.
 \newblock {\em {FPGA} {P}rototyping {B}y {VHDL} {E}xamples}.
@@ -145,7 +158,8 @@ D.~M.~H. Neil {H}. {E}.~{W}este.
 
 \bibitem{gbt_fpga}
 {S}ophie {B}aron and {M}anoel~{B}arros {M}arin.
-\newblock {\em {GBT}-{FPGA} {U}ser {G}uide}, 2015.
+\newblock {GBT}-{FPGA} {U}ser {G}uide.
+\newblock \url{https://espace.cern.ch/GBT-Project/GBT-FPGA}, 2015.
 \newblock {A}ccessed: 29/02/2016.
 
 \bibitem{velure10}

@@ -1,13 +1,20 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
 Database file #1: ../litteratur.bib
+Warning--I didn't find a database entry for "gbtscapres"
+Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
+while executing---line 1049 of file abbrv.bst
+Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
+while executing---line 1049 of file abbrv.bst
+Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
+while executing---line 1049 of file abbrv.bst
+Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
+while executing---line 1049 of file abbrv.bst
 Warning--to sort, need author or key in altera_cvoverview15
 Warning--to sort, need author or key in ti08lvds
 Warning--to sort, need author or key in altera_cyclonekit
-Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
-while executing---line 1049 of file abbrv.bst
 Warning--to sort, need author or key in sfp_schem
 Warning--to sort, need author or key in altera_hsmc09
 Warning--to sort, need author or key in polar15
@@ -23,47 +30,53 @@ Warning--to sort, need author or key in gpl3
 Warning--to sort, need author or key in altera_q13
 Warning--to sort, need author or key in altera_usb
 Warning--to sort, need author or key in si570
+Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
+while executing---line 1090 of file abbrv.bst
+Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
+while executing---line 1090 of file abbrv.bst
+Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
+while executing---line 1090 of file abbrv.bst
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1090 of file abbrv.bst
-You've used 26 entries,
+You've used 28 entries,
             2118 wiz_defined-function locations,
-            618 strings with 7548 characters,
-and the built_in function-call counts, 4906 in all, are:
-= -- 495
-> -- 86
+            629 strings with 7951 characters,
+and the built_in function-call counts, 5378 in all, are:
+= -- 541
+> -- 106
 < -- 0
-+ -- 46
-- -- 20
-* -- 176
-:= -- 680
-add.period$ -- 82
-call.type$ -- 26
-change.case$ -- 85
++ -- 54
+- -- 26
+* -- 190
+:= -- 758
+add.period$ -- 89
+call.type$ -- 28
+change.case$ -- 95
 chr.to.int$ -- 0
-cite$ -- 44
-duplicate$ -- 199
-empty$ -- 587
-format.name$ -- 20
-if$ -- 1160
+cite$ -- 46
+duplicate$ -- 211
+empty$ -- 635
+format.name$ -- 26
+if$ -- 1267
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 28
 missing$ -- 6
-newline$ -- 137
-num.names$ -- 16
-pop$ -- 204
+newline$ -- 148
+num.names$ -- 20
+pop$ -- 225
 preamble$ -- 1
-purify$ -- 62
+purify$ -- 69
 quote$ -- 0
-skip$ -- 160
+skip$ -- 174
 stack$ -- 0
-substring$ -- 130
-swap$ -- 27
+substring$ -- 140
+swap$ -- 28
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 98
+type$ -- 106
 warning$ -- 18
-while$ -- 16
-width$ -- 28
-write$ -- 271
-(There were 2 error messages)
+while$ -- 20
+width$ -- 30
+write$ -- 293
+(There were 8 error messages)

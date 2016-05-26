@@ -1,6 +1,6 @@
 %location/filename: tex/ch1.tex
 %author: Anders Østevik
-%Last edited: 09.10.2015
+%Last edited: 26.05.2016
 %#######--Chapter 1--#######
 %Content:
 %	Introduction
@@ -13,10 +13,42 @@
 \chapter{Introduction}
 The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
 
-To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. The \gls{gbt} system consists of \\
+To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. The \gls{gbt} system can be described in two parts: The on-detector part, and the off-detector part of the system. The below sections gives a brief description of these:
 
-The \gls{gbt} system can be described in two parts: The on-detector part and the off-detector part of the system. The on-detector part consists of radiation hard GBT \acrshort{asic}s that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bidirectional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments. \\
-The off-detector part is located in the counting room and consists of the \gls{cru} that will provide an interface between the detector \acrshort{asic} and an online computerfarm. The \gls{cru} consists of \gls{cots} components (mainly an \acrshort{fpga}), and will through optical links receive the data from the radiation detector. \\
+\section{On-detector}
+The on-detector part consists of radiation hard GBT \acrshort{asic}s that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bi-directional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments.
+
+\subsection{GBTx}
+The GBTx \gls{asic} is a serializer-de-serializer chip responsible for the high speed bi-directional optical link. It has a bandwidth of $3.2 - 4.8~\giga\bit\per\second$, and combines data readout, trigger data, timing control distribution, and experiment slow control and monitoring information in one single optical link (using two fibers). The GBTx encodes and decodes this information into what is known as the GBT-Frame, and provides interface to the front end electronics. \cite{gbtxman}
+
+\subsection{GBT protocol}
+
+
+
+\begin{figure} % H(strictly put HERE > h!)
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=\linewidth]{../img/gbtframe}  \\[0.1 cm]
+\caption{The GBT-Frame format. \cite[Figure 4]{gbt_fpga}.}
+\label{fig:hsmc}
+\end{figure}
+
+\subsection{GBT-SCA}
+
+The \gls{sca} \gls{asic} is the part of the \gls{gbt} chipset which distributes control and monitoring signals to the front-end electronics embedded in the detectors. It connects to the GBTx through a dedicated $80~\mega\bit\per\second$ e-link and provides a number of user interface options for the front-end detectors, which includes: SPI, \gls{iic}, JTAG and a number of \acrshort{gpio}s \cite{gbtsca15}. 
+
+\section{Off-detector}
+The off-detector part is located in the counting room and consists of a \gls{cru}, that will provide an interface between the detector \acrshort{asic}s and an online computer farm, with the GBTx as the middle joint. The \gls{cru} consists of \gls{cots} components, mainly an \gls{fpga}, and will through optical links receive the data from the radiation detector. \\
+
+\section{Versatile Link Demo Board}
+
+The \gls{vldb} is the evaluation kit for the radiation hard optical link. It gathers the radiation hard \glspl{asic}; GBTx, GBT-SCA and the VTRx/VTTx, which makes the main elements of the Link in addition to a radiation hard DC/DC converter. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.
+
+\begin{figure} % H(strictly put HERE > h!)
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=\linewidth]{../img/gbtsys}  \\[0.1 cm]
+\caption{The GBT-link in its entirety. The on-detector consists of custom made \glspl{asic} with an optical link connecting the off-detector \gls{fpga} with the GBT-FPGA implemented. \cite[Figure 1]{gbtscapres}.}
+\label{fig:hsmc}
+\end{figure}
 
 This thesis has its focus on the design of a \gls{cru} control interface, and a physical connection between the \gls{cru} and the \gls{vldb} card, where the radiation hard \gls{asic}, the \gls{gbt}x, is located. The control interface was developed with the goal of one day replacing the Quartus-bound \gls{issp}, which is used today to manipulate the \gls{gbt} control-signals; and instead introduce a cross-platform, open-source solution.
 
@@ -25,7 +57,6 @@ This thesis has its focus on the design of a \gls{cru} control interface, and a 
 \section{Altera's Cyclone V GT} \label{sec:cyclone}
 
 The \gls{fpga} used in this thesis is the Cyclone V GT by Altera. GT indicates that the \gls{fpga} has transceivers that supports speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}. It was chosen for this thesis mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$. Originally, a Terasic Cyclone V GX development board was handed for use with this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world such as on-board Usb-to-Uart (more on this  in chapter \ref{chap:sercom}). However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
-
 
 \section{Cyclone V Transceiver Technology}
 
@@ -57,7 +88,6 @@ The Cyclone V GT board has 4 Pseudo-\gls{cml} (PCML) channels available on both 
 %\subsection{Phase-Locked Loops}
 
 %A \gls{pll} is a device
-
 
 
 \chapter{The Gigabit Transceiver} \label{chap:gbt}

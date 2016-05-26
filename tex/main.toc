@@ -2,116 +2,122 @@
 \contentsline {section}{Acknowledgements}{v}{chapter*.4}
 \contentsline {section}{Table of Contents}{xiii}{chapter*.9}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Altera's Cyclone V GT}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}Cyclone V Transceiver Technology}{2}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Differential Signals}{2}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Low-Voltage Differential Signaling}{3}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Current-Mode Logic}{3}{subsection.1.2.3}
-\contentsline {chapter}{\numberline {2}The Gigabit Transceiver}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Encoding modes}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}GBT-FPGA Core}{5}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}GBT Bank}{5}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}GBT Link}{5}{subsection.2.2.2}
-\contentsline {subsubsection}{GBT Tx}{5}{section*.11}
-\contentsline {subsubsection}{GBT Rx}{6}{section*.12}
-\contentsline {subsubsection}{Multi-Gigabit Transceiver}{6}{section*.13}
-\contentsline {chapter}{\numberline {3}HSMC-to-VLDB PCB Design}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}Design Discussion}{7}{section.3.1}
-\contentsline {section}{\numberline {3.2}High Speed PCB Design}{8}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Transmission Lines}{8}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Reflections and Characteristic Impedance}{9}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Routing}{10}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}PCB Design Parameters}{11}{section.3.3}
-\contentsline {section}{\numberline {3.4}Pads and Footprints}{12}{section.3.4}
-\contentsline {section}{\numberline {3.5}Soldering Process}{12}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Soldering the Ground Pads Underneath the HSMC Contact}{12}{subsection.3.5.1}
-\contentsline {section}{\numberline {3.6}PCB Faults and Compensations}{14}{section.3.6}
-\contentsline {chapter}{\numberline {4}PC to CRU control interface}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Readily Available Standards}{17}{section.4.1}
-\contentsline {subsubsection}{PCI-Express}{18}{section*.21}
-\contentsline {subsubsection}{Ethernet}{18}{section*.22}
-\contentsline {subsubsection}{SDI-Transceiver}{18}{section*.23}
-\contentsline {subsubsection}{Altera JTAG}{18}{section*.24}
-\contentsline {section}{\numberline {4.2}User Defined Communication}{19}{section.4.2}
-\contentsline {section}{\numberline {4.3}Duplex Systems}{20}{section.4.3}
-\contentsline {section}{\numberline {4.4}Choosing Communication Protocol}{20}{section.4.4}
-\contentsline {chapter}{\numberline {5}Hardware Design on the FPGA Side}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}Specification}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}Hardware Components}{23}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}UART}{24}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}UART Oversampling and the Baud Rate Generator}{24}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}UART Receiver}{25}{subsection.5.2.3}
-\contentsline {subsubsection}{Idle state}{25}{section*.29}
-\contentsline {subsubsection}{Start state}{26}{section*.30}
-\contentsline {subsubsection}{Data state}{26}{section*.31}
-\contentsline {subsubsection}{Stop state}{26}{section*.32}
-\contentsline {subsection}{\numberline {5.2.4}UART Transmitter}{26}{subsection.5.2.4}
-\contentsline {subsubsection}{Idle state}{27}{section*.34}
-\contentsline {subsubsection}{Start state}{27}{section*.35}
-\contentsline {subsubsection}{Data state}{27}{section*.36}
-\contentsline {subsubsection}{Stop state}{27}{section*.37}
-\contentsline {subsection}{\numberline {5.2.5}FIFO Buffers}{28}{subsection.5.2.5}
-\contentsline {subsection}{\numberline {5.2.6}UART Decoder}{28}{subsection.5.2.6}
-\contentsline {subsubsection}{Idle state}{28}{section*.38}
-\contentsline {subsubsection}{Read1 state}{28}{section*.39}
-\contentsline {subsubsection}{Wait1 state}{28}{section*.40}
-\contentsline {subsubsection}{Read2 state}{29}{section*.41}
-\contentsline {chapter}{\numberline {6}Software on the PC Side}{31}{chapter.6}
-\contentsline {section}{\numberline {6.1}Specification}{31}{section.6.1}
-\contentsline {section}{\numberline {6.2}Software Structure and Flowchart}{31}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Interface module}{32}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Send/Receive module}{33}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Conclusion and Discussion}{36}{section.6.3}
-\contentsline {chapter}{\numberline {7}External and Internal Loopback Test of the GBT Bank Quartus Example}{37}{chapter.7}
-\contentsline {section}{\numberline {7.1}120 MHz Reference Clock}{37}{section.7.1}
-\contentsline {section}{\numberline {7.2}Configuring the onboard Oscillator on the Cyclone V Board}{38}{section.7.2}
-\contentsline {section}{\numberline {7.3}Configuring the Si5338 External Oscillator}{38}{section.7.3}
-\contentsline {chapter}{\numberline {8}Testing and Verification of the HDMI Daughter Card}{41}{chapter.8}
-\contentsline {section}{\numberline {8.1}Connectivity Test}{41}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Purpose of Test}{41}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}Experimental Setup}{41}{subsection.8.1.2}
-\contentsline {subsection}{\numberline {8.1.3}Results}{41}{subsection.8.1.3}
-\contentsline {section}{\numberline {8.2}External Loop-back Test for the Fiber-Optic Connector}{42}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Purpose of Test}{42}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}Experimental Setup}{42}{subsection.8.2.2}
-\contentsline {subsection}{\numberline {8.2.3}Results}{42}{subsection.8.2.3}
-\contentsline {section}{\numberline {8.3}External Loop-back Test for the HDMI Connectors}{43}{section.8.3}
-\contentsline {subsection}{\numberline {8.3.1}Purpose of Tests}{43}{subsection.8.3.1}
-\contentsline {subsection}{\numberline {8.3.2}Experimental Setup}{43}{subsection.8.3.2}
-\contentsline {subsection}{\numberline {8.3.3}Results}{44}{subsection.8.3.3}
-\contentsline {section}{\numberline {8.4}Conclusion and Discussions}{45}{section.8.4}
-\contentsline {chapter}{\numberline {9}Testing and Verification of the Serial Interface}{47}{chapter.9}
-\contentsline {section}{\numberline {9.1}Hardware Simulation using Testbench in Modelsim}{47}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Purpose of Tests}{47}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Experimental Setup}{47}{subsection.9.1.2}
-\contentsline {subsubsection}{Bitvis Utility Library}{47}{section*.51}
-\contentsline {subsection}{\numberline {9.1.3}Results}{48}{subsection.9.1.3}
-\contentsline {section}{\numberline {9.2}Connection between COM port and UART using SignalTap II}{48}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Purpose of Tests}{48}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Experimental Setup}{49}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}Results}{49}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Conclusion and Discussions}{49}{section.9.3}
-\contentsline {chapter}{\numberline {10}Conclusion and Discussion}{51}{chapter.10}
-\contentsline {chapter}{\numberline {A}SignalTap II: Receiving end of the fiber-optic external loopback test}{53}{appendix.A}
-\contentsline {chapter}{\numberline {B}Basics}{55}{appendix.B}
-\contentsline {section}{\numberline {B.1}Field Programmable Gate Array}{55}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}Hardware Description Language}{55}{subsection.B.1.1}
-\contentsline {section}{\numberline {B.2}RS-232}{56}{section.B.2}
-\contentsline {chapter}{\numberline {C}Non-standard Libraries}{59}{appendix.C}
-\contentsline {section}{\numberline {C.1}RS232}{59}{section.C.1}
-\contentsline {subsection}{\numberline {C.1.1}Associated functions}{59}{subsection.C.1.1}
-\contentsline {section}{\numberline {C.2}Timer}{60}{section.C.2}
-\contentsline {subsection}{\numberline {C.2.1}Associated functions}{60}{subsection.C.2.1}
-\contentsline {section}{\numberline {C.3}Signals}{60}{section.C.3}
-\contentsline {subsection}{\numberline {C.3.1}Associated structures}{61}{subsection.C.3.1}
-\contentsline {subsection}{\numberline {C.3.2}Associated functions}{61}{subsection.C.3.2}
-\contentsline {section}{\numberline {C.4}ncurses}{63}{section.C.4}
-\contentsline {subsection}{\numberline {C.4.1}Associated functions - Initialization}{63}{subsection.C.4.1}
-\contentsline {subsection}{\numberline {C.4.2}Associated functions - Various}{64}{subsection.C.4.2}
-\contentsline {chapter}{\numberline {D}GBT Control Signals}{67}{appendix.D}
-\contentsline {chapter}{\numberline {E}Clock Control Software Setup}{71}{appendix.E}
-\contentsline {section}{\numberline {E.1}Steps for Configuring Windows to run the Clock Control Software}{71}{section.E.1}
-\contentsline {chapter}{\numberline {F}C Code}{75}{appendix.F}
-\contentsline {chapter}{\numberline {G}VHDL Code}{77}{appendix.G}
-\contentsline {chapter}{\numberline {H}Schematic and PCB Layout}{79}{appendix.H}
-\contentsline {section}{Appendix}{85}{figure.caption.65}
+\contentsline {section}{\numberline {1.1}On-detector}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}GBTx}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}GBT protocol}{2}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}GBT-SCA}{2}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Off-detector}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Versatile Link Demo Board}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Altera's Cyclone V GT}{4}{section.1.4}
+\contentsline {section}{\numberline {1.5}Cyclone V Transceiver Technology}{4}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Differential Signals}{4}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Low-Voltage Differential Signaling}{4}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Current-Mode Logic}{5}{subsection.1.5.3}
+\contentsline {chapter}{\numberline {2}The Gigabit Transceiver}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Encoding modes}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}GBT-FPGA Core}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}GBT Bank}{7}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}GBT Link}{7}{subsection.2.2.2}
+\contentsline {subsubsection}{GBT Tx}{7}{section*.13}
+\contentsline {subsubsection}{GBT Rx}{8}{section*.14}
+\contentsline {subsubsection}{Multi-Gigabit Transceiver}{8}{section*.15}
+\contentsline {chapter}{\numberline {3}HSMC-to-VLDB PCB Design}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Design Discussion}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}High Speed PCB Design}{10}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Transmission Lines}{10}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Reflections and Characteristic Impedance}{11}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Routing}{12}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}PCB Design Parameters}{13}{section.3.3}
+\contentsline {section}{\numberline {3.4}Pads and Footprints}{14}{section.3.4}
+\contentsline {section}{\numberline {3.5}Soldering Process}{14}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Soldering the Ground Pads Underneath the HSMC Contact}{14}{subsection.3.5.1}
+\contentsline {section}{\numberline {3.6}PCB Faults and Compensations}{16}{section.3.6}
+\contentsline {chapter}{\numberline {4}PC to CRU control interface}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Readily Available Standards}{19}{section.4.1}
+\contentsline {subsubsection}{PCI-Express}{20}{section*.23}
+\contentsline {subsubsection}{Ethernet}{20}{section*.24}
+\contentsline {subsubsection}{SDI-Transceiver}{20}{section*.25}
+\contentsline {subsubsection}{Altera JTAG}{20}{section*.26}
+\contentsline {section}{\numberline {4.2}User Defined Communication}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Duplex Systems}{22}{section.4.3}
+\contentsline {section}{\numberline {4.4}Choosing Communication Protocol}{22}{section.4.4}
+\contentsline {chapter}{\numberline {5}Hardware Design on the FPGA Side}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Specification}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}Hardware Components}{25}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}UART}{26}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}UART Oversampling and the Baud Rate Generator}{26}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}UART Receiver}{27}{subsection.5.2.3}
+\contentsline {subsubsection}{Idle state}{27}{section*.31}
+\contentsline {subsubsection}{Start state}{28}{section*.32}
+\contentsline {subsubsection}{Data state}{28}{section*.33}
+\contentsline {subsubsection}{Stop state}{28}{section*.34}
+\contentsline {subsection}{\numberline {5.2.4}UART Transmitter}{28}{subsection.5.2.4}
+\contentsline {subsubsection}{Idle state}{29}{section*.36}
+\contentsline {subsubsection}{Start state}{29}{section*.37}
+\contentsline {subsubsection}{Data state}{29}{section*.38}
+\contentsline {subsubsection}{Stop state}{29}{section*.39}
+\contentsline {subsection}{\numberline {5.2.5}FIFO Buffers}{30}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}UART Decoder}{30}{subsection.5.2.6}
+\contentsline {subsubsection}{Idle state}{30}{section*.40}
+\contentsline {subsubsection}{Read1 state}{30}{section*.41}
+\contentsline {subsubsection}{Wait1 state}{30}{section*.42}
+\contentsline {subsubsection}{Read2 state}{31}{section*.43}
+\contentsline {chapter}{\numberline {6}Software on the PC Side}{33}{chapter.6}
+\contentsline {section}{\numberline {6.1}Specification}{33}{section.6.1}
+\contentsline {section}{\numberline {6.2}Software Structure and Flowchart}{33}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Interface module}{34}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Send/Receive module}{35}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Conclusion and Discussion}{38}{section.6.3}
+\contentsline {chapter}{\numberline {7}External and Internal Loopback Test of the GBT Bank Quartus Example}{39}{chapter.7}
+\contentsline {section}{\numberline {7.1}120 MHz Reference Clock}{39}{section.7.1}
+\contentsline {section}{\numberline {7.2}Configuring the onboard Oscillator on the Cyclone V Board}{40}{section.7.2}
+\contentsline {section}{\numberline {7.3}Configuring the Si5338 External Oscillator}{40}{section.7.3}
+\contentsline {chapter}{\numberline {8}Testing and Verification of the HDMI Daughter Card}{43}{chapter.8}
+\contentsline {section}{\numberline {8.1}Connectivity Test}{43}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Purpose of Test}{43}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Experimental Setup}{43}{subsection.8.1.2}
+\contentsline {subsection}{\numberline {8.1.3}Results}{43}{subsection.8.1.3}
+\contentsline {section}{\numberline {8.2}External Loop-back Test for the Fiber-Optic Connector}{44}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Purpose of Test}{44}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Experimental Setup}{44}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Results}{44}{subsection.8.2.3}
+\contentsline {section}{\numberline {8.3}External Loop-back Test for the HDMI Connectors}{45}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}Purpose of Tests}{45}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}Experimental Setup}{45}{subsection.8.3.2}
+\contentsline {subsection}{\numberline {8.3.3}Results}{46}{subsection.8.3.3}
+\contentsline {section}{\numberline {8.4}Conclusion and Discussions}{47}{section.8.4}
+\contentsline {chapter}{\numberline {9}Testing and Verification of the Serial Interface}{49}{chapter.9}
+\contentsline {section}{\numberline {9.1}Hardware Simulation using Testbench in Modelsim}{49}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Purpose of Tests}{49}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Experimental Setup}{49}{subsection.9.1.2}
+\contentsline {subsubsection}{Bitvis Utility Library}{49}{section*.53}
+\contentsline {subsection}{\numberline {9.1.3}Results}{50}{subsection.9.1.3}
+\contentsline {section}{\numberline {9.2}Connection between COM port and UART using SignalTap II}{50}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Purpose of Tests}{50}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Experimental Setup}{51}{subsection.9.2.2}
+\contentsline {subsection}{\numberline {9.2.3}Results}{51}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}Conclusion and Discussions}{51}{section.9.3}
+\contentsline {chapter}{\numberline {10}Conclusion and Discussion}{53}{chapter.10}
+\contentsline {chapter}{\numberline {A}SignalTap II: Receiving end of the fiber-optic external loopback test}{55}{appendix.A}
+\contentsline {chapter}{\numberline {B}Basics}{57}{appendix.B}
+\contentsline {section}{\numberline {B.1}Field Programmable Gate Array}{57}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Hardware Description Language}{57}{subsection.B.1.1}
+\contentsline {section}{\numberline {B.2}RS-232}{58}{section.B.2}
+\contentsline {chapter}{\numberline {C}Non-standard Libraries}{61}{appendix.C}
+\contentsline {section}{\numberline {C.1}RS232}{61}{section.C.1}
+\contentsline {subsection}{\numberline {C.1.1}Associated functions}{61}{subsection.C.1.1}
+\contentsline {section}{\numberline {C.2}Timer}{62}{section.C.2}
+\contentsline {subsection}{\numberline {C.2.1}Associated functions}{62}{subsection.C.2.1}
+\contentsline {section}{\numberline {C.3}Signals}{62}{section.C.3}
+\contentsline {subsection}{\numberline {C.3.1}Associated structures}{63}{subsection.C.3.1}
+\contentsline {subsection}{\numberline {C.3.2}Associated functions}{63}{subsection.C.3.2}
+\contentsline {section}{\numberline {C.4}ncurses}{65}{section.C.4}
+\contentsline {subsection}{\numberline {C.4.1}Associated functions - Initialization}{65}{subsection.C.4.1}
+\contentsline {subsection}{\numberline {C.4.2}Associated functions - Various}{66}{subsection.C.4.2}
+\contentsline {chapter}{\numberline {D}GBT Control Signals}{69}{appendix.D}
+\contentsline {chapter}{\numberline {E}Clock Control Software Setup}{73}{appendix.E}
+\contentsline {section}{\numberline {E.1}Steps for Configuring Windows to run the Clock Control Software}{73}{section.E.1}
+\contentsline {chapter}{\numberline {F}C Code}{77}{appendix.F}
+\contentsline {chapter}{\numberline {G}VHDL Code}{79}{appendix.G}
+\contentsline {chapter}{\numberline {H}Schematic and PCB Layout}{81}{appendix.H}
+\contentsline {section}{Appendix}{87}{figure.caption.67}
