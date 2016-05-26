@@ -6,19 +6,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {8.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{47}{table.caption.50}
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{43}{table.caption.58}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {D.1}{\ignorespaces GBT control signals overview, switches.\relax }}{70}{table.caption.57}
-\contentsline {table}{\numberline {D.2}{\ignorespaces GBT control signals overview, probes.\relax }}{71}{table.caption.58}
+\contentsline {table}{\numberline {D.1}{\ignorespaces GBT control signals overview, switches.\relax }}{64}{table.caption.70}
+\contentsline {table}{\numberline {D.2}{\ignorespaces GBT control signals overview, probes.\relax }}{65}{table.caption.71}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{\ignorespaces List of C files used in the GBT Control Interface module and the Send/Receive module\relax }}{77}{table.caption.61}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {G.1}{\ignorespaces List of VHDL files used in this thesis.\relax }}{79}{table.caption.62}
+\contentsline {table}{\numberline {G.1}{\ignorespaces List of C files used in the GBT Control Interface module and the Send/Receive module\relax }}{73}{table.caption.75}
+\contentsline {table}{\numberline {G.2}{\ignorespaces List of VHDL files used in this thesis.\relax }}{74}{table.caption.76}
 \addvspace {10\p@ }

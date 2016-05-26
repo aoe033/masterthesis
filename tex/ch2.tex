@@ -12,9 +12,9 @@
 
 \chapter{HSMC-to-VLDB PCB Design} \label{chap:pcb}
 
-In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty \acrshort{hdmi} connectors with elinks which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to \gls{xcvr} transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
+In order to interface the radiation hard GBTx chip (see chapter \ref{chap:gbt}), a form of electrical connection between the \gls{fpga} and the \gls{vldb} is required. The \gls{vldb} has twenty \acrshort{hdmi} connectors with elinks which connects to \gls{lvds} transceivers for high-speed communication with the outside world. The \gls{fpga} board that is used for this thesis has two \gls{hsmc} connectors with port A containing pins that connects to \gls{lvds} transceivers. In addition, the \gls{vldb} connection also requires a radiation-hard optical link, i.e support for high-speed SFP fiber-optic cabling. For this, the \gls{hsmc} port A connector has also available pins that connects to PCML transceivers for transmission speeds up to $6.144\ \giga\bit\per\second$. The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having one receiver and transmitter. Because of limited I/O, only one \gls{hdmi} contains a receiver reserved for input clock from the \gls{vldb}. This chapter explains the process of making such a \gls{pcb}, from the discussion of different design approaches to the theory behind designing a high speed \gls{pcb}. \\
 
-Because of limited physical \gls{lvds} connections, the $320~\mega\bit$ speed option was chosen which only requires 8 ports.
+Because of limited physical \gls{lvds} connections, the $320~\mega\bit$ speed option was chosen which only requires 8 ports. 
 
 \section{Design Discussion}
 
@@ -229,20 +229,7 @@ All pads and footprints were custom made using \textit{Cadence Pad Designer}, wi
 
 \section{Soldering Process}
 
-All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered using solder paste and a solder oven. The solder paste, which is a lead contained paste of type \textit{EFD SolderPlus 221 RMA}, was ordered from \url{www.krepro.no} in late January 2016. See
-
-\subsection{Soldering the Ground Pads Underneath the HSMC Contact}
-
-The \gls{hsmc}-connector has several ground pads underneath the connector itself, making it impossible to reach when soldering by hand. The solution was to use a solder oven with solder paste on the pads. The solder paste was applied on the pads with the help of the dispenser module on the \textit{Martin Rework Station}, which was available in the lab. The dispenser module forces the solder paste out of the syringe using pressurized air. By pressing a foot pedal connected to the dispenser, you apply a controlled air pulse that pushes on the piston of the solder paste syringe. The force of the air pulse can be adjusted using the dispenser \acrshort{gui}. For the ground pads, a force of $2.50~ccm$ was suitable.
-
-The solder oven that was used had the option to set up a \textit{Ramp-Soak-Spike} type thermal profile. Samtec, the manufacturer for the \gls{hsmc} contact, recommends a maximum peak temperature of no more than $260~\degree C$ with no more than 30 seconds above $255\degree C$. The thermal profile setup is based on the profile recommended by EFD, the manufacturer for the particular solder paste used (see figure \ref{fig:krepro}). After some trial and error with a dummy-PCB, the oven was set to a activation temperature of $150\degree C$ for $60~seconds$, and then a reflow temperature of $220\degree C$ with a climb-time of $120~seconds$. 
-
-\begin{figure}[H] % H(strictly put HERE > h!)
-% h(here), !(force), t(top), b(bottom), p(on extra page)
-\includegraphics[width=0.8\linewidth]{../img/temp_prof}  \\[0.1 cm]
-\caption{EFD reflow thermal profile recommendations \cite{krepro_reflow}.}
-\label{fig:krepro}
-\end{figure}
+All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered by oven using solder paste. See \ref{ap:solder} for more details about the soldering process.
 
 The finished PCB is shown in figure \ref{fig:pcb_1}. The \gls{hsmc} contact is located at the bottom of the \gls{pcb}.
 

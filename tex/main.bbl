@@ -1,10 +1,57 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{29}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{gpl3}
-{GPL} version 3.
-\newblock \url{http://www.gnu.org/licenses/gpl-3.0.txt}, 2007.
+\bibitem[Neil {H}. {E}.~{W}este(2011)]{weste11}
+{D}avid {M}oney~{H}arris Neil {H}. {E}.~{W}este.
+\newblock \emph{{CMOS} {VLSI} {D}esign, {A} {C}ircuit {A}nd {S}ystems
+  {P}erspective}.
+\newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
 
-\bibitem{ti08lvds}
+\bibitem[P.~Moreira(2016)]{gbtxman}
+K.~Wyllie P.~Moreira, J.~Christiansen.
+\newblock {GBT}x {M}anual v0.8.
+\newblock \url{http://cern.ch/proj-gbt}, 2016.
+
+\bibitem[{S}ophie {B}aron and {M}anoel~{B}arros {M}arin(2015)]{gbt_fpga}
+{S}ophie {B}aron and {M}anoel~{B}arros {M}arin.
+\newblock {GBT}-{FPGA} {U}ser {G}uide.
+\newblock \url{https://espace.cern.ch/GBT-Project/GBT-FPGA}, 2015.
+\newblock {A}ccessed: 29/02/2016.
+
+\bibitem[A.~Caratelli and Paillard(2015)]{gbtsca15}
+K.~Kloukinas A. Marchioro P. Moreira R. De~Oliveira A.~Caratelli, S.~Bonacini
+  and C.~Paillard.
+\newblock {T}he {GBT}-{SCA}, a radiation tolerant {ASIC} for detector control
+  applications in {SLHC} experiments.
+\newblock
+  \url{http://iopscience.iop.org/article/10.1088/1748-0221/10/03/C03034/pdf},
+  2015.
+
+\bibitem[alt(2015)]{altera_cvoverview15}
+{C}yclone {V} {D}evice {O}verview.
+\newblock
+  \url{https://www.altera.com/en_US/pdfs/literature/hb/cyclone-v/cv_51001.pdf},
+  2015.
+\newblock {A}ccessed: 13/05/2016.
+
+\bibitem[Caratelli(2014)]{gbtscapres14}
+Alessandro Caratelli.
+\newblock {GBT}-{SCA} {P}owerpoint {Presentation}.
+\newblock \url{
+  https://indico.cern.ch/event/291722/contributions/668241/attachments/545329/751766/GBT-SCA_LHCb_Upgrade_meeting_12_06_2014.pdf
+  }, 2014.
+
+\bibitem[{D}ouglas {B}rooks(2001)]{douglas01}
+{D}ouglas {B}rooks.
+\newblock {D}ifferential {S}ignals, {R}ules {T}o {L}ive {B}y.
+\newblock \url{http://www.ieee.li/pdf/essay/differential_signals.pdf}, 2001.
+\newblock {A}ccessed: 07/09/2015.
+
+\bibitem[ti0(2008)]{ti08lvds}
 {LVDS} {O}wners {M}anual, {I}ncluding {H}igh-{S}peed {CML} {A}nd {S}ignal
   {C}onditioning.
 \newblock
@@ -12,166 +59,132 @@
   2008.
 \newblock {A}ccessed: 08/09/2015.
 
-\bibitem{krepro_reflow}
-6-{SN}63-221 {P}roduct {S}pecification.
-\newblock \url{http://www.krepro.no/dispenseringspasta-sn62pb36ag2.html}, 2009.
-\newblock {A}ccessed: 20/01/2016.
-
-\bibitem{altera_hsmc09}
-{H}igh {S}peed {M}ezzanine {C}ard ({HSMC}) {S}pecification.
+\bibitem[alt(2016{\natexlab{a}})]{altera_cyclonekit}
+{C}yclone {V} {K}it {D}ownload {P}age.
 \newblock
-  \url{https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/ds/hsmc_spec.pdf},
-  2009.
-\newblock {A}ccessed: 10/12/2015.
-
-\bibitem{si16}
-{S}i5338-{EVB} {D}ocumentation.
-\newblock
-  \url{https://www.silabs.com/Support%20Documents/TechnicalDocs/Si5338-EVB.pdf},
-  2011.
-\newblock {A}ccessed: 23/05/2016.
-
-\bibitem{altera_q13}
-{Q}uartus 13.1 {D}ownload {P}age.
-\newblock \url{https://dl.altera.com/13.1/?edition=web}, 2013.
+  \url{https://www.altera.com/products/boards_and_kits/dev-kits/altera/kit-cyclone-v-gt.html},
+  2016{\natexlab{a}}.
 \newblock {A}ccessed: 24/02/2016.
 
-\bibitem{sfp_schem}
+\bibitem[sfp(2013)]{sfp_schem}
 {SFP} {HSMC} {S}chematic (hsmc\_sfp\_revb.pdf).
 \newblock
   \url{http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=39&No=342&PartNo=3},
   2013.
 \newblock {A}ccessed: 03/12/2015.
 
-\bibitem{si570}
-{S}i570/{S}i571 {D}atasheet.
+\bibitem[alt(2009)]{altera_hsmc09}
+{H}igh {S}peed {M}ezzanine {C}ard ({HSMC}) {S}pecification.
 \newblock
-  \url{https://www.silabs.com/Support%20Documents/TechnicalDocs/si570.pdf},
-  2014.
-\newblock {A}ccessed: 29/02/2016.
+  \url{https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/ds/hsmc_spec.pdf},
+  2009.
+\newblock {A}ccessed: 10/12/2015.
 
-\bibitem{altera_terminals14}
-{U}sing {T}erminals {W}ith {DE}-{S}eries {B}oards.
-\newblock
-  \url{ftp://ftp.altera.com/up/pub/Altera_Material/14.0/Tutorials/Using_Terminals.pdf},
-  2014.
-\newblock {A}ccessed: 16/02/2016.
-
-\bibitem{altera_cvoverview15}
-{C}yclone {V} {D}evice {O}verview.
-\newblock
-  \url{https://www.altera.com/en_US/pdfs/literature/hb/cyclone-v/cv_51001.pdf},
-  2015.
-\newblock {A}ccessed: 13/05/2016.
-
-\bibitem{elprint15}
-{E}lprint {K}apabilitet.
-\newblock \url{http://www.elprint.dk/kapabilitet/}, 2015.
-\newblock {A}ccessed: 01/12/2015.
-
-\bibitem{polar15}
+\bibitem[pol(2015)]{polar15}
 {T}ransmission lines and testing at operating frequency.
 \newblock \url{http://www.polarinstruments.com/support/cits/AP155.html}, 2015.
 \newblock {A}ccessed: 03/12/2015.
 
-\bibitem{bitvis16}
-{B}itvis {U}tility {L}ibrary homepage.
-\newblock \url{http://bitvis.no/products/bitvis-utility-library/}, 2016.
-\newblock {L}ibrary used to create the {uart} testbench. {A}ccessed:
-  07/04/2016.
+\bibitem[{D}ouglas {B}rooks(1998)]{douglas98}
+{D}ouglas {B}rooks.
+\newblock {D}ifferential {I}mpedance, {W}hats {T}he {D}ifference.
+\newblock \url{http://www.ultracad.com/articles/diff_z.pdf}, 1998.
+\newblock {A}ccessed: 03/12/2015.
 
-\bibitem{altera_cyclonekit}
-{C}yclone {V} {K}it {D}ownload {P}age.
-\newblock
-  \url{https://www.altera.com/products/boards_and_kits/dev-kits/altera/kit-cyclone-v-gt.html},
-  2016.
-\newblock {A}ccessed: 24/02/2016.
+\bibitem[elp(2015)]{elprint15}
+{E}lprint {K}apabilitet.
+\newblock \url{http://www.elprint.dk/kapabilitet/}, 2015.
+\newblock {A}ccessed: 01/12/2015.
 
-\bibitem{gbt_videos}
-{GBT} {FPGA} {V}ideo {T}utorials.
-\newblock \url{https://espace.cern.ch/GBT-Project/GBT-FPGA}, 2016.
-\newblock {A}ccessed: 29/02/2016.
-
-\bibitem{serial2ethernet}
+\bibitem[ser(2016)]{serial2ethernet}
 {S}erial {T}o {E}thernet {A}dapter.
 \newblock
   \url{http://www.digi.com/products/serial-servers/serial-device-servers/portserverts#overview},
   2016.
 \newblock {A}ccessed: 05/05/2016.
 
-\bibitem{siclk}
+\bibitem[alt(2014)]{altera_terminals14}
+{U}sing {T}erminals {W}ith {DE}-{S}eries {B}oards.
+\newblock
+  \url{ftp://ftp.altera.com/up/pub/Altera_Material/14.0/Tutorials/Using_Terminals.pdf},
+  2014.
+\newblock {A}ccessed: 16/02/2016.
+
+\bibitem[{P}ong {P}.~{C}hu(2008)]{chu08}
+{P}ong {P}.~{C}hu.
+\newblock \emph{{FPGA} {P}rototyping {B}y {VHDL} {E}xamples}.
+\newblock {W}iley-{I}nterscience, 2008.
+\newblock {A}ccessed: 12/02/2016.
+
+\bibitem[{J}.{O}.~{H}amblen and {F}urman(2008)]{rapid08}
+{T}.{S}.~{H}all {J}.{O}.~{H}amblen and {M}.{D}. {F}urman.
+\newblock \emph{{R}apid {P}rototyping {O}f {D}igital {S}ystems}.
+\newblock {S}pringer, 2008.
+\newblock {A}ccessed: 12/02/2016.
+
+\bibitem[Velure(2010)]{velure10}
+Arild Velure.
+\newblock {U}art2{B}us vhdl module, 2010.
+\newblock {D}esign used as a reference to the serial communication part on the
+  FPGA side. {P}rivate communication.
+
+\bibitem[gbt(2016)]{gbt_videos}
+{GBT} {FPGA} {V}ideo {T}utorials.
+\newblock \url{https://espace.cern.ch/GBT-Project/GBT-FPGA}, 2016.
+\newblock {A}ccessed: 29/02/2016.
+
+\bibitem[sic(2016)]{siclk}
 {S}ilabs {C}lock {S}oftware {D}evelopment {T}ools.
 \newblock
   \url{http://www.silabs.com/products/clocksoscillators/Pages/Timing-Software-Development-Tools.aspx},
   2016.
 \newblock {A}ccessed: 23/05/2016.
 
-\bibitem{altera_usb}
-{USB} {B}laster {II} {I}nstall {M}anual.
+\bibitem[si1(2011)]{si16}
+{S}i5338-{EVB} {D}ocumentation.
 \newblock
-  \url{https://www.altera.com/support/support-resources/download/drivers/usb-blaster/dri-usb-blaster-vista.html},
-  2016.
-\newblock {A}ccessed: 24/02/2016.
+  \url{https://www.silabs.com/Support%20Documents/TechnicalDocs/Si5338-EVB.pdf},
+  2011.
+\newblock {A}ccessed: 23/05/2016.
 
-\bibitem{gbtsca15}
-K.~K. A. M. P. M. R. D.~O. A.~Caratelli, S.~Bonacini and C.~Paillard.
-\newblock {T}he {GBT}-{SCA}, a radiation tolerant {ASIC} for detector control
-  applications in {SLHC} experiments.
-\newblock
-  \url{http://iopscience.iop.org/article/10.1088/1748-0221/10/03/C03034/pdf},
-  2015.
+\bibitem[bit(2016)]{bitvis16}
+{B}itvis {U}tility {L}ibrary homepage.
+\newblock \url{http://bitvis.no/products/bitvis-utility-library/}, 2016.
+\newblock {L}ibrary used to create the {uart} testbench. {A}ccessed:
+  07/04/2016.
 
-\bibitem{douglas98}
-{D}ouglas {B}rooks.
-\newblock {D}ifferential {I}mpedance, {W}hats {T}he {D}ifference.
-\newblock \url{http://www.ultracad.com/articles/diff_z.pdf}, 1998.
-\newblock {A}ccessed: 03/12/2015.
+\bibitem[gpl(2007)]{gpl3}
+{GPL} version 3.
+\newblock \url{http://www.gnu.org/licenses/gpl-3.0.txt}, 2007.
 
-\bibitem{douglas01}
-{D}ouglas {B}rooks.
-\newblock {D}ifferential {S}ignals, {R}ules {T}o {L}ive {B}y.
-\newblock \url{http://www.ieee.li/pdf/essay/differential_signals.pdf}, 2001.
-\newblock {A}ccessed: 07/09/2015.
-
-\bibitem{rapid08}
-T.~H. {J}.{O}.~{H}amblen and M.~{F}urman.
-\newblock {\em {R}apid {P}rototyping {O}f {D}igital {S}ystems}.
-\newblock {S}pringer, 2008.
-\newblock {A}ccessed: 12/02/2016.
-
-\bibitem{weste11}
-D.~M.~H. Neil {H}. {E}.~{W}este.
-\newblock {\em {CMOS} {VLSI} {D}esign, {A} {C}ircuit {A}nd {S}ystems
-  {P}erspective}.
-\newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
-
-\bibitem{gbtxman}
-K.~W. P.~Moreira, J.~Christiansen.
-\newblock {GBT}x {M}anual v0.8.
-\newblock \url{http://cern.ch/proj-gbt}, 2016.
-
-\bibitem{chu08}
-{P}ong {P}.~{C}hu.
-\newblock {\em {FPGA} {P}rototyping {B}y {VHDL} {E}xamples}.
-\newblock {W}iley-{I}nterscience, 2008.
-\newblock {A}ccessed: 12/02/2016.
-
-\bibitem{gbt_fpga}
-{S}ophie {B}aron and {M}anoel~{B}arros {M}arin.
-\newblock {GBT}-{FPGA} {U}ser {G}uide.
-\newblock \url{https://espace.cern.ch/GBT-Project/GBT-FPGA}, 2015.
-\newblock {A}ccessed: 29/02/2016.
-
-\bibitem{velure10}
-A.~Velure.
-\newblock {U}art2{B}us vhdl module, 2010.
-\newblock {D}esign used as a reference to the serial communication part on the
-  FPGA side. {P}rivate communication.
-
-\bibitem{ncursesdoc}
-T.~E.~D. Zeyd M. Ben-Halim, Eric S.~Raymond.
+\bibitem[Zeyd M. Ben-Halim(2016)]{ncursesdoc}
+Thomas E.~Dickey. Zeyd M. Ben-Halim, Eric S.~Raymond.
 \newblock ncurses documentation site.
 \newblock \url{http://invisible-island.net/ncurses/man/ncurses.3x.html}, 2016.
 \newblock {A}ccessed: 17/05/2016.
+
+\bibitem[alt(2013)]{altera_q13}
+{Q}uartus 13.1 {D}ownload {P}age.
+\newblock \url{https://dl.altera.com/13.1/?edition=web}, 2013.
+\newblock {A}ccessed: 24/02/2016.
+
+\bibitem[alt(2016{\natexlab{b}})]{altera_usb}
+{USB} {B}laster {II} {I}nstall {M}anual.
+\newblock
+  \url{https://www.altera.com/support/support-resources/download/drivers/usb-blaster/dri-usb-blaster-vista.html},
+  2016{\natexlab{b}}.
+\newblock {A}ccessed: 24/02/2016.
+
+\bibitem[si5(2014)]{si570}
+{S}i570/{S}i571 {D}atasheet.
+\newblock
+  \url{https://www.silabs.com/Support%20Documents/TechnicalDocs/si570.pdf},
+  2014.
+\newblock {A}ccessed: 29/02/2016.
+
+\bibitem[kre(2009)]{krepro_reflow}
+6-{SN}63-221 {P}roduct {S}pecification.
+\newblock \url{http://www.krepro.no/dispenseringspasta-sn62pb36ag2.html}, 2009.
+\newblock {A}ccessed: 20/01/2016.
 
 \end{thebibliography}

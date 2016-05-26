@@ -16,7 +16,7 @@
 
 %\todo{name the proper plls and state why 120 mhz is really needed} 
 
-To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} must have a input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: 
+To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} example design must have a input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: 
 \begin{itemize}\setlength{\itemsep}{10pt}
 \item Using an external clock, like a square wave signal generator.
 \item Using one of the onboard programmable oscillators.
@@ -33,70 +33,70 @@ The below sections gives the following descriptions:
 \item How to setup the $Si5338$ external oscillator for use as reference clock (\ref{sec:exclk}).
 \end{itemize}
 
-\section{Configuring the onboard Oscillator on the Cyclone V Board} \label{sec:inclk}
+\subsection{Configuring the onboard Oscillator on the Cyclone V Board} \label{sec:inclk}
 
 To achieve a reference clock of $120~\mega\hertz$ without an external clock, the \gls{fpga} has an onboard programmable oscillator; the $Si570$ from Silabs. It uses \gls{iic} for serial communication and can be programmed to output frequencies up to $810~\mega\hertz \pm 50 ppm$. To program the oscillator, Altera provides a dedicated software called "Clock Control". The Clock Control software is part of the Java based "Board Test System" software, included in the Cyclone V kit which can be found at Altera's websites \cite{altera_cyclonekit}. The Cyclone V kit is board specific, so it is therefore important to use the right kit with the right board.\\
 
 To make use of the Clock Control software has been proven difficult, mainly because of the software being outdated in relevance to the current version of Quartus (at the time of writing, Quartus 15.0 is the newest edition). The solution was to install an older Quartus (version 13.1) using the Windows Operating System (Linux was also attempted, but without any success) and specify the right paths for the related environment variables. See appendix \ref{chap:clksetup} for a description on how to setup the clock control software using Windows.
 
-\section{Configuring the Si5338 External Oscillator} \label{sec:exclk}
+\subsection{Configuring the Si5338 External Oscillator} \label{sec:exclk}
 
 For an external clock, the $Si5338$ evaluation board was used (figure \ref{fig:si5338}). It has an onboard $25~\mega\hertz$ XTAL oscillator in addition to six SMA connectors reserved for external input clocks. For simplicity, the onboard oscillator was used in the thesis experiments. The remaining eight SMA connectors is reserved for differential output clocks. The evaluation board communicates with \gls{iic} and connects to the \gls{pc} via \gls{usb} cabling. A dedicated clock builder software \cite{siclk} lets you select clock outputs and type of signaling. For the experiments, a $2.5~\volt$ \gls{lvds} clock with $120~\mega\hertz$ was selected, and connected to the Cyclone V GT board using SMA cabling. To enable the SMA connectors as input to the reference clock on the Cyclone V GT board, \textit{CLKSEL} on DIP switch SW4 must be selected ON (default is OFF).
 
 \begin{figure} % H(strictly put HERE > h!)
 \begin{center}
 % h(here), !(force), t(top), b(bottom), p(on extra page)
-\includegraphics[scale=0.5]{../img/si5338}  \\[0.1 cm]
+\includegraphics[scale=0.3]{../img/si5338}  \\[0.1 cm]
 \caption{The $Si5338$ evaluation board \cite{si16}.}
 \label{fig:si5338}
 \end{center}
 \end{figure} 
 
-\chapter{Testing and Verification of the HDMI Daughter Card}
+\section{Testing and Verification of the HDMI Daughter Card}
 To verify a working \gls{pcb}, the \gls{hdmi} daughter card underwent a series of tests. The sections below summarizes these tests. 
 
-\section{Connectivity Test}
+\subsection{Connectivity Test}
 
 \textit{Since all the components on the \gls{pcb} was hand soldered (with the exception of the ground pads underneath the \gls{hsmc} contact), it was particularly important to check for accidental shorts between pins and/or pads.}
 
-\subsection{Purpose of Test}
+\subsubsection{Purpose of Test}
 
 \begin{itemize}\setlength{\itemsep}{10pt}
 \item Verify that there are no shorts between the pins and/or pads of the \gls{pcb}. 
 \item Check for current draw to confirm that there are no short on the power-lines.
 \end{itemize}
 
-\subsection{Experimental Setup}
+\subsubsection{Experimental Setup}
 
 The setup involves the use of a multimeter to go through all pins and check for connection faults according to the schematic. After all shorts have been eliminated, the \gls{pcb} is to be connected to an external power supply to verify current-draw. 
 
-\subsection{Results}
+\subsubsection{Results}
  Using a multimeter, all connections were checked and verified that there were no shorts (Some pins on the \gls{hsmc} were indeed shorted and had to be re-soldered). The \gls{pcb} was then connected to an external power supply, with a $3.3~\volt$ output and a current output limited to $100~\milli\ampere$. It was verified that the current draw, with all \gls{hdmi}-connections left open, were no more than the current drawn from the power-\acrshort{led} and the $1.25~\volt$ voltage divider, i.e around $40~\milli\ampere$. \\
 
 To confirm connectivity and that there were no further connecting shorts between the pads and/or pins, a simple test-circuit was written in Quartus. Beginning with the transmit-signals: all the relevant \gls{lvds} transmit-signals that are physically connected to the \gls{hsmc} (port A) connector of the \gls{fpga} were connected to a given clock signal. The \gls{pcb} was then connected to the Cyclone V board, and the \gls{hdmi} connectors were probed with the help of an oscilloscope and verified that there was an output signal on every \gls{hdmi}-transmitter. 
 
 The \gls{pcb} is now ready for connection with the host \gls{fpga} for further testing of the transmitter and receiver signals. 
 
-\section{External Loop-back Test for the Fiber-Optic Connector} \label{sec:exlooptest}
+\subsection{External Loop-back Test for the Fiber-Optic Connector} \label{sec:exlooptest}
 
 \textit{To verify that the \gls{hdmi} daughter card SFP-connector for fiber-optic communication is working correctly, an external loop-back test was conducted.}
 
-\subsection{Purpose of Test}
+\subsubsection{Purpose of Test}
 \begin{itemize}\setlength{\itemsep}{10pt}
 
 \item Test the dedicated SFP-connector on the \gls{hdmi}-daughter card for fiber-optic communication and see that it is capable of sending and receiving information at speeds corresponding the \gls{gbt}-standard of $4.8 \giga\bit\per\second$. 
 \end{itemize}
 
-\subsection{Experimental Setup}
+\subsubsection{Experimental Setup}
 A fiber-optic cable connected from the transmitter to the receiver using a fiber-module, forming an external loop through the cable, was connected to the SFP-connector of the \gls{hdmi}-daughter card \gls{pcb}. Using the \gls{gbt} Quartus-example together with the \gls{issp} and SignalTap II, it was possible to perform a pattern check test by comparing the transmitted signals with the received signals. To achieve this test, \gls{issp} was used to setup the pattern generator of the GBT example to count with increments of one (PATTERN SELECT = "1h") and the receiver to receive signals through external cabling (LOOPBACK = '0'). SignalTap II was used to monitor and verify that the receiver line received the same incremented counter that the transmitter sent out.
 
-\subsection{Results}
-Running the test resulted in a continuous stream of bits sent from the transmitter to the receiver. Using SignalTap II as a monitor limits to only observe parts of the transmission, but it was sufficient enough to see that the received sum of bits were indeed incrementing by one each time. This concludes that the SFP-connector on the HDMI-daughter card works as intended at the desired speed of $4.8 \giga\bit\per\second$. Figure \ref{fig:lb_rx} shows the resulting incremented sum of bits transmitted and received at the receiving end.
+\subsubsection{Results}
+Running the test resulted in a continuous stream of bits sent from the transmitter to the receiver. Using SignalTap II as a monitor limits to only observe parts of the transmission, but it was sufficient enough to see that the received sum of bits were indeed incrementing by one each time. The results are comparable with the same test using internal loopback (LOOPBACK = '1'), i.e observing that the receiving end is counting by increments of one. This concludes that the SFP-connector on the HDMI-daughter card works as intended at the desired speed of $4.8 \giga\bit\per\second$. Figure \ref{fig:lb_rx} shows the resulting incremented sum of bits transmitted and received at the receiving end.
 
 
-\section{External Loop-back Test for the HDMI Connectors}
+\subsection{External Loop-back Test for the HDMI Connectors}
 
-\subsection{Purpose of Tests}
+\subsubsection{Purpose of Tests}
 
 \begin{itemize}\setlength{\itemsep}{10pt}
 \item Measure the quality of the signal (eye-diagram) at different frequencies up to $300~\mega\hertz$ and see how reflections affects the signal.
@@ -108,7 +108,7 @@ Running the test resulted in a continuous stream of bits sent from the transmitt
 \end{itemize}
 \end{itemize}
 
-\subsection{Experimental Setup}
+\subsubsection{Experimental Setup}
 
 Each \gls{hdmi}-connector has at least one transmitter- and receiver line. To simulate signal transmission over a distance, a \gls{hdmi} cable was cut in half and the transmit- and receive lines were soldered together, creating an external loop-back. VHDL code was written to simulate a data-stream using a pseudo-random generator to generate random bit-patterns. The data-stream would travel out via one of the transmitters of the \gls{fpga}, out through the \gls{hdmi}-connector, following the cable back into the same \gls{hdmi}-connector into the receiver input. This would simulate the transmission path to the \gls{vldb} card. The transmitted and received bits would then be compared using xor-logic. A bit-counter register would count each transmitted bit, and a bit-error register would count each time two bits are different in comparison. The bit error rate is thus given by $\frac{bit~errors}{number~of~bits}$.
 
@@ -122,12 +122,12 @@ Because of the trace- and cable-lengths and the fact that a signal has a finite 
         \caption{Delay chain on the transmitter line.}
     \end{subfigure}
 
-    \caption{Transmitter and receiver delay chains.}
     \begin{subfigure}{0.6\textwidth}
         \centering
         \resizebox{1\linewidth}{!}{\subfile{fig_rxdelay_0.tex}}
         \caption{Delay chain on the receiver line.}
     \end{subfigure}
+    \caption{Transmitter and receiver delay chains.}
     \label{fig:delaych}
 \end{figure}
 
@@ -135,7 +135,7 @@ Cables with different lengths were used to see how this would affect the bit-err
 
 To measure the quality of the \gls{lvds} signals with an oscilloscope, differential probes were used.  
 
-\subsection{Results}
+\subsubsection{Results}
 
 %The following table sums up the cable-length and theoretical travel time versus the measured delay between the transmitted and received signal.
 
@@ -168,7 +168,7 @@ With the help of SignalTap II it was possible to sample the delay chain signals 
 
 %Unfortunately, after obtaining the above results
 
-\section{Conclusion and Discussions}
+\subsection{Conclusion and Discussions}
 
 When measuring the quality of a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
 
@@ -199,13 +199,13 @@ The measurement resulted in signals that were heavily distorted by reflections. 
 
 By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It is concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
 
-\chapter{Testing and Verification of the Serial Interface} \label{chap:sertest}
+\section{Testing and Verification of the Serial Interface} \label{chap:sertest}
 
-\section{Hardware Simulation using Testbench in Modelsim}
+\subsection{Hardware Simulation using Testbench in Modelsim}
 
 \textit{To verify that the hardware design was working properly in terms of correct signal timing between the baudrate, \acrshort{uart} and decoder, a testbench was developed. The testbench was made using the \textit{Bitvis Utility Library} and the design simulation was done using Altera's Modelsim.}
 
-\subsection{Purpose of Tests}
+\subsubsection{Purpose of Tests}
 
 \begin{itemize}\setlength{\itemsep}{10pt}
 \item Verify correct timing between the baudrate generator, clock and uart.
@@ -213,15 +213,15 @@ By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-
 \item Verify that the design is working correctly in simulation.
 \end{itemize}
 
-\subsection{Experimental Setup}
 \subsubsection{Bitvis Utility Library}
 The \textit{Bitvis Utility Library} by Bitvis is an open source VHDL testbench infrastructure library for verification of FPGAs and ASICs \cite{bitvis16}. It was developed with the aim of simplifying the testbench development process when testing \acrshort{vhdl} designs. It was chosen for this test because of the ease of use and fast implementation (see uart\_tb.vhd for testbench implementation).\\
 
+\subsubsection{Experimental Setup}
 The main testbench process goes as follows: Send a request byte to the rx-signal, followed by a register-address. The request can be a read-request (0xDD) or a write-request (0xEE for '1' and 0xFF for '0'), and the address must be between 0x00 - 0xC1. Then, the tx-signal are sampled and compared with the requested address byte and checked for equality. If it is not equal, the test goes to a halt with a corresponding fault-message. The \textit{UART\_WRITE\_BYTE} and \textit{UART\_READ\_BYTE} testbench procedures were written with this in mind. To simulate an incoming byte at the receiver, \textit{UART\_WRITE\_BYTE} inputs a vector of 8 bits as the data-byte. With the period of a transmitted bit, which is equal to $1/baud rate$, it outputs first a start bit, then the data bits and finally the stop bit. The rx-line takes the output of \textit{UART\_WRITE\_BYTE} as input. \textit{UART\_READ\_BYTE} takes the tx-line as input, and with the period of a transmitted bit shifts the tx-value into a data vector. Using the Bitvis \textit{check\_value}-function, the data vector is then checked and compared with the address-byte previously sent to the receiver. The \textit{UART\_READ\_BYTE} procedure must be executed after the \textit{UART\_WRITE\_BYTE} procedure. \\
 
 Other test procedures involves checking the constants found in \textit{uart\_gbt\_pkg.vhd} up against legal values, and also make sure that the tx- and rx-lines are in an idle state at the start of the test, i.e a high state.
 
-\subsection{Results}
+\subsubsection{Results}
 
 Figure \ref{fig:uarttb} shows three read operations followed by a write operation. The $tx\_data\_compare$ vector compares the address received with the address transmitted to confirm that the \gls{uart} decoder does what it is requested to, i.e send out the correct addresses when receiving a read-request and write a bit-value to the \gls{gbt} register when receiving a write-operation. The data-bit (\gls{msb} of the transmitted signal) is not included in the $tx\_data\_compare$ comparison, nor is the write operation. 
 
@@ -239,7 +239,7 @@ Figure \ref{fig:uarttb} shows three read operations followed by a write operatio
     \label{fig:uarttb}
 \end{figure}
 
-\section{Connection between COM port and UART using SignalTap II}
+\subsection{Connection between COM port and UART using SignalTap II}
 
 \textit{By using SignalTap II to tap the transmitter and receiver lines, it is possible to verify that the \gls{fpga} design is responding correctly to the bytes sent from the C-program on the \gls{pc} side.} 
 
@@ -250,9 +250,9 @@ Figure \ref{fig:uarttb} shows three read operations followed by a write operatio
 \item Confirm that the \gls{fpga} design and C-program is working together the way they should.
 \end{itemize}
 
-\subsection{Experimental Setup}
+\subsubsection{Experimental Setup}
 
-\subsection{Results}
+\subsubsection{Results}
 
 While testing the \gls{fpga} design, it occured that the \gls{uart} would hang after a random period of time. The reason as to why this was happening has yet to be found. A quick fix to this, however, was to simply implement a timer that would reset the \gls{uart} on the condition that no bytes have arrived in a given amount of time when the \gls{uart} is in the idle state. This is not a permanent fix, since there is a chance that the \gls{uart} might reset while a byte is under transmission. This might give an explanation as to why the C-program in some cases did not receive all the data it requested during transmission.
 
