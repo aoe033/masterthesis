@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{30}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,10 +11,12 @@
   {P}erspective}.
 \newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
 
-\bibitem[P.~Moreira(2016)]{gbtxman}
+\bibitem[P.~Moreira(2011)]{gbtxman11}
 K.~Wyllie P.~Moreira, J.~Christiansen.
-\newblock {GBT}x {M}anual v0.8.
-\newblock \url{http://cern.ch/proj-gbt}, 2016.
+\newblock {GBT}x {M}anual v1.7.
+\newblock
+  \url{https://cms-docdb.cern.ch/cgi-bin/PublicDocDB/RetrieveFile?docid=3857&version=3&filename=gbtxSpecsV1.7.pdf},
+  2011.
 
 \bibitem[{S}ophie {B}aron and {M}anoel~{B}arros {M}arin(2015)]{gbt_fpga}
 {S}ophie {B}aron and {M}anoel~{B}arros {M}arin.
@@ -30,6 +32,11 @@ K.~Kloukinas A. Marchioro P. Moreira R. De~Oliveira A.~Caratelli, S.~Bonacini
 \newblock
   \url{http://iopscience.iop.org/article/10.1088/1748-0221/10/03/C03034/pdf},
   2015.
+
+\bibitem[S.~Baron(2010)]{gbtpro10}
+F.~Marin P. Moreira C.~Soos S.~Baron, J. P.~Cachemiche.
+\newblock {T}he {GBT} {P}roject.
+\newblock \url{https://espace.cern.ch/GBT-Project}, 2010.
 
 \bibitem[alt(2015)]{altera_cvoverview15}
 {C}yclone {V} {D}evice {O}verview.

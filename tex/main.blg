@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: unsrtnat.bst
@@ -13,6 +13,10 @@ Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchi
 while executing---line 1233 of file unsrtnat.bst
 Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
 while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
+while executing---line 1233 of file unsrtnat.bst
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1315 of file unsrtnat.bst
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
@@ -29,45 +33,53 @@ Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchi
 while executing---line 1315 of file unsrtnat.bst
 Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
 while executing---line 1315 of file unsrtnat.bst
-You've used 29 entries,
+Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
+while executing---line 1315 of file unsrtnat.bst
+You've used 30 entries,
             2481 wiz_defined-function locations,
-            686 strings with 8861 characters,
-and the built_in function-call counts, 6996 in all, are:
-= -- 652
-> -- 101
-< -- 11
-+ -- 87
-- -- 28
-* -- 311
-:= -- 891
-add.period$ -- 92
-call.type$ -- 29
-change.case$ -- 56
-chr.to.int$ -- 28
-cite$ -- 47
-duplicate$ -- 421
-empty$ -- 907
-format.name$ -- 45
-if$ -- 1653
+            690 strings with 9072 characters,
+and the built_in function-call counts, 7250 in all, are:
+= -- 674
+> -- 108
+< -- 12
++ -- 91
+- -- 30
+* -- 320
+:= -- 930
+add.period$ -- 95
+call.type$ -- 30
+change.case$ -- 58
+chr.to.int$ -- 29
+cite$ -- 48
+duplicate$ -- 435
+empty$ -- 937
+format.name$ -- 48
+if$ -- 1710
 int.to.chr$ -- 2
-int.to.str$ -- 30
+int.to.str$ -- 31
 missing$ -- 6
-newline$ -- 158
-num.names$ -- 33
-pop$ -- 364
+newline$ -- 163
+num.names$ -- 36
+pop$ -- 376
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 30
 quote$ -- 0
-skip$ -- 296
+skip$ -- 307
 stack$ -- 0
-substring$ -- 76
-swap$ -- 60
+substring$ -- 78
+swap$ -- 62
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 194
+type$ -- 201
 warning$ -- 0
-while$ -- 22
+while$ -- 24
 width$ -- 0
-write$ -- 366
-(There were 13 error messages)
+write$ -- 378
+(There were 19 error messages)

@@ -11,22 +11,26 @@
 \begin{document}
 
 \chapter{Introduction}
-The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.\\
+The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.
 
 To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\
 
+\section{GBT system}
 The \gls{gbt} system can be described in two parts: The on-detector part, and the off-detector part of the system. The below sections gives a brief description of these:
 
-\section{On-detector}
+\subsection{On-detector}
 The on-detector part consists of radiation hard GBT \acrshort{asic}s that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bi-directional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments.
 
-\subsection{GBTx}
-The GBTx \gls{asic} is a serializer-de-serializer chip responsible for the high speed bi-directional optical link. It has a bandwidth of $3.2 - 4.8~\giga\bit\per\second$, and combines data readout, trigger data, timing control distribution, and experiment slow control and monitoring information in one single optical link (using two fibers). The GBTx encodes and decodes this information into what is known as the GBT-Frame, and provides interface to the front end electronics. \cite{gbtxman}
+\subsubsection{GBTx}
+The GBTx \gls{asic} is a serializer-de-serializer chip responsible for the high speed bi-directional optical link. It has a bandwidth of $3.2 - 4.8~\giga\bit\per\second$, and combines three data paths for Trigger and Timing Control (TTC), Data Acquisition (DAQ) and Slow Control (SC) information in one physical link; using two optical fibers. The GBTx encodes and decodes this information into what is known as the GBT-Frame, and provides interface to the front end electronics embedded in the detectors. \cite{gbtxman11}
 
-\subsection{GBT protocol}
+\subsubsection{GBT frame formats}
+ The GBTx transmits a 120-bit frame every $25~\nano\second$ ($40~\mega\hertz$), which is triggered by LCH bunch crossings. The GBTx supports three different encoding modes: "GBT-Frame", "8B/10B" and "Wide-Bus" mode. Figure \ref{fig:gbtframe} illustrates the "GBT-Frame" mode: The Header (H) field is a 4-bit field transmitted at the beginning of each frame, used to synchronize the data stream at the frame level. The header field can be set to "idle" (0110) or "data" (0101). The Slow Control (SC) field is a 4-bit field dedicated for routine and control operations that do not require precise timing. The Data field is a 80-bit field reserved for generic transmission of data with a corresponding bandwidth of $3.2~\giga\bit\per\second$. The remaining field reserves 32 bits for Forward Error Correction (FEC). FEC involves using Reed-Solomon encoding capable of correcting up to 16 concecutive corrupted bits. To achieve DC-balancing, a self-synchronizing scrambler distributes the 0's and 1's in the data stream.
 
+The "8B/10B" and "Wide-Bus" mode share simularities with the "GBT-Frame" mode, but favors data width over lesser grades of error correction (the "Wide-Bus" has none). Both modes are only available in the transmitter part of the GBTx, but requires less resources from the \gls{fpga} (receiving end) than the "GBT-Frame". The "8B/10B" does not require scrambling because it is in itself DC-balanced. \cite{gbtxman11}. These two modes are not yet available in the GBT FPGA example design.
 
-
+ Both encoding and decoding operations can be done within a single clock cycle at $40~\mega\hertz$. 
+ 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \includegraphics[width=\linewidth]{../img/gbtframe}  \\[0.1 cm]
@@ -34,20 +38,29 @@ The GBTx \gls{asic} is a serializer-de-serializer chip responsible for the high 
 \label{fig:gbtframe}
 \end{figure}
 
-\subsection{GBT-SCA}
+\subsubsection{GBT-SCA}
 
-The \gls{sca} \gls{asic} is the part of the \gls{gbt} chipset which distributes control and monitoring signals to the front-end electronics embedded in the detectors. It connects to the GBTx through a dedicated $80~\mega\bit\per\second$ e-link and provides a number of user interface options for the front-end detectors, which includes: SPI, \gls{iic}, JTAG and a number of \acrshort{gpio}s \cite{gbtsca15}. 
+The \gls{sca} \gls{asic} is the part of the \gls{gbt} chipset which distributes control and monitoring signals to the front-end electronics embedded in the detectors. It connects to the GBTx through a dedicated $80~\mega\bit\per\second$ e-link and provides a number of user interface options for the front-end detectors, which includes: SPI, \gls{iic}, JTAG and a number of \acrshort{gpio}s \cite{gbtsca15}. \\
 
-\section{Off-detector}
-The off-detector part is located in the counting room and consists of a \gls{cru}, that will provide an interface between the detector \acrshort{asic}s and an online computer farm, with the GBTx as the middle joint. The \gls{cru} consists of \gls{cots} components, mainly an \gls{fpga}, and will through optical links receive the data from the radiation detector. \\
+\noindent
+All chips has been implemented using a commercial $130~\nano\meter$ process because of benefits regarding inherent resistance to ionising radiation \cite{gbtpro10}.
 
-\subsection{Altera's Cyclone V GT} \label{sec:cyclone}
+\subsection{Off-detector}
+The off-detector part is located in the counting room and consists of a \gls{cru}, that will provide an interface between the detector \acrshort{asic}s and an online computer farm, with the GBTx as the middle joint. The \gls{cru} consists of \gls{cots} components, mainly an \gls{fpga}, and will through optical links receive the data from the radiation detector.
 
-The \gls{fpga} used in this thesis is the Cyclone V GT by Altera. GT indicates that the \gls{fpga} has transceivers that supports speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}. It was chosen for this thesis mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$. Originally, a Terasic Cyclone V GX development board was handed for use with this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world such as on-board Usb-to-Uart (more on this  in chapter \ref{chap:sercom}). However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
+\subsubsection{FPGA - Cyclone V GT} \label{sec:cyclone}
+
+Altera's Cyclone V GT \gls{fpga} board was chosen for use in this thesis. It was chosen mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$; "GT" indicates that the \gls{fpga} has transceivers that support speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}.\\
+Originally, a Terasic Cyclone V GX development board was handed for use with this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world, such as on-board Usb-to-Uart (more on this  in chapter \ref{chap:sercom}). However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
 
 \section{Versatile Link Demo Board}
 
-The \gls{vldb} is the evaluation kit for the radiation hard optical link. It gathers the radiation hard \glspl{asic}; GBTx, GBT-SCA and the VTRx/VTTx, which makes the main elements of the Link in addition to a radiation hard DC/DC converter. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.\\
+The \gls{vldb} is the evaluation kit for the radiation hard optical link. It includes the main elements of the GBT Link, the radiation hard \glspl{asic}; GBTx, GBT-SCA and the VTRx/VTTx, in addition to radiation hard DC/DC converters. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.\\
+
+\section{E-Links}
+An E-link is an electrical interface suitable for transmission
+Each E-link has three differential signal lines: a clock line (dClk+/dClk-), a downlink output (dOut+/dOut-) and a uplink input (dIn+/dIn-).
+
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -63,7 +76,7 @@ This thesis has its focus on the design of a \gls{cru} control interface softwar
 
 %\todo{General:\\PLLs\\CPRI?\\}
 
-\section{Cyclone V Transceiver Technology}
+\chapter{Cyclone V Transceiver Technology}
 
 To be able to send serial data in the gigahertz domain, a high-speed transceiver is required. The Cyclone V GT-series \glspl{fpga} supports a number of transceiver technologies through the \gls{hsmc} physical interface that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of some of these protocols.
 
