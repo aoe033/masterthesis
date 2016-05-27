@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,6 +10,26 @@
 \newblock \emph{{CMOS} {VLSI} {D}esign, {A} {C}ircuit {A}nd {S}ystems
   {P}erspective}.
 \newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
+
+\bibitem[cer(2016)]{cernweb}
+{CERN} {W}ebpages.
+\newblock \url{http://home.cern/topics/large-hadron-collider}, 2016.
+
+\bibitem[atl(2016)]{atlasweb}
+{ATLAS} {W}ebpages.
+\newblock \url{http://home.cern/about/experiments/atlas}, 2016.
+
+\bibitem[ali(2016)]{aliceweb}
+{ALICE} {W}ebpages.
+\newblock \url{http://aliceinfo.cern.ch/Public/Welcome.html}, 2016.
+
+\bibitem[cms(2016)]{cmsweb}
+{CMS} {W}ebpages.
+\newblock \url{http://cms.web.cern.ch/}, 2016.
+
+\bibitem[lhc(2016)]{lhcbweb}
+{LHCb} {W}ebpages.
+\newblock \url{http://lhcb-public.web.cern.ch/lhcb-public/}, 2016.
 
 \bibitem[P.~Moreira(2011)]{gbtxman11}
 K.~Wyllie P.~Moreira, J.~Christiansen.

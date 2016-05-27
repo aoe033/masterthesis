@@ -11,15 +11,22 @@
 \begin{document}
 
 \chapter{Introduction}
-The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, will increase the beam luminosity leading to a corresponding growth of the amount of data to be treated by the data acquisition systems. This will thus require high rate data links and high radiation tolerant \glspl{asic}.
 
-To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide the simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. \\
+\section{LHC}
+
+The \gls{lhc} is the largest and most powerful particle collider in the world. It was built by the European Organization for Nuclear Research (CERN) \cite{cernweb} between 1998 and 2008, and had its first start-up on 10 September 2008. This massive machine lies 175 metres deep beneath the France–Switzerland border near Geneva, Switzerland; and consists of a $27~\kilo\meter$ long circular tunnel of superconductor magnets with additional accelerating structures. Its basic operation is to accelerate particles (protons and heavy ions, e.g. Pb) to near the speed of light in opposite directions and collide them. The particles are accelerated along two parallel beam lines running through the superconductor magnets, and collided at four locations were experiments like ATLAS\cite{atlasweb}, ALICE\cite{aliceweb}, CMS\cite{cmsweb} and LHCb\cite{lhcbweb} take place. As of 20 May 2015, the \gls{lhc} can achieve beam energies up to $13~\tera e\volt$, or $6.5~\tera e\volt$ per beam.
+
+\section{SLHC}
+
+The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, has its goal of increasing the beam luminosity by ten times. This will lead to a corresponding growth of the amount of data to be treated by the data acquisition systems, and an increase in radiation. This will thus require high rate data links and \glspl{asic} capable of tolerating high doses of radiation.
+
+To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide a high radiation tolerant, high speed, optical transmission line capable with a simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data.
 
 \section{GBT system}
 The \gls{gbt} system can be described in two parts: The on-detector part, and the off-detector part of the system. The below sections gives a brief description of these:
 
 \subsection{On-detector}
-The on-detector part consists of radiation hard GBT \acrshort{asic}s that will act as detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bi-directional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments.
+The on-detector part consists of radiation hard GBT \acrshort{asic}s that will provide interface and data transmission to the detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bi-directional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments.
 
 \subsubsection{GBTx}
 The GBTx \gls{asic} is a serializer-de-serializer chip responsible for the high speed bi-directional optical link. It has a bandwidth of $3.2 - 4.8~\giga\bit\per\second$, and combines three data paths for Trigger and Timing Control (TTC), Data Acquisition (DAQ) and Slow Control (SC) information in one physical link; using two optical fibers. The GBTx encodes and decodes this information into what is known as the GBT-Frame, and provides interface to the front end electronics embedded in the detectors. \cite{gbtxman11}
@@ -29,7 +36,7 @@ The GBTx \gls{asic} is a serializer-de-serializer chip responsible for the high 
 
 The "8B/10B" and "Wide-Bus" mode share simularities with the "GBT-Frame" mode, but favors data width over lesser grades of error correction (the "Wide-Bus" has none). Both modes are only available in the transmitter part of the GBTx, but requires less resources from the \gls{fpga} (receiving end) than the "GBT-Frame". The "8B/10B" does not require scrambling because it is in itself DC-balanced. \cite{gbtxman11}. These two modes are not yet available in the GBT FPGA example design.
 
- Both encoding and decoding operations can be done within a single clock cycle at $40~\mega\hertz$. 
+Both GBTx encoding and decoding operations can be done within a single clock cycle at $40~\mega\hertz$. 
  
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -40,7 +47,7 @@ The "8B/10B" and "Wide-Bus" mode share simularities with the "GBT-Frame" mode, b
 
 \subsubsection{GBT-SCA}
 
-The \gls{sca} \gls{asic} is the part of the \gls{gbt} chipset which distributes control and monitoring signals to the front-end electronics embedded in the detectors. It connects to the GBTx through a dedicated $80~\mega\bit\per\second$ e-link and provides a number of user interface options for the front-end detectors, which includes: SPI, \gls{iic}, JTAG and a number of \acrshort{gpio}s \cite{gbtsca15}. \\
+The \gls{sca} \gls{asic} is the part of the \gls{gbt} chipset which distributes control and monitoring signals to the front-end electronics embedded in the detectors. It connects to the GBTx through a dedicated $80~\mega\bit\per\second$ e-link and provides a number of user interface options for the front-end detectors, which includes: SPI, \acrshort{iic}, JTAG and a number of \acrshort{gpio}s \cite{gbtsca15}. \\
 
 \noindent
 All chips has been implemented using a commercial $130~\nano\meter$ process because of benefits regarding inherent resistance to ionising radiation \cite{gbtpro10}.
