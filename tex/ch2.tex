@@ -18,14 +18,38 @@ A basic test-setup would be to transmit test data from the \gls{fpga} to the \gl
 
  %The Cyclone V GT board has two \gls{hsmc} connectors with port A containing 17 \gls{lvds} channels available, in addition to 4 PCML channels available for high-speed data transmission. 
 
- Because of limited available physical \gls{lvds} connections on the \gls{fpga} board, the $320~\mega\bit\per\second$ data rate was chosen for the e-link connections. The required \gls{lvds} connections would thus be 20 receiver pairs and 10 transmitter pairs. As mentioned in section \ref{sec:lvds}, the \gls{hsmc} port A connection on the board has only 17 available \gls{lvds} channels, or 17 transmitter and 17 receiver pairs. Since the clock on each e-link will be the same during testing, the 10 clock pairs can be reduced to just one, reducing the total receiver pairs needed on the \gls{fpga} from 20 to just 11 pairs.  
+Because of limited available physical \gls{lvds} connections on the \gls{fpga} board, the $320~\mega\bit\per\second$ data rate was chosen for the e-link connections. The required \gls{lvds} connections would thus be 20 receiver pairs and 10 transmitter pairs. As mentioned in section \ref{sec:lvds}, the \gls{hsmc} port A connection on the board has only 17 available \gls{lvds} channels, or 17 transmitter and 17 receiver pairs. Since the clock on each e-link will be the same during testing, the 10 clock pairs can be reduced to just one, reducing the total receiver pairs needed on the \gls{fpga} from 20 to just 11 pairs.  
 
-  The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having a receiver and a transmitter pair. The J4 \gls{hdmi} contact contains an additional receiver reserved for an input clock from the \gls{vldb}. 
+The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having a receiver and a transmitter pair. The J4 \gls{hdmi} contact contains an additional receiver reserved for an input clock from the \gls{vldb}. 
 
-  This chapter explains the design process of this \acrshort{pcb}; beginning with the discussion of different design approaches, to the theory behind designing a high speed \acrshort{pcb}. It then explains the final \acrshort{pcb} design parameters and discusses the resulting product.\\
+This chapter explains the design process of this \acrshort{pcb}; beginning with the discussion of different design approaches, to the theory behind designing a high speed \acrshort{pcb}. It then explains the final \acrshort{pcb} design parameters and discusses the resulting product.\\
 
+\begin{figure} % H(strictly put HERE > h!)
 
+\begin{tikzpicture}[fill=white, thick, transform shape,font=\small]
+\tikzstyle{myarrows}=[line width=1mm,fill=white, anchor=base, align=center,text width=2.8cm, -triangle 45,postaction={draw, line width=3mm, shorten >=4mm, -}]
 
+\tikzstyle{MyArrow} = [
+    single arrow,
+    draw=black,
+    single arrow head extend=0.5ex,
+    text centered,
+    fill=white,
+    node distance=0cm,
+    ]
+
+\node[rectangle] (a1) [draw, minimum width=3cm,minimum height=3cm] {GBT-FPGA};
+\node[rectangle] (a2) [draw, minimum width=2cm,minimum height=2.5cm,right of=a1,node distance=2.5cm, align=center] {HSMC\\to\\VLDB};
+\node[rectangle] (a3) [draw, minimum width=3cm,minimum height=3cm,right of=a2,node distance=4.8cm] {VLDB};
+
+\node[MyArrow] (t1) [right of = a2, node distance=2.0cm, xshift=-1.3mm, yshift=-0.5cm, minimum width=1.5cm, minimum height=2.3cm]{\textcolor{black}{e-links}};
+\node[MyArrow] (t2) [left of = a3, shape border rotate=180, node distance=2.0cm, xshift=-4.8mm, yshift=0.8cm,  minimum width=0.2cm, minimum height=2.3cm]{\textcolor{black}{optical}};
+
+\end{tikzpicture}
+
+\caption{Block diagram showing the FPGA connected to the VLDB using the HSMC-to-VLDB PCB as a bridge.}
+\label{fig:pcbdia}
+\end{figure}
 
 
 \section{Design Discussion}

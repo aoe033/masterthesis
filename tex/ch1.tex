@@ -82,7 +82,7 @@ Originally, a Terasic Cyclone V GX development board was handed for use with thi
 
 \section{Versatile Link Demo Board} \label{sec:vldb}
 
-The \gls{vldb} is the evaluation kit for the radiation hard optical link. It includes the main elements of the GBT Link, the radiation hard \glspl{asic}; GBTx, GBT-SCA and VTRx/VTTx (optical-link module), in addition to radiation hard DC/DC converters. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.\\
+The \gls{vldb} is the evaluation kit for the radiation hard optical link. It includes the main elements of the GBT Link, the radiation hard \glspl{asic}; GBTx, GBT-SCA and VTRx/VTTx (optical-link modules), in addition to radiation hard DC/DC converters. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.\\
 
 \begin{figure}[!b]
         \begin{annotatedFigure}
@@ -99,7 +99,7 @@ The \gls{vldb} is the evaluation kit for the radiation hard optical link. It inc
 \section{E-Links}
 E-links are electrical local duplex  serial links suitable for transmission over PCBs or cables, within a distance of a few meters, and can operate at any data rate up to $320~\mega\bit\per\second$. It was designed with the GBTx in mind, having radiation hard and single event upset (SEU) resistant transmitter and receiver blocks \cite{elinks}. Each E-link consists of three differential signal lines: a clock line (dClk+/dClk-), a downlink output (dOut+/dOut-) and a uplink input (dIn+/dIn-).
 
-The GBTx arranges e-links in 5 groups, with up to 8 e-links per group corresponding to 16 bits in the uplink and the downlink frames. Each group can be programmed to data rates of $80~\mega\bit\per\second$, with 8 e-links per group; $160~\mega\bit\per\second$, with 4 e-links per group; or $320~\mega\bit\per\second$, with 2 e-links per group. Faster data rates comes with the expense of less e-link connections available for the front-end detectors.
+The GBTx arranges e-links in 5 groups, with up to 8 e-links per group corresponding to 16 bits in the uplink and the downlink frames; making a total of 80 bits. \cite{gbtxman11} Each group can be programmed to data rates of $80~\mega\bit\per\second$, with 8 e-links per group; $160~\mega\bit\per\second$, with 4 e-links per group; or $320~\mega\bit\per\second$, with 2 e-links per group. Faster data rates comes with the expense of less physical e-link connections available for the front-end detectors.
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -109,17 +109,18 @@ The GBTx arranges e-links in 5 groups, with up to 8 e-links per group correspond
 \end{figure}
 
 \section{Primary objective}
-This thesis has its focus on the design of a \gls{cru} control interface software, and also a physical connection between the \gls{cru} and the \gls{vldb} card, where the radiation hard \gls{asic}, the \gls{gbt}x, is located. The control interface was developed with the goal of one day replacing the Quartus-bound \gls{issp}, which is used today to manipulate the \gls{gbt} control-signals; and instead introduce a cross-platform, open-source solution. 
+The primary objective of this thesis has been to design a \gls{cru} control interface software, along with the design of a \gls{pcb} that provides physical connection between the \gls{cru} and the \gls{vldb} card. The control interface was developed with the goal of one day replacing the Quartus-bound \gls{issp}, which is used today to manipulate the \gls{gbt} control-signals; and instead introduce a cross-platform, open-source solution. The software is not completed, but well on its way to become usable. The \gls{pcb} is completed, but some testing remains along with a full system test with the GBTx involved.
 
 \section{Outline}
+This thesis is devided into seven chapters, including this one. Chapter 2 gives a brief description of the transceiver technologies 
 
 %\todo{General:\\PLLs\\CPRI?\\}
 
 \chapter{Cyclone V Transceiver Technology}
 
-To be able to send serial data in the gigahertz domain, a high-speed transceiver is required. The Cyclone V GT-series \glspl{fpga} supports a number of transceiver technologies through the \gls{hsmc} physical interface that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of some of these protocols.
+For the \gls{fpga} to be able to transmit and receive serial data in the gigahertz domain, a high-speed transceiver is required. The Cyclone V GT-series supports a number of transceiver technologies through the \gls{hsmc} physical interface that can reach speeds up to $6.144\ \giga\bit\per\second$. This section gives a general description of some of these protocols.
 
-\subsection{Differential Signals} \label{subsec:diffsig}
+\section{Differential Signals} \label{subsec:diffsig}
 
 Common for all protocols described is the fact that the signals are treated differentially. 
 
@@ -127,13 +128,13 @@ While a single ended signal involves one conductor between the transmitter and r
 
 When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The disadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
 
-\subsection{Low-Voltage Differential Signaling} \label{sec:lvds}
+\section{Low-Voltage Differential Signaling} \label{sec:lvds}
 
 \gls{lvds} is said to be the most commonly used differential interface. The interface offers a low power consumption with a voltage swing of $350\ \milli\volt$ and good noise immunity. LVDS can deliver data rates up to $3.125\ \giga\bit\per\second$ \cite{ti08lvds}.\\
 
 The Cyclone V GT board has 17 \gls{lvds} channels available on the \gls{hsmc} port A connector. The channels have the ability to transmit and receive data at a rate up to $840\ \mega\bit\per\second$, with support for serialization and de-serialization through internal logic. \cite{altera_cvoverview15}
 
-\subsection{Current-Mode Logic}
+\section{Current-Mode Logic}
 
 For data rates that exceeds $3.125\ \giga\bit\per\second$, \gls{cml} signaling is preferred. This is due to the fact that certain communication standards such as \acrshort{pcie}, \acrshort{sata} and \acrshort{hdmi}, shares consistency with CML in signal amplitude and reference to $Vcc$. CML can reach a data rate in excess of $10\ \giga\bit\per\second$, but has a higher power consumption than \gls{lvds}, with a voltage swing of approximately $800\ \milli\volt$ \cite{ti08lvds}.\\
 
