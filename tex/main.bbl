@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -30,6 +30,12 @@
 \bibitem[lhc(2016)]{lhcbweb}
 {LHCb} {W}ebpages.
 \newblock \url{http://lhcb-public.web.cern.ch/lhcb-public/}, 2016.
+
+\bibitem[lhc(2013)]{lhcpic}
+{LHC} {O}verview.
+\newblock
+  \url{http://orbiterchspacenews.blogspot.no/2013/08/cern-magnet-movers-replacing-last-lhc.html
+  }, 2013.
 
 \bibitem[P.~Moreira(2011)]{gbtxman11}
 K.~Wyllie P.~Moreira, J.~Christiansen.
@@ -64,6 +70,18 @@ F.~Marin P. Moreira C.~Soos S.~Baron, J. P.~Cachemiche.
   \url{https://www.altera.com/en_US/pdfs/literature/hb/cyclone-v/cv_51001.pdf},
   2015.
 \newblock {A}ccessed: 13/05/2016.
+
+\bibitem[vld(2016)]{vldbposter}
+{VLDB} {P}oster.
+\newblock
+  \url{https://indico.cern.ch/event/468486/contributions/1144349/attachments/1247041/1837036/Poster_ACES2016_Raul_SB.PDF
+  }, 2016.
+
+\bibitem[S.~Bonacini(2009)]{elinks}
+P.~Moreira S.~Bonacini, K.~Kloukinas.
+\newblock e-link: {A} {R}adiation-{H}ard {L}ow-{P}ower {E}lectrical {L}ink for
+  {C}hip-to-{C}hip {C}ommunication.
+\newblock \url{http://cds.cern.ch/record/1235849/files/p422.pdf}, 2009.
 
 \bibitem[Caratelli(2014)]{gbtscapres14}
 Alessandro Caratelli.

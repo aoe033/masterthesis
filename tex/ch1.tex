@@ -8,19 +8,39 @@
 
 \documentclass[main.tex]{subfiles}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Overlay Generator - Annotated Figures v0.0.1
+% Created with http://ff.cx/latex-overlay-generator/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\annotatedFigureBoxCustom{bottom-left}{top-right}{label}{label-position}{box-color}{label-color}{border-color}{text-color}
+\newcommand*\annotatedFigureBoxCustom[8]{\draw[#5,thick,rounded corners] (#1) rectangle (#2);\node at (#4) [fill=#6,thick,shape=rectangle,draw=#7,inner sep=2pt,font=\sffamily,text=#8] {\textbf{#3}};}
+%\annotatedFigureBox{bottom-left}{top-right}{label}{label-position}
+\newcommand*\annotatedFigureBox[4]{\annotatedFigureBoxCustom{#1}{#2}{#3}{#4}{red}{white}{red}{black}}
+\newcommand*\annotatedFigureText[4]{\node[draw=none, anchor=south west, text=#2, inner sep=0, text width=#3\linewidth,font=\sffamily] at (#1){#4};}
+\newenvironment {annotatedFigure}[1]{\centering\begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (image) at (0,0) { #1};\begin{scope}[x={(image.south east)},y={(image.north west)}]}{\end{scope}\end{tikzpicture}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
 \chapter{Introduction}
 
-\section{LHC}
+\section{Large Hadron Collider}
 
-The \gls{lhc} is the largest and most powerful particle collider in the world. It was built by the European Organization for Nuclear Research (CERN) \cite{cernweb} between 1998 and 2008, and had its first start-up on 10 September 2008. This massive machine lies 175 metres deep beneath the France–Switzerland border near Geneva, Switzerland; and consists of a $27~\kilo\meter$ long circular tunnel of superconductor magnets with additional accelerating structures. Its basic operation is to accelerate particles (protons and heavy ions, e.g. Pb) to near the speed of light in opposite directions and collide them. The particles are accelerated along two parallel beam lines running through the superconductor magnets, and collided at four locations were experiments like ATLAS\cite{atlasweb}, ALICE\cite{aliceweb}, CMS\cite{cmsweb} and LHCb\cite{lhcbweb} take place. As of 20 May 2015, the \gls{lhc} can achieve beam energies up to $13~\tera e\volt$, or $6.5~\tera e\volt$ per beam.
+The \gls{lhc} is the largest and most powerful particle collider in the world. It was built by the European Organization for Nuclear Research (CERN) \cite{cernweb} between 1998 and 2008, and had its first start-up on 10 September 2008. This massive machine lies 175 metres deep beneath the France–Switzerland border near Geneva, Switzerland; and consists of a $27~\kilo\meter$ long circular tunnel of superconductor magnets with additional accelerating structures. Its basic operation is to accelerate particles (protons and heavy ions, e.g. Pb) to near the speed of light in opposite directions and collide them. The particles are accelerated along two parallel beam lines running through the superconductor magnets, and collided at four locations were experiments like ATLAS\cite{atlasweb}, ALICE\cite{aliceweb}, CMS\cite{cmsweb} and LHCb\cite{lhcbweb} take place. As of 20 May 2015, the \gls{lhc} can achieve beam energies up to $13~\tera e\volt$, or $6.5~\tera e\volt$ per beam. Figure \ref{fig:lhcov} shows an overall view of the \gls{lhc} experiments.
 
-\section{SLHC}
+\begin{figure} % H(strictly put HERE > h!)
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=0.7\linewidth]{../img/lhc.jpg}  \\[0.1 cm]
+\caption{LHC overview \cite{lhcpic}.}
+\label{fig:lhcov}
+\end{figure}
 
-The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, has its goal of increasing the beam luminosity by ten times. This will lead to a corresponding growth of the amount of data to be treated by the data acquisition systems, and an increase in radiation. This will thus require high rate data links and \glspl{asic} capable of tolerating high doses of radiation.
+\section{Super Large Hadron Collider}
 
-To address these needs, the \gls{gbt} architecture and transmission protocol was developed to provide a high radiation tolerant, high speed, optical transmission line capable with a simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data.
+The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, has its goal of increasing the beam luminosity by ten times. This will lead to a corresponding growth of the amount of data to be treated by the data acquisition systems, and a significant increase in radiation. This will thus require high rate data links and \glspl{asic} capable of tolerating high doses of radiation.
+
+To address these needs, the \gls{gbt} \glspl{asic} and transmission protocol was developed to provide a high radiation tolerant, high speed, optical transmission line capable of simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data.
 
 \section{GBT system}
 The \gls{gbt} system can be described in two parts: The on-detector part, and the off-detector part of the system. The below sections gives a brief description of these:
@@ -60,14 +80,26 @@ The off-detector part is located in the counting room and consists of a \gls{cru
 Altera's Cyclone V GT \gls{fpga} board was chosen for use in this thesis. It was chosen mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$; "GT" indicates that the \gls{fpga} has transceivers that support speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}.\\
 Originally, a Terasic Cyclone V GX development board was handed for use with this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world, such as on-board Usb-to-Uart (more on this  in chapter \ref{chap:sercom}). However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
 
-\section{Versatile Link Demo Board}
+\section{Versatile Link Demo Board} \label{sec:vldb}
 
-The \gls{vldb} is the evaluation kit for the radiation hard optical link. It includes the main elements of the GBT Link, the radiation hard \glspl{asic}; GBTx, GBT-SCA and the VTRx/VTTx, in addition to radiation hard DC/DC converters. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.\\
+The \gls{vldb} is the evaluation kit for the radiation hard optical link. It includes the main elements of the GBT Link, the radiation hard \glspl{asic}; GBTx, GBT-SCA and VTRx/VTTx (optical-link module), in addition to radiation hard DC/DC converters. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.\\
+
+\begin{figure}[!b]
+        \begin{annotatedFigure}
+            {\includegraphics[width=0.6\linewidth]{../img/vldb}}
+            \annotatedFigureBox{0.18,0.6}{0.35,0.92}{Dc/Dc Converters}{0.1,0.55}%bl
+            \annotatedFigureBox{0.122,0.35}{0.23,0.47}{GBT-SCA}{0.1,0.3}%tr
+            \annotatedFigureBox{0.42,0.65}{0.5,1.0}{VTRx/VTTx}{0.65,0.77}%bl
+            \annotatedFigureBox{0.37,0.35}{0.54,0.55}{GBTx}{0.55,0.3}%tr
+        \end{annotatedFigure}
+\caption{Versatile Link Demo Board overview \cite{vldbposter}.}
+\label{fig:vldb}
+\end{figure}
 
 \section{E-Links}
-An E-link is an electrical interface suitable for transmission
-Each E-link has three differential signal lines: a clock line (dClk+/dClk-), a downlink output (dOut+/dOut-) and a uplink input (dIn+/dIn-).
+E-links are electrical local duplex  serial links suitable for transmission over PCBs or cables, within a distance of a few meters, and can operate at any data rate up to $320~\mega\bit\per\second$. It was designed with the GBTx in mind, having radiation hard and single event upset (SEU) resistant transmitter and receiver blocks \cite{elinks}. Each E-link consists of three differential signal lines: a clock line (dClk+/dClk-), a downlink output (dOut+/dOut-) and a uplink input (dIn+/dIn-).
 
+The GBTx arranges e-links in 5 groups, with up to 8 e-links per group corresponding to 16 bits in the uplink and the downlink frames. Each group can be programmed to data rates of $80~\mega\bit\per\second$, with 8 e-links per group; $160~\mega\bit\per\second$, with 4 e-links per group; or $320~\mega\bit\per\second$, with 2 e-links per group. Faster data rates comes with the expense of less e-link connections available for the front-end detectors.
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -95,11 +127,11 @@ While a single ended signal involves one conductor between the transmitter and r
 
 When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The disadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
 
-\subsection{Low-Voltage Differential Signaling}
+\subsection{Low-Voltage Differential Signaling} \label{sec:lvds}
 
 \gls{lvds} is said to be the most commonly used differential interface. The interface offers a low power consumption with a voltage swing of $350\ \milli\volt$ and good noise immunity. LVDS can deliver data rates up to $3.125\ \giga\bit\per\second$ \cite{ti08lvds}.\\
 
-The Cyclone V GT board has 17 \gls{lvds} channels available on the \gls{hsmc} port A connector. The channels have the ability to transmit and receive data at a rate up to $840\ \mega\bit\per\second$, with support for serialization and deserialization through internal logic. \cite{altera_cvoverview15}
+The Cyclone V GT board has 17 \gls{lvds} channels available on the \gls{hsmc} port A connector. The channels have the ability to transmit and receive data at a rate up to $840\ \mega\bit\per\second$, with support for serialization and de-serialization through internal logic. \cite{altera_cvoverview15}
 
 \subsection{Current-Mode Logic}
 
@@ -119,12 +151,10 @@ The Cyclone V GT board has 4 Pseudo-\gls{cml} (PCML) channels available on both 
 
 \todo{History, mgt, Short about the electronic components, gbt-sca, gbtx}
 
-\section{Encoding modes}
-
-The "GBT-Frame" mode, which is Reed-Solomon Based; the "8b10b" mode; and the "Wide-Bus" mode which is without encoding.
+The GBT-FPGA project provides firmware required to allow the \gls{fpga} to communicate with the GBTx chipset over the versatile link.
 
 \section{GBT-FPGA Core}
-The following sections describe the different components that makes up the GBT-FPGA Core. The information was obtained by reading the GBT-FPGA User Guide \cite{gbt_fpga}.
+The following sections describe the different components that makes up the GBT-FPGA Core. The information was obtained from the GBT-FPGA User Guide \cite{gbt_fpga}.
 
 \subsection{GBT Bank}
 The GBT Bank is defined as the top module of the \gls{gbt}-\gls{fpga} Core. It integrates up to four GBT Links and contains the ports required to operate the GBT Links.

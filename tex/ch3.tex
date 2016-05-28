@@ -15,7 +15,7 @@
 In order to connect and control the \gls{cru} from a user \acrshort{pc}, some sort of serial communication between the user \acrshort{pc} and the \gls{fpga} is needed. The purpose of the serial link in this thesis is mainly to monitor and manipulate the \gls{gbt} control signals. Because of this, the speed requirements of the link is not a crucial matter. \\
 Figure \ref{fig:sergui} illustrates the different blocks that make up the serial interface: The interface on the \acrshort{pc} side consists of a terminal-like interface that lets the user type in requests that enables the user to read and/or write to the \gls{gbt} control signals via the link. These requests then gets translated into byte-codes and sent out via the transmitter of the \gls{com} to the \gls{uart} on the fpga side. Here, the bytes are stored in a buffer before they get interpreted by a decoder. Depending on the user-request, the decoder can write to a \gls{gbt}-switch or read from a \gls{gbt}-probe.
 
-\begin{figure}[H] % H(strictly put HERE > h!)
+\begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \subfile{./serial_gui.tex}
 \caption{Simplified diagram over the PC to CRU serial interface.}
@@ -73,9 +73,9 @@ The standard will be used for asynchronous transmission of data between the \acr
 %\chapter{Implementing a serial interface into the FPGA}
 
 
-\chapter{Hardware Design on the FPGA Side} \label{chap:hardware}
+\section{Hardware Design on the FPGA Side} \label{chap:hardware}
 
-\section{Specification}
+\subsection{Specification}
 
 The implemented hardware logic is to contain the following specifications:\\
 \begin{itemize} \setlength{\itemsep}{10pt}
@@ -88,7 +88,7 @@ The implemented hardware logic is to contain the following specifications:\\
 \item Read or write to the \gls{gbt} control-register.
 \end{itemize}
 
-\section{Hardware Components}
+\subsection{Hardware Components}
 
 The below sections gives a brief description of each part of the design.\\
 The \gls{uart} itself is based on the \gls{uart}-design by Pong P. Chu, found in chapter 7 from his book \textit{FPGA Prototyping By VHDL Examples} \cite{chu08}. The Baud Rate Generator is borrowed from the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure. The \gls{uart}-decoder was written in conjunction with the C-program on the \acrshort{pc} side, and is the one component which ties the communication together.\\
@@ -285,7 +285,7 @@ Being initially in the idle state, the decoder is triggered by the $rx\_empty$ s
   In the read2 state, the value of the first byte, the request-byte, decides if the decoder should perform a read or a write operation on the gbt-register. The value of the last received byte is treated as an address to the data of the gbt-register the client wants to read or write to.  
 
 
-\chapter{Software on the PC Side} \label{chap:software}
+\section{Software on the PC Side} \label{chap:software}
 
 The program was written with the goal of one day replacing the Quartus-bound In-System-Source-And-Probe Editor, which is used today to access the \gls{gbt} control-signals; and instead introduce a cross-platform, open-source solution.
 
@@ -293,7 +293,7 @@ To access the serial port on the \acrshort{pc}, the software uses free and cross
 
 The C programming language was chosen for this task mainly because of previous experience with the language, but also because of desire to learn to use the language more professionally. 
 
-\section{Specification}
+\subsection{Specification}
 
 The program is to contain the following specifications:\\
 \begin{itemize} \setlength{\itemsep}{10pt}
@@ -302,11 +302,11 @@ The program is to contain the following specifications:\\
 \item Cross-platform. This was not a critical requirement, but was added later because of the language the program was written in and also the already cross-platform libraries used. 
 \end{itemize}
 
-\section{Software Structure and Flowchart}
+\subsection{Software Structure and Flowchart}
 
 The software is divided into two modules; one module for sending and receiving data, to and from the \gls{fpga}; and one module that acts as the actual software interface. Both these modules were intended to be merged together into one program, both because of time constraints were left separated. The below sections describes the inner workings of each of the two modules, and provides flowcharts to further illustrate the behaviour.
 
-\subsection{Interface module}
+\subsubsection{Interface module}
 Figure \ref{fig:flowgui} illustrates the behaviour of the interface module. The main loop start by checking for any changes in screen size of the main terminal window. This allows the user to freely change the window size, although full screen is preferred. If a resize has occurred, the program stores the size-parameter and uses it to further resize and properly align all the internal windows ("Command History", "Commandline" and "Signals") using \textit{wresize}, and clears the content using \textit{wclear}. The content will later be redrawn with coordinates aligned according to the new size.\\
 
 With ncurses, by using \textit{getch} in conjunction with \textit{nodelay}, one can check for key-presses without having to pause the entire program (see \ref{sec:ncurses}). If a key is pressed, the program analyses the input: If a character is typed, it is appended to a command-string and displayed in the "Commandline" window. 
@@ -317,7 +317,7 @@ If either return or a character has been typed in, the program checks the input 
 
 After checking for key-presses, the program redraws the windows using \textit{wrefresh} and sleeps with a small delay (to prevent screen flickering and unnecessary cpu loads). It then returns to the top of the main loop and the process starts over again. 
 
-\begin{figure}[H] % H(strictly put HERE > h!)
+\begin{figure}[!t] % H(strictly put HERE > h!)
 \begin{center}
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \resizebox{1\linewidth}{!}{\subfile{./flow_gui.tex}}
@@ -326,7 +326,7 @@ After checking for key-presses, the program redraws the windows using \textit{wr
 \end{center}
 \end{figure}
 
-\subsection{Send/Receive module}
+\subsubsection{Send/Receive module}
 
 Figures \ref{fig:flowtx} and \ref{fig:flowrx} illustrates the behaviour of the main transmitter and receiver functions of the send/receive module. The basic operation goes as follows: The program sends a data-pattern from a 2d-array via the \gls{com} to the \gls{gbt}-registers on the \gls{fpga} side. It then sends a read request to read all values of the \gls{gbt}-register back to confirm that the data pattern was transmittet properly. There are five different patterns that are sent in sequence to the registers, and each time a pattern is sent it is read back to the program on the PC side and displayed. This is to confirm that the communication link is working properly. \\
 

@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: unsrtnat.bst
@@ -41,45 +41,45 @@ Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, 
 while executing---line 1315 of file unsrtnat.bst
 Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
 while executing---line 1315 of file unsrtnat.bst
-You've used 35 entries,
+You've used 38 entries,
             2481 wiz_defined-function locations,
-            705 strings with 9419 characters,
-and the built_in function-call counts, 8310 in all, are:
-= -- 774
-> -- 108
-< -- 12
-+ -- 101
-- -- 30
-* -- 370
-:= -- 1035
-add.period$ -- 105
-call.type$ -- 35
-change.case$ -- 68
-chr.to.int$ -- 34
-cite$ -- 58
-duplicate$ -- 505
-empty$ -- 1097
-format.name$ -- 48
-if$ -- 1975
+            715 strings with 9879 characters,
+and the built_in function-call counts, 8988 in all, are:
+= -- 836
+> -- 115
+< -- 13
++ -- 109
+- -- 32
+* -- 399
+:= -- 1116
+add.period$ -- 112
+call.type$ -- 38
+change.case$ -- 74
+chr.to.int$ -- 37
+cite$ -- 63
+duplicate$ -- 547
+empty$ -- 1191
+format.name$ -- 51
+if$ -- 2138
 int.to.chr$ -- 2
-int.to.str$ -- 36
+int.to.str$ -- 39
 missing$ -- 6
-newline$ -- 183
-num.names$ -- 36
-pop$ -- 441
+newline$ -- 196
+num.names$ -- 39
+pop$ -- 479
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 38
 quote$ -- 0
-skip$ -- 362
+skip$ -- 395
 stack$ -- 0
-substring$ -- 93
-swap$ -- 72
+substring$ -- 101
+swap$ -- 78
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 236
+type$ -- 257
 warning$ -- 0
-while$ -- 24
+while$ -- 26
 width$ -- 0
-write$ -- 428
+write$ -- 460
 (There were 19 error messages)
