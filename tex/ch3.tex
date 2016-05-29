@@ -13,7 +13,7 @@
 \chapter{PC to CRU control interface} \label{chap:sercom}
 
 In order to connect and control the \gls{cru} from a user \acrshort{pc}, some sort of serial communication between the user \acrshort{pc} and the \gls{fpga} is needed. The purpose of the serial link in this thesis is mainly to monitor and manipulate the \gls{gbt} control signals. Because of this, the speed requirements of the link is not a crucial matter. \\
-Figure \ref{fig:sergui} illustrates the different blocks that make up the serial interface: The interface on the \acrshort{pc} side consists of a terminal-like interface that lets the user type in requests that enables the user to read and/or write to the \gls{gbt} control signals via the link. These requests then gets translated into byte-codes and sent out via the transmitter of the \gls{com} to the \gls{uart} on the fpga side. Here, the bytes are stored in a buffer before they get interpreted by a decoder. Depending on the user-request, the decoder can write to a \gls{gbt}-switch or read from a \gls{gbt}-probe.
+Figure \ref{fig:sergui} illustrates the different blocks that make up the serial interface: The interface on the \acrshort{pc} side consists of a terminal-like interface that lets the user type in requests that enables the user to read and/or write to the \gls{gbt} control signals via the link. These requests then gets translated into byte-codes and sent out via the transmitter of the \gls{com} to the \gls{uart} on the \gls{fpga} side. Here, the bytes are stored in a buffer before they get interpreted by a decoder. Depending on the user-request, the decoder can write to a \gls{gbt}-switch or read from a \gls{gbt}-probe.
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -57,7 +57,7 @@ The \gls{fpga} board used in this thesis has no dedicated prototyping area for e
 \begin{figure}[] % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \includegraphics[width=0.5\linewidth]{../img/lcdheader.pdf}  \\[0.1 cm]
-\caption{J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single ended transmitter and receiver signals.}
+\caption{J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single-ended transmitter and receiver signals.}
 \label{fig:lcdheader}
 \end{figure}
 
@@ -66,20 +66,22 @@ The \gls{fpga} board used in this thesis has no dedicated prototyping area for e
 Common to all communication systems considered is that they are all duplex systems, which simply means two connected devices that can both transmit and receive signals. While \textit{full-duplex} enables both devices to transmit and receive simultaneously (like a telephone), \textit{half-duplex} only enables one device to transmit at a time (like a walkie-talkie). Common to both the duplex systems is that they have two communication channels. 
 
 \section{Choosing Communication Protocol}
-Perhaps the most well-known and supported serial communications protocol out there is the \acrshort{rs232} standard. It supports both synchronous and asynchronous transmission, and only requires a single transmit- and receiver pair (if excluding the data control signals, which are not crucial). It is compatible over a wide range of voltage levels, and can be connected directly to the serial port of a \acrshort{pc} (if one is available) or through a \gls{usbrs}. The \acrshort{rs232}-standard was chosen mainly because it only requires two wires (one for transmitting and the other for receiving). It is supported by most \glspl{os} used today, and can be easily implemented using available C-libraries.\\
+Perhaps the most well-known and supported serial communications protocol out there is the RS-232 standard. It supports both synchronous and asynchronous transmission, and only requires a single transmit- and receiver pair (if excluding the data control signals, which are not crucial). It is compatible over a wide range of voltage levels, and can be connected directly to the serial port of a \acrshort{pc} (if one is available) or through a \gls{usbrs}. The RS-232-standard was chosen mainly because it only requires two wires (one for transmitting and the other for receiving). It is supported by most \glspl{os} used today, and can be easily implemented using available C-libraries.\\
 
-The standard will be used for asynchronous transmission of data between the \acrshort{pc} and \gls{fpga}. A simple \gls{uart} with a byte-decoder will be implemented on the \gls{fpga}-side, while a dedicated C-program with access to the \gls{com} will be implemented on the \acrshort{pc}-side. A \gls{usbrs} with a voltage converter will be used as the connection between the \gls{fpga} and the \acrshort{pc}. The following chapters describe the implementation of the serial interface, first on the \gls{fpga} side (chapter \ref{chap:hardware}) and then on the \acrshort{pc} side (chapter \ref{chap:software}).
+The standard will be used for asynchronous transmission of data between the \acrshort{pc} and \gls{fpga}. A simple \gls{uart} with a byte-decoder will be implemented on the \gls{fpga}-side, while a dedicated C-program with access to the \gls{com} will be implemented on the \acrshort{pc}-side. A \gls{usbrs} with a voltage converter will be used as the connection between the \gls{fpga} and the \acrshort{pc}. The following chapters describe the implementation of the serial interface, first on the \gls{fpga} side (\ref{chap:hardware}) and then on the \acrshort{pc} side (\ref{chap:software}).
 
 %\chapter{Implementing a serial interface into the FPGA}
 
 
 \section{Hardware Design on the FPGA Side} \label{chap:hardware}
 
+The hardware design in the \gls{fpga} is responsible for treating incoming requests made by the user PC. It will essentially become a module to connect with the GBT example design, were it replaces the \gls{issp}-module that is used today. The module must have access to the GBT control signal register, and this is done by re-connecting the probe and source signals, that is now connected to the \gls{issp}, to the module. The module is mostly completed; what remains is to implement it in the GBT example design, connecting the probe and source signals and effectively replacing the \gls{issp} module. 
+
 \subsection{Specification}
 
 The implemented hardware logic is to contain the following specifications:\\
 \begin{itemize} \setlength{\itemsep}{10pt}
-\item Communication with the user \acrshort{pc} using \acrshort{rs232}.
+\item Communication with the user \acrshort{pc} using RS-232.
   \begin{itemize}
   \item Receive requests sent from the user \acrshort{pc}. The requests are reserved byte-codes in which the byte-decoder translates to read or write commands. 
   \item Send out data from the \gls{gbt} control-register to the user \acrshort{pc} when told. The address of the data must be specified and sent from the user \acrshort{pc}.
@@ -93,10 +95,10 @@ The implemented hardware logic is to contain the following specifications:\\
 The below sections gives a brief description of each part of the design.\\
 The \gls{uart} itself is based on the \gls{uart}-design by Pong P. Chu, found in chapter 7 from his book \textit{FPGA Prototyping By VHDL Examples} \cite{chu08}. The Baud Rate Generator is borrowed from the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure. The \gls{uart}-decoder was written in conjunction with the C-program on the \acrshort{pc} side, and is the one component which ties the communication together.\\
 
-The end result forms a design that uses an \gls{uart} to receive and transmit $19200-8-N-1~$ \acrshort{rs232} data-bytes. The received bytes are stored in a \gls{fifo} until treated by the \gls{uart}-decoder. The "decoder" translates the received bytes into requests, i.e read or write requests, and manipulates or sends out data-bits from the \gls{gbt}-register according to the received requests. The \gls{uart} itself is optimized for $19200~\bit\per\second$, but has been tested to work at speeds up to $57600~\bit\per\second$.
+The end result forms a design that uses an \gls{uart} to receive and transmit $19200-8-N-1~$ RS-232 data-bytes. The received bytes are stored in a \gls{fifo} until treated by the \gls{uart}-decoder. The "decoder" translates the received bytes into requests, i.e a read-request if $0xDD$ or a write-request if $0xEE$ (write value 0) or $0xFF$ (write value 1), and manipulates or sends out data-bits from the \gls{gbt}-register according to the received requests. The \gls{uart} itself is optimized for $19200~\bit\per\second$, but has been tested to work at speeds up to $57600~\bit\per\second$.
 
 \subsection{UART}
-For communication with the user \acrshort{pc}, a simple \gls{uart} was implemented into the \gls{fpga}.\\
+For communication with the user \acrshort{pc}, a simple \gls{uart} was implemented in the \gls{fpga}.\\
 Simply put, an \gls{uart} is a circuit that transmits and receives parallel data through a serial line \cite{chu08}. It uses the concept of oversampling to synchronize with the incoming data. This involves using a sample-clock which is 16 times faster than the transmitted/received data.\\
 
 The \gls{uart}-design is divided into five parts:
@@ -271,6 +273,40 @@ Both the \gls{uart} transmitter and receiver has \gls{fifo}-buffers that stores 
 
 \subsection{UART Decoder}
 The \gls{uart} decoder is a state machine connected to the other end of the \gls{uart} receiver- and transmitter \glspl{fifo}. It reads out the received bytes and does tasks according to the order and value of the bytes. Starting at the idle state, the decoder waits for a request byte from the fifo followed by an address byte. The request byte can for instance be a read or a write. The following small sections describes the different decoder states. 
+
+\begin{figure}[!htp]
+\begin{center}
+%\usetikzlibrary{arrows,automata}
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
+  \node[initial,state] (idle)      {\small{\textit{idle}}};
+  \node[state,accepting]         (read1) [right of=idle]  {\small{\textit{read1}}};
+  \node[state]         (wait1) [right of=read1] {\small{\textit{wait1}}};
+  \node[state,accepting]         (read2) [right of=wait1] {\small{\textit{read2}}};
+ 
+  %\path[->]          (S)  edge [loop above] node {a} (idle);
+  \path[->]          (idle)  edge [loop above] node {\small {\textit {uart-reset count}}} (idle);
+  \path[->]           (idle)  edge              node {\small{\textit{rx\_empty = '0'}}} (read1);
+  \path[->]          (read1);
+  \path[->] (read1) edge             node {\small{\textit{byte = request}}} (wait1);
+  \path [->]             (wait1) edge [loop above] node {\small{\textit{timeout count}}} (wait1);
+  \path[->] (wait1) edge             node {\small{\textit{rx\_empty = '0'}}} (read2);
+  \path [->]             (read2)
+             edge [in=-90,out=-120,above,distance=2cm]  node[align=center] {
+             \small{\textit{}}
+             } (idle);
+  \path [->]             (wait1)
+             edge [in=60,out=120,above,distance=1cm]  node[align=center] {
+             \small{\textit{Timeout!}}
+             } (idle);          
+  \path [->] (read1)
+             edge [bend left]  node[align=center] {
+             \small{\textit{byte /= request}}
+             } (idle);
+\end{tikzpicture}
+\caption{\gls{uart} decoder state machine.}
+\label{fig:uartdec}
+\end{center}
+\end{figure}
 
 \subsubsection{Idle state}
 Being initially in the idle state, the decoder is triggered by the $rx\_empty$ signal coming from the rx-fifo, which is held low if there is at least one byte stored in the rx-fifo. If $rx\_empty$ is low, the decoder sends a read signal ($rd\_uart$), telling the rx-fifo to place the next in-line byte on the read-bus ($r\_data$), and in the same delta-time assigns the read-bus to a new register ($b\_reg(0)$) for temporary storage. The decoder then goes to a read state.

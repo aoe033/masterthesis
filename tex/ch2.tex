@@ -12,9 +12,9 @@
 
 \chapter{HSMC-to-VLDB PCB Design} \label{chap:pcb}
 
-In order to test the GBTx chip, a \gls{pcb} that acts as a connecting bridge between the \gls{fpga} and the \gls{vldb} is needed. As mentioned in \ref{sec:vldb}, the \gls{vldb} has a optical link which will provide connection to the \gls{fpga} in the counting room, and twenty e-links reachable through physical \acrshort{hdmi} contacts, which will be available connections to the front-end detectors.
+In order to test the GBTx chip, a \gls{pcb} that acts as a connecting bridge between the \gls{fpga} and the \gls{vldb} is needed. As mentioned in \ref{sec:vldb}, the \gls{vldb} has a optical link which will provide connection to the \gls{fpga} in the counting room, in addition to twenty e-links reachable through physical \acrshort{hdmi} contacts, which will be available connections to the front-end detectors.
 
-A basic test-setup would be to transmit test data from the \gls{fpga} to the \gls{gbt}x via e-links. The data will represent data sent from the front-end detectors. The GBTx will then transmit the same data back to the \gls{fpga} via the fiber-optic cable, making it possible to analyze the received data and also compare it to the transmitted data.
+A basic test example is to transmit test data from the \gls{fpga} to the GBTx via e-links. The data will represent data sent from the front-end detectors. The GBTx will then transmit the same data back to the \gls{fpga} via the fiber-optic cable, making it possible to analyze the received data and also compare it to the transmitted data.
 
  %The Cyclone V GT board has two \gls{hsmc} connectors with port A containing 17 \gls{lvds} channels available, in addition to 4 PCML channels available for high-speed data transmission. 
 
@@ -30,9 +30,9 @@ This chapter explains the design process of this \acrshort{pcb}; beginning with 
 \tikzstyle{myarrows}=[line width=1mm,fill=white, anchor=base, align=center,text width=2.8cm, -triangle 45,postaction={draw, line width=3mm, shorten >=4mm, -}]
 
 \tikzstyle{MyArrow} = [
-    single arrow,
+    double arrow,
     draw=black,
-    single arrow head extend=0.5ex,
+    double arrow head extend=0.0ex,
     text centered,
     fill=white,
     node distance=0cm,
@@ -40,14 +40,14 @@ This chapter explains the design process of this \acrshort{pcb}; beginning with 
 
 \node[rectangle] (a1) [draw, minimum width=3cm,minimum height=3cm] {GBT-FPGA};
 \node[rectangle] (a2) [draw, minimum width=2cm,minimum height=2.5cm,right of=a1,node distance=2.5cm, align=center] {HSMC\\to\\VLDB};
-\node[rectangle] (a3) [draw, minimum width=3cm,minimum height=3cm,right of=a2,node distance=4.8cm] {VLDB};
+\node[rectangle] (a3) [draw, minimum width=3cm,minimum height=3cm,right of=a2,node distance=6cm] {VLDB};
 
-\node[MyArrow] (t1) [right of = a2, node distance=2.0cm, xshift=-1.3mm, yshift=-0.5cm, minimum width=1.5cm, minimum height=2.3cm]{\textcolor{black}{e-links}};
-\node[MyArrow] (t2) [left of = a3, shape border rotate=180, node distance=2.0cm, xshift=-4.8mm, yshift=0.8cm,  minimum width=0.2cm, minimum height=2.3cm]{\textcolor{black}{optical}};
+\node[MyArrow] (t1) [right of = a2, node distance=2.0cm, xshift=7.5mm, yshift=-0.5cm, minimum width=1cm, minimum height=4.5cm]{\textcolor{black}{e-links}};
+\node[MyArrow] (t2) [right of = a2, shape border rotate=180, node distance=2.0cm, xshift=7.5mm, yshift=0.8cm,  minimum width=0.2cm, minimum height=4.2cm]{\textcolor{black}{optical}};
 
 \end{tikzpicture}
 
-\caption{Block diagram showing the FPGA connected to the VLDB using the HSMC-to-VLDB PCB as a bridge.}
+\caption{Block diagram showing the basic connection between the FPGA and VLDB using the HSMC-to-VLDB PCB as a connection bridge.}
 \label{fig:pcbdia}
 \end{figure}
 

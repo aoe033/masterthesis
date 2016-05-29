@@ -67,10 +67,10 @@ end rtl;
 
 \section{RS-232} \label{ap:rs232}
 
-\acrshort{rs232} standard is a transmission protocol for full duplex, serial transmitting and receiving of data. The standard defines electrical characteristics and timing of signals, the "meaning" of the signal, and also physical size and pin-out for connectors.
+RS-232 standard is a transmission protocol for full duplex, serial transmitting and receiving of data. The standard defines electrical characteristics and timing of signals, the "meaning" of the signal, and also physical size and pin-out for connectors.
 For communications to work properly, the \gls{dte}, in this case the \acrshort{pc}; and the\gls{dce}, in this case the \gls{fpga}, needs to agree on the same data-packet settings, i.e the baud rate, the number of data bits, any additional parity bit and the number of stop bits.\\
 
-A typical \acrshort{rs232} data-packet consists of a start bit, followed by 5, 7 or 8 data bits; 1 parity bit, for error checking; and 1 or 2 stop bits, indicating that the transmission is done. The start bit is typically a logical low and the stop bit(s) high (this is usually the case, but can be system dependent). The transmission line remains high until the start bit pulls it down low, and the data transfer begins until the stop bit is reached. The line is then kept high until a new start bit pulls it low again for a new byte to be transfered. Data-packets are often described in the form: $19200-8-N-1$, which simply means $19200~ \bit\per\second$, $8~ data~ bits$, $No~ parity$ and $1~ stop~ bit$. Figure \ref{fig:rs232} demonstrates a typical \acrshort{rs232} signal.\\
+A typical RS-232 data-packet consists of a start bit, followed by 5, 7 or 8 data bits; 1 parity bit, for error checking; and 1 or 2 stop bits, indicating that the transmission is done. The start bit is typically a logical low and the stop bit(s) high (this is usually the case, but can be system dependent). The transmission line remains high until the start bit pulls it down low, and the data transfer begins until the stop bit is reached. The line is then kept high until a new start bit pulls it low again for a new byte to be transfered. Data-packets are often described in the form: $19200-8-N-1$, which simply means $19200~ \bit\per\second$, $8~ data~ bits$, $No~ parity$ and $1~ stop~ bit$. Figure \ref{fig:rs232} demonstrates a typical RS-232 signal.\\
 
 \begin{figure}[!h]
 \begin{center}
@@ -101,7 +101,7 @@ H N{$Idle$}
 
 \end{tikzpicture}
 
-\caption{Example of an \acrshort{rs232} signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.}
+\caption{Example of an RS-232 signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.}
 \label{fig:rs232}
 
 \end{center}
