@@ -37,54 +37,48 @@
 \BOOKMARK [1][-]{section.5.5}{Hardware Design on the FPGA Side}{chapter.5}% 37
 \BOOKMARK [2][-]{subsection.5.5.1}{Specification}{section.5.5}% 38
 \BOOKMARK [2][-]{subsection.5.5.2}{Hardware Components}{section.5.5}% 39
-\BOOKMARK [2][-]{subsection.5.5.3}{UART}{section.5.5}% 40
-\BOOKMARK [2][-]{subsection.5.5.4}{UART Oversampling and the Baud Rate Generator}{section.5.5}% 41
-\BOOKMARK [2][-]{subsection.5.5.5}{UART Receiver}{section.5.5}% 42
-\BOOKMARK [2][-]{subsection.5.5.6}{UART Transmitter}{section.5.5}% 43
-\BOOKMARK [2][-]{subsection.5.5.7}{FIFO Buffers}{section.5.5}% 44
-\BOOKMARK [2][-]{subsection.5.5.8}{UART Decoder}{section.5.5}% 45
-\BOOKMARK [1][-]{section.5.6}{Software on the PC Side}{chapter.5}% 46
-\BOOKMARK [2][-]{subsection.5.6.1}{Specification}{section.5.6}% 47
-\BOOKMARK [2][-]{subsection.5.6.2}{Software Structure and Flowchart}{section.5.6}% 48
-\BOOKMARK [1][-]{section.5.7}{Conclusion and Discussion}{chapter.5}% 49
-\BOOKMARK [0][-]{chapter.6}{Loopback Test using the GBT Quartus Example}{}% 50
-\BOOKMARK [1][-]{section.6.1}{GBT Quartus Example}{chapter.6}% 51
-\BOOKMARK [1][-]{section.6.2}{120 MHz Reference Clock}{chapter.6}% 52
-\BOOKMARK [2][-]{subsection.6.2.1}{Configuring the onboard Oscillator on the Cyclone V Board}{section.6.2}% 53
-\BOOKMARK [2][-]{subsection.6.2.2}{Configuring the Si5338 External Oscillator}{section.6.2}% 54
-\BOOKMARK [1][-]{section.6.3}{Testing and Verification of the HDMI Daughter Card}{chapter.6}% 55
-\BOOKMARK [2][-]{subsection.6.3.1}{Connectivity Test}{section.6.3}% 56
-\BOOKMARK [2][-]{subsection.6.3.2}{External Loop-back Test for the Fiber-Optic Connector}{section.6.3}% 57
-\BOOKMARK [2][-]{subsection.6.3.3}{External Loop-back Test for the HDMI Connectors}{section.6.3}% 58
-\BOOKMARK [2][-]{subsection.6.3.4}{Conclusion and Discussions}{section.6.3}% 59
-\BOOKMARK [1][-]{section.6.4}{Testing and Verification of the Serial Interface}{chapter.6}% 60
-\BOOKMARK [2][-]{subsection.6.4.1}{Hardware Simulation using Testbench in Modelsim}{section.6.4}% 61
-\BOOKMARK [2][-]{subsection.6.4.2}{Connection between COM port and UART using SignalTap II}{section.6.4}% 62
-\BOOKMARK [2][-]{subsection.6.4.3}{Purpose of Tests}{section.6.4}% 63
-\BOOKMARK [1][-]{section.6.5}{Conclusion and Discussions}{chapter.6}% 64
-\BOOKMARK [0][-]{chapter.7}{Conclusion and Discussion}{}% 65
-\BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 66
-\BOOKMARK [0][-]{appendix.B}{Basics}{}% 67
-\BOOKMARK [1][-]{section.B.1}{Field Programmable Gate Array}{appendix.B}% 68
-\BOOKMARK [2][-]{subsection.B.1.1}{Hardware Description Language}{section.B.1}% 69
-\BOOKMARK [1][-]{section.B.2}{RS-232}{appendix.B}% 70
-\BOOKMARK [0][-]{appendix.C}{Non-standard C-Libraries}{}% 71
-\BOOKMARK [1][-]{section.C.1}{RS232}{appendix.C}% 72
-\BOOKMARK [2][-]{subsection.C.1.1}{Associated functions}{section.C.1}% 73
-\BOOKMARK [1][-]{section.C.2}{Timer}{appendix.C}% 74
-\BOOKMARK [2][-]{subsection.C.2.1}{Associated functions}{section.C.2}% 75
-\BOOKMARK [1][-]{section.C.3}{Signals}{appendix.C}% 76
-\BOOKMARK [2][-]{subsection.C.3.1}{Associated structures}{section.C.3}% 77
-\BOOKMARK [2][-]{subsection.C.3.2}{Associated functions}{section.C.3}% 78
-\BOOKMARK [1][-]{section.C.4}{ncurses}{appendix.C}% 79
-\BOOKMARK [2][-]{subsection.C.4.1}{Associated functions - Initialization}{section.C.4}% 80
-\BOOKMARK [2][-]{subsection.C.4.2}{Associated functions - Various}{section.C.4}% 81
-\BOOKMARK [0][-]{appendix.D}{GBT Control Signals}{}% 82
-\BOOKMARK [0][-]{appendix.E}{Clock Control Software Setup}{}% 83
-\BOOKMARK [1][-]{section.E.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.E}% 84
-\BOOKMARK [0][-]{appendix.F}{Soldering the Ground Pads Underneath the HSMC Contact}{}% 85
-\BOOKMARK [0][-]{appendix.G}{Code Files}{}% 86
-\BOOKMARK [1][-]{section.G.1}{C Code}{appendix.G}% 87
-\BOOKMARK [1][-]{section.G.2}{VHDL Code}{appendix.G}% 88
-\BOOKMARK [0][-]{appendix.H}{Schematic and PCB Layout}{}% 89
-\BOOKMARK [1][-]{figure.caption.91}{Appendix}{appendix.H}% 90
+\BOOKMARK [2][-]{subsection.5.5.3}{Conclusion}{section.5.5}% 40
+\BOOKMARK [1][-]{section.5.6}{Software on the PC Side}{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.6.1}{Specification}{section.5.6}% 42
+\BOOKMARK [2][-]{subsection.5.6.2}{Software Structure and Flowchart}{section.5.6}% 43
+\BOOKMARK [2][-]{subsection.5.6.3}{Conclusion}{section.5.6}% 44
+\BOOKMARK [0][-]{chapter.6}{Loopback Test using the GBT Quartus Example}{}% 45
+\BOOKMARK [1][-]{section.6.1}{GBT Quartus Example}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.2}{120 MHz Reference Clock}{chapter.6}% 47
+\BOOKMARK [2][-]{subsection.6.2.1}{Configuring the onboard Oscillator on the Cyclone V Board}{section.6.2}% 48
+\BOOKMARK [2][-]{subsection.6.2.2}{Configuring the Si5338 External Oscillator}{section.6.2}% 49
+\BOOKMARK [1][-]{section.6.3}{Testing and Verification of the HDMI Daughter Card}{chapter.6}% 50
+\BOOKMARK [2][-]{subsection.6.3.1}{Connectivity Test}{section.6.3}% 51
+\BOOKMARK [2][-]{subsection.6.3.2}{External Loop-back Test for the Fiber-Optic Connector}{section.6.3}% 52
+\BOOKMARK [2][-]{subsection.6.3.3}{External Loop-back Test for the HDMI Connectors}{section.6.3}% 53
+\BOOKMARK [2][-]{subsection.6.3.4}{Conclusion and Discussions}{section.6.3}% 54
+\BOOKMARK [1][-]{section.6.4}{Testing and Verification of the Serial Interface}{chapter.6}% 55
+\BOOKMARK [2][-]{subsection.6.4.1}{Hardware Simulation using Testbench in Modelsim}{section.6.4}% 56
+\BOOKMARK [2][-]{subsection.6.4.2}{Running the PC software design together with the FPGA hardware design}{section.6.4}% 57
+\BOOKMARK [2][-]{subsection.6.4.3}{Purpose of Tests}{section.6.4}% 58
+\BOOKMARK [0][-]{chapter.7}{Conclusion and Discussion}{}% 59
+\BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 60
+\BOOKMARK [0][-]{appendix.B}{Basics}{}% 61
+\BOOKMARK [1][-]{section.B.1}{Field Programmable Gate Array}{appendix.B}% 62
+\BOOKMARK [2][-]{subsection.B.1.1}{Hardware Description Language}{section.B.1}% 63
+\BOOKMARK [1][-]{section.B.2}{RS-232}{appendix.B}% 64
+\BOOKMARK [0][-]{appendix.C}{Non-standard C-Libraries}{}% 65
+\BOOKMARK [1][-]{section.C.1}{RS232}{appendix.C}% 66
+\BOOKMARK [2][-]{subsection.C.1.1}{Associated functions}{section.C.1}% 67
+\BOOKMARK [1][-]{section.C.2}{Timer}{appendix.C}% 68
+\BOOKMARK [2][-]{subsection.C.2.1}{Associated functions}{section.C.2}% 69
+\BOOKMARK [1][-]{section.C.3}{Signals}{appendix.C}% 70
+\BOOKMARK [2][-]{subsection.C.3.1}{Associated structures}{section.C.3}% 71
+\BOOKMARK [2][-]{subsection.C.3.2}{Associated functions}{section.C.3}% 72
+\BOOKMARK [1][-]{section.C.4}{ncurses}{appendix.C}% 73
+\BOOKMARK [2][-]{subsection.C.4.1}{Associated functions - Initialization}{section.C.4}% 74
+\BOOKMARK [2][-]{subsection.C.4.2}{Associated functions - Various}{section.C.4}% 75
+\BOOKMARK [0][-]{appendix.D}{GBT Control Signals}{}% 76
+\BOOKMARK [0][-]{appendix.E}{Clock Control Software Setup}{}% 77
+\BOOKMARK [1][-]{section.E.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.E}% 78
+\BOOKMARK [0][-]{appendix.F}{Soldering the Ground Pads Underneath the HSMC Contact}{}% 79
+\BOOKMARK [0][-]{appendix.G}{Code Files}{}% 80
+\BOOKMARK [1][-]{section.G.1}{C Code}{appendix.G}% 81
+\BOOKMARK [1][-]{section.G.2}{VHDL Code}{appendix.G}% 82
+\BOOKMARK [0][-]{appendix.H}{Schematic and PCB Layout}{}% 83
+\BOOKMARK [1][-]{figure.caption.86}{Appendix}{appendix.H}% 84

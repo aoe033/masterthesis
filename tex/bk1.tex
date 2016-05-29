@@ -1,0 +1,258 @@
+%location/filename: tex/fig/ap1.tex
+%author: Anders Østevik
+%Last edited: 20.05.2016
+%#######--Appendix - HSMC-to-VLDB gerber files--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Hardware Design on the FPGA Side} \label{chap:hardware}
+
+The hardware design in the \gls{fpga} is responsible for treating incoming requests made by the user PC. It will essentially become a module to connect with the GBT example design, were it replaces the \gls{issp}-module that is used today. The module must have access to the GBT control signal register, and this is done by re-connecting the probe and source signals, that is now connected to the \gls{issp}, to the module. The module is mostly completed; what remains is to implement it in the GBT example design, connecting the probe and source signals and effectively replacing the \gls{issp} module. 
+
+\subsection{Specification}
+
+The implemented hardware logic is to contain the following specifications:\\
+\begin{itemize} \setlength{\itemsep}{10pt}
+\item Communication with the user \acrshort{pc} using RS-232.
+  \begin{itemize}
+  \item Receive requests sent from the user \acrshort{pc}. The requests are reserved byte-codes in which the byte-decoder translates to read or write commands. 
+  \item Send out data from the \gls{gbt} control-register to the user \acrshort{pc} when told. The address of the data must be specified and sent from the user \acrshort{pc}.
+  \item Manage to send and receive data at a reasonable speed. 
+  \end{itemize}
+\item Read or write to the \gls{gbt} control-register.
+\end{itemize}
+
+\subsection{Hardware Components}
+
+The below sections gives a brief description of each part of the design.\\
+The \gls{uart} itself is based on the \gls{uart}-design by Pong P. Chu, found in chapter 7 from his book \textit{FPGA Prototyping By VHDL Examples} \cite{chu08}. The Baud Rate Generator is borrowed from the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure. The \gls{uart}-decoder was written in conjunction with the C-program on the \acrshort{pc} side, and is the one component which ties the communication together.\\
+
+The end result forms a design that uses an \gls{uart} to receive and transmit $19200-8-N-1~$ RS-232 data-bytes. The received bytes are stored in a \gls{fifo} until treated by the \gls{uart}-decoder. The "decoder" translates the received bytes into requests, i.e a read-request if $0xDD$ or a write-request if $0xEE$ (write value 0) or $0xFF$ (write value 1), and manipulates or sends out data-bits from the \gls{gbt}-register according to the received requests. The \gls{uart} itself is optimized for $19200~\bit\per\second$, but has been tested to work at speeds up to $57600~\bit\per\second$.
+
+\subsection{UART}
+For communication with the user \acrshort{pc}, a simple \gls{uart} was implemented in the \gls{fpga}.\\
+Simply put, an \gls{uart} is a circuit that transmits and receives parallel data through a serial line \cite{chu08}. It uses the concept of oversampling to synchronize with the incoming data. This involves using a sample-clock which is 16 times faster than the transmitted/received data.\\
+
+The \gls{uart}-design is divided into five parts:
+\begin{itemize}
+\item A Receiver that receives the serial data and reassembles it into parallel data.
+\item A Transmitter that sends parallel data bit by bit out the serial line.
+\item A Baud Rate Generator that generates the right amount of ticks relative to the baud rate and global clock.
+\item Two \gls{fifo}-registers connected to the transmitter and receiver to shift the data in or out.
+\end{itemize}
+
+\subsection{UART Oversampling and the Baud Rate Generator}
+
+To obtain an accurate sampling of the received signal, an asynchronous system like the \gls{uart} uses what is referred to as oversampling. \\
+
+With a typical rate of 16 times the baud rate, the receiver listens for the line to go from idle to the first start bit. When pulled low or high (depending on the system), a counter starts counting from 0 to 7. When the counter reaches 7, the received signal is roughly in the middle of the start bit. By sampling the bit in the middle of its time frame, the receiver avoids the noise and ringing that are generated whenever a serial bit changes \cite{rapid08}. When in the middle of the start bit, the counter needs to tick 16 times before it reaches the middle of the first data bit, the \gls{lsb}. The \gls{lsb} can now be sampled, and the procedure is repeated $N - 1$ times until reaching the last data bit, the \acrshort{msb}. If there is a parity bit, the same procedure is repeated one more time to retrieve it. After retrieving all the data bits, the same procedure is used one last time to sample the M stop bits at the end of the signal. After this, the line is held high until a new start bit arrives. 
+
+%\mdfdefinestyle{mystyle}{rightmargin=90pt, linecolor=darkgray}
+
+\begin{figure}[!htp]
+\begin{center}
+%\begin{minipage}[!h]{0.85\linewidth}  %Needed this to lign the figures up properly
+%\begin{mdframed}%[style=mystyle]
+\begin{tikztimingtable}[%
+    timing/dslope=0.5,
+    timing/.style={x=1ex,y=4ex},
+    x=4ex,
+    timing/rowdist=5ex,
+    %timing/coldist=2ex,
+    xscale=0.8,yscale=0.7, % scale diagrams
+    timing/name/.style={font=\sffamily\scriptsize}
+    ]
+\\
+Data      & 14h 28l 28d{$d_0$} 28d{$d_1$} 28d{$d_2$} \\%16d{$d_3$} 16d{$d_4$} 16d{$d_5$} 16d{$d_6$} 16d{$d_7$} 16d{$stop$}H \\
+Sample ticks        & h 125{c}\\
+\\
+%\vspace{20pt}
+%AD   & 2u 1D{addr} 1U{} 1D{$d_1$} D{$d_1 '$} D{$d_2$} 2D{$d_3$} U \\
+%C/BE & 2u 1D{0010} 6D{BE\#} U  \\
+%IRDY      & UU 4L HLH \\
+%TRDY       & UU HLH 3L H \\
+%DEVSEL     & 2U 6L H\\
+\extracode
+\begin{pgfonlayer}{background}
+\begin{scope}[semithick]
+\vertlines[darkgray, dotted]{1.75, 3.5}
+\vertlines[darkgray,dotted]{7.0, 10.5,...,14}
+  
+  \draw[<->] (1.75,-10) -- (3.5,-10) node [midway,below] {\scriptsize 8 cycles};
+  \draw[<->] (3.5,-10) -- (7.0,-10) node [midway,below] {\scriptsize 16 cycles};
+    \draw[<->] (7.0,-10) -- (10.5,-10) node [midway,below] {\scriptsize 16 cycles};
+      \draw[<->] (10.5,-10) -- (14.0,-10) node [midway,below] {\scriptsize 16 cycles};
+
+  \draw[<-] (3.5, 1) -- (3.5,2) node [midway,above] {\scriptsize Middle};
+ \draw[] (3.5, -2.6) -- (3.5,-2.6) node [midway,above] {\tiny Start bit};
+  \draw[<-] (7, 1) -- (7,2) node [midway,above] {\scriptsize Sample LSB};
+  \draw[<-] (10.5, 1) -- (10.5,2) node [midway,above] {\scriptsize Sample d1};
+  \draw[<-] (14, 1) -- (14,2) node [midway,above] {\scriptsize Sample d2};
+
+\end{scope}
+\end{pgfonlayer}
+\end{tikztimingtable}
+%\end{mdframed}
+\caption{\gls{uart} receive synchronisation and data sampling points with 16 times the sampling rate.}
+\label{fig:uartsample}
+%\end{minipage}
+\end{center}
+
+\end{figure}
+
+To achieve a sampling rate of 16 times the baud rate, a Baud Rate Generator module is implemented into the design. The module generates a one-clock-cycle tick once every $\frac{clock}{16 \times baud\ rate}$ clock cycles. This is achieved by counting in certain steps given by the formula below:
+
+\begin{equation}
+Baud\ frequency = \frac{16 \times baud\ rate}{GCD(clock, 16 \times baud\ rate)}
+\end{equation}
+
+, where baud frequency is the count steps, and \textit{GCD} is the greatest common divisor between the global clock and the baud rate times 16 \cite{velure10}. \\
+For a baud rate of $19200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, the counter must count in steps of $96$ per clock cycle. 
+
+Once the counter reaches a given baud limit, the counter resets and the tick-signal is pulled high. After one clock cycle, the tick-signal is pulled low and the counter starts to count upwards again. The baud limit is given by:
+
+\begin{equation}
+Baud\ limit= \frac{clock}{GCD(clock, 16 \times baud\ rate)} - baud\ frequency
+\end{equation}
+
+, where clock is the global clock of the system and GCD is the greatest common divisor between the global clock and the baud rate times 16 \cite{velure10}. \\
+For a baud rate of $19200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, the counter must count in steps of $96$ up to the baud limit of $15565$, before pulling the tick-signal high and start over again. 
+
+\subsection{UART Receiver}
+The receiver is essentially a finite state machine, divided into four states: the idle-, start-, data- and stop state. It uses the Start and Stop bits to reset the state machine in an attempt to synchronize the clock phase to the incoming signal. For this, the receiver contains three registers: the s- and  n registers for counting, and a b register for data storing. The s-register keeps track of the sample ticks and n-register the number of data bits sampled.
+There are two constants defined for the receiver: the $C\_DBIT$ constant, which indicates the number of data bits; and the $C\_SB\_TICK$ constant, which indicates how many ticks that is required for the stop bit(s) (16 ticks for 1 stop bit). 
+
+\begin{figure}[!htp]
+\begin{center}
+%\usetikzlibrary{arrows,automata}
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
+  \node[initial,state,accepting] (idle)      {\small{\textit{idle}}};
+  \node[state,accepting]         (start) [right of=idle]  {\small{\textit{start}}};
+  \node[state,accepting]         (data) [right of=start] {\small{\textit{data}}};
+  \node[state,accepting]         (stop) [right of=data] {\small{\textit{stop}}};
+ 
+  %\path[->]          (S)  edge [loop above] node {a} (idle);
+  \path[->]          (idle)  edge [loop above] node {} (idle);
+  \path[->]           (idle)  edge              node {\small{\textit{rx = '0'}}} (start);
+  \path[->]          (start)  edge [loop above] node {\small{\textit{s = s+1}}} (start);
+  \path[->] (start) edge             node {\small{\textit{s = '7'}}} (data);
+  \path [->]             (data) edge [loop above] node {\small{\textit{n = n+1}}} (data);
+  \path[->] (data) edge             node {\small{\textit{n = C\_DBIT-1}}} (stop);
+  \path [->]             (stop) edge [loop above] node {\small{\textit{s = s+1}}} (stop)
+             edge [bend left]  node[align=center] {
+             \small{\textit{s = C\_SB\_TICK-1}} \\ \small{\textit{rx\_done\_tick = '1'}}
+             } (idle);
+\end{tikzpicture}
+\caption{\gls{uart} receiver state machine.}
+\label{fig:uartrx}
+\end{center}
+\end{figure}
+
+\subsubsection{Idle state}
+Starting with the idle state: given that there is not already a signal being received and sampled (i.e $rx\_done\_tick = '1'$), the receiver waits for the rx-signal to go low (i.e detecting a start signal). The s-register then resets and the state machine goes to the next state: the start state. 
+
+\subsubsection{Start state}
+When in the start state, the ticks generated by the baud rate generator clocks the s-registers and waits for it to count up to 7 (i.e in the middle of the start-bit). It then resets the s- and n-registers and sets the next state to the data state. 
+
+\subsubsection{Data state}
+Since the received signal so far is the middle of the start bit, the s-register must count up to 15  before reaching the middle of the data bit so that the b-register can sample the data. Each time the s-register reaches 15, the b-register shifts in the rx by 1 bit while the n-register increments by 1, keeping track of the bit width. When the n-register reaches a count equal to the $C\_DBIT$ constant minus 1, the transmission is at its end, and the state machine shift to the last state: the stop state. 
+
+\subsubsection{Stop state}
+The stop state uses the sample ticks in conjunction with the s-register to count the stop bit(s) duration by using the $C\_SB\_TICK-1$ as the upper count limit. When done, the  $rx\_done\_tick$ signal is set to 1 and the state machine shifts back to the idle state. We have now successfully received a serially  transmitted byte. %The state machine is shown in figure \ref{fig:uartrx}. 
+
+\subsection{UART Transmitter}
+The \gls{uart} transmitter has a similar design to that of the receiver; it uses the same state machine structure, but for the purpose of shifting out data. In addition to the s-, n-, and b-registers used for counting, the transmitter contains a din-register for input parallel data and a $1~\bit$ tx-register for shifting out the data. Connected to the tx-register is a tx output signal. To prevent multiple clocks, the baud rate generator is also used to clock the transmitter. For the transmitter to be properly synchronized with the receiver, it instead uses the counter registers to slow down the operation 16 times. This is because there is no oversampling involved in transmitting a signal.\\
+
+\begin{figure}[!htp]
+\begin{center}
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
+  \node[initial,state,accepting] (idle)      {\small{\textit{idle}}};
+  \node[state,accepting]         (start) [right of=idle]  {\small{\textit{start}}};
+  \node[state,accepting]         (data) [right of=start] {\small{\textit{data}}};
+  \node[state,accepting]         (stop) [right of=data] {\small{\textit{stop}}};
+ 
+  %\path[->]          (S)  edge [loop above] node {a} (idle);
+  \path[->]          (idle)  edge [loop above] node {} (idle);
+  \path[->]           (idle)  edge              node {\small{\textit{tx\_start = '1'}}} (start);
+  \path[->]          (start)  edge [loop above] node {\small{\textit{s = s+1}}} (start);
+  \path[->] (start) edge             node {\small{\textit{s = '15'}}} (data);
+  \path [->]             (data) edge [loop above] node {\small{\textit{n = n+1}}} (data);
+  \path[->] (data) edge             node {\small{\textit{n = C\_DBIT-1}}} (stop);
+  \path [->]             (stop) edge [loop above] node {\small{\textit{s = s+1}}} (stop)
+             edge [bend left]  node[align=center] {
+             \small{\textit{s = C\_SB\_TICK-1}} \\ \small{\textit{tx\_done\_tick = '1'}}
+             } (idle);
+\end{tikzpicture}
+\caption{\gls{uart} transmitter state machine, similar to that of the receiver.}
+\label{fig:uarttx}
+\end{center}
+\end{figure}
+
+\subsubsection{Idle state}
+When in the idle state, the tx-register is held high for idle line and the b-register is connected to the din register for data input. The state machine remains in the idle state until the $tx\_start$ signal changes from low to high. It then shift to the start state to begin the transmission of the data stored in the b-register. 
+
+\subsubsection{Start state}
+When in the start state, the tx-register is held low for the start bit to be transmitted out. When the s-register reached the count of 15, the start bit is transmitted and the state machine shifts to the data state to further transmit the actual data bits.
+
+\subsubsection{Data state}
+When in the data state, the tx-register is set to the first bit of the b-register, while the b-register shift its data using a simple right shift operation every 16 clock ticks (s-register reaches 15). To keep track of how many data bits that have been transmitted, the n-register increments by 1 at the same rate as the b-register shifts the data (same as for the receiver). When reaching $C\_DBIT-1$, the data bits is finished transmitting out and the state machine shifts to the stop state.
+
+\subsubsection{Stop state}
+When in the stop state, the tx-register is held high indicating a stop bit is being transmitted. When the s-register reaches a count equal $C\_SBIT - 1$, the stop bits are finished transmitting. The $tx\_done\_tick$ signal is set to high and the state machine shifts back to the idle state, ready to transmit the next data byte.
+
+\subsection{FIFO Buffers}
+Both the \gls{uart} transmitter and receiver has \gls{fifo}-buffers that stores the incoming data sequentially in a "First In, First Out" manner. On the receiver side, the incoming data is stored until it gets the read-out signal ($rd\_uart$ goes high). It then places the first stored byte on the ($r\_data$)-line for one clock cycle. As long as the read-out signal remains high and there is bytes stored, the \gls{fifo} will spew out data on the ($r\_data$)-line with the rising edge of the clock. The $rx\_empty$ signal indicates whether there is one or more bytes stored in the \gls{fifo}. On the transmitter side, when data from the \gls{fpga} is written into the \gls{fifo}, it sends a signal to the transmitter to start shifting out the data stored in the buffer, oldest byte first. Having \glspl{fifo} to store data between the \gls{uart} and the rest of the \gls{fpga} logic is necessary to prevent data loss, as the \gls{fpga} logic operates at a much higher clock speeds than the \gls{uart}  can transmit and receive data. If a \gls{fifo} gets filled up, no new data will be written to it until data is read out of it, freeing one slot.
+
+\subsection{UART Decoder}
+The \gls{uart} decoder is a state machine connected to the other end of the \gls{uart} receiver- and transmitter \glspl{fifo}. It reads out the received bytes and does tasks according to the order and value of the bytes. Starting at the idle state, the decoder waits for a request byte from the fifo followed by an address byte. The request byte can for instance be a read or a write. The following small sections describes the different decoder states. 
+
+\begin{figure}[!htp]
+\begin{center}
+%\usetikzlibrary{arrows,automata}
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
+  \node[initial,state] (idle)      {\small{\textit{idle}}};
+  \node[state,accepting]         (read1) [right of=idle]  {\small{\textit{read1}}};
+  \node[state]         (wait1) [right of=read1] {\small{\textit{wait1}}};
+  \node[state,accepting]         (read2) [right of=wait1] {\small{\textit{read2}}};
+ 
+  %\path[->]          (S)  edge [loop above] node {a} (idle);
+  \path[->]          (idle)  edge [loop above] node {\small {\textit {uart-reset count}}} (idle);
+  \path[->]           (idle)  edge              node {\small{\textit{rx\_empty = '0'}}} (read1);
+  \path[->]          (read1);
+  \path[->] (read1) edge             node {\small{\textit{byte = request}}} (wait1);
+  \path [->]             (wait1) edge [loop above] node {\small{\textit{timeout count}}} (wait1);
+  \path[->] (wait1) edge             node {\small{\textit{rx\_empty = '0'}}} (read2);
+  \path [->]             (read2)
+             edge [in=-90,out=-120,above,distance=2cm]  node[align=center] {
+             \small{\textit{}}
+             } (idle);
+  \path [->]             (wait1)
+             edge [in=60,out=120,above,distance=1cm]  node[align=center] {
+             \small{\textit{Timeout!}}
+             } (idle);          
+  \path [->] (read1)
+             edge [bend left]  node[align=center] {
+             \small{\textit{byte /= request}}
+             } (idle);
+\end{tikzpicture}
+\caption{\gls{uart} decoder state machine.}
+\label{fig:uartdec}
+\end{center}
+\end{figure}
+
+\subsubsection{Idle state}
+Being initially in the idle state, the decoder is triggered by the $rx\_empty$ signal coming from the rx-fifo, which is held low if there is at least one byte stored in the rx-fifo. If $rx\_empty$ is low, the decoder sends a read signal ($rd\_uart$), telling the rx-fifo to place the next in-line byte on the read-bus ($r\_data$), and in the same delta-time assigns the read-bus to a new register ($b\_reg(0)$) for temporary storage. The decoder then goes to a read state.
+
+\subsubsection{Read1 state}
+ In the read1 state, the first temporary stored byte is analyzed. The byte must have a value that is equal to one of three predefined constants, called requests (See $uart\_gbt\_pkg.vhdl$). This first byte is interpreted as a read- or write-request, sent from the client \acrshort{pc} through the serial connection. If the request-byte is equal to a "read" request, a "write 0" request or a "write 1" request, the decoder goes on to a wait state. If the byte is not a request-value, the state machine returns back to idle and reset the registers.
+
+\subsubsection{Wait1 state}
+  In the wait1 state, the decoder waits for the next arriving byte after the first one. The wait state does the same as the idle state, i.e waits for $rx\_empty$ to become low before reading out the next byte from the rx-fifo. To prevent the state machine from getting stuck in the wait state (if an address byte does not arrive in time), an additional count-register, triggered by the baud generator ticks, counts up to a predefined value, $C\_TIMEOUT$. $C\_TIMEOUT$ is defined to be a reasonable larger value than the pre-estimated time it takes for the next byte to arrive, i.e $16 ~ticks\per\bit \times 10 ~bits$. If $rx\_empty$ is not triggered low before the count-register has finished counting, the state machine resets to idle. If the next byte arrives before timeout, the decoder stores it and goes to the final state.
+
+\subsubsection{Read2 state}
+  In the read2 state, the value of the first byte, the request-byte, decides if the decoder should perform a read or a write operation on the gbt-register. The value of the last received byte is treated as an address to the data of the gbt-register the client wants to read or write to.  
+
+  \end{document}

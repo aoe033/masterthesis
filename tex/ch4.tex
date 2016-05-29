@@ -242,9 +242,9 @@ Figure \ref{fig:uarttb} shows three read operations followed by a write operatio
     \label{fig:uarttb}
 \end{figure}
 
-\subsection{Connection between COM port and UART using SignalTap II}
+\subsection{Running the PC software design together with the FPGA hardware design} \label{test:designrun}
 
-\textit{By using SignalTap II to tap the transmitter and receiver lines, it is possible to verify that the \gls{fpga} design is responding correctly to the bytes sent from the C-program on the \gls{pc} side.} 
+\textit{Check if the \gls{fpga} design is responding correctly to the bytes sent from the C-program on the \gls{pc} side.} 
 
 \subsection{Purpose of Tests}
 \begin{itemize}\setlength{\itemsep}{10pt}
@@ -255,11 +255,15 @@ Figure \ref{fig:uarttb} shows three read operations followed by a write operatio
 
 \subsubsection{Experimental Setup}
 
+The Cyclone V Gt \gls{fpga} was programmed with the hardware design (\ref{chap:hardware}) and connected to the user PC using a \gls{usbrs} cable with a $5~\volt$ voltage converter between the FPGA and the cable. The software was granted PC admin access so that it was allowed access to the \gls{com}. The PC \gls{com} itself was configured in device manager (Windows) with a baud rate corresponding to the baud rate set in the hardware design and software. 
+
 \subsubsection{Results}
 
-While testing the \gls{fpga} design, it occured that the \gls{uart} would hang after a random period of time. The reason as to why this was happening has yet to be found. A quick fix to this, however, was to simply implement a timer that would reset the \gls{uart} on the condition that no bytes have arrived in a given amount of time when the \gls{uart} is in the idle state. This is not a permanent fix, since there is a chance that the \gls{uart} might reset while a byte is under transmission. This might give an explanation as to why the C-program in some cases did not receive all the data it requested during transmission.
+The software on the PC side was able to communicate with the FPGA via the \gls{com}, and was able to read the registers as well as write to them. In some occurrences the software did not receive all addresses it requested a read on, resulting in some values not being read as often as others. To fix this, the repeat-functionality was implemented into the software (see \ref{sec:sndrec}), and this fixed the problem.\\
 
-\section{Conclusion and Discussions}
+While testing the \gls{fpga} design together with the send/receive module, it occured that the \gls{uart} would hang after a random period of time. The reason as to why this was happening has yet to be found. A quick fix to this, however, was to simply implement a timer that would reset the \gls{uart} unit on the condition that no bytes have arrived in a given amount of time when in the idle state; the time period exceeds the time it takes for two bytes to arrive. This is not a permanent fix, since there is a chance that the \gls{uart} might reset while a byte is under transmission. This might give an explanation as to why the C-program in some cases did not receive all the data it requested during transmission.
+
+To further investigate this fault, one could use SignalTap II to probe the \gls{uart} signals and identify and correct irregular behaviour in relevant signals. Due to time constraints, the quick fix was preferred.
 
 \chapter{Conclusion and Discussion}
 

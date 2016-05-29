@@ -1,15 +1,15 @@
-\BOOKMARK [0][-]{chapter.1}{External and Internal Loopback Test of the GBT Bank Quartus Example}{}% 1
-\BOOKMARK [1][-]{section.1.1}{120 MHz Reference Clock}{chapter.1}% 2
-\BOOKMARK [2][-]{subsection.1.1.1}{Configuring the onboard Oscillator on the Cyclone V Board}{section.1.1}% 3
-\BOOKMARK [2][-]{subsection.1.1.2}{Configuring the Si5338 External Oscillator}{section.1.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Testing and Verification of the HDMI Daughter Card}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.2.1}{Connectivity Test}{section.1.2}% 6
-\BOOKMARK [2][-]{subsection.1.2.2}{External Loop-back Test for the Fiber-Optic Connector}{section.1.2}% 7
-\BOOKMARK [2][-]{subsection.1.2.3}{External Loop-back Test for the HDMI Connectors}{section.1.2}% 8
-\BOOKMARK [2][-]{subsection.1.2.4}{Conclusion and Discussions}{section.1.2}% 9
-\BOOKMARK [1][-]{section.1.3}{Testing and Verification of the Serial Interface}{chapter.1}% 10
-\BOOKMARK [2][-]{subsection.1.3.1}{Hardware Simulation using Testbench in Modelsim}{section.1.3}% 11
-\BOOKMARK [2][-]{subsection.1.3.2}{Connection between COM port and UART using SignalTap II}{section.1.3}% 12
-\BOOKMARK [2][-]{subsection.1.3.3}{Purpose of Tests}{section.1.3}% 13
-\BOOKMARK [1][-]{section.1.4}{Conclusion and Discussions}{chapter.1}% 14
+\BOOKMARK [0][-]{chapter.1}{Loopback Test using the GBT Quartus Example}{}% 1
+\BOOKMARK [1][-]{section.1.1}{GBT Quartus Example}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{120 MHz Reference Clock}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Configuring the onboard Oscillator on the Cyclone V Board}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Configuring the Si5338 External Oscillator}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{Testing and Verification of the HDMI Daughter Card}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{Connectivity Test}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.2}{External Loop-back Test for the Fiber-Optic Connector}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.3}{External Loop-back Test for the HDMI Connectors}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.4}{Conclusion and Discussions}{section.1.3}% 10
+\BOOKMARK [1][-]{section.1.4}{Testing and Verification of the Serial Interface}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.4.1}{Hardware Simulation using Testbench in Modelsim}{section.1.4}% 12
+\BOOKMARK [2][-]{subsection.1.4.2}{Connection between COM port and UART using SignalTap II}{section.1.4}% 13
+\BOOKMARK [2][-]{subsection.1.4.3}{Purpose of Tests}{section.1.4}% 14
 \BOOKMARK [0][-]{chapter.2}{Conclusion and Discussion}{}% 15

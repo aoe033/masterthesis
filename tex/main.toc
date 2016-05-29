@@ -48,30 +48,19 @@
 \contentsline {section}{\numberline {5.5}Hardware Design on the FPGA Side}{23}{section.5.5}
 \contentsline {subsection}{\numberline {5.5.1}Specification}{23}{subsection.5.5.1}
 \contentsline {subsection}{\numberline {5.5.2}Hardware Components}{23}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}UART}{24}{subsection.5.5.3}
-\contentsline {subsection}{\numberline {5.5.4}UART Oversampling and the Baud Rate Generator}{24}{subsection.5.5.4}
-\contentsline {subsection}{\numberline {5.5.5}UART Receiver}{25}{subsection.5.5.5}
-\contentsline {subsubsection}{Idle state}{26}{section*.37}
-\contentsline {subsubsection}{Start state}{26}{section*.38}
-\contentsline {subsubsection}{Data state}{26}{section*.39}
-\contentsline {subsubsection}{Stop state}{26}{section*.40}
-\contentsline {subsection}{\numberline {5.5.6}UART Transmitter}{27}{subsection.5.5.6}
-\contentsline {subsubsection}{Idle state}{27}{section*.42}
-\contentsline {subsubsection}{Start state}{27}{section*.43}
-\contentsline {subsubsection}{Data state}{27}{section*.44}
-\contentsline {subsubsection}{Stop state}{28}{section*.45}
-\contentsline {subsection}{\numberline {5.5.7}FIFO Buffers}{28}{subsection.5.5.7}
-\contentsline {subsection}{\numberline {5.5.8}UART Decoder}{28}{subsection.5.5.8}
-\contentsline {subsubsection}{Idle state}{28}{section*.47}
-\contentsline {subsubsection}{Read1 state}{29}{section*.48}
-\contentsline {subsubsection}{Wait1 state}{29}{section*.49}
-\contentsline {subsubsection}{Read2 state}{29}{section*.50}
-\contentsline {section}{\numberline {5.6}Software on the PC Side}{30}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Specification}{30}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Software Structure and Flowchart}{30}{subsection.5.6.2}
-\contentsline {subsubsection}{Interface module}{30}{section*.51}
-\contentsline {subsubsection}{Send/Receive module}{31}{section*.53}
-\contentsline {section}{\numberline {5.7}Conclusion and Discussion}{34}{section.5.7}
+\contentsline {subsubsection}{UART}{24}{section*.35}
+\contentsline {subsubsection}{Oversampling and the Baud Rate Generator}{24}{section*.36}
+\contentsline {subsubsection}{Receiver}{25}{section*.38}
+\contentsline {subsubsection}{Transmitter}{26}{section*.40}
+\contentsline {subsubsection}{FIFO Buffers}{26}{section*.42}
+\contentsline {subsubsection}{Decoder}{27}{section*.43}
+\contentsline {subsection}{\numberline {5.5.3}Conclusion}{27}{subsection.5.5.3}
+\contentsline {section}{\numberline {5.6}Software on the PC Side}{28}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Specification}{28}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Software Structure and Flowchart}{28}{subsection.5.6.2}
+\contentsline {subsubsection}{Interface module}{28}{section*.45}
+\contentsline {subsubsection}{Send/Receive module}{29}{section*.47}
+\contentsline {subsection}{\numberline {5.6.3}Conclusion}{32}{subsection.5.6.3}
 \contentsline {chapter}{\numberline {6}Loopback Test using the GBT Quartus Example}{35}{chapter.6}
 \contentsline {section}{\numberline {6.1}GBT Quartus Example}{35}{section.6.1}
 \contentsline {section}{\numberline {6.2}120 MHz Reference Clock}{35}{section.6.2}
@@ -79,29 +68,28 @@
 \contentsline {subsection}{\numberline {6.2.2}Configuring the Si5338 External Oscillator}{36}{subsection.6.2.2}
 \contentsline {section}{\numberline {6.3}Testing and Verification of the HDMI Daughter Card}{36}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Connectivity Test}{36}{subsection.6.3.1}
-\contentsline {subsubsection}{Purpose of Test}{37}{section*.57}
-\contentsline {subsubsection}{Experimental Setup}{37}{section*.58}
-\contentsline {subsubsection}{Results}{37}{section*.59}
+\contentsline {subsubsection}{Purpose of Test}{37}{section*.52}
+\contentsline {subsubsection}{Experimental Setup}{37}{section*.53}
+\contentsline {subsubsection}{Results}{37}{section*.54}
 \contentsline {subsection}{\numberline {6.3.2}External Loop-back Test for the Fiber-Optic Connector}{38}{subsection.6.3.2}
-\contentsline {subsubsection}{Purpose of Test}{38}{section*.60}
-\contentsline {subsubsection}{Experimental Setup}{38}{section*.61}
-\contentsline {subsubsection}{Results}{38}{section*.62}
+\contentsline {subsubsection}{Purpose of Test}{38}{section*.55}
+\contentsline {subsubsection}{Experimental Setup}{38}{section*.56}
+\contentsline {subsubsection}{Results}{38}{section*.57}
 \contentsline {subsection}{\numberline {6.3.3}External Loop-back Test for the HDMI Connectors}{38}{subsection.6.3.3}
-\contentsline {subsubsection}{Purpose of Tests}{38}{section*.63}
-\contentsline {subsubsection}{Experimental Setup}{39}{section*.64}
-\contentsline {subsubsection}{Results}{39}{section*.66}
+\contentsline {subsubsection}{Purpose of Tests}{38}{section*.58}
+\contentsline {subsubsection}{Experimental Setup}{39}{section*.59}
+\contentsline {subsubsection}{Results}{39}{section*.61}
 \contentsline {subsection}{\numberline {6.3.4}Conclusion and Discussions}{40}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Testing and Verification of the Serial Interface}{42}{section.6.4}
 \contentsline {subsection}{\numberline {6.4.1}Hardware Simulation using Testbench in Modelsim}{42}{subsection.6.4.1}
-\contentsline {subsubsection}{Purpose of Tests}{42}{section*.71}
-\contentsline {subsubsection}{Bitvis Utility Library}{43}{section*.72}
-\contentsline {subsubsection}{Experimental Setup}{43}{section*.73}
-\contentsline {subsubsection}{Results}{43}{section*.74}
-\contentsline {subsection}{\numberline {6.4.2}Connection between COM port and UART using SignalTap II}{44}{subsection.6.4.2}
+\contentsline {subsubsection}{Purpose of Tests}{42}{section*.66}
+\contentsline {subsubsection}{Bitvis Utility Library}{43}{section*.67}
+\contentsline {subsubsection}{Experimental Setup}{43}{section*.68}
+\contentsline {subsubsection}{Results}{43}{section*.69}
+\contentsline {subsection}{\numberline {6.4.2}Running the PC software design together with the FPGA hardware design}{44}{subsection.6.4.2}
 \contentsline {subsection}{\numberline {6.4.3}Purpose of Tests}{44}{subsection.6.4.3}
-\contentsline {subsubsection}{Experimental Setup}{44}{section*.76}
-\contentsline {subsubsection}{Results}{44}{section*.77}
-\contentsline {section}{\numberline {6.5}Conclusion and Discussions}{44}{section.6.5}
+\contentsline {subsubsection}{Experimental Setup}{44}{section*.71}
+\contentsline {subsubsection}{Results}{44}{section*.72}
 \contentsline {chapter}{\numberline {7}Conclusion and Discussion}{45}{chapter.7}
 \contentsline {chapter}{\numberline {A}SignalTap II: Receiving end of the fiber-optic external loopback test}{47}{appendix.A}
 \contentsline {chapter}{\numberline {B}Basics}{49}{appendix.B}
@@ -127,4 +115,4 @@
 \contentsline {section}{\numberline {G.1}C Code}{71}{section.G.1}
 \contentsline {section}{\numberline {G.2}VHDL Code}{72}{section.G.2}
 \contentsline {chapter}{\numberline {H}Schematic and PCB Layout}{73}{appendix.H}
-\contentsline {section}{Appendix}{79}{figure.caption.91}
+\contentsline {section}{Appendix}{79}{figure.caption.86}

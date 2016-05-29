@@ -15,37 +15,38 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Simplified diagram over the PC to CRU serial interface.\relax }}{19}{figure.caption.28}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{21}{figure.caption.33}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single-ended transmitter and receiver signals.\relax }}{22}{figure.caption.34}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.35}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.36}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{27}{figure.caption.41}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces \gls {uart} decoder state machine.\relax }}{29}{figure.caption.46}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart over the main loop of the interface module.\relax }}{32}{figure.caption.52}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Flowchart over the transmitter function.\relax }}{33}{figure.caption.54}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Flowchart over the receiver function.\relax }}{34}{figure.caption.55}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.37}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.39}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{26}{figure.caption.41}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces \gls {uart} decoder state machine.\relax }}{27}{figure.caption.44}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart over the main loop of the interface module.\relax }}{30}{figure.caption.46}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Flowchart over the transmitter function.\relax }}{31}{figure.caption.48}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Flowchart over the receiver function.\relax }}{32}{figure.caption.49}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Snapshot of the GBT software interface in action. The colors in this picture has been inverted for a better visual representation.\relax }}{34}{figure.caption.50}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The $Si5338$ evaluation board \cite {si16}.\relax }}{37}{figure.caption.56}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Transmitter and receiver delay chains.\relax }}{40}{figure.caption.65}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Muxed delay chain on the receiver line.\relax }}{40}{figure.caption.67}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{41}{figure.caption.69}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{42}{figure.caption.70}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Three read operations followed by a write. \relax }}{43}{figure.caption.75}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{48}{figure.caption.78}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of an RS-232 signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{51}{figure.caption.79}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The $Si5338$ evaluation board \cite {si16}.\relax }}{37}{figure.caption.51}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Transmitter and receiver delay chains.\relax }}{40}{figure.caption.60}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Muxed delay chain on the receiver line.\relax }}{40}{figure.caption.62}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{41}{figure.caption.64}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{42}{figure.caption.65}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Three read operations followed by a write. \relax }}{43}{figure.caption.70}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{48}{figure.caption.73}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {E.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{66}{figure.caption.82}
-\contentsline {figure}{\numberline {E.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{67}{figure.caption.83}
-\contentsline {figure}{\numberline {E.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{67}{figure.caption.83}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {F.1}{\ignorespaces EFD reflow thermal profile recommendations \cite {krepro_reflow}.\relax }}{69}{figure.caption.84}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of an RS-232 signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{51}{figure.caption.74}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {H.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{74}{figure.caption.87}
-\contentsline {figure}{\numberline {H.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{75}{figure.caption.88}
-\contentsline {figure}{\numberline {H.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{76}{figure.caption.89}
-\contentsline {figure}{\numberline {H.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{77}{figure.caption.90}
-\contentsline {figure}{\numberline {H.5}{\ignorespaces PCB Layout, inner layers.\relax }}{78}{figure.caption.91}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{66}{figure.caption.77}
+\contentsline {figure}{\numberline {E.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{67}{figure.caption.78}
+\contentsline {figure}{\numberline {E.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{67}{figure.caption.78}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {F.1}{\ignorespaces EFD reflow thermal profile recommendations \cite {krepro_reflow}.\relax }}{69}{figure.caption.79}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {H.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{74}{figure.caption.82}
+\contentsline {figure}{\numberline {H.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{75}{figure.caption.83}
+\contentsline {figure}{\numberline {H.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{76}{figure.caption.84}
+\contentsline {figure}{\numberline {H.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{77}{figure.caption.85}
+\contentsline {figure}{\numberline {H.5}{\ignorespaces PCB Layout, inner layers.\relax }}{78}{figure.caption.86}

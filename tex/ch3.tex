@@ -75,41 +75,40 @@ The standard will be used for asynchronous transmission of data between the \acr
 
 \section{Hardware Design on the FPGA Side} \label{chap:hardware}
 
-The hardware design in the \gls{fpga} is responsible for treating incoming requests made by the user PC. It will essentially become a module to connect with the GBT example design, were it replaces the \gls{issp}-module that is used today. The module must have access to the GBT control signal register, and this is done by re-connecting the probe and source signals, that is now connected to the \gls{issp}, to the module. The module is mostly completed; what remains is to implement it in the GBT example design, connecting the probe and source signals and effectively replacing the \gls{issp} module. 
+The \gls{fpga} hardware design is responsible for treating incoming requests made by the user PC. It will essentially become a module to connect with the GBT example design, were it replaces the \gls{issp}-module that is used today. The module must have access to the GBT control signal register, and this is done by re-connecting the already defined probe and source signals, which is connected to the \gls{issp}, to this module. The module is mostly completed; what remains is to implement it in the GBT example design and connect the probe and source/switches registers to the module, effectively replacing the \gls{issp} module. For now, the module uses dummy registers instead of the real probe and source/switches registers. 
 
 \subsection{Specification}
 
-The implemented hardware logic is to contain the following specifications:\\
+When finished, the implemented hardware logic is to contain the following specifications:\\
 \begin{itemize} \setlength{\itemsep}{10pt}
-\item Communication with the user \acrshort{pc} using RS-232.
+\item Communication with the user \acrshort{pc} using UART and RS-232.
   \begin{itemize}
   \item Receive requests sent from the user \acrshort{pc}. The requests are reserved byte-codes in which the byte-decoder translates to read or write commands. 
   \item Send out data from the \gls{gbt} control-register to the user \acrshort{pc} when told. The address of the data must be specified and sent from the user \acrshort{pc}.
   \item Manage to send and receive data at a reasonable speed. 
   \end{itemize}
-\item Read or write to the \gls{gbt} control-register.
+\item Read and write to the \gls{gbt} control-register.
 \end{itemize}
 
 \subsection{Hardware Components}
 
-The below sections gives a brief description of each part of the design.\\
-The \gls{uart} itself is based on the \gls{uart}-design by Pong P. Chu, found in chapter 7 from his book \textit{FPGA Prototyping By VHDL Examples} \cite{chu08}. The Baud Rate Generator is borrowed from the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure. The \gls{uart}-decoder was written in conjunction with the C-program on the \acrshort{pc} side, and is the one component which ties the communication together.\\
+The below sections gives a brief description of each part of the module design.\\
+The \gls{uart} itself was based on the \gls{uart}-design by Pong P. Chu, found in chapter 7 from his book \textit{FPGA Prototyping By VHDL Examples} \cite{chu08}. The Baud Rate Generator was borrowed from the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure. The \gls{uart}-decoder was written in conjunction with the C-program on the \acrshort{pc} side, and is the one component which ties the communication together.\\
 
-The end result forms a design that uses an \gls{uart} to receive and transmit $19200-8-N-1~$ RS-232 data-bytes. The received bytes are stored in a \gls{fifo} until treated by the \gls{uart}-decoder. The "decoder" translates the received bytes into requests, i.e a read-request if $0xDD$ or a write-request if $0xEE$ (write value 0) or $0xFF$ (write value 1), and manipulates or sends out data-bits from the \gls{gbt}-register according to the received requests. The \gls{uart} itself is optimized for $19200~\bit\per\second$, but has been tested to work at speeds up to $57600~\bit\per\second$.
+The end result forms a design that uses an \gls{uart} to receive and transmit $19200-8-N-1~$ RS-232 data-bytes. The received bytes are stored in a \gls{fifo} until treated by the \gls{uart}-decoder. The "decoder" translates the received bytes into requests, i.e a read-request if 0xDD or a write-request if 0xEE (write value 0) or 0xFF (write value 1), and manipulates or sends out data-bits from the \gls{gbt}-register according to the received requests. The \gls{uart} itself is optimized for $19200~\bit\per\second$, but has been tested to work at speeds up to $57600~\bit\per\second$.
 
-\subsection{UART}
-For communication with the user \acrshort{pc}, a simple \gls{uart} was implemented in the \gls{fpga}.\\
-Simply put, an \gls{uart} is a circuit that transmits and receives parallel data through a serial line \cite{chu08}. It uses the concept of oversampling to synchronize with the incoming data. This involves using a sample-clock which is 16 times faster than the transmitted/received data.\\
+\subsubsection{UART}
+Simply put, an \gls{uart} is a circuit that transmits and receives parallel data through a serial line \cite{chu08}. Since it has no dedicated clock line, it uses the concept of oversampling to synchronize with the incoming data. This involves using a sample-clock which is 16 times faster than the transmitted/received data; the transmitting and receiving end must thus have matched data rates.\\
 
 The \gls{uart}-design is divided into five parts:
 \begin{itemize}
 \item A Receiver that receives the serial data and reassembles it into parallel data.
 \item A Transmitter that sends parallel data bit by bit out the serial line.
 \item A Baud Rate Generator that generates the right amount of ticks relative to the baud rate and global clock.
-\item Two \gls{fifo}-registers connected to the transmitter and receiver to shift the data in or out.
+\item Two \gls{fifo}-buffers connected to the transmitter and receiver to temporary store the bytes in the order of arrival.
 \end{itemize}
 
-\subsection{UART Oversampling and the Baud Rate Generator}
+\subsubsection{Oversampling and the Baud Rate Generator}
 
 To obtain an accurate sampling of the received signal, an asynchronous system like the \gls{uart} uses what is referred to as oversampling. \\
 
@@ -186,11 +185,11 @@ Baud\ limit= \frac{clock}{GCD(clock, 16 \times baud\ rate)} - baud\ frequency
 , where clock is the global clock of the system and GCD is the greatest common divisor between the global clock and the baud rate times 16 \cite{velure10}. \\
 For a baud rate of $19200\ \bit\per\second$ and a clock of $50\ \mega\hertz$, the counter must count in steps of $96$ up to the baud limit of $15565$, before pulling the tick-signal high and start over again. 
 
-\subsection{UART Receiver}
+\subsubsection{Receiver}
 The receiver is essentially a finite state machine, divided into four states: the idle-, start-, data- and stop state. It uses the Start and Stop bits to reset the state machine in an attempt to synchronize the clock phase to the incoming signal. For this, the receiver contains three registers: the s- and  n registers for counting, and a b register for data storing. The s-register keeps track of the sample ticks and n-register the number of data bits sampled.
-There are two constants defined for the receiver: the $C\_DBIT$ constant, which indicates the number of data bits; and the $C\_SB\_TICK$ constant, which indicates how many ticks that is required for the stop bit(s) (16 ticks for 1 stop bit). 
+There are two constants defined for the receiver: the $C\_DBIT$ constant, which indicates the number of data bits; and the $C\_SB\_TICK$ constant, which indicates how many ticks that is required for the stop bit(s) (see $uart\_gbt\_pkg.vhdl$). 
 
-\begin{figure}[!htp]
+\begin{figure}
 \begin{center}
 %\usetikzlibrary{arrows,automata}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
@@ -216,22 +215,10 @@ There are two constants defined for the receiver: the $C\_DBIT$ constant, which 
 \end{center}
 \end{figure}
 
-\subsubsection{Idle state}
-Starting with the idle state: given that there is not already a signal being received and sampled (i.e $rx\_done\_tick = '1'$), the receiver waits for the rx-signal to go low (i.e detecting a start signal). The s-register then resets and the state machine goes to the next state: the start state. 
+\subsubsection{Transmitter}
+The \gls{uart} transmitter has a similar design to that of the receiver; it uses the same state machine structure, but for the purpose of shifting out data. In addition to the s-, n-, and b-registers used for counting, the transmitter contains a din-register for parallel input data and a $1~\bit$ tx-register for shifting out the data. To prevent multiple clocks, the baud rate generator is also used to clock the transmitter. For the transmitter to be properly synchronized with the receiver, it instead uses the counter registers to slow down the operation 16 times. This is because there is no oversampling involved in transmitting a signal.\\
 
-\subsubsection{Start state}
-When in the start state, the ticks generated by the baud rate generator clocks the s-registers and waits for it to count up to 7 (i.e in the middle of the start-bit). It then resets the s- and n-registers and sets the next state to the data state. 
-
-\subsubsection{Data state}
-Since the received signal so far is the middle of the start bit, the s-register must count up to 15  before reaching the middle of the data bit so that the b-register can sample the data. Each time the s-register reaches 15, the b-register shifts in the rx by 1 bit while the n-register increments by 1, keeping track of the bit width. When the n-register reaches a count equal to the $C\_DBIT$ constant minus 1, the transmission is at its end, and the state machine shift to the last state: the stop state. 
-
-\subsubsection{Stop state}
-The stop state uses the sample ticks in conjunction with the s-register to count the stop bit(s) duration by using the $C\_SB\_TICK-1$ as the upper count limit. When done, the  $rx\_done\_tick$ signal is set to 1 and the state machine shifts back to the idle state. We have now successfully received a serially  transmitted byte. %The state machine is shown in figure \ref{fig:uartrx}. 
-
-\subsection{UART Transmitter}
-The \gls{uart} transmitter has a similar design to that of the receiver; it uses the same state machine structure, but for the purpose of shifting out data. In addition to the s-, n-, and b-registers used for counting, the transmitter contains a din-register for input parallel data and a $1~\bit$ tx-register for shifting out the data. Connected to the tx-register is a tx output signal. To prevent multiple clocks, the baud rate generator is also used to clock the transmitter. For the transmitter to be properly synchronized with the receiver, it instead uses the counter registers to slow down the operation 16 times. This is because there is no oversampling involved in transmitting a signal.\\
-
-\begin{figure}[!htp]
+\begin{figure}[!ht]
 \begin{center}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
   \node[initial,state,accepting] (idle)      {\small{\textit{idle}}};
@@ -256,25 +243,13 @@ The \gls{uart} transmitter has a similar design to that of the receiver; it uses
 \end{center}
 \end{figure}
 
-\subsubsection{Idle state}
-When in the idle state, the tx-register is held high for idle line and the b-register is connected to the din register for data input. The state machine remains in the idle state until the $tx\_start$ signal changes from low to high. It then shift to the start state to begin the transmission of the data stored in the b-register. 
-
-\subsubsection{Start state}
-When in the start state, the tx-register is held low for the start bit to be transmitted out. When the s-register reached the count of 15, the start bit is transmitted and the state machine shifts to the data state to further transmit the actual data bits.
-
-\subsubsection{Data state}
-When in the data state, the tx-register is set to the first bit of the b-register, while the b-register shift its data using a simple right shift operation every 16 clock ticks (s-register reaches 15). To keep track of how many data bits that have been transmitted, the n-register increments by 1 at the same rate as the b-register shifts the data (same as for the receiver). When reaching $C\_DBIT-1$, the data bits is finished transmitting out and the state machine shifts to the stop state.
-
-\subsubsection{Stop state}
-When in the stop state, the tx-register is held high indicating a stop bit is being transmitted. When the s-register reaches a count equal $C\_SBIT - 1$, the stop bits are finished transmitting. The $tx\_done\_tick$ signal is set to high and the state machine shifts back to the idle state, ready to transmit the next data byte.
-
-\subsection{FIFO Buffers}
+\subsubsection{FIFO Buffers}
 Both the \gls{uart} transmitter and receiver has \gls{fifo}-buffers that stores the incoming data sequentially in a "First In, First Out" manner. On the receiver side, the incoming data is stored until it gets the read-out signal ($rd\_uart$ goes high). It then places the first stored byte on the ($r\_data$)-line for one clock cycle. As long as the read-out signal remains high and there is bytes stored, the \gls{fifo} will spew out data on the ($r\_data$)-line with the rising edge of the clock. The $rx\_empty$ signal indicates whether there is one or more bytes stored in the \gls{fifo}. On the transmitter side, when data from the \gls{fpga} is written into the \gls{fifo}, it sends a signal to the transmitter to start shifting out the data stored in the buffer, oldest byte first. Having \glspl{fifo} to store data between the \gls{uart} and the rest of the \gls{fpga} logic is necessary to prevent data loss, as the \gls{fpga} logic operates at a much higher clock speeds than the \gls{uart}  can transmit and receive data. If a \gls{fifo} gets filled up, no new data will be written to it until data is read out of it, freeing one slot.
 
-\subsection{UART Decoder}
-The \gls{uart} decoder is a state machine connected to the other end of the \gls{uart} receiver- and transmitter \glspl{fifo}. It reads out the received bytes and does tasks according to the order and value of the bytes. Starting at the idle state, the decoder waits for a request byte from the fifo followed by an address byte. The request byte can for instance be a read or a write. The following small sections describes the different decoder states. 
+\subsubsection{Decoder}
+The \gls{uart} decoder is a state machine connected to the other end of the \gls{uart} receiver- and transmitter \glspl{fifo}. It reads out the stored received bytes and does tasks according to the order and value of the bytes. Starting at the idle state, the decoder waits for a request byte from the FIFO followed by an address byte. Legal request bytes are 0xDD, for read; 0xEE, for write value '1'; and 0xFF, for write value '0'. The request-bytes must then be followed by a byte containing an legal address between 0x00 - 0x40. If all requirements are met, the state machine will perform the requested action on the probe and source registers of the GBT example design. A read of a given address will result in the decoder instructing the UART to transmit a byte containing the data value (stored in the \gls{msb} of the byte) and the register address of the data value (stored in the last seven bits of the byte). A write of a given address will result in the decoder changing the value of the given address in the source register of the GBT example design. The address must thus be smaller than 0x24. See \ref{ap:gbtctrl} for more information about the GBT source and probe registers.
 
-\begin{figure}[!htp]
+\begin{figure}[!ht]
 \begin{center}
 %\usetikzlibrary{arrows,automata}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
@@ -306,19 +281,11 @@ The \gls{uart} decoder is a state machine connected to the other end of the \gls
 \caption{\gls{uart} decoder state machine.}
 \label{fig:uartdec}
 \end{center}
-\end{figure}
+\end{figure}  
 
-\subsubsection{Idle state}
-Being initially in the idle state, the decoder is triggered by the $rx\_empty$ signal coming from the rx-fifo, which is held low if there is at least one byte stored in the rx-fifo. If $rx\_empty$ is low, the decoder sends a read signal ($rd\_uart$), telling the rx-fifo to place the next in-line byte on the read-bus ($r\_data$), and in the same delta-time assigns the read-bus to a new register ($b\_reg(0)$) for temporary storage. The decoder then goes to a read state.
+\subsection{Conclusion}
 
-\subsubsection{Read1 state}
- In the read1 state, the first temporary stored byte is analyzed. The byte must have a value that is equal to one of three predefined constants, called requests (See $uart\_gbt\_pkg.vhdl$). This first byte is interpreted as a read- or write-request, sent from the client \acrshort{pc} through the serial connection. If the request-byte is equal to a "read" request, a "write 0" request or a "write 1" request, the decoder goes on to a wait state. If the byte is not a request-value, the state machine returns back to idle and reset the registers.
-
-\subsubsection{Wait1 state}
-  In the wait1 state, the decoder waits for the next arriving byte after the first one. The wait state does the same as the idle state, i.e waits for $rx\_empty$ to become low before reading out the next byte from the rx-fifo. To prevent the state machine from getting stuck in the wait state (if an address byte does not arrive in time), an additional count-register, triggered by the baud generator ticks, counts up to a predefined value, $C\_TIMEOUT$. $C\_TIMEOUT$ is defined to be a reasonable larger value than the pre-estimated time it takes for the next byte to arrive, i.e $16 ~ticks\per\bit \times 10 ~bits$. If $rx\_empty$ is not triggered low before the count-register has finished counting, the state machine resets to idle. If the next byte arrives before timeout, the decoder stores it and goes to the final state.
-
-\subsubsection{Read2 state}
-  In the read2 state, the value of the first byte, the request-byte, decides if the decoder should perform a read or a write operation on the gbt-register. The value of the last received byte is treated as an address to the data of the gbt-register the client wants to read or write to.  
+The goal of this hardware design was to develop a module that would eventually be integrated into the GBT example design, and together with a custom made software, manipulate the GBT control signals, effectively replacing the already existing \gls{issp} module. The custom made module communicates well with the software; receiving requests and sends information accordingly. During testing, it was discovered that the \gls{uart} would hang after a random period of time. This was fixed by having a reset timer that would reset the \gls{uart} if it did not respond for a given time period (see \ref{test:designrun}).
 
 
 \section{Software on the PC Side} \label{chap:software}
@@ -362,7 +329,7 @@ After checking for key-presses, the program redraws the windows using \textit{wr
 \end{center}
 \end{figure}
 
-\subsubsection{Send/Receive module}
+\subsubsection{Send/Receive module} \label{sec:sndrec}
 
 Figures \ref{fig:flowtx} and \ref{fig:flowrx} illustrates the behaviour of the main transmitter and receiver functions of the send/receive module. The basic operation goes as follows: The program sends a data-pattern from a 2d-array via the \gls{com} to the \gls{gbt}-registers on the \gls{fpga} side. It then sends a read request to read all values of the \gls{gbt}-register back to confirm that the data pattern was transmittet properly. There are five different patterns that are sent in sequence to the registers, and each time a pattern is sent it is read back to the program on the PC side and displayed. This is to confirm that the communication link is working properly. \\
 
@@ -389,9 +356,19 @@ For the receiver function to read out what is stored in the \gls{com} buffer, \t
 \end{figure}
 
 
-\section{Conclusion and Discussion}
+\subsection{Conclusion}
 
-As for now, the serial interface software consists of two modules: the sending and receiving module, and the ncurses command interface. Both modules work  more or less as they should: The send/receive module writes a pattern to the \gls{gbt}-register in the \gls{fpga} and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the \gls{gbt} control signals. What remains is to fully integrate the send/receive module into the interface module. The module is partly integrated in terms of merging the two programs. What is left undone is to rewrite the main transmit and receive routines from the send/receive module, which are not completed. In addition, some adaptations needs to be made to the write- and read command-entries in order for them to invoke and direct the send/receive module. Also, a final test of the software as a whole remains.
+The goal of the software was, together with the hardware design, to one day replace the Quartus-bound In-
+System-Source-And-Probe Editor, which is used today to access the GBT control-signals, and instead introduce a cross-platform, open-source software solution.\\
+
+As for now, the serial interface software consists of two modules: the sending and receiving module, and the ncurses command interface. Both modules work  more or less as they should: The send/receive module writes a pattern to the \gls{gbt}-register in the \gls{fpga} and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the \gls{gbt} control signals. What remains is to fully integrate the send/receive module into the interface module. They are partly integrated in terms of merging the two into one program. What is left undone is to rewrite the main transmit and receive routines from the send/receive module, which are not completed. In addition, some adaptations needs to be made to the write- and read command-entries in order for them to invoke and direct the send/receive module. Also, a final test of the software as a whole remains.
+
+\begin{figure} % H(strictly put HERE > h!)
+% h(here), !(force), t(top), b(bottom), p(on extra page)
+\includegraphics[width=\linewidth, trim={6mm 0 0 11mm},clip,angle=90]{../img/gbt_gui_inv.png}  \\[0.1 cm]
+\caption{Snapshot of the GBT software interface in action. The colors in this picture has been inverted for a better visual representation.}
+\label{fig:gbtgui}
+\end{figure}
 
 % \subsection{Notable Problems}
 

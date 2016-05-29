@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  26 MAY 2016 21:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  30 MAY 2016 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2063,46 +2063,26 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 17.28pt on input line 15.
 LaTeX Font Info:    Try loading font information for TS1+LinuxLibertineT-TLF on
- input line 21.
+ input line 24.
 (/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2012/11/26 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 21.
+(Font)              scaled to size 12.0pt on input line 24.
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
 
  []
 
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 26.
+(Font)              scaled to size 12.0pt on input line 29.
 
 Package natbib Warning: Citation `gbt_videos' on page 1 undefined on input line
- 26.
+ 29.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
-
- []
-
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 36.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 36.
-
-Package natbib Warning: Citation `altera_cyclonekit' on page 1 undefined on inp
-ut line 38.
-
-
-Overfull \hbox (11.69922pt too wide) in paragraph at lines 38--39
-\OT1/LinuxLibertineT-TLF/m/n/12 To achieve a ref-er-ence clock of $\OT1/cmr/m/n
-/12 120 []M[]$ \OT1/LinuxLibertineT-TLF/m/n/12 with-out an ex-ter-nal clock, th
-e [][]Field-Programmable
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
@@ -2115,50 +2095,68 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 14.4pt on input line 39.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 14.4pt on input line 39.
 
-LaTeX Warning: Reference `chap:clksetup' on page 2 undefined on input line 40.
+
+Package natbib Warning: Citation `altera_cyclonekit' on page 2 undefined on inp
+ut line 41.
 
 
-Package natbib Warning: Citation `siclk' on page 2 undefined on input line 44.
+Overfull \hbox (11.69922pt too wide) in paragraph at lines 41--42
+\OT1/LinuxLibertineT-TLF/m/n/12 To achieve a ref-er-ence clock of $\OT1/cmr/m/n
+/12 120 []M[]$ \OT1/LinuxLibertineT-TLF/m/n/12 with-out an ex-ter-nal clock, th
+e [][]Field-Programmable
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+
+LaTeX Warning: Reference `chap:clksetup' on page 2 undefined on input line 43.
+
+
+Package natbib Warning: Citation `siclk' on page 2 undefined on input line 47.
 
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 12.0pt on input line 44.
-<../img/si5338.pdf, id=97, 633.56702pt x 617.50702pt>
+(Font)              scaled to size 12.0pt on input line 47.
+<../img/si5338.pdf, id=96, 633.56702pt x 617.50702pt>
 File: ../img/si5338.pdf Graphic file (type pdf)
  <use ../img/si5338.pdf>
-Package pdftex.def Info: ../img/si5338.pdf used on input line 49.
+Package pdftex.def Info: ../img/si5338.pdf used on input line 52.
 (pdftex.def)             Requested size: 190.07156pt x 185.25352pt.
 
 
-Package natbib Warning: Citation `si16' on page 2 undefined on input line 50.
+Package natbib Warning: Citation `si16' on page 2 undefined on input line 53.
 
 
-Package natbib Warning: Citation `si16' on page 2 undefined on input line 50.
+Package natbib Warning: Citation `si16' on page 2 undefined on input line 53.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
 [3 <../img/si5338.pdf>]
 
-LaTeX Warning: Reference `fig:lb_rx' on page 4 undefined on input line 94.
+LaTeX Warning: Reference `fig:lb_rx' on page 4 undefined on input line 97.
 
 [4]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 115.
+(Font)              scaled to size 8.0pt on input line 118.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 115.
+(Font)              scaled to size 10.0pt on input line 118.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 115.
+(Font)              scaled to size 7.0pt on input line 118.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 115.
+(Font)              scaled to size 10.0pt on input line 118.
 
 
-LaTeX Warning: Reference `chap:pcb' on page 5 undefined on input line 115.
+LaTeX Warning: Reference `chap:pcb' on page 5 undefined on input line 118.
 
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
@@ -2178,30 +2176,30 @@ LaTeX Font Info:    Font shape `OT1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 160.
 )
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 122.
+(Font)              scaled to size 10.95pt on input line 125.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 122.
+(Font)              scaled to size 10.95pt on input line 125.
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /fig_rxdelay_0.tex) [5]
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /fig_rxdelay.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 []|\OT1/LinuxLibertineT-TLF/m/n/12 Clock
  []
 
 
-Overfull \hbox (1.70322pt too wide) in paragraph at lines 158--158
+Overfull \hbox (1.70322pt too wide) in paragraph at lines 161--161
 \OT1/LinuxLibertineT-TLF/m/n/12 [Mhz]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 []|\OT1/LinuxLibertineT-TLF/m/n/12 In-sync
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 []|\OT1/LinuxLibertineT-TLF/m/n/12 Rising/Falling
  []
 
@@ -2209,11 +2207,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--158
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 177.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 180.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
  <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 177.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 180.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 
 <../img/hektere_oppsett_100mhz.png, id=215, 1027.84pt x 770.88pt>
@@ -2221,18 +2219,18 @@ File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
 Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
-87.
+90.
 (pdftex.def)             Requested size: 213.39568pt x 160.04283pt.
 
 <../img/stubs_oppsett_100mhz.png, id=216, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
-Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 193
+Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 196
 .
 (pdftex.def)             Requested size: 213.39568pt x 160.04283pt.
 
-Overfull \hbox (6.00124pt too wide) in paragraph at lines 185--196
+Overfull \hbox (6.00124pt too wide) in paragraph at lines 188--199
  []$[]$   $[]$ 
  []
 
@@ -2244,23 +2242,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ../img/stubs_oppsett_100mhz.png (PNG copy)>]
 
 Package natbib Warning: Citation `bitvis16' on page 9 undefined on input line 2
-17.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
-
- []
+20.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
+
+ []
+
 [9]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 226.
+(Font)              scaled to size 6.0pt on input line 229.
 
-Overfull \hbox (12.8439pt too wide) in paragraph at lines 226--227
+Overfull \hbox (12.8439pt too wide) in paragraph at lines 229--230
 \OT1/LinuxLibertineT-TLF/m/n/12 Figure []1.6[] shows three read op-er-a-tions f
 ol-lowed by a write op-er-a-tion. The $\OML/cmm/m/it/12 tx[]data[]compare$
  []
@@ -2269,16 +2267,29 @@ ol-lowed by a write op-er-a-tion. The $\OML/cmm/m/it/12 tx[]data[]compare$
 File: ../img/uart_tb_0.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_0.pdf>
-Package pdftex.def Info: ../img/uart_tb_0.pdf used on input line 232.
+Package pdftex.def Info: ../img/uart_tb_0.pdf used on input line 235.
 (pdftex.def)             Requested size: 76.8193pt x 29.81006pt.
 
 <../img/uart_tb_1.pdf, id=251, 424.78702pt x 42.559pt>
 File: ../img/uart_tb_1.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_1.pdf>
-Package pdftex.def Info: ../img/uart_tb_1.pdf used on input line 236.
+Package pdftex.def Info: ../img/uart_tb_1.pdf used on input line 239.
 (pdftex.def)             Requested size: 298.75264pt x 29.932pt.
- [10 <../img/uart_tb_0.pdf> <../img/uart_tb_1.pdf
+
+
+LaTeX Warning: Reference `chap:hardware' on page 10 undefined on input line 258
+.
+
+
+LaTeX Warning: Reference `sec:sndrec' on page 10 undefined on input line 262.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
+[10 <../img/uart_tb_0.pdf> <../img/uart_tb_1.pdf
 
 pdfTeX warning: pdflatex (file ../img/uart_tb_1.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
@@ -2295,30 +2306,33 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
 [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 263.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 263.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 268.
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /ch4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 263.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 263.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 268.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 268.
 Package rerunfilecheck Info: File `ch4.out' has not changed.
-(rerunfilecheck)             Checksum: 1C37434E4EF8AD9AD1BE883069CD07CB;1336.
+(rerunfilecheck)             Checksum: 229899AC3D6292D3D04C47C293FE6695;1305.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 41587 strings out of 493029
- 792186 string characters out of 6136235
- 948746 words of memory out of 5000000
- 44301 multiletter control sequences out of 15000+600000
+ 41560 strings out of 493029
+ 791770 string characters out of 6136235
+ 947567 words of memory out of 5000000
+ 44273 multiletter control sequences out of 15000+600000
  39756 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,12n,87p,10417b,1170s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{glo:com} has been referenced but does not exist, 
-replaced by a fixed one
+pdfTeX warning (dest): name{glo:usbrs} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:com} has been referenced but does not exist, re
+placed by a fixed one
 
 pdfTeX warning (dest): name{glo:msb} has been referenced but does not exist, re
 placed by a fixed one
@@ -2390,10 +2404,10 @@ sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/ch4.pdf (13 pages, 3156280 bytes).
+/masterthesis/tex/ch4.pdf (13 pages, 3157237 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 316 compressed objects within 4 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 360 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
  163 words of extra memory for PDF output out of 10000 (max. 10000000)
 
