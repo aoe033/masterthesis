@@ -44,6 +44,8 @@
 \glossaryentry{ISSP?\glossentry{issp}|setentrycounter[]{page}\glsnumberformat}{6}
 \glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{6}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}\glsnumberformat}{6}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{6}
+\glossaryentry{VLDB?\glossentry{vldb}|setentrycounter[]{page}\glsnumberformat}{6}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{7}
 \glossaryentry{HSMC?\glossentry{hsmc}|setentrycounter[]{page}\glsnumberformat}{7}
 \glossaryentry{LVDS?\glossentry{lvds}|setentrycounter[]{page}\glsnumberformat}{7}
@@ -376,6 +378,10 @@
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{44}
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{44}
 \glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}\glsnumberformat}{44}
+\glossaryentry{LHC?\glossentry{lhc}|setentrycounter[]{page}\glsnumberformat}{45}
+\glossaryentry{SLHC?\glossentry{slhc}|setentrycounter[]{page}\glsnumberformat}{45}
+\glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{45}
+\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{45}
 \glossaryentry{GBT?\glossentry{gbt}|setentrycounter[]{page}\glsnumberformat}{47}
 \glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{49}
 \glossaryentry{IC?\glossentry{ic}|setentrycounter[]{page}\glsnumberformat}{49}

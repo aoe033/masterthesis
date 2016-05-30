@@ -72,7 +72,6 @@ The standard will be used for asynchronous transmission of data between the \acr
 
 %\chapter{Implementing a serial interface into the FPGA}
 
-
 \section{Hardware Design on the FPGA Side} \label{chap:hardware}
 
 The \gls{fpga} hardware design is responsible for treating incoming requests made by the user PC. It will essentially become a module to connect with the GBT example design, were it replaces the \gls{issp}-module that is used today. The module must have access to the GBT control signal register, and this is done by re-connecting the already defined probe and source signals, which is connected to the \gls{issp}, to this module. The module is mostly completed; what remains is to implement it in the GBT example design and connect the probe and source/switches registers to the module, effectively replacing the \gls{issp} module. For now, the module uses dummy registers instead of the real probe and source/switches registers. 
@@ -248,7 +247,7 @@ Both the \gls{uart} transmitter and receiver has FIFO-buffers that stores the in
 \subsubsection{Decoder}
 The \gls{uart} decoder is a state machine connected to the other end of the \gls{uart} receiver- and transmitter FIFOs. It reads out the stored received bytes and does tasks according to the order and value of the bytes. Starting at the idle state, the decoder waits for a request byte from the FIFO followed by an address byte. Legal request bytes are 0xDD, for read; 0xEE, for write value '1'; and 0xFF, for write value '0'. The request-bytes must then be followed by a byte containing an legal address between 0x00 - 0x40. If all requirements are met, the state machine will perform the requested action on the probe and source registers of the GBT example design. A read of a given address will result in the decoder instructing the UART to transmit a byte containing the data value (stored in the \gls{msb} of the byte) and the register address of the data value (stored in the last seven bits of the byte). A write of a given address will result in the decoder changing the value of the given address in the source register of the GBT example design. The address must thus be smaller than 0x24. See \ref{ap:gbtctrl} for more information about the GBT source and probe registers.
 
-\begin{figure}[!ht]
+\begin{figure}[!b]
 \begin{center}
 %\usetikzlibrary{arrows,automata}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
@@ -360,7 +359,9 @@ For the receiver function to read out what is stored in the COM port buffer, \te
 The goal of the software was, together with the hardware design, to one day replace the Quartus-bound In-
 System-Source-And-Probe Editor, which is used today to access the GBT control-signals, and instead introduce a cross-platform, open-source and thus customizable software solution.\\
 
-As for now, the serial interface software consists of two modules: the sending and receiving module, and the ncurses command interface. Both modules work  more or less as they should: The send/receive module writes a pattern to the \gls{gbt}-register in the \gls{fpga} and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the \gls{gbt} control signals. What remains is to fully integrate the send/receive module into the interface module. They are partly integrated in terms of merging the two into one program. What is left undone is to rewrite the main transmit and receive routines from the send/receive module, which are not completed. In addition, some adaptations needs to be made to the write- and read command-entries in order for them to invoke and direct the send/receive module. Also, a final test of the software as a whole remains.
+As for now, the serial interface software consists of two modules: the sending and receiving module, and the ncurses command interface. Both modules work more or less as they should: The send/receive module writes a pattern to the \gls{gbt}-register in the \gls{fpga} and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the \gls{gbt} control signals. What remains is to fully integrate the send/receive module into the interface module. They are partly integrated in terms of merging the two into one program. What is left undone is to rewrite the main transmit and receive routines from the send/receive module, which are not completed. In addition, some adaptations needs to be made to the write- and read command-entries in order for them to invoke and direct the send/receive module. Also, a final test of the software as a whole remains.\\
+
+As this software has   a goal of being open-source and thus modular, a useful feature to the software to be added in the future would be the ability to log the GBT register information into date-sorted files. This was a feature that was intended to be integrated, but because of time constraints had to be dropped.
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)

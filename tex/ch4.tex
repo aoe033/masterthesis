@@ -96,8 +96,7 @@ A fiber-optic cable connected from the transmitter to the receiver using a fiber
 \subsubsection{Results}
 Running the test resulted in a continuous stream of bits sent from the transmitter to the receiver. Using SignalTap II as a monitor limits to only observe parts of the transmission, but it was sufficient enough to see that the received sum of bits were indeed incrementing by one each time. The results are comparable with the same test using internal loopback (LOOPBACK = '1'), i.e observing that the receiving end is counting by increments of one. This concludes that the SFP-connector on the HDMI-daughter card works as intended at the desired speed of $4.8 \giga\bit\per\second$. Figure \ref{fig:lb_rx} shows the resulting incremented sum of bits transmitted and received at the receiving end.
 
-
-\subsection{External Loop-back Test for the HDMI Connectors}
+\subsection{External Loop-back Test for the HDMI Connectors} \label{test:loopbackhdmi}
 
 \subsubsection{Purpose of Tests}
 
@@ -142,7 +141,7 @@ Cables with different lengths were used to see how this would affect the bit-err
 
 %The following table sums up the cable-length and theoretical travel time versus the measured delay between the transmitted and received signal.
 
-During the first samplings using SignalTap II, it was suspected that when running at a $300~\mega\hertz$ clock, the received signal were being sampled when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, a new delay chain was designed on the receiver line (figure \ref{fig:rxpardelay}): two \glspl{dff} that would trigger on different clock edges (rising and falling), were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the \gls{dff} outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. The "Rising/Falling DFF" tab in table \ref{tab:delch} states which of the clock edges that caused less toggling the first delay stage on the receiver. When sampling the \glspl{led} using SignalTap II, some "spikes" occurred at the \gls{led} that seemed toggle-free when observing it. The "spikes" were narrower than the $300~\mega\hertz$ clock, and seemed to occur randomly. Whether this will affect the error-counter hasn't been confirmed, as the test was aborted due to an accident with the \gls{fpga}. The accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests. Due to time constraints, the \gls{fpga} was not repaired in time for the delivery of the thesis.  
+During the first samplings using SignalTap II, it was suspected that when running at a $300~\mega\hertz$ clock, the received signal were being sampled when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, a new delay chain was designed on the receiver line (figure \ref{fig:rxpardelay}): two \glspl{dff} that would trigger on different clock edges (rising and falling), were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the \gls{dff} outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. The "Rising/Falling DFF" tab in table \ref{tab:delch} states which of the clock edges that caused less toggling on the first delay stage on the receiver. \\
 
 %With this new delay chain design, it seemed that using only \glspl{dff} with rising edge clock triggering worked the best. Some "spikes" were detected on the XOR-output with SignalTap II. These spikes were much narrower than the clock signal. What caused this might 
 
@@ -156,7 +155,7 @@ During the first samplings using SignalTap II, it was suspected that when runnin
 With the help of SignalTap II it was possible to sample the delay chain signals and produce the results displayed in table \ref{tab:delch}. 
 \begin{table}
 \centering
-\caption{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. "sync\#"" is the most synchronized XOR-output in the delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.}
+\caption{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. "sync\#" is the most synchronized XOR-output in the delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.}
 \label{tab:delch}
 \begin{tabular}{|p{1cm}|p{1.5cm}|p{2cm}|p{2.5cm}|p{5cm}|}
 \hline
@@ -171,9 +170,21 @@ With the help of SignalTap II it was possible to sample the delay chain signals 
 \end{tabular}
 \end{table}
 
-Unfortunately, while doing the above test, an accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests and 
+%\subsubsection{Conclusion}
+
+%When sampling the \glspl{led} using SignalTap II, some "spikes" occurred at the one \gls{led} that seemed toggle-free when observing it, and thus what seemed the most "in sync". The "spikes" were narrower than the $300~\mega\hertz$ clock, and seemed to occur randomly. Whether this is a interference or will affect the error-counter hasn't been confirmed, as the test was aborted due to an accident with the \gls{fpga}. The accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests. Due to time constraints, the \gls{fpga} was not repaired in time for the delivery of the thesis.
+
+%What remains of this test is to use the most synchronized XOR-output for an error-count measurement over a certain time interval to calculate the bit error rate. Further investigation is also needed to see whether this way of synchronizing the transmitter and receiver produces credible error-counts, or if this approach is altogheter useless.    
+
+%Unfortunately, while doing the above test, an accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests and 
 
 \subsection{Conclusion and Discussions}
+
+When doing the external loopback test for the HDMI connectors (\ref{test:loopbackhdmi}), while sampling the \glspl{led} using SignalTap II, some "spikes" occurred at the one \gls{led} that seemed toggle-free when observing it, and thus what seemed the most "in sync". The "spikes" were narrower than the $300~\mega\hertz$ clock, and seemed to occur randomly. Whether this is a interference or will affect the error-counter hasn't been confirmed, as the test was aborted due to an accident with the \gls{fpga}. The accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests. Due to time constraints, the \gls{fpga} was not repaired in time for the delivery of the thesis.
+
+What remains of this test is to use the most synchronized XOR-output for an error-count measurement over a certain time interval to calculate the bit error rate. Further investigation is also needed to see whether this way of synchronizing the transmitter and receiver produces credible error-counts, or if this approach is altogheter useless.\\
+
+
 
 When measuring a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
 
@@ -268,5 +279,8 @@ While testing the \gls{fpga} design together with the send/receive module, it oc
 To further investigate this fault, one could use SignalTap II to probe the \gls{uart} signals and identify and correct irregular behaviour in relevant signals. Due to time constraints, the quick fix was preferred.
 
 \chapter{Conclusion and Discussion}
+
+The future upgrade of the \acrlong{lhc} accelerator, the \acrlong{slhc}, has its goal of increasing the beam luminosity by ten times. The \gls{gbt} \glspl{asic} and transmission protocol was developed to provide a high radiation tolerant, high speed, optical transmission line capable of simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data.
+
 
 \end{document}
