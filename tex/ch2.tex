@@ -42,8 +42,10 @@ This chapter explains the design process of this \acrshort{pcb}; beginning with 
 \node[rectangle] (a2) [draw, fill=green!10, minimum width=2cm,minimum height=2.5cm,right of=a1,node distance=2.5cm, align=center] {HSMC\\to\\VLDB};
 \node[rectangle] (a3) [draw, fill=red!10, minimum width=3cm,minimum height=3cm,right of=a2,node distance=6cm] {VLDB};
 
-\node[MyArrow] (t1) [right of = a2, fill=yellow!10, node distance=2.0cm, xshift=7.5mm, yshift=-0.5cm, minimum width=1cm, minimum height=4.5cm]{\textcolor{black}{e-links}};
-\node[MyArrow] (t2) [right of = a2, fill=yellow!10, shape border rotate=180, node distance=2.0cm, xshift=7.5mm, yshift=0.8cm,  minimum width=0.2cm, minimum height=4.2cm]{\textcolor{black}{optical}};
+\node[MyArrow] (t1) [right of = a2, fill=yellow!10, node distance=2.0cm, xshift=7.5mm, yshift=-6mm, minimum width=1cm, minimum height=4.5cm]{\textcolor{black}{e-links (LVDS)}};
+\node[MyArrow] (t2) [right of = a2, fill=yellow!10, shape border rotate=180, node distance=2.0cm, xshift=7.5mm, yshift=0.8cm,  minimum width=0.2cm, minimum height=4.2cm]{\textcolor{black}{optical (PCML)}};
+
+\node[MyArrow] (t3) [right of = a1, fill=yellow!10, rotate = -90, node distance=2.0cm, xshift=0mm, yshift=-5mm,  minimum width=0.2cm, minimum height=1cm]{\textcolor{black}{HSMC}};
 
 \end{tikzpicture}
 
@@ -55,7 +57,7 @@ This chapter explains the design process of this \acrshort{pcb}; beginning with 
 \section{Design Discussion}
 
 The design discussion and planning of the \gls{pcb} was done together with Ph. D. Arild Velure.\\
-
+\noindent
 The initial plan was to design a \gls{pcb} with a male \gls{sfp}-contact in one end connected with two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into the \gls{sfp}-connectors on a \gls{sfp}-board with \gls{hdmi} cables connected to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp}-connectors on one side, wired to \gls{hdmi}-connectors on the other side, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with \gls{sfp}- and \gls{hdmi}-cables connecting the three boards together. \\
 
 The end result was a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design files (the one concerning the \gls{xcvr}-protocol, see \cite{sfp_schem}), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and lowering the chance of signal reflections. %The resulting design was a board connected to the \gls{fpga} via the \gls{hsmc}-connector, with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signals running to one \gls{sfp}-connector for fiber-optic communication.
@@ -237,6 +239,8 @@ Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a b
 
 \begin{table} [H]
 \begin{center}
+     \caption{The layers of the PCB and their traits, where t is the layer thickness and w is the width of the trace. The PCB has an overall thickness of $1.6\ \milli\meter$}
+  \label{tab:Xsect1}
     \begin{tabular}{| l | l | l | l | l | l | l | l | l |}
     \hline
      & Layer & Type & t $[\micro\meter]$ & $\epsilon_r$ & w $[\micro\meter]$  & $Z_0 [\ohm]$ & Spacing $[\micro\meter]$  & $Z_{diff} [\ohm]$ \\ 
@@ -251,8 +255,7 @@ Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a b
     8 	  & Bottom 	& Conductor  & 18 	&        & 100 & $51.3$             & 300 & 102\\ \hline
     9 	  & Surface & Air 		 & 	  	& 1 	 & 	   & 					& 	  & \\ \hline
     \end{tabular}
-     \caption{The layers of the PCB and their traits, where t is the layer thickness and w is the width of the trace. The PCB has an overall thickness of $1.6\ \milli\meter$}
-	\label{tab:Xsect1}
+
 \end{center}
 \end{table}
 

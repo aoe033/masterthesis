@@ -1,52 +1,52 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces LHC overview \cite {lhcpic}.\relax }}{2}{figure.caption.10}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces The GBT-Frame format. \cite [Figure 4]{gbt_fpga}.\relax }}{3}{figure.caption.13}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Versatile Link Demo Board overview \cite {vldbposter}.\relax }}{4}{figure.caption.16}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces The GBT-link in its entirety. The on-detector consists of custom made \glspl {asic} with an optical link connecting the off-detector \gls {fpga} with the GBT-FPGA implemented. \cite [Figure 1]{gbtscapres14}.\relax }}{5}{figure.caption.17}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces LHC overview \cite {lhcpic}.\relax }}{2}{figure.caption.8}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces The GBT-link in its entirety. The on-detector consists of custom made \glspl {asic} with an optical link connecting the off-detector \gls {fpga} with the GBT-FPGA implemented. \cite [Figure 1]{gbtscapres14}.\relax }}{3}{figure.caption.9}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces The GBT-Frame format. \cite [Figure 4]{gbt_fpga}.\relax }}{4}{figure.caption.12}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Versatile Link Demo Board overview \cite {vldbposter}.\relax }}{5}{figure.caption.15}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Block diagram showing the basic connection between the FPGA and VLDB using the HSMC-to-VLDB PCB as a connection bridge.\relax }}{12}{figure.caption.22}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Male (ASP-122952) and female (ASP-122953) HSMC-connectors. The male type is to be connected at the bottom of the HSMC-to-VLDB \gls {pcb} \cite [Figure 2-1]{altera_hsmc09}.\relax }}{12}{figure.caption.23}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Microstrip, cross-section. The microstrip is the copper trace(s) on top, followed by a dielectric layer and a ground plane. h is the thickness of the dielectric, t is the copper thickness, l is the microstrip length, and w is the copper width. s is the spacing between the differential strips.\relax }}{14}{figure.caption.24}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces HDMI-to-VLDB PCB with components soldered on.\relax }}{17}{figure.caption.26}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Pull-up resistors on some of the receiver lines.\relax }}{18}{figure.caption.27}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Block diagram showing the basic connection between the FPGA and VLDB using the HSMC-to-VLDB PCB as a connection bridge.\relax }}{12}{figure.caption.20}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Male (ASP-122952) and female (ASP-122953) HSMC-connectors. The male type is to be connected at the bottom of the HSMC-to-VLDB \gls {pcb} \cite [Figure 2-1]{altera_hsmc09}.\relax }}{12}{figure.caption.21}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Microstrip, cross-section. The microstrip is the copper trace(s) on top, followed by a dielectric layer and a ground plane. h is the thickness of the dielectric, t is the copper thickness, l is the microstrip length, and w is the copper width. s is the spacing between the differential strips.\relax }}{14}{figure.caption.22}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces HDMI-to-VLDB PCB with components soldered on.\relax }}{17}{figure.caption.24}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Pull-up resistors on some of the receiver lines.\relax }}{18}{figure.caption.25}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Simplified diagram over the PC to CRU serial interface.\relax }}{19}{figure.caption.28}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{21}{figure.caption.33}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single-ended transmitter and receiver signals.\relax }}{22}{figure.caption.34}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.37}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.39}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{26}{figure.caption.41}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces \gls {uart} decoder state machine.\relax }}{27}{figure.caption.44}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart over the main loop of the interface module.\relax }}{30}{figure.caption.46}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Flowchart over the transmitter function.\relax }}{31}{figure.caption.48}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Flowchart over the receiver function.\relax }}{32}{figure.caption.49}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Snapshot of the GBT software interface in action. The colors in this picture has been inverted for a better visual representation.\relax }}{34}{figure.caption.50}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Simplified diagram over the PC to CRU serial interface.\relax }}{19}{figure.caption.26}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{21}{figure.caption.31}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single-ended transmitter and receiver signals.\relax }}{22}{figure.caption.32}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.35}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces \gls {uart} receiver state machine.\relax }}{26}{figure.caption.37}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces \gls {uart} transmitter state machine, similar to that of the receiver.\relax }}{26}{figure.caption.39}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces \gls {uart} decoder state machine.\relax }}{27}{figure.caption.42}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart over the main loop of the interface module.\relax }}{30}{figure.caption.44}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Flowchart over the transmitter function.\relax }}{31}{figure.caption.46}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Flowchart over the receiver function.\relax }}{32}{figure.caption.47}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Snapshot of the GBT software interface in action. The colors in this picture has been inverted for a better visual representation.\relax }}{34}{figure.caption.48}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The $Si5338$ evaluation board \cite {si16}.\relax }}{37}{figure.caption.51}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Transmitter and receiver delay chains.\relax }}{40}{figure.caption.60}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Muxed delay chain on the receiver line.\relax }}{40}{figure.caption.62}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{41}{figure.caption.64}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{42}{figure.caption.65}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Three read operations followed by a write. \relax }}{43}{figure.caption.70}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{48}{figure.caption.73}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of an RS-232 signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{51}{figure.caption.74}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The $Si5338$ evaluation board \cite {si16}.\relax }}{37}{figure.caption.49}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Transmitter and receiver delay chains.\relax }}{40}{figure.caption.58}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Muxed delay chain on the receiver line.\relax }}{40}{figure.caption.60}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{41}{figure.caption.62}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{42}{figure.caption.63}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Three read operations followed by a write. \relax }}{43}{figure.caption.68}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{48}{figure.caption.72}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {E.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{66}{figure.caption.77}
-\contentsline {figure}{\numberline {E.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{67}{figure.caption.78}
-\contentsline {figure}{\numberline {E.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{67}{figure.caption.78}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {F.1}{\ignorespaces EFD reflow thermal profile recommendations \cite {krepro_reflow}.\relax }}{69}{figure.caption.79}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of an RS-232 signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{51}{figure.caption.73}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {H.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{74}{figure.caption.82}
-\contentsline {figure}{\numberline {H.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{75}{figure.caption.83}
-\contentsline {figure}{\numberline {H.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{76}{figure.caption.84}
-\contentsline {figure}{\numberline {H.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{77}{figure.caption.85}
-\contentsline {figure}{\numberline {H.5}{\ignorespaces PCB Layout, inner layers.\relax }}{78}{figure.caption.86}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{66}{figure.caption.76}
+\contentsline {figure}{\numberline {E.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{67}{figure.caption.77}
+\contentsline {figure}{\numberline {E.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{67}{figure.caption.77}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {F.1}{\ignorespaces EFD reflow thermal profile recommendations \cite {krepro_reflow}.\relax }}{69}{figure.caption.78}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {H.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{74}{figure.caption.81}
+\contentsline {figure}{\numberline {H.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{75}{figure.caption.82}
+\contentsline {figure}{\numberline {H.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{76}{figure.caption.83}
+\contentsline {figure}{\numberline {H.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{77}{figure.caption.84}
+\contentsline {figure}{\numberline {H.5}{\ignorespaces PCB Layout, inner layers.\relax }}{78}{figure.caption.85}

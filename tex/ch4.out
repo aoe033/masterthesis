@@ -10,6 +10,5 @@
 \BOOKMARK [2][-]{subsection.1.3.4}{Conclusion and Discussions}{section.1.3}% 10
 \BOOKMARK [1][-]{section.1.4}{Testing and Verification of the Serial Interface}{chapter.1}% 11
 \BOOKMARK [2][-]{subsection.1.4.1}{Hardware Simulation using Testbench in Modelsim}{section.1.4}% 12
-\BOOKMARK [2][-]{subsection.1.4.2}{Connection between COM port and UART using SignalTap II}{section.1.4}% 13
-\BOOKMARK [2][-]{subsection.1.4.3}{Purpose of Tests}{section.1.4}% 14
-\BOOKMARK [0][-]{chapter.2}{Conclusion and Discussion}{}% 15
+\BOOKMARK [2][-]{subsection.1.4.2}{Running the PC software design together with the FPGA hardware design}{section.1.4}% 13
+\BOOKMARK [0][-]{chapter.2}{Conclusion and Discussion}{}% 14

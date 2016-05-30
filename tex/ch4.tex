@@ -115,7 +115,7 @@ Running the test resulted in a continuous stream of bits sent from the transmitt
 
 Each \gls{hdmi}-connector has at least one transmitter- and receiver line. To simulate signal transmission over a distance, a \gls{hdmi} cable was cut in half and the transmit- and receive lines were soldered together, creating an external loop-back. VHDL code was written to simulate a data-stream using a pseudo-random generator to generate random bit-patterns. The data-stream would travel out via one of the transmitters of the \gls{fpga}, out through the \gls{hdmi}-connector, following the cable back into the same \gls{hdmi}-connector into the receiver input. This would simulate the transmission path to the \gls{vldb} card. The transmitted and received bits would then be compared using xor-logic. A bit-counter register would count each transmitted bit, and a bit-error register would count each time two bits are different in comparison. The bit error rate is thus given by $\frac{bit~errors}{number~of~bits}$.
 
-Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using xor-logic. The \gls{dff} that has the least amount of toggling is the one that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A smaller delay-chain was also added at the receiver line to synchronize the incoming bits with the clock. Figure \ref{fig:delaych} a and b illustrates these delay chains.
+Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using XOR-logic. The individual outputs of the XORs are connected to \glspl{led}. The \gls{led} that has the least amount of toggling is the one XOR, and thus selected \glspl{dff}, that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A smaller delay-chain was also added at the receiver line to synchronize the incoming bits with the clock. Figure \ref{fig:delaych} a and b illustrates these delay chains.
 
 \begin{figure}
     \centering
@@ -136,13 +136,15 @@ Because of the trace- and cable-lengths and the fact that a signal has a finite 
 
 Cables with different lengths were used to see how this would affect the bit-error rate. This would thus introduce varying delay differences between the transmitter and receiver, and would therefore produce different results comparing the signals in the delay chain. A series of attempts were therefore made to find the most synchronized outputs of the delay-chains at different cable lengths. 
 
-To measure the quality of the \gls{lvds} signals with an oscilloscope, differential probes were used.  
+%To measure the quality of the \gls{lvds} signals with an oscilloscope, differential probes were used.  
 
 \subsubsection{Results}
 
 %The following table sums up the cable-length and theoretical travel time versus the measured delay between the transmitted and received signal.
 
-During the first samplings using SignalTap II, it became apparent that, when running at a $300~\mega\hertz$ clock, the received signal were being sampled when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, two \glspl{dff} that would trigger on different clock edges (rising and falling), were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the \gls{dff} outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. This is shown in figure \ref{fig:rxpardelay}.
+During the first samplings using SignalTap II, it was suspected that when running at a $300~\mega\hertz$ clock, the received signal were being sampled when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, a new delay chain was designed on the receiver line (figure \ref{fig:rxpardelay}): two \glspl{dff} that would trigger on different clock edges (rising and falling), were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the \gls{dff} outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. The "Rising/Falling DFF" tab in table \ref{tab:delch} states which of the clock edges that caused less toggling the first delay stage on the receiver. When sampling the \glspl{led} using SignalTap II, some "spikes" occurred at the \gls{led} that seemed toggle-free when observing it. The "spikes" were narrower than the $300~\mega\hertz$ clock, and seemed to occur randomly. Whether this will affect the error-counter hasn't been confirmed, as the test was aborted due to an accident with the \gls{fpga}. The accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests. Due to time constraints, the \gls{fpga} was not repaired in time for the delivery of the thesis.  
+
+%With this new delay chain design, it seemed that using only \glspl{dff} with rising edge clock triggering worked the best. Some "spikes" were detected on the XOR-output with SignalTap II. These spikes were much narrower than the clock signal. What caused this might 
 
 \begin{figure}
     \centering
@@ -154,26 +156,26 @@ During the first samplings using SignalTap II, it became apparent that, when run
 With the help of SignalTap II it was possible to sample the delay chain signals and produce the results displayed in table \ref{tab:delch}. 
 \begin{table}
 \centering
-\caption{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. DFF is the most synchronized output in the transmitter delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.}
+\caption{SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. "sync\#"" is the most synchronized XOR-output in the delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.}
 \label{tab:delch}
 \begin{tabular}{|p{1cm}|p{1.5cm}|p{2cm}|p{2.5cm}|p{5cm}|}
 \hline
- Clock [Mhz]  & In-sync DFF   & Signal path [cm]   & Rising/Falling DFF  & Comments \\ \hline
- 100          & 1     & 110           & Rising              & Some spikes occur, but are small enough to not be detected. More spikes using a falling edge DFF.  \\ \hline
+ Clock [Mhz]  & sync\#   & Signal path [cm]   & Rising/Falling DFF  & Comments \\ \hline
+ 100          & 1     & 110           & Rising              & Some spikes occur.  \\ \hline
  200          & 2     & 110           & Rising              & No spikes. \\ \hline
- 300          & 4     & 110           & Both              & No spikes. \\ \hline
+ 300          & 4     & 110           & Both                & No spikes. \\ \hline
  %\multicolumn{5}{|l|}{} \\ \hline
- 100          & 1     & 220           & Rising              & Some spikes occur, but are small enough to not be detected.\\ \hline
+ 100          & 1     & 220           & Rising              & Some spikes occur.\\ \hline
  200          & 3     & 220           & Rising              & Some periodical spikes.\\ \hline
  300          & 5     & 220           & Rising              & No spikes.\\ \hline
 \end{tabular}
 \end{table}
 
-%Unfortunately, after obtaining the above results
+Unfortunately, while doing the above test, an accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests and 
 
 \subsection{Conclusion and Discussions}
 
-When measuring the quality of a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
+When measuring a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
 
 \begin{figure}
    \begin{center}
@@ -246,20 +248,20 @@ Figure \ref{fig:uarttb} shows three read operations followed by a write operatio
 
 \textit{Check if the \gls{fpga} design is responding correctly to the bytes sent from the C-program on the \gls{pc} side.} 
 
-\subsection{Purpose of Tests}
+\subsubsection{Purpose of Tests}
 \begin{itemize}\setlength{\itemsep}{10pt}
-\item Verify that the C-program is in control of the \gls{com}.
-\item Verify that there is communication between the \gls{fpga} \gls{uart} and the \gls{pc} \gls{com}.
+\item Verify that the C-program is in control of the COM port.
+\item Verify that there is communication between the \gls{fpga} \gls{uart} and the \gls{pc} COM port.
 \item Confirm that the \gls{fpga} design and C-program is working together the way they should.
 \end{itemize}
 
 \subsubsection{Experimental Setup}
 
-The Cyclone V Gt \gls{fpga} was programmed with the hardware design (\ref{chap:hardware}) and connected to the user PC using a \gls{usbrs} cable with a $5~\volt$ voltage converter between the FPGA and the cable. The software was granted PC admin access so that it was allowed access to the \gls{com}. The PC \gls{com} itself was configured in device manager (Windows) with a baud rate corresponding to the baud rate set in the hardware design and software. 
+The Cyclone V Gt \gls{fpga} was programmed with the hardware design (\ref{chap:hardware}) and connected to the user PC using a USB-to-RS232 cable with a $5~\volt$ voltage converter between the FPGA and the cable. The software was granted PC admin access so that it was allowed access to the COM port. The PC COM port itself was configured in device manager (Windows) with a baud rate corresponding to the baud rate set in the hardware design and software. 
 
 \subsubsection{Results}
 
-The software on the PC side was able to communicate with the FPGA via the \gls{com}, and was able to read the registers as well as write to them. In some occurrences the software did not receive all addresses it requested a read on, resulting in some values not being read as often as others. To fix this, the repeat-functionality was implemented into the software (see \ref{sec:sndrec}), and this fixed the problem.\\
+The software on the PC side was able to communicate with the FPGA via the COM port, and was able to read the registers as well as write to them. In some occurrences the software did not receive all addresses it requested a read on, resulting in some values not being read as often as others. To fix this, the repeat-functionality was implemented into the software (see \ref{sec:sndrec}), and this fixed the problem.\\
 
 While testing the \gls{fpga} design together with the send/receive module, it occured that the \gls{uart} would hang after a random period of time. The reason as to why this was happening has yet to be found. A quick fix to this, however, was to simply implement a timer that would reset the \gls{uart} unit on the condition that no bytes have arrived in a given amount of time when in the idle state; the time period exceeds the time it takes for two bytes to arrive. This is not a permanent fix, since there is a chance that the \gls{uart} might reset while a byte is under transmission. This might give an explanation as to why the C-program in some cases did not receive all the data it requested during transmission.
 

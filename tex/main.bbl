@@ -5,12 +5,6 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Neil {H}. {E}.~{W}este(2011)]{weste11}
-{D}avid {M}oney~{H}arris Neil {H}. {E}.~{W}este.
-\newblock \emph{{CMOS} {VLSI} {D}esign, {A} {C}ircuit {A}nd {S}ystems
-  {P}erspective}.
-\newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
-
 \bibitem[cer(2016)]{cernweb}
 {CERN} {W}ebpages.
 \newblock \url{http://home.cern/topics/large-hadron-collider}, 2016.
@@ -36,6 +30,13 @@
 \newblock
   \url{http://orbiterchspacenews.blogspot.no/2013/08/cern-magnet-movers-replacing-last-lhc.html
   }, 2013.
+
+\bibitem[Caratelli(2014)]{gbtscapres14}
+Alessandro Caratelli.
+\newblock {GBT}-{SCA} {P}owerpoint {Presentation}.
+\newblock \url{
+  https://indico.cern.ch/event/291722/contributions/668241/attachments/545329/751766/GBT-SCA_LHCb_Upgrade_meeting_12_06_2014.pdf
+  }, 2014.
 
 \bibitem[P.~Moreira(2011)]{gbtxman11}
 K.~Wyllie P.~Moreira, J.~Christiansen.
@@ -83,13 +84,6 @@ P.~Moreira S.~Bonacini, K.~Kloukinas.
   {C}hip-to-{C}hip {C}ommunication.
 \newblock \url{http://cds.cern.ch/record/1235849/files/p422.pdf}, 2009.
 
-\bibitem[Caratelli(2014)]{gbtscapres14}
-Alessandro Caratelli.
-\newblock {GBT}-{SCA} {P}owerpoint {Presentation}.
-\newblock \url{
-  https://indico.cern.ch/event/291722/contributions/668241/attachments/545329/751766/GBT-SCA_LHCb_Upgrade_meeting_12_06_2014.pdf
-  }, 2014.
-
 \bibitem[{D}ouglas {B}rooks(2001)]{douglas01}
 {D}ouglas {B}rooks.
 \newblock {D}ifferential {S}ignals, {R}ules {T}o {L}ive {B}y.
@@ -124,6 +118,12 @@ Alessandro Caratelli.
   \url{https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/ds/hsmc_spec.pdf},
   2009.
 \newblock {A}ccessed: 10/12/2015.
+
+\bibitem[Neil {H}. {E}.~{W}este(2011)]{weste11}
+{D}avid {M}oney~{H}arris Neil {H}. {E}.~{W}este.
+\newblock \emph{{CMOS} {VLSI} {D}esign, {A} {C}ircuit {A}nd {S}ystems
+  {P}erspective}.
+\newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
 
 \bibitem[pol(2015)]{polar15}
 {T}ransmission lines and testing at operating frequency.
@@ -161,17 +161,17 @@ Alessandro Caratelli.
 \newblock {W}iley-{I}nterscience, 2008.
 \newblock {A}ccessed: 12/02/2016.
 
-\bibitem[{J}.{O}.~{H}amblen and {F}urman(2008)]{rapid08}
-{T}.{S}.~{H}all {J}.{O}.~{H}amblen and {M}.{D}. {F}urman.
-\newblock \emph{{R}apid {P}rototyping {O}f {D}igital {S}ystems}.
-\newblock {S}pringer, 2008.
-\newblock {A}ccessed: 12/02/2016.
-
 \bibitem[Velure(2010)]{velure10}
 Arild Velure.
 \newblock {U}art2{B}us vhdl module, 2010.
 \newblock {D}esign used as a reference to the serial communication part on the
   FPGA side. {P}rivate communication.
+
+\bibitem[{J}.{O}.~{H}amblen and {F}urman(2008)]{rapid08}
+{T}.{S}.~{H}all {J}.{O}.~{H}amblen and {M}.{D}. {F}urman.
+\newblock \emph{{R}apid {P}rototyping {O}f {D}igital {S}ystems}.
+\newblock {S}pringer, 2008.
+\newblock {A}ccessed: 12/02/2016.
 
 \bibitem[gbt(2016)]{gbt_videos}
 {GBT} {FPGA} {V}ideo {T}utorials.

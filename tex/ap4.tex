@@ -15,7 +15,7 @@ The following sections gives brief descriptions of each of these libraries and t
 
 \section{RS232} \label{sec:rs232}
 
-The RS232 library (\textit{rs232.h} and \textit{rs232.c}) is a cross-platform C-library for sending and receiving bytes from the \gls{com} of a \acrshort{pc}. It was written by Teunis van Beelen, and is licensed under the "GPL version 3" licence \cite{gpl3}. The library compiles with GCC on Linux and Mingw-w64 on Windows. By specifying baud rate, the name of the relevant \gls{com}, and the transmission mode (8N1 is standard), the library provides access to the \gls{com} and allows for both reading and writing to it. For more information about the library and functions, visit \url{http://www.teuniz.net/RS-232/#}.
+The RS232 library (\textit{rs232.h} and \textit{rs232.c}) is a cross-platform C-library for sending and receiving bytes from the COM of a \acrshort{pc}. It was written by Teunis van Beelen, and is licensed under the "GPL version 3" licence \cite{gpl3}. The library compiles with GCC on Linux and Mingw-w64 on Windows. By specifying baud rate, the name of the relevant COM, and the transmission mode (8N1 is standard), the library provides access to the COM and allows for both reading and writing to it. For more information about the library and functions, visit \url{http://www.teuniz.net/RS-232/#}.
 
 \subsection{Associated functions}
 
@@ -28,22 +28,22 @@ The RS232 library (\textit{rs232.h} and \textit{rs232.c}) is a cross-platform C-
 \begin{lstlisting}[frame=single] 
 int RS232_OpenComport(int comport_number, int baudrate, const char * mode)
 \end{lstlisting}
-Opens the \gls{com}. The user must specify a \gls{com} number, a baudrate number and the transmission mode (see list of valid inputs in \textit{rs232.c}). It is important that the user grants super-user/administration priveliges to the program, or it might not be able to open the \gls{com} or change the baudrate correctly. The function returns 1 if it does not succeed in opening the \gls{com}.\\
+Opens the COM. The user must specify a COM number, a baudrate number and the transmission mode (see list of valid inputs in \textit{rs232.c}). It is important that the user grants super-user/administration priveliges to the program, or it might not be able to open the COM or change the baudrate correctly. The function returns 1 if it does not succeed in opening the COM.\\
 
 \begin{lstlisting}[frame=single] 
 int RS232_PollComport(int comport_number, unsigned char *buf, int size)
 \end{lstlisting}
-Returns the amount of bytes (in integers) received from the \gls{com}. The received bytes are stored in a buffer and pointed to by \textit{buf}. One must specify the \textit{size} of the buf pointer. It is recommended to call this function routinely from a timer.\\
+Returns the amount of bytes (in integers) received from the COM. The received bytes are stored in a buffer and pointed to by \textit{buf}. One must specify the \textit{size} of the buf pointer. It is recommended to call this function routinely from a timer.\\
 
 \begin{lstlisting}[frame=single] 
 int RS232_SendBuf(int comport_number, unsigned char *buf,int size)
 \end{lstlisting}
-Sends a buffer of bytes via the \gls{com}. The \textit{buf} pointer must point to an array of bytes, and \textit{size} must specify the correct size of the array pointed to by the \textit{buf}.\\
+Sends a buffer of bytes via the COM. The \textit{buf} pointer must point to an array of bytes, and \textit{size} must specify the correct size of the array pointed to by the \textit{buf}.\\
 
 \begin{lstlisting}[frame=single] 
 void RS232_CloseComport(int comport_number)
 \end{lstlisting}
-Closes the \gls{com}. To prevent errors, it is important to disable any timers that calls \gls{com} related functions before closing the \gls{com}.\\
+Closes the COM. To prevent errors, it is important to disable any timers that calls COM related functions before closing the COM.\\
 
 \section{Timer} \label{sec:timer}
 
@@ -65,7 +65,7 @@ Starts the timer. At a given time interval of \textit{milliSeconds} (millisecond
 \begin{lstlisting}[frame=single] 
 int stop_timer( void )
 \end{lstlisting}
-Stops the timer if \textit{start\_timer} has previously been called. If the timer routinely calls RS232-functions, \textit{stop\_timer} must be called before closing the \gls{com} at the end of the program to prevent errors.
+Stops the timer if \textit{start\_timer} has previously been called. If the timer routinely calls RS232-functions, \textit{stop\_timer} must be called before closing the COM at the end of the program to prevent errors.
 
 \section{Signals} \label{sec:signals}
 

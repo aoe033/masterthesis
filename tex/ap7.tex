@@ -16,7 +16,8 @@ Table \ref{tab:ccode} lists the different C files that make up the GBT control i
 
 \begin{table}[H]
 \centering
-
+\caption{List of C files used in the GBT Control Interface module and the Send/Receive module}
+\label{tab:ccode}
 \begin{tabular}{l p{8cm}}
 \hline
  File & Description \\ \hline
@@ -27,19 +28,18 @@ Table \ref{tab:ccode} lists the different C files that make up the GBT control i
  signals.h/signals.c & Contains the signal structure and related functions (See \ref{sec:signals}).\\ %\hline
  timer.h/timer.c & Contains functions related to the program timer. (See \ref{sec:timer}) \\ \hline
 \end{tabular}
-\label{tab:ccode}
-\caption{List of C files used in the GBT Control Interface module and the Send/Receive module}
 \end{table}
 
 \newpage
 
 \section{VHDL Code}
 
-Table \ref{tab:vhdcode} lists the different VHDL files used in this thesis. For more information about the actual functionality of the files, see chapter \ref{chap:vhdcomp}. Files are available from 
+Table \ref{tab:vhdcode} lists the different VHDL files used in this thesis. For more information, see \ref{chap:hardcomp}. Files are available from 
 
 \begin{table}[H]
 \centering
-
+\caption{List of VHDL files used in this thesis.}
+\label{tab:vhdcode}
 \begin{tabular}{l p{8cm}}
 \hline
  File & Description \\ \hline
@@ -52,8 +52,6 @@ Table \ref{tab:vhdcode} lists the different VHDL files used in this thesis. For 
  uart\_tx.vhd & Uart transmitter. \\ %\hline
  uart\_top.vhd & Combines all components together into one entity. \\ \hline
 \end{tabular}
-\label{tab:vhdcode}
-\caption{List of VHDL files used in this thesis.}
 \end{table}
 
 \end{document}

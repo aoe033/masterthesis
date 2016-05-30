@@ -1,6 +1,6 @@
 \BOOKMARK [1][-]{chapter*.3}{Abstract}{}% 1
 \BOOKMARK [1][-]{chapter*.4}{Acknowledgements}{}% 2
-\BOOKMARK [1][-]{chapter*.9}{Table of Contents}{}% 3
+\BOOKMARK [1][-]{chapter*.7}{Table of Contents}{}% 3
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
 \BOOKMARK [1][-]{section.1.1}{Large Hadron Collider}{chapter.1}% 5
 \BOOKMARK [1][-]{section.1.2}{Super Large Hadron Collider}{chapter.1}% 6
@@ -55,30 +55,29 @@
 \BOOKMARK [1][-]{section.6.4}{Testing and Verification of the Serial Interface}{chapter.6}% 55
 \BOOKMARK [2][-]{subsection.6.4.1}{Hardware Simulation using Testbench in Modelsim}{section.6.4}% 56
 \BOOKMARK [2][-]{subsection.6.4.2}{Running the PC software design together with the FPGA hardware design}{section.6.4}% 57
-\BOOKMARK [2][-]{subsection.6.4.3}{Purpose of Tests}{section.6.4}% 58
-\BOOKMARK [0][-]{chapter.7}{Conclusion and Discussion}{}% 59
-\BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 60
-\BOOKMARK [0][-]{appendix.B}{Basics}{}% 61
-\BOOKMARK [1][-]{section.B.1}{Field Programmable Gate Array}{appendix.B}% 62
-\BOOKMARK [2][-]{subsection.B.1.1}{Hardware Description Language}{section.B.1}% 63
-\BOOKMARK [1][-]{section.B.2}{RS-232}{appendix.B}% 64
-\BOOKMARK [0][-]{appendix.C}{Non-standard C-Libraries}{}% 65
-\BOOKMARK [1][-]{section.C.1}{RS232}{appendix.C}% 66
-\BOOKMARK [2][-]{subsection.C.1.1}{Associated functions}{section.C.1}% 67
-\BOOKMARK [1][-]{section.C.2}{Timer}{appendix.C}% 68
-\BOOKMARK [2][-]{subsection.C.2.1}{Associated functions}{section.C.2}% 69
-\BOOKMARK [1][-]{section.C.3}{Signals}{appendix.C}% 70
-\BOOKMARK [2][-]{subsection.C.3.1}{Associated structures}{section.C.3}% 71
-\BOOKMARK [2][-]{subsection.C.3.2}{Associated functions}{section.C.3}% 72
-\BOOKMARK [1][-]{section.C.4}{ncurses}{appendix.C}% 73
-\BOOKMARK [2][-]{subsection.C.4.1}{Associated functions - Initialization}{section.C.4}% 74
-\BOOKMARK [2][-]{subsection.C.4.2}{Associated functions - Various}{section.C.4}% 75
-\BOOKMARK [0][-]{appendix.D}{GBT Control Signals}{}% 76
-\BOOKMARK [0][-]{appendix.E}{Clock Control Software Setup}{}% 77
-\BOOKMARK [1][-]{section.E.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.E}% 78
-\BOOKMARK [0][-]{appendix.F}{Soldering the Ground Pads Underneath the HSMC Contact}{}% 79
-\BOOKMARK [0][-]{appendix.G}{Code Files}{}% 80
-\BOOKMARK [1][-]{section.G.1}{C Code}{appendix.G}% 81
-\BOOKMARK [1][-]{section.G.2}{VHDL Code}{appendix.G}% 82
-\BOOKMARK [0][-]{appendix.H}{Schematic and PCB Layout}{}% 83
-\BOOKMARK [1][-]{figure.caption.86}{Appendix}{appendix.H}% 84
+\BOOKMARK [0][-]{chapter.7}{Conclusion and Discussion}{}% 58
+\BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 59
+\BOOKMARK [0][-]{appendix.B}{Basics}{}% 60
+\BOOKMARK [1][-]{section.B.1}{Field Programmable Gate Array}{appendix.B}% 61
+\BOOKMARK [2][-]{subsection.B.1.1}{Hardware Description Language}{section.B.1}% 62
+\BOOKMARK [1][-]{section.B.2}{RS-232}{appendix.B}% 63
+\BOOKMARK [0][-]{appendix.C}{Non-standard C-Libraries}{}% 64
+\BOOKMARK [1][-]{section.C.1}{RS232}{appendix.C}% 65
+\BOOKMARK [2][-]{subsection.C.1.1}{Associated functions}{section.C.1}% 66
+\BOOKMARK [1][-]{section.C.2}{Timer}{appendix.C}% 67
+\BOOKMARK [2][-]{subsection.C.2.1}{Associated functions}{section.C.2}% 68
+\BOOKMARK [1][-]{section.C.3}{Signals}{appendix.C}% 69
+\BOOKMARK [2][-]{subsection.C.3.1}{Associated structures}{section.C.3}% 70
+\BOOKMARK [2][-]{subsection.C.3.2}{Associated functions}{section.C.3}% 71
+\BOOKMARK [1][-]{section.C.4}{ncurses}{appendix.C}% 72
+\BOOKMARK [2][-]{subsection.C.4.1}{Associated functions - Initialization}{section.C.4}% 73
+\BOOKMARK [2][-]{subsection.C.4.2}{Associated functions - Various}{section.C.4}% 74
+\BOOKMARK [0][-]{appendix.D}{GBT Control Signals}{}% 75
+\BOOKMARK [0][-]{appendix.E}{Clock Control Software Setup}{}% 76
+\BOOKMARK [1][-]{section.E.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.E}% 77
+\BOOKMARK [0][-]{appendix.F}{Soldering the Ground Pads Underneath the HSMC Contact}{}% 78
+\BOOKMARK [0][-]{appendix.G}{Code Files}{}% 79
+\BOOKMARK [1][-]{section.G.1}{C Code}{appendix.G}% 80
+\BOOKMARK [1][-]{section.G.2}{VHDL Code}{appendix.G}% 81
+\BOOKMARK [0][-]{appendix.H}{Schematic and PCB Layout}{}% 82
+\BOOKMARK [1][-]{figure.caption.85}{Appendix}{appendix.H}% 83

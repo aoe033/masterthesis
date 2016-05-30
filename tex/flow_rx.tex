@@ -23,7 +23,7 @@
 	\node (start) [startstop] {Start};
 	\node (dec1) [decision, below = 1cm of start] {\textit{txStatus} = READ?};
 
-	\node (pro1a) [process, below = 1cm of dec1] {Read bytes from \gls{com}};
+	\node (pro1a) [process, below = 1cm of dec1] {Read bytes from COM};
 
 	\node (dec2) [decision, right = 0.5cm of pro1a] {n $>$ 0?};
 	\node (pro2a) [process, right = 1cm of dec2] {Set \textit{txStatus} = REPEAT};

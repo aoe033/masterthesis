@@ -24,7 +24,7 @@
 	\node (dec1) [decision, below = 1cm of start] {\textit{txStatus} = IDLE?};
 
 	\node (dec1a) [decision, left = 0.5cm of dec1] {\textit{txStatus} = REPEAT?};
-	\node (pro1a) [process, below left = 0.5cm of dec1a] {Send \textit{txData} to \gls{com}};
+	\node (pro1a) [process, below left = 0.5cm of dec1a] {Send \textit{txData} to COM};
 	\node (pro1b) [process, below = 0.5cm of pro1a] {Set \textit{txStatus} = READ};
 
 	\node (dec2) [decision, below = 0.5cm of dec1] {\textit{txReq?}};
@@ -38,7 +38,7 @@
 	\node (pro2b2) [process, below = 0.5cm of pro2b1] {\textit{txData[0]} = 0xDD};
 
 	\node (pro4) [process, below = 0.5cm of pro3b] {\textit{txData[1]} = txAdr};
-	\node (pro5) [process, below = 0.5cm of pro4] {Send \textit{txData} to \gls{com}};
+	\node (pro5) [process, below = 0.5cm of pro4] {Send \textit{txData} to COM};
 
 	\node (dec4) [decision, left = 1cm of pro5] {\textit{txAdr} $>$ tablewidth-1?};
 	\node (pro6a) [process, below left = 0.5cm of dec4] {Increment \textit{txAdr}};
