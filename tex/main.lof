@@ -27,26 +27,26 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces The $Si5338$ evaluation board \cite {si16}.\relax }}{37}{figure.caption.49}
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Transmitter and receiver delay chains.\relax }}{40}{figure.caption.58}
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Muxed delay chain on the receiver line.\relax }}{40}{figure.caption.60}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Small clamps was first used to measure the high-speed signal.\relax }}{41}{figure.caption.62}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Small clamps caused huge reflections when measuring the high-speed signal.\relax }}{42}{figure.caption.62}
 \contentsline {figure}{\numberline {6.5}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{42}{figure.caption.63}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Three read operations followed by a write. \relax }}{43}{figure.caption.68}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Three read operations followed by a write. \relax }}{44}{figure.caption.68}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{48}{figure.caption.72}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Receiving end of the fiber-optic external loopback test.\relax }}{50}{figure.caption.72}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of an RS-232 signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{51}{figure.caption.73}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {E.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{66}{figure.caption.76}
-\contentsline {figure}{\numberline {E.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{67}{figure.caption.77}
-\contentsline {figure}{\numberline {E.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{67}{figure.caption.77}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {F.1}{\ignorespaces EFD reflow thermal profile recommendations \cite {krepro_reflow}.\relax }}{69}{figure.caption.78}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of an RS-232 signal with 8 data bits, 1 parity bit (Odd, Even or No parity) and 1 stop bit.\relax }}{53}{figure.caption.73}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {H.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{74}{figure.caption.81}
-\contentsline {figure}{\numberline {H.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{75}{figure.caption.82}
-\contentsline {figure}{\numberline {H.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{76}{figure.caption.83}
-\contentsline {figure}{\numberline {H.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{77}{figure.caption.84}
-\contentsline {figure}{\numberline {H.5}{\ignorespaces PCB Layout, inner layers.\relax }}{78}{figure.caption.85}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Clock Control software by Altera used to program the $Si570$.\relax }}{68}{figure.caption.76}
+\contentsline {figure}{\numberline {E.2}{\ignorespaces $Si570$ Before configuration: 100 MHz.\relax }}{69}{figure.caption.77}
+\contentsline {figure}{\numberline {E.3}{\ignorespaces $Si570$ After configuration: 120 MHz.\relax }}{69}{figure.caption.77}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {F.1}{\ignorespaces EFD reflow thermal profile recommendations \cite {krepro_reflow}.\relax }}{71}{figure.caption.78}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {H.1}{\ignorespaces PCB Schematic, SFP connector.\relax }}{76}{figure.caption.81}
+\contentsline {figure}{\numberline {H.2}{\ignorespaces PCB Schematic, HDMI connectors.\relax }}{77}{figure.caption.82}
+\contentsline {figure}{\numberline {H.3}{\ignorespaces PCB Schematic, HSMC connector.\relax }}{78}{figure.caption.83}
+\contentsline {figure}{\numberline {H.4}{\ignorespaces PCB Layout, top and bottom layers.\relax }}{79}{figure.caption.84}
+\contentsline {figure}{\numberline {H.5}{\ignorespaces PCB Layout, inner layers.\relax }}{80}{figure.caption.85}

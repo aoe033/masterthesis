@@ -5,17 +5,17 @@
 \contentsline {table}{\numberline {4.1}{\ignorespaces The layers of the PCB and their traits, where t is the layer thickness and w is the width of the trace. The PCB has an overall thickness of $1.6\ \ensuremath {\SI@fstyle {m}}\meter $\relax }}{16}{table.caption.23}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. "sync\#"" is the most synchronized XOR-output in the delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{41}{table.caption.61}
+\contentsline {table}{\numberline {6.1}{\ignorespaces SignalTap II measurements on the J10 hdmi connector of the HDMI daughter card. "sync\#" is the most synchronized XOR-output in the delay chain. Length is the approximate traveling path (cable and trace) for the signal. The "Rising/Falling DFF" tab shows which edge triggered DFF that worked best as the first stage at the receiver delay chain.\relax }}{41}{table.caption.61}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {D.1}{\ignorespaces GBT control signals overview, switches.\relax }}{62}{table.caption.74}
-\contentsline {table}{\numberline {D.2}{\ignorespaces GBT control signals overview, probes.\relax }}{63}{table.caption.75}
+\contentsline {table}{\numberline {D.1}{\ignorespaces GBT control signals overview, switches.\relax }}{64}{table.caption.74}
+\contentsline {table}{\numberline {D.2}{\ignorespaces GBT control signals overview, probes.\relax }}{65}{table.caption.75}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {G.1}{\ignorespaces List of C files used in the GBT Control Interface module and the Send/Receive module\relax }}{71}{table.caption.79}
-\contentsline {table}{\numberline {G.2}{\ignorespaces List of VHDL files used in this thesis.\relax }}{72}{table.caption.80}
+\contentsline {table}{\numberline {G.1}{\ignorespaces List of C files used in the GBT Control Interface module and the Send/Receive module\relax }}{73}{table.caption.79}
+\contentsline {table}{\numberline {G.2}{\ignorespaces List of VHDL files used in this thesis.\relax }}{74}{table.caption.80}
 \addvspace {10\p@ }

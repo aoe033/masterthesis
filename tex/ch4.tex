@@ -190,7 +190,7 @@ When measuring a high-speed signal, the way you measure the signal can have a ma
 
 \begin{figure}
    \begin{center}
-     \ffigbox{\includegraphics[scale = 0.2]{../img/hektere_probes.pdf}}{\caption{Small clamps was first used to measure the high-speed signal.}\label{fig:hektere}}
+     \ffigbox{\includegraphics[scale = 0.2]{../img/hektere_probes.pdf}}{\caption{Small clamps caused huge reflections when measuring the high-speed signal.}\label{fig:hektere}}
    \end{center}
 \end{figure}
 
@@ -213,7 +213,7 @@ The measurement resulted in signals that were heavily distorted by reflections. 
     \label{fig:measdiff}
 \end{figure}
 
-By doing the same measurements again with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It is concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
+By doing the same measurements again on different probe-points (viases) and with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It was concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. However, measuring signal integrity and creating an eye-diagram could not be done with this measurement setup. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
 
 \section{Testing and Verification of the Serial Interface} \label{chap:sertest}
 
@@ -278,9 +278,15 @@ While testing the \gls{fpga} design together with the send/receive module, it oc
 
 To further investigate this fault, one could use SignalTap II to probe the \gls{uart} signals and identify and correct irregular behaviour in relevant signals. Due to time constraints, the quick fix was preferred.
 
-\chapter{Conclusion and Discussion}
+\chapter{Summary and Conclusion}
 
-The future upgrade of the \acrlong{lhc} accelerator, the \acrlong{slhc}, has its goal of increasing the beam luminosity by ten times. The \gls{gbt} \glspl{asic} and transmission protocol was developed to provide a high radiation tolerant, high speed, optical transmission line capable of simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data.
+The future upgrade of the \acrlong{lhc} accelerator, the \acrlong{slhc}, has its goal of increasing the beam luminosity by ten times. The \acrlong{gbt} ASICs and transmission protocol was developed with this in mind, and provides a high radiation tolerant, high speed, optical transmission line capable of simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. This thesis has had its focus on designing a control interface for the off-detector part of the GBT, the Common Readout Unit, along with a PCB that connects the CRU to the GBTx chip to allow for testing of the chip detector. The PCB was developed with high-speed transmission in mind, allowing for $4.8~\giga\bit\per\second$ optical transmission with minimum reflections using an SFP-contact. In addition, it has 10 HDMI-contacts allowing for e-link interface to the GBTx with a $320~\mega\bit\per\second$ transmission rate. The control interface was written using the C-language together with freely available libraries and one library that was written with the GBT control signals in mind (Appendix \ref{chap:clibs}). A hardware module was implemented in the FPGA to allow the software to read and write information to the GBT probe and source registers. The software consists of two modules: the sending and receiving module, and the ncurses command interface. Both modules work more or less as they should: The send/receive module writes a pattern to the GBT-register in the FPGA and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the GBT control signals. What remains is to fully integrate the send/receive module into the interface module.
+
+When attempting to measure the signal integrity directly from the traces on the PCB, the measurement equipment caused major reflections, making the measurement unreliable. The reflections remained constant when measuring at different probe points, but varied when changing probe-tips of the differential probes. External loopback tests were conducted on the HDMIs and SFP-contact using the GBT example design. The SFP-contact had a fiber-optic cable arranged in a loopback manner. Using the GBT example design, a counter was transmitted and received with the same increment at $4.8~\giga\bit\per\second$, confirming a working SFP-contact. The HDMI connection were tested by having a HDMI cable cut in half an soldering the transmitter and receiver pairs in a loopback manner. A pseudo-random signal was sent through the cable and a delay chain attempted to synchronize the two signals so that an error-count could be performed. The delay chain was completed, but because of an accident that lead to a damaged FPGA board, the error-count test was not conducted. Other remaining tests includes measure of crosstalk between paths and determining the signal integrity using eye-diagram. 
+
+The communication hardware on the FPGA side was tested and approved by writing a testbench using the Bitvis Utility Library. Correct timing between the UART and the decoder were confirmed, and the design was confirmed to be working in simulation. The send/receive software module were tested by connecting the COM port of the PC to the FPGA using a USB-to-RS232 cable, and by running the custom hardware on the FPGA the software was able to communicate with the FPGA, and was able to read the GBT probe and source registers as well as write to them. 
+
+The hardware module is not yet implemented into the GBT example design. During testing, dummy registers were therefore used instead of the actual GBT registers. To integrate the hardware module should be fairly simple; by removing the ISSP module in the GBT example design and connecting the leftover probe and source registers signals to the hardware modules dummy register signals.
 
 
 \end{document}

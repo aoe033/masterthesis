@@ -55,7 +55,7 @@
 \BOOKMARK [1][-]{section.6.4}{Testing and Verification of the Serial Interface}{chapter.6}% 55
 \BOOKMARK [2][-]{subsection.6.4.1}{Hardware Simulation using Testbench in Modelsim}{section.6.4}% 56
 \BOOKMARK [2][-]{subsection.6.4.2}{Running the PC software design together with the FPGA hardware design}{section.6.4}% 57
-\BOOKMARK [0][-]{chapter.7}{Conclusion and Discussion}{}% 58
+\BOOKMARK [0][-]{chapter.7}{Summary and Conclusion}{}% 58
 \BOOKMARK [0][-]{appendix.A}{SignalTap II: Receiving end of the fiber-optic external loopback test}{}% 59
 \BOOKMARK [0][-]{appendix.B}{Basics}{}% 60
 \BOOKMARK [1][-]{section.B.1}{Field Programmable Gate Array}{appendix.B}% 61

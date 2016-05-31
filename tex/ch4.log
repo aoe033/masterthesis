@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  31 MAY 2016 00:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.4)  31 MAY 2016 13:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2236,12 +2236,7 @@ Overfull \hbox (6.00124pt too wide) in paragraph at lines 201--212
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
-<../img/stubs_oppsett_100mhz.png (PNG copy)>]
-
-Package natbib Warning: Citation `bitvis16' on page 9 undefined on input line 2
+Package natbib Warning: Citation `bitvis16' on page 8 undefined on input line 2
 33.
 
 
@@ -2249,12 +2244,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 233--234
 
  []
 
-
+[8 <../img/hektere_probes.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
-[9]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 242.
 
@@ -2263,7 +2257,8 @@ Overfull \hbox (12.8439pt too wide) in paragraph at lines 242--243
 ol-lowed by a write op-er-a-tion. The $\OML/cmm/m/it/12 tx[]data[]compare$
  []
 
-<../img/uart_tb_0.pdf, id=253, 107.60199pt x 41.756pt>
+[9 <../img/hektere_oppsett_100mhz.png (PNG copy)> <../img/stubs_oppsett_100mhz.
+png (PNG copy)>] <../img/uart_tb_0.pdf, id=253, 107.60199pt x 41.756pt>
 File: ../img/uart_tb_0.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_0.pdf>
@@ -2298,6 +2293,13 @@ dfs with page group included in a single page
 ]
 Chapter 2.
 
+LaTeX Warning: Reference `chap:clibs' on page 13 undefined on input line 283.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+
 Package natbib Warning: There were undefined citations.
 
 
@@ -2305,34 +2307,31 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.)
 This document will not have a glossary.
 
-[13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 286.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 286.
+[14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
 
 (/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex
 /ch4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 286.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 286.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 292.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 292.
 Package rerunfilecheck Info: File `ch4.out' has not changed.
-(rerunfilecheck)             Checksum: 4389FFFBA84CBA956922827B1410CFD3;1249.
+(rerunfilecheck)             Checksum: 0526EAE8C879E9F8382E91C3DBC73990;1246.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 41276 strings out of 493029
- 787323 string characters out of 6136235
- 944135 words of memory out of 5000000
- 43991 multiletter control sequences out of 15000+600000
+ 41277 strings out of 493029
+ 787334 string characters out of 6136235
+ 944154 words of memory out of 5000000
+ 43992 multiletter control sequences out of 15000+600000
  39756 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,12n,87p,10417b,1170s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{glo:asic} has been referenced but does not exist,
+pdfTeX warning (dest): name{glo:slhc} has been referenced but does not exist,
  replaced by a fixed one
-
-pdfTeX warning (dest): name{glo:slhc} has been referenced but does not exist, r
-eplaced by a fixed one
 
 pdfTeX warning (dest): name{glo:lhc} has been referenced but does not exist, re
 placed by a fixed one
@@ -2407,10 +2406,10 @@ sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb>
 Output written on /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex
-/masterthesis/tex/ch4.pdf (13 pages, 3159191 bytes).
+/masterthesis/tex/ch4.pdf (14 pages, 3162483 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 328 compressed objects within 4 object streams
+ 369 PDF objects out of 1000 (max. 8388607)
+ 329 compressed objects within 4 object streams
  73 named destinations out of 1000 (max. 500000)
  155 words of extra memory for PDF output out of 10000 (max. 10000000)
 

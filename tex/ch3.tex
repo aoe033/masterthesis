@@ -288,11 +288,7 @@ The goal of this hardware design was to develop a module that would eventually b
 
 \section{Software on the PC Side} \label{chap:software}
 
-The program was written with the goal of one day replacing the Quartus-bound In-System-Source-And-Probe Editor, which is used today to access the \gls{gbt} control-signals; and instead introduce a cross-platform, open-source solution.
-
-To access the serial port on the \acrshort{pc}, the software uses free and cross-platform C-libraries (see sections below).
-
-The C programming language was chosen for this task mainly because of previous experience with the language, but also because of desire to learn to use the language more professionally. 
+The program was written with the goal of one day replacing the Quartus-bound In-System-Source-And-Probe Editor, which is used today to access the \gls{gbt} control-signals; and instead introduce a cross-platform, open-source solution. It was written in conjuction with the custom hardware, with the intention of communicating with the hardware to send and retrieve information from the GBT probe and source control registers. To access the serial port on the \acrshort{pc}, the software uses free and cross-platform C-libraries (see appendix \ref{chap:clibs}). The software communicates with the hardware using the RS-232 protocol, using 8 data bits, no parity and 1 stop bit, and a baud rate at $19200~\bit\per\second$. The hardware module must have the same specification in order for this to work. The C programming language was chosen for this task mainly because of previous experience with the language, and because of the intention to learn to use the language more professionally.
 
 \subsection{Specification}
 
