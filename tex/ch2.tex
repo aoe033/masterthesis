@@ -56,9 +56,9 @@ This chapter explains the design process of this \acrshort{pcb}; beginning with 
 
 \section{Design Discussion}
 
-The design discussion and planning of the \gls{pcb} was done together with Ph. D. Arild Velure.\\
+The design discussion and planning of the \gls{pcb} was done together with Ph. D. student Arild Velure.\\
 \noindent
-The initial plan was to design a \gls{pcb} with a male \gls{sfp}-contact in one end connected with two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into the \gls{sfp}-connectors on a \gls{sfp}-board with \gls{hdmi} cables connected to the \gls{vldb}. This design was quickly scratched as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp}-connectors on one side, wired to \gls{hdmi}-connectors on the other side, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with \gls{sfp}- and \gls{hdmi}-cables connecting the three boards together. \\
+The initial plan was to design a \gls{pcb} with a male \gls{sfp}-contact in one end connected with two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into the \gls{sfp}-connectors on a \gls{sfp}-board with \gls{hdmi} cables connected to the \gls{vldb}. This design was quickly scrapped as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp}-connectors on one side, wired to \gls{hdmi}-connectors on the other side, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with \gls{sfp}- and \gls{hdmi}-cables connecting the three boards together. \\
 
 The end result was a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design files (the one concerning the \gls{xcvr}-protocol, see \cite{sfp_schem}), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and lowering the chance of signal reflections. %The resulting design was a board connected to the \gls{fpga} via the \gls{hsmc}-connector, with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signals running to one \gls{sfp}-connector for fiber-optic communication.
 
@@ -71,14 +71,15 @@ The end result was a design that could be directly mounted on the \gls{fpga} thr
 
 \section{High Speed PCB Design}
 
-When transmitting signals through a conductor at high frequencies, the conductor no longer acts as an ideal wire. The signal voltage stops acting instantaneous across the conducting path, and factors like impedance mismatch and reflections becomes important for the quality of the signal to remain the same through the whole transmission. This section gives a brief explanation of high frequency signal behavior and the compensation methods that was practiced during the design of the \gls{hsmc}-to-\gls{vldb} \gls{pcb}.
+%When transmitting signals through a conductor at high frequencies, the conductor no longer acts as an ideal wire. The signal voltage stops acting instantaneous across the conducting path, and factors like impedance mismatch and reflections becomes important for the quality of the signal to remain the same through the whole transmission. 
+
+This section gives a brief explanation of high frequency signal behavior and the compensation methods that was practiced during the design of the \gls{hsmc}-to-\gls{vldb} \gls{pcb}.
 
 \subsection{Transmission Lines}
 
-When signal rise/fall times becomes comparable with the propagation delay of the conductor, the signal no longer acts instantaneous. The conductor becomes what is known as a transmission line, with the signals voltage and current acting like waves propagation through the conductor. 
-The general rule for determining if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period, so that the high and low states are recognizable \cite{weste11}.
+When signal rise/fall times becomes comparable with the propagation delay of the conductor, the signal can no longer be assumed to change immediately. The conductor becomes what is known as a transmission line, with the signals voltage and current behaving like waves propagation through the conductor. The rule of thumb for determining if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period, so that the high and low states are recognizable \cite{weste11}.
 
-For an \gls{lvds}-protocol, with signal speeds reaching up to $3.125\ \giga\bit\per\second$, the trace becomes a transmission line if the signal propagation time along the trace is less than 1/4 of the signal period, i.e $80\pico\second$. 
+For an \gls{lvds}-protocol, with signal speeds reaching up to $3.125\ \giga\bit\per\second$, the trace becomes a transmission line if the signal propagation time along the trace is less than 1/4 of the signal period, i.e $80~\pico\second$. 
 
 The propagation velocity of a signal is given by:
 
@@ -88,14 +89,16 @@ The propagation velocity of a signal is given by:
 %\]
 \end{equation}
 
-, where $\epsilon_r$ is the dielectric constant of the epoxy material FR4, often used as a material to separate the copper layers on the \glspl{pcb}. $\epsilon_r$ has a value of around $4.05$ @ $3\ \giga\hertz$ \cite{polar15}.
+, where $\epsilon_r$ is the dielectric constant of the dielectric material, FR4, often used as a material to separate the copper layers on the \glspl{pcb}. $\epsilon_r = 4.05$ @ $3\ \giga\hertz$ \cite{polar15}.
 A signal thus propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$ \cite[example 13.7]{weste11}.
 
 Thus, by assuming a constant transmitting frequency of $3.125\ \giga\bit\per\second$, a conductor becomes a transmission line if the length of the conductor stretches longer than $12\ \milli\meter$ between transmitter and receiver. This short length is very difficult to avoid when designing a \gls{pcb} with microstrip traces running from one connector out to eleven other connectors. The traces on the HSMC-to-VLDB \gls{pcb} are therefore considered as transmission lines. 
 
 \subsection{Reflections and Characteristic Impedance}
 
-Since the signals no longer acts instantaneous, the transmitter can not see what is connected at the receiving end at the time it sends a pulse down the conducting channel. All it sees is the channel impedance, called the characteristic impedance, $Z_0$, of the channel \cite{weste11}.
+Since the signals no longer changes immediately, the transmitter is not directly loaded by the receiving end at the time it sends a pulse down the conducting channel, but is instead loaded by the impedance coming from the channel itself. This impedance is called the characteristic impedance, $Z_0$, of the channel \cite{weste11}.
+
+Since the signals no longer changes immediately, the transmitter can not see what is connected at the receiving end at the time it sends a pulse down the conducting channel. All it sees is the channel impedance, called the characteristic impedance, $Z_0$, of the channel \cite{weste11}.
 
 The type of trace that is used in the \gls{hsmc}-to-\gls{vldb} \gls{pcb} design is called a microstrip, which is when the signal traces run along traces on the outer layers of the \gls{pcb} with the ground plane on the layer underneath. 
 
@@ -207,10 +210,10 @@ When looking at the datasheet for cables with differential signals, such as HDMI
 
 \subsection{Routing}
 
-As mentioned in section~\ref{subsec:diffsig}, differential signals have noise advantages over single ended signals. This is the case only if the pairs have \textit{equal} path lengths and the individual wires in each pair are routed as close to one another as possible. In addition, to keep crosstalk to its minimum, individual pairs has to be routed a distance away from other wires (In reality, this only becomes a problem when dealing with wiring in the micro-scale domain). Twisting the individual wires in each pair to some extent will also contribute to common noise rejection \cite{weste11}.
+As mentioned in section~\ref{subsec:diffsig}, differential signals have noise advantages over single ended signals. This is the case only if the pairs have \textit{equal} path lengths and the individual wires in each pair are routed as close to one another as possible. In addition, to keep cross-talk to its minimum, individual pairs has to be routed a distance away from other wires (In reality, this only becomes a problem when dealing with wiring in the micro-scale domain). Twisting the individual wires in each pair to some extent will also contribute to common-mode noise rejection \cite{weste11}.
 This was taken into consideration when routing the \gls{pcb}. 
 
-The individual wires in each pair was kept as close as possible, with a space constraint (See table \ref{tab:Xsect1}) according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See equation \ref{eq:zdiff}). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases. After routing the wires, attempts were made to separate the pairs a distance from one another, but this was not a critical stage.
+The individual wires in each pair was kept as close as possible, with a space constraint (See table \ref{tab:Xsect1}) according to the required differential impedance $Z_{diff}$ of approximately $100\ \ohm$ (See equation \ref{eq:zdiff}). When routing, twisting the wires (where possible) was achieved by purposely making the wires overlap at the viases. After routing the wires, attempts were made to separate the pairs a distance from one another, to further reduce the cross-talk.
 
 \section{PCB Design Parameters}
 
@@ -263,11 +266,11 @@ Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a b
 
 \section{Pads and Footprints}
 
-All pads and footprints were custom made using \textit{Cadence Pad Designer}, with dimensions collected from datasheets of the different components. The only excepting was for the \gls{hsmc} footprint and pads, which were acquired from the manufacturer. The pads were dimensioned a bit longer than the actual pins, making it a bit easier to make contact with the soldering iron when soldering by hand.
+All pads and footprints were custom made using \textit{Cadence Pad Designer}, with dimensions collected from datasheets of the different components. The only exception was for the \gls{hsmc} footprint and pads, which were acquired from the manufacturer. The pads were dimensioned a bit longer than the actual pins, making it easier to make contact with the soldering iron when soldering by hand.
 
 \section{Soldering Process}
 
-All the components on the \gls{pcb} was soldered by hand, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered by oven using solder paste. See \ref{ap:solder} for more details about the soldering process.
+All the components on the \gls{pcb} were soldered, with the exception of the ground pads underneath the \gls{hsmc}, which had to be soldered in hot air using solder paste. See appendix \ref{ap:solder} for more details about the soldering process.
 
 The finished PCB is shown in figure \ref{fig:pcb_1}. The \gls{hsmc} contact is located at the bottom of the \gls{pcb}.
 
@@ -280,28 +283,28 @@ The finished PCB is shown in figure \ref{fig:pcb_1}. The \gls{hsmc} contact is l
 
 \section{PCB Faults and Compensations}
 
-During the process of hand soldering, it was discovered that the \gls{hsmc} pads were dimensioned for the purpose of reflow soldering using a solder oven. This meant that the pads were dimensioned to match exactly that of the pins, making it very difficult to solder by hand. With 160 individual pins to be soldered to the \gls{pcb} board, this resulted in a time-consuming work with a lot of effort trying to keep the pins from shorting. To ease the soldering process of the \gls{hsmc}, the pads should be dimensioned a bit longer.
+During the process of hand soldering, it was discovered that the \gls{hsmc} pads were dimensioned for re-flow soldering using a solder oven. This meant that the pads were dimensioned to match exactly that of the pins, making it very difficult to solder by hand. With 160 individual pins to be soldered to the \gls{pcb} board, this resulted in a time-consuming work with a lot of effort trying to keep the pins from shorting. To ease the soldering process of the \gls{hsmc}, the pads should be dimensioned a bit longer.
 
-After receiving the \glspl{pcb}, further inspection revealed that all viases had missing solder mask. This exposes the metal of the vias to the surface of the \gls{pcb} and can possibly cause connection shorts between the viases and the pads and/or metallic casings when soldering. The reason for the viases not to have a solder mask is because it was missing in the pad file. A solution to fix this in a future \gls{pcb} print would obviously be to include a solder mask in the pad file.
+After receiving the \glspl{pcb}, further inspection revealed that all viases had missing solder mask due to a design flaw. This exposes the metal of the vias to the surface of the \gls{pcb} and can possibly cause connections between the viases and the pads and/or metallic casings when soldering. A solution to fix this in a future \gls{pcb} print would obviously be to include a solder mask in the pad file.
 With the current \gls{pcb} print, however, a temporary solution would be to apply thin \textit{kapton tape} where most critical.\\
 
-The exposed viases was later shown not to be as critical as first thought, due to the following points:\\
+The exposed viases later showed not to be as critical as first thought, due to the following points:\\
 
 \begin{itemize}\setlength{\itemsep}{10pt}
 \item The viases that are exposed underneath the \gls{hdmi} casings are in fact connected to ground, making the possible shorts between the viases and the already ground connected casing not a critical problem.
 \item The exposed viases underneath the \gls{hsmc}-connector could potentially connect to the ground pads when applying solder paste to the pads. This was avoided by carefully applying  a thin line of solder paste in the middle of the ground pads. This prevented the solder paste to float over to the neighboring viases when melting it in the oven. A possible drawback to this would be bad connection between the ground pads and the \gls{hsmc}-connector, but a quick check using a multimeter proved that the \gls{hsmc} was indeed connected to all the ground pads.\\
 \end{itemize}
 
-In fact, when testing the \gls{pcb}, the exposure of viases on the transmitter and receiver lines revealed to be quite useful probe points when using an oscilloscope to measure the signal integrity. Due to the lack of extra added probe points, measuring signals at the \gls{pcb} viases became the most convenient way of directly measuring the signals on the transmitter and receiver lines (see subsection below). A lesson until next \gls{pcb}-prototype is to include easily accessible probe points on lines that are relevant for oscilloscope measurement.\\
+In fact, when testing the \gls{pcb}, the exposure of viases on the transmitter and receiver lines revealed to be quite useful probe points when using an oscilloscope to measure the signal integrity. Due to the lack of extra added probe points, measuring signals at the \gls{pcb} viases became the most convenient way of directly measuring the signals on the transmitter and receiver lines during signal measurement. A lesson learned is to include easily accessible probe points on lines that are relevant for oscilloscope measurement.\\
 
-\begin{figure} % H(strictly put HERE > h!)
+%\begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
-\includegraphics[width = 7 cm]{../img/pullups}  \\[0.1 cm]
-\caption{Pull-up resistors on some of the receiver lines.}
-\label{fig:pullups}
-\end{figure}
+%\includegraphics[width = 7 cm]{../img/pullups}  \\[0.1 cm]
+%\caption{Pull-up resistors on some of the receiver lines.}
+%\label{fig:pullups}
+%\end{figure}
 
-On the current version of the \gls{pcb}, some of the receiver lines includes a $10~\kilo\ohm$ pull-up resistor (R91, R92, R95, R96, R97, R99, R100 and R101 in figure \ref{fig:pullups}). The reason why these are included could possibly be due to a misinterpretation of the \gls{sfp}-schematic in which the design of the \gls{pcb} was based on. This is concluded because two of the pull-up resistors (R100 and R101 in the schematic) are connected to receiver signals that are only used in the \gls{sfp}-design, but not in this design. The pull-up resistor pads were therefore not soldered on the board, and the lines were left open.
+%On the current version of the \gls{pcb}, some of the receiver lines includes a $10~\kilo\ohm$ pull-up resistor (R91, R92, R95, R96, R97, R99, R100 and R101 in figure \ref{fig:pullups}). The reason why these are included could possibly be due to a misinterpretation of the \gls{sfp}-schematic in which the design of the \gls{pcb} was based on. This is concluded because two of the pull-up resistors (R100 and R101 in the schematic) are connected to receiver signals that are only used in the \gls{sfp}-design, but not in this design. The pull-up resistor pads were therefore not soldered on the board, and the lines were left open.
 
 
 %Later discussions with Arild revealed that the transmitters on the GBT-VLDB did not have voltage pull-ups, which is necessary for the \gls{lvds}-signals. The current \gls{pcb} will therefore not work properly with the GBT-VLDB card. Later versions of the \gls{pcb} should therefore contain resistors pulling up to $1.25 \volt$ on the receiver lines in order for it to work.

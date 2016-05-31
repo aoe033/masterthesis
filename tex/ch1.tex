@@ -27,7 +27,7 @@
 
 \section{Large Hadron Collider}
 
-The \gls{lhc} is the largest and most powerful particle collider in the world. It was built by the \gls{cern} \cite{cernweb} between 1998 and 2008, and had its first start-up on 10 September 2008. This massive machine lies 175 metres deep beneath the France–Switzerland border near Geneva, Switzerland; and consists of a $27~\kilo\meter$ long circular tunnel of superconductor magnets with additional accelerating structures. Its basic operation is to accelerate particles (protons and heavy ions, e.g. Pb) in bunches\footnote{The particles are accelerated in bunches to increase the probability that a collision will occur.} to near the speed of light in opposite directions and collide them. The particle bunches are accelerated along two parallel beam lines running through the superconductor magnets, and collided at four locations were experiments like ATLAS\cite{atlasweb}, ALICE\cite{aliceweb}, CMS\cite{cmsweb} and LHCb\cite{lhcbweb} take place. As of 20 May 2015, the \gls{lhc} can achieve beam energies up to $13~\tera e\volt$, or $6.5~\tera e\volt$ per beam. Figure \ref{fig:lhcov} shows an overall view of the \gls{lhc} experiments.
+The \gls{lhc} is the largest and most powerful particle collider in the world. It was built by the \gls{cern} \cite{cernweb} between 1998 and 2008, and had its first start-up on 10 September 2008. This massive machine lies 175 metres under ground, beneath the France–Switzerland border near Geneva, Switzerland; and consists of a $27~\kilo\meter$ long circular tunnel of superconductor magnets with additional accelerating structures. Its basic operation is to accelerate particles (protons and heavy ions, e.g. Pb) in bunches\footnote{The particles are accelerated in bunches to increase the probability that a collision will occur.} to near the speed of light in opposite directions and collide them. The particle bunches are accelerated along two parallel beam lines running through the superconductor magnets, and collided at four locations were experiments like; ATLAS\cite{atlasweb}, ALICE\cite{aliceweb}, CMS\cite{cmsweb} and LHCb\cite{lhcbweb} take place. As of 20 May 2015, the \gls{lhc} can achieve beam energies up to $13~\tera e\volt$, or $6.5~\tera e\volt$ per beam. Figure \ref{fig:lhcov} shows an overall view of the \gls{lhc} experiments.
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -36,34 +36,32 @@ The \gls{lhc} is the largest and most powerful particle collider in the world. I
 \label{fig:lhcov}
 \end{figure}
 
-\section{Super Large Hadron Collider}
+\section{High-Luminosity LHC}
 
-The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, has its goal of increasing the beam luminosity by ten times. This will lead to a corresponding growth of the amount of data to be treated by the data acquisition systems, and a significant increase in radiation. This will thus require high rate data links and \glspl{asic} capable of tolerating high doses of radiation.
+The future upgrade of the \sebo{\gls{lhc}} accelerator, the \gls{slhc}, has its goal of increasing the beam luminosity by ten times. This will lead to a corresponding growth of the amount of data to be treated by the data acquisition systems, and an increase in radiation. This will thus require high rate data links and \glspl{asic} capable of tolerating high doses of radiation.
 
 To address these needs, the \gls{gbt} \glspl{asic} and transmission protocol was developed to provide a high radiation tolerant, high speed, optical transmission line capable of simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data.
 
 \section{The Gigabit Transceiver system}
-As illustrated in figure \ref{fig:gbtsys}, the \gls{gbt} system can be described in two parts: The on-detector part, and the off-detector part of the system. The below sections gives a brief description of these:
+As illustrated in figure \ref{fig:gbtsys}, the \gls{gbt} system can be separated into two parts: The on-detector part, and the off-detector part of the system. The below sections gives a brief description of these:
 
 \begin{figure}[!b] % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \includegraphics[width=0.7\linewidth]{../img/gbtsys}  \\[0.1 cm]
-\caption{The GBT-link in its entirety. The on-detector consists of custom made \glspl{asic} with an optical link connecting the off-detector \gls{fpga} with the GBT-FPGA implemented. \cite[Figure 1]{gbtscapres14}.}
+\caption{The GBT-link in its entirety. The on-detector (Embedded electronics) consists of custom made \glspl{asic} with an optical link connecting the off-detector (control room) \gls{fpga} with the GBT-FPGA implemented. \cite[Figure 1]{gbtscapres14}.}
 \label{fig:gbtsys}
 \end{figure}
 
 \subsection{On-detector}
-The on-detector part consists of radiation hard GBT \acrshort{asic}s that will provide interface and data transmission to the detectors and will thus be located in the radioactive zone. These \glspl{asic} are used to implement bi-directional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments.
+The on-detector part consists of radiation hard GBT \acrshort{asic}s that will provide interface and data transmission to the detectors and will thus be located in the radiation zone. These \glspl{asic} are used to implement bi-directional multipurpose $4.8~\giga\bit\per\second$ optical links for the high-energy physics experiments.
 
 \subsubsection{GBTx}
 The GBTx \gls{asic} is a serializer-de-serializer chip responsible for the high speed bi-directional optical link. It has a bandwidth of $3.2 - 4.8~\giga\bit\per\second$, and combines three data paths for Trigger and Timing Control (TTC), Data Acquisition (DAQ) and Slow Control (SC) information in one physical link; using two optical fibers. The GBTx encodes and decodes this information into what is known as the GBT-Frame, and provides interface to the front end electronics embedded in the detectors. \cite{gbtxman11}
 
-\subsubsection{GBT frame formats}
+\subsubsection{GBT frame formats} \label{sub:encodings}
  The GBTx transmits a 120-bit frame every $25~\nano\second$ ($40~\mega\hertz$), which is triggered by LHC particle bunch crossings. The GBTx supports three different encoding modes: "GBT-Frame", "8B/10B" and "Wide-Bus" mode. Figure \ref{fig:gbtframe} illustrates the "GBT-Frame" mode. The frame is divided into four parts: Header (H), Slow Control (SC), User Data (D) and Forward Error Correction (FEC). The Header field is a 4-bit field transmitted at the beginning of each frame, used to synchronize the data stream at the frame level. The header field can be set to "idle" (0110) or "data" (0101). The Slow Control field is a 4-bit field dedicated for routine and control operations that do not require precise timing. The User Data field is a 80-bit field reserved for generic transmission of data with a corresponding bandwidth of $3.2~\giga\bit\per\second$. The remaining field reserves 32 bits for Forward Error Correction. This involves using Reed-Solomon encoding capable of correcting up to 16 concecutive corrupted bits. To achieve DC-balancing, a self-synchronizing scrambler distributes the 0's and 1's in the data stream.
 
-The "8B/10B" and "Wide-Bus" mode share simularities with the "GBT-Frame" mode, but favors data width over lesser grades of error correction (the "Wide-Bus" has none). Both modes are only available in the transmitter part of the GBTx, but requires less resources from the \gls{fpga} (\ref{sec:offdetect}) than the "GBT-Frame". The "8B/10B" does not require scrambling because it is in itself DC-balanced \cite{gbtxman11}. These two modes are not yet available in the GBT FPGA example design.
-
-Both GBTx encoding and decoding operations can be done within a single clock cycle at $40~\mega\hertz$. 
+The "8B/10B" and "Wide-Bus" mode share simularities with the "GBT-Frame" mode, but favors data width over reduced error correction (the "Wide-Bus" has none). Both modes are only available in the transmitter part of the GBTx, but requires less resources from the \gls{fpga} (\ref{sec:offdetect}) than the "GBT-Frame". The "8B/10B" does not require scrambling because it is in itself DC-balanced \cite{gbtxman11}. These two modes are not yet available in the GBT FPGA example design. Both GBTx encoding and decoding operations can be done within a single clock cycle at $40~\mega\hertz$. 
  
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -84,12 +82,22 @@ The off-detector part is located in the counting room and consists of a \gls{cru
 
 \subsubsection{FPGA - Cyclone V GT} \label{sec:cyclone}
 
-Altera's Cyclone V GT \gls{fpga} board was chosen for use in this thesis. It was chosen mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$; "GT" indicates that the \gls{fpga} has transceivers that support speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}.\\
-an Originally, a Terasic Cyclone V GX development board was handed for use with this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world, such as an on-board Usb-to-Uart interface (more on this  in chapter \ref{chap:sercom}). However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered from the Altera web-pages, replacing the Terasic.
+Altera's Cyclone V GT \gls{fpga} board was chosen for use in this thesis. It was chosen mainly because of the on-board transceivers that are capable of reaching speeds that surpass the requirements of the \gls{gbt}-\gls{fpga} \gls{mgt}, i.e $4.8~\giga\bit\per\second$; "GT" indicates that the \gls{fpga} has transceivers that support speeds up to $6~\giga\bit\per\second$ \cite{altera_cvoverview15}.
+
+Originally, a Terasic Cyclone V SX development board was aquired for use with this thesis. The Terasic board has advantages over the Cyclone V GT board in terms of communication with the outside world, such as an on-board Usb-to-Uart interface (more on this  in chapter \ref{chap:sercom}). However, it was discovered that the transceivers on the Terasic board were not fast enough for the \gls{gbt} \gls{mgt}; maximum supported transceiver speed is only $3.125~\giga\bit\per\second$ \cite{altera_cvoverview15}. Because of this, the more powerful Cyclone V GT \gls{fpga} development board was ordered, replacing the Terasic.
+
+\subsubsection{GBT-FPGA project}
+
+The GBT-FPGA project provides a firmware library for Altera and XilinX \glspl{fpga} for communication with the GBTx chipset. It allows for one or several GBT links of type "Standard" or "Latency-Optimized" (The latter providing low, fixed and deterministic latency). Each GBT link is composed of three components: a GBT Rx, a GBT Tx and a \gls{mgt}. The GBT Rx is responsible for receiving, decoding and de-scrambling the data from the \gls{mgt}.  The GBT Tx is responsible for scrambling and encoding data before transmitting it through the \gls{mgt}. The \gls{mgt} is responsible for the actual transmitting, receiving, serialization and de-serialization of the \gls{gbt} data. It is divided into a transmitter and a receiver: The transmitter shifts in $40~\bit$ words from the GBT Tx, serializes the data and sends it out with the help of a dedicated \acrshort{pll} that generates a serial clock of $2400 \mega\hertz$. The receiver de-serializes the incoming data before shifting it to the GBT Rx. The receiver contains a \gls{cdr} block to recover the clock signal directly from the incoming data stream \footnote{To be able to recover the clock using a \gls{cdr}, it is important that the serial data has even transitions of 1's and 0's. This is one of the reasons why scrambling the data is important.}. The \gls{mgt} requires an external clock of $120~\mega\hertz$.\\
+The GBT link supports all three encodings described in section \ref{sub:encodings}.  \cite{gbt_fpga}
+
+\subsubsection{GBT-example design}
+The firmware library comes with an example design that incorporates a single GBT link of the "Standard" type. Included in the example is a pattern generator, connected to the GBT Tx; a pattern checker, connected to the GBT Rx; and a user control interface implemented using the \acrlong{issp}. The example enables for external and internal loopback testing.
+
 
 \section{Versatile Link Demo Board} \label{sec:vldb}
 
-The \gls{vldb} is the evaluation kit for the radiation hard optical link. It includes the main elements of the GBT Link, the radiation hard \glspl{asic}; GBTx, GBT-SCA and VTRx/VTTx (optical-link modules), in addition to radiation hard DC/DC converters. The \gls{vldb} has 20 e-links reachable through \gls{hdmi} connectors that connects to the front-end electronics, and a fiber-optic link that connects to the off-detector \gls{fpga}.\\
+The \gls{vldb} is the evaluation kit for the radiation hard optical link. It includes the main elements of the GBT Link, the radiation hard \glspl{asic}; GBTx, GBT-SCA and VTRx/VTTx (optical-link modules), in addition to radiation hard DC/DC converters. The \gls{vldb} has 20 e-links reachable through \acrshort{hdmi}-connectors that connects to the front-end electronics, and a fiber-optical link that connects to the off-detector \gls{fpga}.\\
 
 \begin{figure}[!b]
         \begin{annotatedFigure}
@@ -104,7 +112,7 @@ The \gls{vldb} is the evaluation kit for the radiation hard optical link. It inc
 \end{figure}
 
 \section{E-Links} \label{sec:elinks}
-E-links are electrical local duplex  serial links suitable for transmission over PCBs or cables, within a distance of a few meters, and can operate at any data rate up to $320~\mega\bit\per\second$. It was designed with the GBTx in mind, having radiation hard and single event upset (SEU) resistant transmitter and receiver blocks \cite{elinks}. Each E-link consists of three differential signal lines: a clock line (dClk+/dClk-), a downlink output (dOut+/dOut-) and a uplink input (dIn+/dIn-).
+E-links are electrical local duplex  serial links suitable for transmission over PCBs or cables, within a distance of a few meters, and can operate at any data rate up to $320~\mega\bit\per\second$ \footnote{The GBTx can only handle $320/160/80~\mega\bit\per\second$}. It was designed with the GBTx in mind, having radiation hard and single event upset (SEU) resistant transmitter and receiver blocks \cite{elinks}. Each E-link consists of three differential signal lines: a clock line (dClk+/dClk-), a downlink output (dOut+/dOut-) and a uplink input (dIn+/dIn-).
 
 The GBTx arranges e-links in 5 groups, with up to 8 e-links per group corresponding to 16 bits in the uplink and the downlink frames; making a total of 80 bits \cite{gbtxman11}. Each group can be programmed to data rates of $80~\mega\bit\per\second$, with 8 e-links per group; $160~\mega\bit\per\second$, with 4 e-links per group; or $320~\mega\bit\per\second$, with 2 e-links per group. Faster data rates comes with the expense of less physical e-link connections available for the front-end detectors.
 
@@ -122,9 +130,9 @@ For the \gls{fpga} to be able to transmit and receive serial data in the gigaher
 
 \section{Differential Signals} \label{subsec:diffsig}
 
-Common for all protocols described is the fact that the signals are treated differentially. While a single ended signal involves one conductor between the transmitter and receiver, with the signal swinging from a given voltage to ground; differential signals involves a conductor pair with two signals that are identical, but with opposite polarity. The pair would ideally have equal path lenghts in order to have zero return currents, avoiding problems like \textit{EMI}. In addition, placing the signals as close as possible to one another will give benefits in terms of common noise rejection \cite{douglas01}.\\
+Common for all protocols described here is the fact that the signals are treated differentially. While a single ended signal involves one conductor between the transmitter and receiver, with the signal swinging from a given voltage to ground; differential signals involve a conductor pair of two signals that are identical, but with opposite polarity. The pair would ideally have equal path lenghts in order to have zero return currents, avoiding problems like \gls{emi}. In addition, placing the signals as close as possible to one another will give benefits in terms of common-mode noise rejection \cite{douglas01}.\\
 
-When done correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low signal applications. The disadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
+When implemented correctly, differential signals have advantages over single ended signals such as effective isolation from power systems, minimized crosstalk and noise immunity through common-mode noise rejection. It also improves S/N ratio and effectively doubles the signal level at the output $(+v - (-v) = 2v)$, which makes it especially useful in low level signal applications. The disadvantage comes in an increase in pin count and space required, since differential signals consists of two wires instead of one \cite{douglas01}.
 
 \section{Low-Voltage Differential Signaling} \label{sec:lvds}
 
@@ -144,33 +152,6 @@ The Cyclone V GT board has 4 Pseudo-\gls{cml} (PCML) channels available on both 
 %\subsection{Phase-Locked Loops}
 
 %A \gls{pll} is a device
-
-
-\chapter{The Gigabit Transceiver} \label{chap:gbt}
-
-\todo{History, mgt, Short about the electronic components, gbt-sca, gbtx}
-
-The GBT-FPGA project provides firmware required to allow the \gls{fpga} to communicate with the GBTx chipset over the versatile link.
-
-\section{GBT-FPGA Core}
-The following sections describe the different components that makes up the GBT-FPGA Core. The information was obtained from the GBT-FPGA User Guide \cite{gbt_fpga}.
-
-\subsection{GBT Bank}
-The GBT Bank is defined as the top module of the \gls{gbt}-\gls{fpga} Core. It integrates up to four GBT Links and contains the ports required to operate the GBT Links.
-
-\subsection{GBT Link}
-The \gls{gbt} Link is the actual channel of the link. It is composed of three components: GBT Tx, GBT Rx, and the \gls{mgt}. The following subsections gives a brief description of these components.
-
-\subsubsection{GBT Tx}
-
-The \gls{gbt} Tx component is responsible for scrambling and encoding data before transmitting it through the \gls{mgt}.
-
-\subsubsection{GBT Rx}
-
-The \gls{gbt} Rx component is responsible for receiving, decoding and de-scrambling the data through the \gls{mgt}.
-
-\subsubsection{Multi-Gigabit Transceiver}
-The \gls{mgt} is responsible for the transmitting, receiving, serialization and de-serialization of the \gls{gbt} data. It is divided into a transmitter and a receiver part.\\ The transmitter contains a PISO\footnote{Short for Parallel In Serial Out, a PISO is a shift-register circuit for serializing input parallel data.} with two input clocks; one for parallel data and one for serial data. It shifts in $40~\bit$ words from the GBT Tx with a reference clock of $120~\mega\hertz$, serializes the data and sends it out with the help of a dedicated Tx \gls{pll} that generates a serial clock of $2400 \mega\hertz$.\\ The receiver contains a \gls{cdr} block, a SIPO\footnote{Short for Serial In Parallel Out, a SIPO is a shift-register circuit that converts input serial data into parallel data.}, a RXRECCLK Phase Aligner block and a Barrel-shifter. 
 
 %\gls{cpri}
 

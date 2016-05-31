@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: unsrtnat.bst
@@ -7,51 +7,21 @@ Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the e
 while executing---line 1233 of file unsrtnat.bst
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
-while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
-while executing---line 1233 of file unsrtnat.bst
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
 while executing---line 1315 of file unsrtnat.bst
 Name 2 in "{S}ophie {B}aron and {M}anoel {B}arros {M}arin," has a comma at the end for entry gbt_fpga
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "A. Caratelli, S. Bonacini, K. Kloukinas, A. Marchioro, P. Moreira, R. De Oliveira and C. Paillard" for entry gbtsca15
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "S. Baron, J. P. Cachemiche, F. Marin, P. Moreira, C. Soos" for entry gbtpro10
 while executing---line 1315 of file unsrtnat.bst
 You've used 38 entries,
             2481 wiz_defined-function locations,
-            715 strings with 9879 characters,
-and the built_in function-call counts, 8988 in all, are:
-= -- 836
-> -- 115
+            715 strings with 9910 characters,
+and the built_in function-call counts, 9029 in all, are:
+= -- 839
+> -- 123
 < -- 13
-+ -- 109
-- -- 32
-* -- 399
-:= -- 1116
++ -- 111
+- -- 34
+* -- 405
+:= -- 1122
 add.period$ -- 112
 call.type$ -- 38
 change.case$ -- 74
@@ -59,8 +29,8 @@ chr.to.int$ -- 37
 cite$ -- 63
 duplicate$ -- 547
 empty$ -- 1191
-format.name$ -- 51
-if$ -- 2138
+format.name$ -- 55
+if$ -- 2147
 int.to.chr$ -- 2
 int.to.str$ -- 39
 missing$ -- 6
@@ -70,7 +40,7 @@ pop$ -- 479
 preamble$ -- 1
 purify$ -- 38
 quote$ -- 0
-skip$ -- 395
+skip$ -- 396
 stack$ -- 0
 substring$ -- 101
 swap$ -- 78
@@ -82,4 +52,4 @@ warning$ -- 0
 while$ -- 26
 width$ -- 0
 write$ -- 460
-(There were 19 error messages)
+(There were 4 error messages)

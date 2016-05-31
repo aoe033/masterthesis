@@ -51,17 +51,17 @@ K.~Wyllie P.~Moreira, J.~Christiansen.
 \newblock \url{https://espace.cern.ch/GBT-Project/GBT-FPGA}, 2015.
 \newblock {A}ccessed: 29/02/2016.
 
-\bibitem[A.~Caratelli and Paillard(2015)]{gbtsca15}
-K.~Kloukinas A. Marchioro P. Moreira R. De~Oliveira A.~Caratelli, S.~Bonacini
-  and C.~Paillard.
+\bibitem[Oliveira and Paillard(2015)]{gbtsca15}
+A.~Caratelli{,} S. Bonacini{,} K. Kloukinas{,} A. Marchioro{,} P. Moreira{,}
+  R.~De Oliveira and C.~Paillard.
 \newblock {T}he {GBT}-{SCA}, a radiation tolerant {ASIC} for detector control
   applications in {SLHC} experiments.
 \newblock
   \url{http://iopscience.iop.org/article/10.1088/1748-0221/10/03/C03034/pdf},
   2015.
 
-\bibitem[S.~Baron(2010)]{gbtpro10}
-F.~Marin P. Moreira C.~Soos S.~Baron, J. P.~Cachemiche.
+\bibitem[Soos(2010)]{gbtpro10}
+S.~Baron{,} J. P. Cachemiche{,} F. Marin{,} P. Moreira{,}~C. Soos.
 \newblock {T}he {GBT} {P}roject.
 \newblock \url{https://espace.cern.ch/GBT-Project}, 2010.
 
@@ -78,8 +78,8 @@ F.~Marin P. Moreira C.~Soos S.~Baron, J. P.~Cachemiche.
   \url{https://indico.cern.ch/event/468486/contributions/1144349/attachments/1247041/1837036/Poster_ACES2016_Raul_SB.PDF
   }, 2016.
 
-\bibitem[S.~Bonacini(2009)]{elinks}
-P.~Moreira S.~Bonacini, K.~Kloukinas.
+\bibitem[Moreira(2009)]{elinks}
+S.~Bonacini{,} K. Kloukinas{,}~P. Moreira.
 \newblock e-link: {A} {R}adiation-{H}ard {L}ow-{P}ower {E}lectrical {L}ink for
   {C}hip-to-{C}hip {C}ommunication.
 \newblock \url{http://cds.cern.ch/record/1235849/files/p422.pdf}, 2009.
@@ -119,8 +119,8 @@ P.~Moreira S.~Bonacini, K.~Kloukinas.
   2009.
 \newblock {A}ccessed: 10/12/2015.
 
-\bibitem[Neil {H}. {E}.~{W}este(2011)]{weste11}
-{D}avid {M}oney~{H}arris Neil {H}. {E}.~{W}este.
+\bibitem[{W}este and {D}avid~{M}oney {H}arris(2011)]{weste11}
+Neil {H}.~{E}. {W}este and {D}avid~{M}oney {H}arris.
 \newblock \emph{{CMOS} {VLSI} {D}esign, {A} {C}ircuit {A}nd {S}ystems
   {P}erspective}.
 \newblock Addison-{W}esley, {P}earson, fourth edition, 2011.
@@ -167,8 +167,8 @@ Arild Velure.
 \newblock {D}esign used as a reference to the serial communication part on the
   FPGA side. {P}rivate communication.
 
-\bibitem[{J}.{O}.~{H}amblen and {F}urman(2008)]{rapid08}
-{T}.{S}.~{H}all {J}.{O}.~{H}amblen and {M}.{D}. {F}urman.
+\bibitem[{H}amblen{,} {T}.{S}.~{H}all and {F}urman(2008)]{rapid08}
+{J}.{O}. {H}amblen{,} {T}.{S}.~{H}all and {M}.{D}. {F}urman.
 \newblock \emph{{R}apid {P}rototyping {O}f {D}igital {S}ystems}.
 \newblock {S}pringer, 2008.
 \newblock {A}ccessed: 12/02/2016.
@@ -202,8 +202,8 @@ Arild Velure.
 {GPL} version 3.
 \newblock \url{http://www.gnu.org/licenses/gpl-3.0.txt}, 2007.
 
-\bibitem[Zeyd M. Ben-Halim(2016)]{ncursesdoc}
-Thomas E.~Dickey. Zeyd M. Ben-Halim, Eric S.~Raymond.
+\bibitem[Dickey.(2016)]{ncursesdoc}
+Zeyd M. Ben-Halim{,} Eric S. Raymond{,} Thomas~E. Dickey.
 \newblock ncurses documentation site.
 \newblock \url{http://invisible-island.net/ncurses/man/ncurses.3x.html}, 2016.
 \newblock {A}ccessed: 17/05/2016.
