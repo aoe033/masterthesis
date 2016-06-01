@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  31 MAY 2016 23:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  1 JUN 2016 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1825,7 +1825,7 @@ Package natbib Warning: Citation `cmsweb' on page 1 undefined on input line 30.
 Package natbib Warning: Citation `lhcbweb' on page 1 undefined on input line 30
 .
 
-<../img/lhc.jpg, id=85, 781.92125pt x 563.10374pt>
+<../img/lhc.jpg, id=69, 781.92125pt x 563.10374pt>
 File: ../img/lhc.jpg Graphic file (type jpg)
  <use ../img/lhc.jpg>
 Package pdftex.def Info: ../img/lhc.jpg used on input line 34.
@@ -1845,7 +1845,7 @@ Package natbib Warning: Citation `lhcpic' on page 1 undefined on input line 35.
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../img/gbtsys.pdf, id=111, 733.94202pt x 587.79597pt>
+<../img/gbtsys.pdf, id=95, 733.94202pt x 587.79597pt>
 File: ../img/gbtsys.pdf Graphic file (type pdf)
  <use ../img/gbtsys.pdf>
 Package pdftex.def Info: ../img/gbtsys.pdf used on input line 50.
@@ -1868,7 +1868,7 @@ Package natbib Warning: Citation `gbtxman11' on page 2 undefined on input line
 Package natbib Warning: Citation `gbtxman11' on page 3 undefined on input line 
 64.
 
-<../img/gbtframe.pdf, id=130, 1006.962pt x 155.782pt>
+<../img/gbtframe.pdf, id=114, 1006.962pt x 155.782pt>
 File: ../img/gbtframe.pdf Graphic file (type pdf)
 
 <use ../img/gbtframe.pdf>
@@ -1923,7 +1923,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
-<../img/vldb.pdf, id=196, 680.14098pt x 533.995pt>
+<../img/vldb.pdf, id=181, 680.14098pt x 533.995pt>
 File: ../img/vldb.pdf Graphic file (type pdf)
  <use ../img/vldb.pdf>
 Package pdftex.def Info: ../img/vldb.pdf used on input line 104.
@@ -1947,7 +1947,10 @@ Package natbib Warning: Citation `gbtxman11' on page 6 undefined on input line
 117.
 
 
-Underfull \vbox (badness 2547) has occurred while \output is active []
+LaTeX Warning: Reference `chap:pcb' on page 6 undefined on input line 123.
+
+
+Underfull \vbox (badness 6110) has occurred while \output is active []
 
  [6 <../img/vldb.pdf, page is rotated 90 degrees>] [7] [8
 
@@ -1993,17 +1996,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--146
 Package natbib Warning: Citation `altera_cyclonekit' on page 10 undefined on in
 put line 147.
 
-[10]
-Chapter 3.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 159.
-
-Package natbib Warning: Citation `gbt_fpga' on page 11 undefined on input line 
-164.
-
-[11
-
-]
 
 Package natbib Warning: There were undefined citations.
 
@@ -2011,24 +2003,24 @@ Package natbib Warning: There were undefined citations.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
-[12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
  (./ch1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
 Package rerunfilecheck Info: File `ch1.out' has not changed.
-(rerunfilecheck)             Checksum: DFEDC9D93F52B242A3F2261C8B49BFA9;1149.
+(rerunfilecheck)             Checksum: 77F4C551092212A3671770A16B359CB6;906.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 35502 strings out of 493304
- 651132 string characters out of 6139871
- 848786 words of memory out of 5000000
- 38166 multiletter control sequences out of 15000+600000
+ 35446 strings out of 493304
+ 650160 string characters out of 6139871
+ 849652 words of memory out of 5000000
+ 38122 multiletter control sequences out of 15000+600000
  11927 words of font info for 43 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  91i,11n,77p,10442b,780s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2113,10 +2105,10 @@ onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb>
-Output written on ch1.pdf (12 pages, 1711777 bytes).
+Output written on ch1.pdf (10 pages, 1706357 bytes).
 PDF statistics:
- 351 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
- 74 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 270 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

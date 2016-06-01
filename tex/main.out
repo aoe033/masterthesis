@@ -38,7 +38,7 @@
 \BOOKMARK [2][-]{subsection.4.6.1}{Specification}{section.4.6}% 38
 \BOOKMARK [2][-]{subsection.4.6.2}{Software Structure and Flowchart}{section.4.6}% 39
 \BOOKMARK [2][-]{subsection.4.6.3}{Conclusion}{section.4.6}% 40
-\BOOKMARK [0][-]{chapter.5}{Loopback Test using the GBT Quartus Example}{}% 41
+\BOOKMARK [0][-]{chapter.5}{Testing and Verification}{}% 41
 \BOOKMARK [1][-]{section.5.1}{120 MHz Reference Clock}{chapter.5}% 42
 \BOOKMARK [2][-]{subsection.5.1.1}{Configuring the onboard Oscillator on the Cyclone V Board}{section.5.1}% 43
 \BOOKMARK [2][-]{subsection.5.1.2}{Configuring the Si5338 External Oscillator}{section.5.1}% 44
@@ -50,28 +50,29 @@
 \BOOKMARK [1][-]{section.5.3}{Testing and Verification of the Serial Interface}{chapter.5}% 50
 \BOOKMARK [2][-]{subsection.5.3.1}{Hardware Simulation using Testbench in Modelsim}{section.5.3}% 51
 \BOOKMARK [2][-]{subsection.5.3.2}{Running the PC software design together with the FPGA hardware design}{section.5.3}% 52
-\BOOKMARK [0][-]{chapter.6}{Summary and Conclusion}{}% 53
-\BOOKMARK [0][-]{appendix.A}{Basics}{}% 54
-\BOOKMARK [1][-]{section.A.1}{Field Programmable Gate Array}{appendix.A}% 55
-\BOOKMARK [2][-]{subsection.A.1.1}{Hardware Description Language}{section.A.1}% 56
-\BOOKMARK [1][-]{section.A.2}{RS-232}{appendix.A}% 57
-\BOOKMARK [0][-]{appendix.B}{Non-standard C-Libraries}{}% 58
-\BOOKMARK [1][-]{section.B.1}{RS232}{appendix.B}% 59
-\BOOKMARK [2][-]{subsection.B.1.1}{Associated functions}{section.B.1}% 60
-\BOOKMARK [1][-]{section.B.2}{Timer}{appendix.B}% 61
-\BOOKMARK [2][-]{subsection.B.2.1}{Associated functions}{section.B.2}% 62
-\BOOKMARK [1][-]{section.B.3}{Signals}{appendix.B}% 63
-\BOOKMARK [2][-]{subsection.B.3.1}{Associated structures}{section.B.3}% 64
-\BOOKMARK [2][-]{subsection.B.3.2}{Associated functions}{section.B.3}% 65
-\BOOKMARK [1][-]{section.B.4}{ncurses}{appendix.B}% 66
-\BOOKMARK [2][-]{subsection.B.4.1}{Associated functions - Initialization}{section.B.4}% 67
-\BOOKMARK [2][-]{subsection.B.4.2}{Associated functions - Various}{section.B.4}% 68
-\BOOKMARK [0][-]{appendix.C}{GBT Control Signals}{}% 69
-\BOOKMARK [0][-]{appendix.D}{Clock Control Software Setup}{}% 70
-\BOOKMARK [1][-]{section.D.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.D}% 71
-\BOOKMARK [0][-]{appendix.E}{Soldering the Ground Pads Underneath the HSMC Contact}{}% 72
-\BOOKMARK [0][-]{appendix.F}{Code Files}{}% 73
-\BOOKMARK [1][-]{section.F.1}{C Code}{appendix.F}% 74
-\BOOKMARK [1][-]{section.F.2}{VHDL Code}{appendix.F}% 75
-\BOOKMARK [0][-]{appendix.G}{Schematic and PCB Layout}{}% 76
-\BOOKMARK [1][-]{figure.caption.81}{Appendix}{appendix.G}% 77
+\BOOKMARK [2][-]{subsection.5.3.3}{Conclusion and Discussion}{section.5.3}% 53
+\BOOKMARK [0][-]{chapter.6}{Summary and Conclusion}{}% 54
+\BOOKMARK [0][-]{appendix.A}{Basics}{}% 55
+\BOOKMARK [1][-]{section.A.1}{Field Programmable Gate Array}{appendix.A}% 56
+\BOOKMARK [2][-]{subsection.A.1.1}{Hardware Description Language}{section.A.1}% 57
+\BOOKMARK [1][-]{section.A.2}{RS-232}{appendix.A}% 58
+\BOOKMARK [0][-]{appendix.B}{Non-standard C-Libraries}{}% 59
+\BOOKMARK [1][-]{section.B.1}{RS232}{appendix.B}% 60
+\BOOKMARK [2][-]{subsection.B.1.1}{Associated functions}{section.B.1}% 61
+\BOOKMARK [1][-]{section.B.2}{Timer}{appendix.B}% 62
+\BOOKMARK [2][-]{subsection.B.2.1}{Associated functions}{section.B.2}% 63
+\BOOKMARK [1][-]{section.B.3}{Signals}{appendix.B}% 64
+\BOOKMARK [2][-]{subsection.B.3.1}{Associated structures}{section.B.3}% 65
+\BOOKMARK [2][-]{subsection.B.3.2}{Associated functions}{section.B.3}% 66
+\BOOKMARK [1][-]{section.B.4}{ncurses}{appendix.B}% 67
+\BOOKMARK [2][-]{subsection.B.4.1}{Associated functions - Initialization}{section.B.4}% 68
+\BOOKMARK [2][-]{subsection.B.4.2}{Associated functions - Various}{section.B.4}% 69
+\BOOKMARK [0][-]{appendix.C}{GBT Control Signals}{}% 70
+\BOOKMARK [0][-]{appendix.D}{Clock Control Software Setup}{}% 71
+\BOOKMARK [1][-]{section.D.1}{Steps for Configuring Windows to run the Clock Control Software}{appendix.D}% 72
+\BOOKMARK [0][-]{appendix.E}{Soldering the Ground Pads Underneath the HSMC Contact}{}% 73
+\BOOKMARK [0][-]{appendix.F}{Code Files}{}% 74
+\BOOKMARK [1][-]{section.F.1}{C Code}{appendix.F}% 75
+\BOOKMARK [1][-]{section.F.2}{VHDL Code}{appendix.F}% 76
+\BOOKMARK [0][-]{appendix.G}{Schematic and PCB Layout}{}% 77
+\BOOKMARK [1][-]{figure.caption.81}{Appendix}{appendix.G}% 78

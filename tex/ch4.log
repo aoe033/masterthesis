@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  31 MAY 2016 20:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  1 JUN 2016 10:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1805,28 +1805,37 @@ Option `squaren' provided!
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 24.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
 
 Package natbib Warning: Citation `gbt_videos' on page 1 undefined on input line
- 29.
+ 26.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package natbib Warning: Citation `altera_cyclonekit' on page 1 undefined on inp
+ut line 38.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+
+Underfull \vbox (badness 2310) has occurred while \output is active []
 
  [1
 
@@ -1835,164 +1844,157 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-Package natbib Warning: Citation `altera_cyclonekit' on page 2 undefined on inp
-ut line 41.
+LaTeX Warning: Reference `chap:clksetup' on page 2 undefined on input line 40.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Package natbib Warning: Citation `siclk' on page 2 undefined on input line 44.
 
- []
-
-
-LaTeX Warning: Reference `chap:clksetup' on page 2 undefined on input line 43.
-
-
-Package natbib Warning: Citation `siclk' on page 2 undefined on input line 47.
-
-<../img/si5338.pdf, id=91, 633.56702pt x 617.50702pt>
+<../img/si5338.pdf, id=88, 633.56702pt x 617.50702pt>
 File: ../img/si5338.pdf Graphic file (type pdf)
  <use ../img/si5338.pdf>
-Package pdftex.def Info: ../img/si5338.pdf used on input line 52.
+Package pdftex.def Info: ../img/si5338.pdf used on input line 49.
 (pdftex.def)             Requested size: 190.07156pt x 185.25352pt.
 
 
-Package natbib Warning: Citation `si16' on page 2 undefined on input line 53.
+Package natbib Warning: Citation `si16' on page 2 undefined on input line 50.
 
 
-Package natbib Warning: Citation `si16' on page 2 undefined on input line 53.
+Package natbib Warning: Citation `si16' on page 2 undefined on input line 50.
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+Underfull \vbox (badness 2744) has occurred while \output is active []
+
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
 [3 <../img/si5338.pdf>] [4]
 
-LaTeX Warning: Reference `chap:pcb' on page 5 undefined on input line 117.
+LaTeX Warning: Reference `chap:pcb' on page 5 undefined on input line 114.
 
 (./fig_txdelay.tex) (./fig_rxdelay_0.tex) [5]
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 
  []
 
 (./fig_rxdelay.tex)
-Overfull \hbox (0.59557pt too wide) in paragraph at lines 162--162
+Overfull \hbox (0.59557pt too wide) in paragraph at lines 159--159
 []|\OT1/cmr/m/n/12 Clock
  []
 
 
-Overfull \hbox (0.5914pt too wide) in paragraph at lines 162--162
+Overfull \hbox (0.5914pt too wide) in paragraph at lines 159--159
 \OT1/cmr/m/n/12 [Mhz]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 []|\OT1/cmr/m/n/12 Signal
  []
 
 
-Overfull \hbox (1.71321pt too wide) in paragraph at lines 162--162
+Overfull \hbox (1.71321pt too wide) in paragraph at lines 159--159
 []|\OT1/cmr/m/n/12 Rising/Falling
  []
 
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
-<../img/hektere_probes.pdf, id=218, 815.84799pt x 797.37903pt>
+<../img/hektere_probes.pdf, id=209, 815.84799pt x 797.37903pt>
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 193.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 188.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
  <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 193.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 188.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5274) has occurred while \output is active []
 
- [8 <../img/hektere_probes.pdf>]
-<../img/hektere_oppsett_100mhz.png, id=233, 1027.84pt x 770.88pt>
+ [7]
+<../img/hektere_oppsett_100mhz.png, id=221, 1027.84pt x 770.88pt>
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
-Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 2
-03.
+Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
+98.
 (pdftex.def)             Requested size: 213.39568pt x 160.04283pt.
 
-<../img/stubs_oppsett_100mhz.png, id=234, 1027.84pt x 770.88pt>
+<../img/stubs_oppsett_100mhz.png, id=222, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
-Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 209
+Package pdftex.def Info: ../img/stubs_oppsett_100mhz.png used on input line 204
 .
 (pdftex.def)             Requested size: 213.39568pt x 160.04283pt.
 
-Overfull \hbox (7.83325pt too wide) in paragraph at lines 201--212
+Overfull \hbox (7.83325pt too wide) in paragraph at lines 196--207
  []$[]$   $[]$ 
  []
 
+[8 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> <
+../img/stubs_oppsett_100mhz.png (PNG copy)>]
 
 Package natbib Warning: Citation `bitvis16' on page 9 undefined on input line 2
-33.
+28.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
-
- []
-
-[9 <../img/hektere_oppsett_100mhz.png (PNG copy)> <../img/stubs_oppsett_100mhz.
-png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
-<../img/uart_tb_0.pdf, id=251, 107.60199pt x 41.756pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+[9] <../img/uart_tb_0.pdf, id=250, 107.60199pt x 41.756pt>
 File: ../img/uart_tb_0.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_0.pdf>
-Package pdftex.def Info: ../img/uart_tb_0.pdf used on input line 248.
+Package pdftex.def Info: ../img/uart_tb_0.pdf used on input line 243.
 (pdftex.def)             Requested size: 76.8193pt x 29.81006pt.
 
-<../img/uart_tb_1.pdf, id=252, 424.78702pt x 42.559pt>
+<../img/uart_tb_1.pdf, id=251, 424.78702pt x 42.559pt>
 File: ../img/uart_tb_1.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_1.pdf>
-Package pdftex.def Info: ../img/uart_tb_1.pdf used on input line 252.
+Package pdftex.def Info: ../img/uart_tb_1.pdf used on input line 247.
 (pdftex.def)             Requested size: 298.75264pt x 29.932pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
-
-LaTeX Warning: Reference `chap:hardware' on page 11 undefined on input line 271
+LaTeX Warning: Reference `chap:hardware' on page 10 undefined on input line 266
 .
 
-
-LaTeX Warning: Reference `sec:sndrec' on page 11 undefined on input line 275.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
-
- []
-
-[11 <../img/uart_tb_0.pdf> <../img/uart_tb_1.pdf
+[10 <../img/uart_tb_0.pdf> <../img/uart_tb_1.pdf
 
 pdfTeX warning: pdflatex (file ../img/uart_tb_1.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
->] [12]
+>]
+
+LaTeX Warning: Reference `sec:sndrec' on page 11 undefined on input line 270.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--271
+
+ []
+
+[11] [12
+
+]
 Chapter 2.
 
-LaTeX Warning: Reference `chap:clibs' on page 13 undefined on input line 283.
+LaTeX Warning: Reference `chap:clibs' on page 13 undefined on input line 278.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13
-
-]
+ [13]
 
 Package natbib Warning: There were undefined citations.
 
@@ -2000,24 +2002,24 @@ Package natbib Warning: There were undefined citations.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 287.
 [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 287.
  (./ch4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 292.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 292.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 287.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 287.
 Package rerunfilecheck Info: File `ch4.out' has not changed.
-(rerunfilecheck)             Checksum: 0526EAE8C879E9F8382E91C3DBC73990;1246.
+(rerunfilecheck)             Checksum: E8FD80D2C78ACCB26136455728AF92D6;1180.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 35717 strings out of 493304
- 655789 string characters out of 6139871
- 865133 words of memory out of 5000000
- 38366 multiletter control sequences out of 15000+600000
+ 35715 strings out of 493304
+ 655765 string characters out of 6139871
+ 864840 words of memory out of 5000000
+ 38365 multiletter control sequences out of 15000+600000
  13501 words of font info for 48 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  91i,12n,85p,10442b,1130s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2094,10 +2096,10 @@ fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ch4.pdf (14 pages, 2967272 bytes).
+Output written on ch4.pdf (14 pages, 2966558 bytes).
 PDF statistics:
- 376 PDF objects out of 1000 (max. 8388607)
- 332 compressed objects within 4 object streams
- 73 named destinations out of 1000 (max. 500000)
- 155 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 370 PDF objects out of 1000 (max. 8388607)
+ 326 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 

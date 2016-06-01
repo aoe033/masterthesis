@@ -5,12 +5,12 @@
 \contentsline {figure}{\numberline {1.4}{\ignorespaces Versatile Link Demo Board overview \cite {vldbposter}.\relax }}{6}{figure.caption.17}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Block diagram showing the basic connection between the FPGA and VLDB using the HSMC-to-VLDB PCB as a connection bridge.\relax }}{12}{figure.caption.18}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Male (ASP-122952) and female (ASP-122953) HSMC-connectors. The male type is to be connected at the bottom of the HSMC-to-VLDB \gls {pcb} \cite [Figure 2-1]{altera_hsmc09}.\relax }}{12}{figure.caption.19}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Block diagram showing the basic connection between the FPGA and VLDB using the HSMC-to-VLDB PCB as a connection board.\relax }}{12}{figure.caption.18}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Male (ASP-122952) and female (ASP-122953) HSMC-connectors. The male type is to be connected at the bottom of the HSMC-to-VLDB \gls {pcb} \cite [Figure 2-1]{altera_hsmc09}.\relax }}{13}{figure.caption.19}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Microstrip, cross-section. The microstrip is the copper trace(s) on top, followed by a dielectric layer and a ground plane. h is the thickness of the dielectric, t is the copper thickness, l is the microstrip length, and w is the copper width. s is the spacing between the differential strips.\relax }}{15}{figure.caption.20}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces HDMI-to-VLDB PCB with components soldered on.\relax }}{17}{figure.caption.22}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Simplified diagram over the PC to CRU serial interface.\relax }}{19}{figure.caption.23}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Simplified diagram over the PC to CRU serial interface. The VLDB and PCB bridge is not included (see figure \ref {fig:pcbdia}).\relax }}{19}{figure.caption.23}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces JTAG UART communication link between the host PC and the FPGA board \cite [Figure 1]{altera_terminals14}.\relax }}{21}{figure.caption.28}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single-ended transmitter and receiver signals.\relax }}{22}{figure.caption.29}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces \gls {uart} receive synchronisation and data sampling points with 16 times the sampling rate.\relax }}{25}{figure.caption.32}
@@ -20,13 +20,13 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Flowchart over the main loop of the interface module.\relax }}{30}{figure.caption.41}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Flowchart over the transmitter function.\relax }}{32}{figure.caption.43}
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Flowchart over the receiver function.\relax }}{33}{figure.caption.44}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Snapshot of the GBT software interface in action. The colors in this picture has been inverted for a better visual representation.\relax }}{35}{figure.caption.45}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Snapshot of the GBT control interface in action. The colors in this picture has been inverted for a better visual representation.\relax }}{35}{figure.caption.45}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces The $Si5338$ evaluation board \cite {si16}.\relax }}{39}{figure.caption.46}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Transmitter and receiver delay chains.\relax }}{42}{figure.caption.55}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Muxed delay chain on the receiver line.\relax }}{42}{figure.caption.57}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Muxed delay chain on the receiver line.\relax }}{42}{figure.caption.56}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Small clamps caused huge reflections when measuring the high-speed signal.\relax }}{44}{figure.caption.59}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{45}{figure.caption.60}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces $100\nobreakspace {}\ensuremath {\SI@fstyle {M}}\ensuremath {\SI@fstyle {Hz}}$ transmitter signal measured with differential probes.\relax }}{44}{figure.caption.60}
 \contentsline {figure}{\numberline {5.6}{\ignorespaces Three read operations followed by a write. \relax }}{46}{figure.caption.65}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

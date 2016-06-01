@@ -22,9 +22,9 @@
 \contentsline {section}{\numberline {2.2}Low-Voltage Differential Signaling}{9}{section.2.2}
 \contentsline {section}{\numberline {2.3}Current-Mode Logic}{10}{section.2.3}
 \contentsline {chapter}{\numberline {3}HSMC-to-VLDB PCB Design}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Design Discussion}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}High Speed PCB Design}{13}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Transmission Lines}{13}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.1}Design Discussion}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}High Speed PCB Design}{12}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Transmission Lines}{12}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Reflections and Characteristic Impedance}{13}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Routing}{15}{subsection.3.2.3}
 \contentsline {section}{\numberline {3.3}PCB Design Parameters}{15}{section.3.3}
@@ -32,11 +32,11 @@
 \contentsline {section}{\numberline {3.5}Soldering Process}{17}{section.3.5}
 \contentsline {section}{\numberline {3.6}PCB Faults and Compensations}{17}{section.3.6}
 \contentsline {chapter}{\numberline {4}PC to CRU control interface}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Readily Available Standards}{19}{section.4.1}
+\contentsline {section}{\numberline {4.1}Readily Available Standards}{20}{section.4.1}
 \contentsline {subsubsection}{PCI-Express}{20}{section*.24}
 \contentsline {subsubsection}{Ethernet}{20}{section*.25}
 \contentsline {subsubsection}{SDI-Transceiver}{20}{section*.26}
-\contentsline {subsubsection}{Altera JTAG}{20}{section*.27}
+\contentsline {subsubsection}{Altera JTAG}{21}{section*.27}
 \contentsline {section}{\numberline {4.2}User Defined Communication}{21}{section.4.2}
 \contentsline {section}{\numberline {4.3}Duplex Systems}{22}{section.4.3}
 \contentsline {section}{\numberline {4.4}Choosing Communication Protocol}{23}{section.4.4}
@@ -56,34 +56,35 @@
 \contentsline {subsubsection}{Interface module}{29}{section*.40}
 \contentsline {subsubsection}{Send/Receive module}{30}{section*.42}
 \contentsline {subsection}{\numberline {4.6.3}Conclusion}{33}{subsection.4.6.3}
-\contentsline {chapter}{\numberline {5}Loopback Test using the GBT Quartus Example}{37}{chapter.5}
+\contentsline {chapter}{\numberline {5}Testing and Verification}{37}{chapter.5}
 \contentsline {section}{\numberline {5.1}120 MHz Reference Clock}{37}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Configuring the onboard Oscillator on the Cyclone V Board}{38}{subsection.5.1.1}
 \contentsline {subsection}{\numberline {5.1.2}Configuring the Si5338 External Oscillator}{38}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Testing and Verification of the HDMI Daughter Card}{38}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Connectivity Test}{38}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.2}Testing and Verification of the HDMI Daughter Card}{39}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Connectivity Test}{39}{subsection.5.2.1}
 \contentsline {subsubsection}{Purpose of Test}{39}{section*.47}
 \contentsline {subsubsection}{Experimental Setup}{39}{section*.48}
-\contentsline {subsubsection}{Results}{39}{section*.49}
+\contentsline {subsubsection}{Results}{40}{section*.49}
 \contentsline {subsection}{\numberline {5.2.2}External Loop-back Test for the Fiber-Optic Connector}{40}{subsection.5.2.2}
 \contentsline {subsubsection}{Purpose of Test}{40}{section*.50}
 \contentsline {subsubsection}{Experimental Setup}{40}{section*.51}
-\contentsline {subsubsection}{Results}{40}{section*.52}
+\contentsline {subsubsection}{Results}{41}{section*.52}
 \contentsline {subsection}{\numberline {5.2.3}External Loop-back Test for the HDMI Connectors}{41}{subsection.5.2.3}
 \contentsline {subsubsection}{Purpose of Tests}{41}{section*.53}
 \contentsline {subsubsection}{Experimental Setup}{41}{section*.54}
-\contentsline {subsubsection}{Results}{42}{section*.56}
+\contentsline {subsubsection}{Results}{42}{section*.57}
 \contentsline {subsection}{\numberline {5.2.4}Conclusion and Discussions}{43}{subsection.5.2.4}
-\contentsline {section}{\numberline {5.3}Testing and Verification of the Serial Interface}{44}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Hardware Simulation using Testbench in Modelsim}{44}{subsection.5.3.1}
+\contentsline {section}{\numberline {5.3}Testing and Verification of the Serial Interface}{45}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Hardware Simulation using Testbench in Modelsim}{45}{subsection.5.3.1}
 \contentsline {subsubsection}{Purpose of Tests}{45}{section*.61}
 \contentsline {subsubsection}{Bitvis Utility Library}{45}{section*.62}
 \contentsline {subsubsection}{Experimental Setup}{45}{section*.63}
 \contentsline {subsubsection}{Results}{46}{section*.64}
 \contentsline {subsection}{\numberline {5.3.2}Running the PC software design together with the FPGA hardware design}{46}{subsection.5.3.2}
 \contentsline {subsubsection}{Purpose of Tests}{46}{section*.66}
-\contentsline {subsubsection}{Experimental Setup}{46}{section*.67}
+\contentsline {subsubsection}{Experimental Setup}{47}{section*.67}
 \contentsline {subsubsection}{Results}{47}{section*.68}
+\contentsline {subsection}{\numberline {5.3.3}Conclusion and Discussion}{47}{subsection.5.3.3}
 \contentsline {chapter}{\numberline {6}Summary and Conclusion}{49}{chapter.6}
 \contentsline {chapter}{\numberline {A}Basics}{51}{appendix.A}
 \contentsline {section}{\numberline {A.1}Field Programmable Gate Array}{51}{section.A.1}

@@ -12,15 +12,15 @@
 
 \chapter{HSMC-to-VLDB PCB Design} \label{chap:pcb}
 
-In order to test the GBTx chip, a \gls{pcb} that acts as a connecting bridge between the \gls{fpga} and the \gls{vldb} is needed. As mentioned in \ref{sec:vldb}, the \gls{vldb} has a optical link which will provide connection to the \gls{fpga} in the counting room, in addition to twenty e-links reachable through physical \acrshort{hdmi} contacts, which will be available connections to the front-end detectors.
+In order to test the GBTx chip, a \gls{pcb} that acts as a connecting bridge between the \gls{fpga} and the \gls{vldb} is needed. As mentioned in section \ref{sec:vldb}, the \gls{vldb} has a optical link which will provide connection to the \gls{fpga} in the counting room, in addition to twenty e-links reachable through physical \acrshort{hdmi} contacts, which will be available connections to the front-end detectors.
 
 A basic test example is to transmit test data from the \gls{fpga} to the GBTx via e-links. The data will represent data sent from the front-end detectors. The GBTx will then transmit the same data back to the \gls{fpga} via the fiber-optic cable, making it possible to analyze the received data and also compare it to the transmitted data.
 
  %The Cyclone V GT board has two \gls{hsmc} connectors with port A containing 17 \gls{lvds} channels available, in addition to 4 PCML channels available for high-speed data transmission. 
 
-Because of limited available physical \gls{lvds} connections on the \gls{fpga} board, the $320~\mega\bit\per\second$ data rate was chosen for the e-link connections. The required \gls{lvds} connections would thus be 20 receiver pairs and 10 transmitter pairs. As mentioned in section \ref{sec:lvds}, the \gls{hsmc} port A connection on the board has only 17 available \gls{lvds} channels, or 17 transmitter and 17 receiver pairs. Since the clock on each e-link will be the same during testing, the 10 clock pairs can be reduced to just one, reducing the total receiver pairs needed on the \gls{fpga} from 20 to just 11 pairs.  
+Because of limited available physical \gls{lvds} connections on the \gls{fpga} board, the $320~\mega\bit\per\second$ data rate was chosen for the e-link connections. The required \gls{lvds} connections would thus be 20 receiver pairs (for input and clock pairs) and 10 transmitter pairs (for output pairs). As mentioned in section \ref{sec:lvds}, the \gls{hsmc} port A connection on the board has only 17 available \gls{lvds} channels, or 17 transmitter and 17 receiver pairs. Since the clock on each e-link will be the same during testing, the 10 clock pairs can be reduced to just one, reducing the total receiver pairs needed on the \gls{fpga} from 20 to just 11 pairs.  
 
-The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having a receiver and a transmitter pair. The J4 \gls{hdmi} contact contains an additional receiver reserved for an input clock from the \gls{vldb}. 
+The resulting \acrshort{pcb} has 10 individual \gls{hdmi} connector with each having a receiver and a transmitter pair. The J4 \gls{hdmi} contact contains an additional receiver reserved for an input clock from the \gls{vldb}. Figure \ref{fig:pcbdia} illustrates the connection between the FPGA and the VLDB using the PCB as a connection board between the two.
 
 This chapter explains the design process of this \acrshort{pcb}; beginning with the discussion of different design approaches, to the theory behind designing a high speed \acrshort{pcb}. It then explains the final \acrshort{pcb} design parameters and discusses the resulting product.\\
 
@@ -49,7 +49,7 @@ This chapter explains the design process of this \acrshort{pcb}; beginning with 
 
 \end{tikzpicture}
 
-\caption{Block diagram showing the basic connection between the FPGA and VLDB using the HSMC-to-VLDB PCB as a connection bridge.}
+\caption{Block diagram showing the basic connection between the FPGA and VLDB using the HSMC-to-VLDB PCB as a connection board.}
 \label{fig:pcbdia}
 \end{figure}
 
@@ -60,7 +60,7 @@ The design discussion and planning of the \gls{pcb} was done together with Ph. D
 \noindent
 The initial plan was to design a \gls{pcb} with a male \gls{sfp}-contact in one end connected with two \gls{hdmi} connectors, one on each side of the \gls{pcb}, making an adapter that can be plugged directly into the \gls{sfp}-connectors on a \gls{sfp}-board with \gls{hdmi} cables connected to the \gls{vldb}. This design was quickly scrapped as there was no loose male \gls{sfp} connectors available on the marked, only female. The design plan was then changed to use only one \gls{pcb} board with female \glspl{sfp}-connectors on one side, wired to \gls{hdmi}-connectors on the other side, acting as a middle joint between the \gls{sfp}-board and the \gls{vldb} with \gls{sfp}- and \gls{hdmi}-cables connecting the three boards together. \\
 
-The end result was a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design files (the one concerning the \gls{xcvr}-protocol, see \cite{sfp_schem}), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and lowering the chance of signal reflections. %The resulting design was a board connected to the \gls{fpga} via the \gls{hsmc}-connector, with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signals running to one \gls{sfp}-connector for fiber-optic communication.
+The end result was a design that could be directly mounted on the \gls{fpga} through the \gls{hsmc} connector. By copying one of the \gls{sfp}-to-\gls{hsmc} connections from the original \gls{sfp}-board design files (the \acrshort{xcvr} based SFP connectors, see \cite{sfp_schem}), we found that we could remove the \gls{sfp}-board completely from the connection chain and eliminate the resulting need for electrical \gls{sfp}-cables. This would also remove the middle joint in the chain, reducing complexity and lowering the chance of signal reflections. %The resulting design was a board connected to the \gls{fpga} via the \gls{hsmc}-connector, with \gls{lvds}-signals running to ten \gls{hdmi} connectors and \gls{xcvr}-signals running to one \gls{sfp}-connector for fiber-optic communication.
 
 \begin{figure}[ht] % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
@@ -79,8 +79,8 @@ This section gives a brief explanation of high frequency signal behavior and the
 
 When signal rise/fall times becomes comparable with the propagation delay of the conductor, the signal can no longer be assumed to change immediately. The conductor becomes what is known as a transmission line, with the signals voltage and current behaving like waves propagation through the conductor. The rule of thumb for determining if a signal is propagating along a transmission line is when the rise/fall time of the signal is less than 1/4 of the signal period, so that the high and low states are recognizable \cite{weste11}.
 
-For an \gls{lvds}-protocol, with signal speeds reaching up to $3.125\ \giga\bit\per\second$, the trace becomes a transmission line if the signal propagation time along the trace is less than 1/4 of the signal period, i.e $80~\pico\second$. 
-
+%For the \gls{PCML}-protocol that will be used for the SFP connector and the fiber-optical module, the signal speeds will reach $4.8~\giga\bit\per\second$. Here, the trace becomes a transmission line if the signal propagation time along the trace is less than 1/4 of the signal period, i.e $52~\pico\second$. 
+\noindent
 The propagation velocity of a signal is given by:
 
 \begin{equation}
@@ -89,10 +89,10 @@ The propagation velocity of a signal is given by:
 %\]
 \end{equation}
 
-, where $\epsilon_r$ is the dielectric constant of the dielectric material, FR4, often used as a material to separate the copper layers on the \glspl{pcb}. $\epsilon_r = 4.05$ @ $3\ \giga\hertz$ \cite{polar15}.
-A signal thus propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$ \cite[example 13.7]{weste11}.
+, where $\epsilon_r$ is the dielectric constant of the dielectric material, FR4, often used as a material to separate the copper layers on the \glspl{pcb}. $\epsilon_r = 4.05$ @ $5\ \giga\hertz$ \cite{polar15}.
+A signal thus propagates through the conductor at a velocity of approximately $15\ \centi\meter/\nano\second$ \cite[example 13.7]{weste11}.\\
 
-Thus, by assuming a constant transmitting frequency of $3.125\ \giga\bit\per\second$, a conductor becomes a transmission line if the length of the conductor stretches longer than $12\ \milli\meter$ between transmitter and receiver. This short length is very difficult to avoid when designing a \gls{pcb} with microstrip traces running from one connector out to eleven other connectors. The traces on the HSMC-to-VLDB \gls{pcb} are therefore considered as transmission lines. 
+If assuming a constant transmitting frequency of $4.8~\giga\bit\per\second$ ($208~\pico\second$ period), the conductor becomes a transmission line if the length of the conductor stretches longer than $3.1\ \centi\meter$ between the transmitter and receiver. This short length is very difficult to avoid when designing a \gls{pcb} with microstrip traces running from one connector out to eleven other connectors. The traces on the HSMC-to-VLDB \gls{pcb} are therefore considered as transmission lines. 
 
 \subsection{Reflections and Characteristic Impedance}
 
@@ -229,14 +229,14 @@ For thicknesses of the different \gls{pcb} copper layers and the FR4 in between,
 Z_0 = \frac{60}{\sqrt{(0.475 \times 4.05) + 0.67}}\ln{3.96}
 \end{equation}
 
-, which gives a characteristic impedance $Z_0$ of $51.3\ \ohm$ @ $3\ \giga\hertz$. With a $300\ \micro\meter$ spacing between the differential traces, the formula for differential impedance yields:
+, which gives a characteristic impedance $Z_0$ of $51.3\ \ohm$ @ $5\ \giga\hertz$. With a $300\ \micro\meter$ spacing between the differential traces, the formula for differential impedance yields:
 
 \begin{equation}
     Z_{diff} = 2 \times 51.3\ \ohm [1 - 0.48 e^{(-0.96 \times \frac{300}{65})}]
   \label{eq:zdiff}
 \end{equation}
 
-, which gives a differential impedance $Z_{diff}$ of $102\ \ohm$ @ $3\ \giga\hertz$.\\
+, which gives a differential impedance $Z_{diff}$ of $102\ \ohm$ @ $5\ \giga\hertz$.\\
 
 Table \ref{tab:Xsect1} shows data extracted from Orcad PCB Editor, which has a built-in impedance calculator that yields similar results as shown above:
 

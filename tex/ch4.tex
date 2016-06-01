@@ -10,13 +10,15 @@
 
 \begin{document}
 
-\chapter{Loopback Test using the GBT Quartus Example}
+\chapter{Testing and Verification} \label{chap:tests}
+
+The follow sections gives a brief overview over the tests that were conducted on the \gls{pcb}, software and hardware designed during this thesis. Loopback testing with the \gls{pcb} was conducted using the GBT example design.
 
 \section{120 MHz Reference Clock}
 
 %\todo{name the proper plls and state why 120 mhz is really needed} 
 
-To be able to conduct a proper loopback test, the \gls{mgt} and the \glspl{pll} of the \gls{gbt} example design must have a input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V board: 
+To be able to conduct a proper loopback test using the \gls{gbt} example design, the GBT Link \gls{mgt} and \glspl{pll} must have an input clock frequency of $120~\mega\hertz$. There are a number of ways to achieve this on the Cyclone V GT board: 
 \begin{itemize}\setlength{\itemsep}{10pt}
 \item Using an external clock, like a square wave signal generator.
 \item Using one of the onboard programmable oscillators.
@@ -29,8 +31,8 @@ The approach of implementing an extra \gls{pll} into the \gls{gbt}-example desig
 
 The below sections gives the following descriptions:
 \begin{itemize}\setlength{\itemsep}{10pt}
-\item How to configure the onboard oscillator on the Cyclone V GT board for use as reference clock (\ref{sec:inclk}). 
-\item How to configure the $Si5338$ external oscillator for use as reference clock (\ref{sec:exclk}).
+\item How to configure the onboard oscillator on the Cyclone V GT board for use as reference clock. 
+\item How to configure the $Si5338$ external oscillator for use as reference clock.
 \end{itemize}
 
 \subsection{Configuring the onboard Oscillator on the Cyclone V Board} \label{sec:inclk}
@@ -52,6 +54,7 @@ For an external clock, the $Si5338$ evaluation board was used (see figure \ref{f
 \end{center}
 \end{figure} 
 
+\newpage
 \section{Testing and Verification of the HDMI Daughter Card}
 To verify a working \gls{pcb}, the \gls{hdmi} daughter card underwent a series of tests, as summarized in the following sections. 
 
@@ -84,14 +87,14 @@ The \gls{pcb} is now ready for connection with the host \gls{fpga} for further t
 \subsubsection{Purpose of Test}
 \begin{itemize}\setlength{\itemsep}{10pt}
 
-\item Test the dedicated SFP-connector on the \gls{hdmi}-daughter card for fiber-optic communication and see that it is capable of sending and receiving information at speeds corresponding the \gls{gbt}-standard of $4.8 \giga\bit\per\second$. 
+\item Test the dedicated SFP-connector on the \gls{hdmi}-daughter card for fiber-optic communication and see that it is capable of sending and receiving information at speeds corresponding the \gls{gbt}-standard of $4.8~\giga\bit\per\second$. 
 \end{itemize}
 
 \subsubsection{Experimental Setup}
 A fiber-optic cable connected from the transmitter to the receiver using a fiber-module, forming an external loop through the cable, was connected to the SFP-connector of the \gls{hdmi}-daughter card \gls{pcb}. Using the \gls{gbt} Quartus-example together with the \gls{issp} and SignalTap II, it was possible to perform a pattern check test by comparing the transmitted signals with the received signals. To achieve this test, \gls{issp} was used to setup the pattern generator of the GBT example to count with increments of one (PATTERN SELECT = "1h") and the receiver to receive signals through external cabling (LOOPBACK = '0'). SignalTap II was used to monitor and verify that the receiver line received the same incremented counter that the transmitter sent out.
 
 \subsubsection{Results}
-Running the test resulted in a continuous stream of bits sent from the transmitter to the receiver. Using SignalTap II as a monitor limits to only observe parts of the transmission, but it was sufficient enough to see that the received sum of bits were indeed incrementing by one each time. The results are comparable with the same test using internal loopback (LOOPBACK = '1'), i.e observing that the receiving end is counting by increments of one. This concludes that the SFP-connector on the HDMI-daughter card works as intended at the desired speed of $4.8 \giga\bit\per\second$. %Figure \ref{fig:lb_rx} shows the resulting incremented sum of bits transmitted and received at the receiving end.
+Running the test resulted in a continuous stream of bits sent from the transmitter to the receiver. Using SignalTap II as a monitor limits to only observe parts of the transmission, but it was sufficient enough to see that the received sum of bits were indeed incrementing by one each time. The results are comparable with the same test using internal loopback (LOOPBACK = '1'), i.e observing that the receiving end is counting by increments of one. This concludes that the SFP-connector on the HDMI-daughter card works as intended at the desired speed of $4.8~\giga\bit\per\second$. %Figure \ref{fig:lb_rx} shows the resulting incremented sum of bits transmitted and received at the receiving end.
 
 \subsection{External Loop-back Test for the HDMI Connectors} \label{test:loopbackhdmi}
 
@@ -111,7 +114,7 @@ Running the test resulted in a continuous stream of bits sent from the transmitt
 
 Each \gls{hdmi}-connector has at least one transmitter- and receiver line. To simulate signal transmission over a distance, a \gls{hdmi} cable was cut in half and the transmit- and receive lines were soldered together, creating an external loop-back. VHDL code was written to simulate a data-stream using a pseudo-random generator to generate random bit-patterns. The data-stream would travel out via one of the transmitters of the \gls{fpga}, out through the \gls{hdmi}-connector, following the cable back into the same \gls{hdmi}-connector into the receiver input. This would simulate the transmission path to the \gls{vldb} card. The transmitted and received bits would then be compared using xor-logic. A bit-counter register would count each transmitted bit, and a bit-error register would count each time two bits are different in comparison. The bit error rate is thus given by $\frac{bit~errors}{number~of~bits}$.
 
-Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals.\footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.} To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using XOR-logic. The individual outputs of the XORs are connected to \glspl{led}. The \gls{led} that has the least amount of toggling is the one XOR, and thus selected \glspl{dff}, that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A smaller delay-chain was also added at the receiver line to synchronize the incoming bits with the clock. Figure \ref{fig:delaych} a and b illustrates these delay chains.
+Because of the trace- and cable-lengths and the fact that a signal has a finite propagation time, a delay is introduced between the transmitted and received bit-signals \footnote{As mentioned in chapter \ref{chap:pcb}, a signal propagates through the conductor at a velocity of approximately $15\ \milli\meter/\nano\second$.}. To cope with the delay differences, a delay chain is added in parallel with the transceiver line: While a bit-signal is travelling through the cable, the same bit-signal is delayed through a series of \glspl{dff}. For each clock cycle, the value at the receiver input is compared with the output of each \gls{dff} using XOR-logic. The individual outputs of the XORs are connected to \glspl{led}. The \gls{led} that has the least amount of toggling is the one XOR, and thus selected \glspl{dff}, that is most synchronized with the receiver (ideally, it should be toggle-free), and can be used to count bit errors. A smaller delay-chain was also added at the receiver line to synchronize the incoming bits with the clock. Figure \ref{fig:delaych} a and b illustrates these delay chains.
 
 \begin{figure}
     \centering
@@ -134,6 +137,13 @@ Cables with different lengths were used to see how this would affect the bit-err
 
 %To measure the quality of the \gls{lvds} signals with an oscilloscope, differential probes were used.  
 
+\begin{figure}[!b]
+    \centering
+    \resizebox{0.7\linewidth}{!}{\subfile{fig_rxdelay.tex}}
+    \caption{Muxed delay chain on the receiver line.}
+     \label{fig:rxpardelay}
+\end{figure}
+
 \subsubsection{Results}
 
 %The following table sums up the cable-length and theoretical travel time versus the measured delay between the transmitted and received signal.
@@ -141,13 +151,6 @@ Cables with different lengths were used to see how this would affect the bit-err
 During the first samplings using SignalTap II, it was suspected that when running at a $300~\mega\hertz$ clock, the received signal were being sampled when in a metastable state, i.e in the middle of the rising edge of the bit. To compensate for this, a new delay chain was designed on the receiver line (figure \ref{fig:rxpardelay}): two \glspl{dff} that would trigger on different clock edges (rising and falling), were placed in parallel as the first stage of the receiver delay chain. By using a MUX, one of the \gls{dff} outputs were selected to go into a third \gls{dff}, and the output of this third \gls{dff} was then compared with all outputs in the transmitter delay chain. The "Rising/Falling DFF" tab in table \ref{tab:delch} states which of the clock edges that caused less toggling on the first delay stage on the receiver. \\
 
 %With this new delay chain design, it seemed that using only \glspl{dff} with rising edge clock triggering worked the best. Some "spikes" were detected on the XOR-output with SignalTap II. These spikes were much narrower than the clock signal. What caused this might 
-
-\begin{figure}
-    \centering
-    \resizebox{0.7\linewidth}{!}{\subfile{fig_rxdelay.tex}}
-    \caption{Muxed delay chain on the receiver line.}
-     \label{fig:rxpardelay}
-\end{figure}
 
 With the help of SignalTap II it was possible to sample the delay chain signals and produce the results displayed in table \ref{tab:delch}. 
 \begin{table}
@@ -177,11 +180,9 @@ With the help of SignalTap II it was possible to sample the delay chain signals 
 
 \subsection{Conclusion and Discussions}
 
-When doing the external loopback test for the HDMI connectors (\ref{test:loopbackhdmi}), while sampling the \glspl{led} using SignalTap II, some "spikes" occurred at the one \gls{led} that seemed toggle-free when observing it, and thus what seemed the most "in sync". The "spikes" were narrower than the $300~\mega\hertz$ clock, and seemed to occur randomly. Whether this is a interference or will affect the error-counter hasn't been confirmed, as the test was aborted due to an accident with the \gls{fpga}. The accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests. Due to time constraints, the \gls{fpga} was not repaired in time for the delivery of the thesis.
+When doing the external loopback test for the HDMI connectors (section \ref{test:loopbackhdmi}), while sampling the \glspl{led} using SignalTap II, some "spikes" occurred at the one \gls{led} that seemed toggle-free when observing it, and thus what seemed the most "in sync". The "spikes" were narrower than the $300~\mega\hertz$ clock, and seemed to occur randomly. Whether this is a interference or will affect the error-counter hasn't been confirmed, as the test was aborted due to an accident with the \gls{fpga}. The accident caused two of the pins on one of the current regulators on the FPGA board to short, resulting in a burned regulator. This rendered the FPGA useless and halted all remaining tests. Due to time constraints, the \gls{fpga} was not repaired in time for the delivery of the thesis.
 
-What remains of this test is to use the most synchronized XOR-output for an error-count measurement over a certain time interval to calculate the bit error rate. Further investigation is also needed to see whether this way of synchronizing the transmitter and receiver produces credible error-counts, or if this approach is altogheter useless.\\
-
-When measuring a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} throught the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
+What remains of this test is to use the most synchronized XOR-output for an error-count measurement over a certain time interval to calculate the bit error rate. Further investigation is also needed to see whether this way of synchronizing the transmitter and receiver produces credible error-counts at all.\\
 
 \begin{figure}
    \begin{center}
@@ -189,9 +190,8 @@ When measuring a high-speed signal, the way you measure the signal can have a ma
    \end{center}
 \end{figure}
 
-The measurement resulted in signals that were heavily distorted by reflections. It was first thought that these reflections might originate from the traces on the \gls{fpga} itself, since the same results were produced when sending the clock signals through a different \gls{pcb} (a GPIO-card) in place of the \gls{hdmi}-daughter card. However, the theory was quickly rejected when using a completely different \gls{fpga} board produced the same reflections. The cause was in fact due to the small clamps that was used to connect the differential probes. By replacing these with small stubs and redo the measure, the result was quite different, as shown in figure \ref{fig:measdiff}.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \begin{subfigure}{0.5\textwidth}
         \centering
@@ -207,6 +207,10 @@ The measurement resulted in signals that were heavily distorted by reflections. 
     \caption{$100~\mega\hertz$ transmitter signal measured with differential probes.}
     \label{fig:measdiff}
 \end{figure}
+
+When measuring a high-speed signal, the way you measure the signal can have a major impact on the result. This was experienced when attempting to measure the \gls{lvds} signals using the differential probes. On the first attempt, small clamps connected to each of the differential probes (figure \ref{fig:hektere}) were coupled to a differential pair that were running from one end of a hdmi-cable, with a terminating resistor in between; in to a transmitter on the \gls{hdmi}-daughter card. A clock signal was sent from the \gls{fpga} through the \gls{hdmi}-daughter card to the end of the hdmi-cable. 
+
+The measurement resulted in signals that were heavily distorted by reflections. It was first thought that these reflections might originate from the traces on the \gls{fpga} itself, since the same results were produced when sending the clock signals through a different \gls{pcb} (a GPIO-card) in place of the \gls{hdmi}-daughter card. However, the theory was quickly rejected when using a completely different \gls{fpga} board produced the same reflections. The cause was in fact due to the small clamps that was used to connect the differential probes. By replacing these with small stubs and redo the measure, the result was quite different, as shown in figure \ref{fig:measdiff}.
 
 By doing the same measurements again on different probe-points (viases) and with both the GPIO-card and the \gls{hdmi}-daughter card on both available \glspl{fpga}, the reflections remained somewhat the same. It was concluded that the most notable signal reflections is caused by the measurement setup, and will not affect the digital data when transmitting or receiving signals. However, measuring signal integrity and creating an eye-diagram could not be done with this measurement setup. This lead to the loop-back test using SignalTap II in an attempt to sample the signals (see chapter \ref{chap:sertest}).
 
@@ -263,17 +267,23 @@ Figure \ref{fig:uarttb} shows three read operations followed by a write operatio
 
 \subsubsection{Experimental Setup}
 
-The Cyclone V Gt \gls{fpga} was programmed with the hardware design (\ref{chap:hardware}) and connected to the user PC using a USB-to-RS232 cable with a $5~\volt$ voltage converter between the FPGA and the cable. The software was granted PC admin access so that it was allowed access to the COM port. The PC COM port itself was configured in device manager (Windows) with a baud rate corresponding to the baud rate set in the hardware design and software. 
+The Cyclone V Gt \gls{fpga} was programmed with the hardware design (section \ref{chap:hardware}) and connected to the user PC using a USB-to-RS232 cable with a $5~\volt$ voltage converter between the FPGA and the cable. The software was granted PC admin access so that it was allowed access to the COM port. The PC COM port itself was configured in device manager (Windows) with a baud rate corresponding to the baud rate set in the hardware design and software. 
 
 \subsubsection{Results}
 
-The software on the PC side was able to communicate with the FPGA via the COM port, and was able to read the registers as well as write to them. In some occurrences the software did not receive all addresses it requested a read on, resulting in some values not being read as often as others. To fix this, the repeat-functionality was implemented into the software (see \ref{sec:sndrec}), and this fixed the problem.\\
+The software on the PC side was able to communicate with the FPGA via the COM port, and was able to read the registers as well as write to them. In some occurrences the software did not receive all addresses it requested a read on, resulting in some values not being read as often as others. To fix this, the repeat-functionality was implemented into the software (see section \ref{sec:sndrec}), and this fixed the problem.\\
 
 While testing the hardware module together with the send/receive module, when instructing the \gls{uart} to continuously send data from the GBT registers (by sending read-requests using the software), the \gls{uart} would stop responding after a random period of time. To make it respond again, the \gls{uart} had to be hard-reset. The reason why this is happening is not known, but it might be caused by a possible design flaw. A quick fix to this, however, was to simply implement a timer that would reset the \gls{uart} unit on the condition that no bytes arrives in a given amount of time when it is in the idle state; this time period are larger than the time it takes for two bytes to arrive. This is not a permanent fix, since there is a chance that the \gls{uart} might reset while a byte is under transmission. This might give an explanation as to why the C-program in some cases did not receive all the data it requested during transmission.
 
-To further investigate this fault, one could use SignalTap II to probe the \gls{uart} signals and identify and correct irregular behaviour in relevant signals. Due to time constraints, the quick fix was preferred.
+To further investigate this fault, one could use SignalTap II to probe the \gls{uart} signals and identify and correct irregular behavior in relevant signals. Due to time constraints, the quick fix was preferred.
 
-\chapter{Summary and Conclusion}
+\subsection{Conclusion and Discussion}
+
+By using a testbench, it was possible to verify that the hardware design behaved correctly. The decoder performed as it should in terms of reading and writing to the registers with correct timing. The C program (send/receive module) was able to send and receive information from the hardware registers located in the FPGA, confirming a working communication between the PC software and FPGA hardware.  
+
+ While doing continuous read and write operations, the \gls{uart} would eventually stop responding. This was fixed by implementing a timed reset on the UART unit. The timed reset approach is not a permanent fix, and should be investigated further. 
+
+\chapter{Summary and Conclusion} \label{chap:conc}
 
 The future upgrade of the \acrlong{lhc} accelerator, the \acrlong{slhc}, has its goal of increasing the beam luminosity by ten times. The \acrlong{gbt} ASICs and transmission protocol was developed with this in mind, and provides a high radiation tolerant, high speed, optical transmission line capable of simultaneous transfer of readout data, timing and trigger signals in addition to slow control and monitoring data. This thesis has had its focus on designing a control interface for the off-detector part of the GBT, the Common Readout Unit, along with a PCB that connects the CRU to the GBTx chip to allow for testing of the chip detector. The PCB was developed with high-speed transmission in mind, allowing for $4.8~\giga\bit\per\second$ optical transmission with minimum reflections using an SFP-contact. In addition, it has 10 HDMI-contacts allowing for e-link interface to the GBTx with a $320~\mega\bit\per\second$ transmission rate. The control interface was written in the C-language, using freely available libraries. A library was also written for the purpose of this thesis, with the GBT control signals in mind (Appendix \ref{chap:clibs}). A hardware module was implemented in the FPGA to allow the software to read and write information to the GBT probe and source registers. The software consists of two modules: the sending and receiving module, and the ncurses command interface. Both modules work more or less as they should: The send/receive module writes a pattern to the GBT-register in the FPGA and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the GBT control signals. What remains is to fully integrate the send/receive module into the interface module.
 

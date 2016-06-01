@@ -12,7 +12,3 @@
 \BOOKMARK [1][-]{section.2.1}{Differential Signals}{chapter.2}% 12
 \BOOKMARK [1][-]{section.2.2}{Low-Voltage Differential Signaling}{chapter.2}% 13
 \BOOKMARK [1][-]{section.2.3}{Current-Mode Logic}{chapter.2}% 14
-\BOOKMARK [0][-]{chapter.3}{The Gigabit Transceiver}{}% 15
-\BOOKMARK [1][-]{section.3.1}{GBT-FPGA Core}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.1.1}{GBT Bank}{section.3.1}% 17
-\BOOKMARK [2][-]{subsection.3.1.2}{GBT Link}{section.3.1}% 18

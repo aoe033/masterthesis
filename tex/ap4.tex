@@ -10,8 +10,8 @@
 
 \chapter{Non-standard C-Libraries} \label{chap:clibs}
 
-The serial communications software was developed with the help of a few non-standard libraries; non-standard meaning that the libraries are not a part of the C standard libraries. In addition, the "Signals" library was written, which is dedicated to hold the \gls{gbt} control-signal information.
-The following sections gives brief descriptions of each of these libraries and the associated functions used in the serial communications software:
+The control interface software was developed with the help of a few non-standard libraries; non-standard meaning that the libraries are not a part of the C standard libraries. In addition, the "Signals" library was written, which is dedicated to hold the \gls{gbt} control-signal information.
+The following sections gives brief descriptions of each of these libraries and the associated functions used in the control interface software:
 
 \section{RS232} \label{sec:rs232}
 
@@ -202,7 +202,7 @@ Disables line buffering, making characters typed by the user available to the pr
 \begin{lstlisting}[frame=single] 
 int keypad(WINDOW *win, bool bf)
 \end{lstlisting}
-Function that, when \textbf{TRUE}, allows the program to capture special keys using the function \textit{getch()}, like \textit{backspace} and the arrow keys. In the GBT serial interface, \textit{win} is defined as \textit{stdscr}, which is the main terminal screen. \\
+Function that, when \textbf{TRUE}, allows the program to capture special keys using the function \textit{getch()}, like \textit{backspace} and the arrow keys. For this software, \textit{win} is defined as \textit{stdscr}, which is the main terminal screen. \\
 
 \begin{lstlisting}[frame=single] 
 int nodelay(WINDOW *win, bool bf)
@@ -217,7 +217,7 @@ Function that store the current beginning coordinates and size of the specified 
 \begin{lstlisting}[frame=single] 
 WINDOW *newwin(int nlines, int ncols, int begin_y, int begin_x)
 \end{lstlisting}
-Function used to initiate a new window within the main terminal screen, \textit{stdscr}, where \textit{nlines} a \textit{ncols} is the number of lines and columns the window is to contain, and \textit{begin\_y} and \textit{begin\_x} is the upper left hand corner of the window. This function is used to initiate the three windows, "Command History", "Commandline" and "Signals" in the GBT serial interface.\\
+Function used to initiate a new window within the main terminal screen, \textit{stdscr}, where \textit{nlines} a \textit{ncols} is the number of lines and columns the window is to contain, and \textit{begin\_y} and \textit{begin\_x} is the upper left hand corner of the window. This function is used to initiate the three windows, "Command History", "Commandline" and "Signals" in the control interface software.\\
 
 \begin{lstlisting}[frame=single] 
 int scrollok(WINDOW *win, bool bf)
@@ -227,7 +227,7 @@ Function that, if \textbf{TRUE}, enables scrolling of typed in characters, eithe
 \begin{lstlisting}[frame=single] 
 int leaveok(WINDOW *win, bool bf)
 \end{lstlisting}
-Function to disable the cursor at the specified window. It is used to disable the cursor in the "Command History" and "Signals" windows in the GBT serial interface.  
+Function to disable the cursor at the specified window. It is used to disable the cursor in the "Command History" and "Signals" windows in the control interface software.  
 
 \subsection{Associated functions - Various}
 

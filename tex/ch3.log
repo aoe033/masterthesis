@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  31 MAY 2016 21:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  1 JUN 2016 10:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1860,10 +1860,6 @@ LaTeX Warning: Reference `chap:pcb' on page 3 undefined on input line 55.
 LaTeX Warning: Reference `sec:cyclone' on page 3 undefined on input line 55.
 
 [3 <../img/altera_jtag.pdf>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 57.
-
 <../img/lcdheader.pdf, id=169, 549.25201pt x 354.12299pt>
 File: ../img/lcdheader.pdf Graphic file (type pdf)
 
@@ -2111,7 +2107,7 @@ fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ch3.pdf (17 pages, 295545 bytes).
+Output written on ch3.pdf (17 pages, 295528 bytes).
 PDF statistics:
  415 PDF objects out of 1000 (max. 8388607)
  368 compressed objects within 4 object streams

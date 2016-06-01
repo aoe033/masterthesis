@@ -12,13 +12,13 @@
 
 \chapter{PC to CRU control interface} \label{chap:sercom}
 
-In order to connect and control the \gls{cru} from a user \acrshort{pc}, some sort of serial communication between the user \acrshort{pc} and the \gls{fpga} is needed. The purpose of the serial link in this thesis is mainly to monitor and manipulate the \gls{gbt} control signals. Because of this, the speed requirements of the link is not crucial. \\
-Figure \ref{fig:sergui} illustrates the different blocks that make up the serial interface: The interface on the \acrshort{pc} side consists of a terminal-like interface that lets the user type in requests that enables the user to read and/or write to the \gls{gbt} control signals via the link. These requests then gets translated into byte-codes and sent out via the transmitter of the PC COM port to the \gls{uart} on the \gls{fpga} side. Here, the bytes are stored in a buffer before they get interpreted by a decoder. Depending on the user-request, the decoder can write to a \gls{gbt}-switch or read from a \gls{gbt}-probe.
+In order to connect and control the \gls{cru} from a user \acrshort{pc}, some sort of serial communication between the user \acrshort{pc} and the \gls{fpga} is needed. The purpose of the serial link in this thesis is mainly to monitor and manipulate the \gls{gbt} control signals (see appendix \ref{ap:gbtctrl} for an overview). Because of this, the speed requirements of the link is not crucial. \\
+Figure \ref{fig:sergui} illustrates the different blocks that make up the serial interface: The interface on the \acrshort{pc} side consists of a terminal-like interface that lets the user type in "requests" that enables the user to read and/or write to the \gls{gbt} control signals via the link. These requests are essentially reserved byte-codes that are sent out via the transmitter of the PC COM port to the \gls{uart} receiver on the \gls{fpga} side. Here, the requests are stored in a FIFO-buffer before they get interpreted by a decoder. The decoder can change a value in the GBT control register (write operation), or send out a byte-code containing data (\gls{msb}) and the address of the data-value (remaining 7 bits) to the \gls{uart} transmitter for further transmission to the PC COM port. The PC interface stores the data-values in arrays that imitate the GBT control registers. 
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \subfile{./serial_gui.tex}
-\caption{Simplified diagram over the PC to CRU serial interface.}
+\caption{Simplified diagram over the PC to CRU serial interface. The VLDB and PCB bridge is not included (see figure \ref{fig:pcbdia}).}
 \label{fig:sergui}
 \end{figure}
 
@@ -54,7 +54,7 @@ In addition to the communication standards described above, which in turn requir
 
 The \gls{fpga} board used in this thesis has no dedicated prototyping area for external signal connection. It instead comes with an GPIO-extension board that connects to one of the two on-board HSMC-ports.\footnote{By using both the HSMC-ports on the \gls{fpga}, the GPIO-\gls{pcb} could not fit properly side-by-side with the \acrshort{hsmc}-to-\acrshort{vldb} \acrshort{pcb} (see chapter \ref{chap:pcb}) because the latter \gls{pcb} is a bit to wide.} However, if removing the on-mounted LCD-display, it is possible to use the exposed header for signaling. The header (J10 in the board schematic, as shown in figure \ref{fig:lcdheader}) is connected to a transmitter- and receiver pair (both running on a voltage of $5~\volt$), several $5~\volt$ output pins and a ground pin. By using the transmitter- and receiver pair from the available header on the \gls{fpga}, it is possible to implement a type of asynchronous serial protocol. Most \gls{fpga} developement boards, including the Terasic Cyclone SX board (see section \ref{sec:cyclone}), comes with a built-in \gls{uart}-to-USB interface. This allows you to connect the board directly to the USB-port of the \acrshort{pc} as a serial connection. The \gls{fpga} board used in this thesis has no integrated \gls{uart} interface, so this has to be implemented manually.
 
-\begin{figure}[] % H(strictly put HERE > h!)
+\begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \includegraphics[width=0.5\linewidth]{../img/lcdheader.pdf}  \\[0.1 cm]
 \caption{J10 header from the Cyclone V GT board schematic. The SCL and SDA signals can be used as single-ended transmitter and receiver signals.}
@@ -68,13 +68,13 @@ Common to all communication systems considered is that they are all duplex syste
 \section{Choosing Communication Protocol}
 Perhaps the most well-known and supported serial communications protocol out there is the RS-232 standard. It supports both synchronous and asynchronous transmission, and only requires a single transmit- and receiver pair (if excluding the data control signals, which are not crucial). It is compatible over a wide range of voltage levels, and can be connected directly to the serial port of a \acrshort{pc} (if one is available) or through a USB-to-RS232 adapter. The RS-232-standard was chosen mainly because it only requires two wires (one for transmitting and the other for receiving), and can be easily implemented using available C-libraries. See appendix \ref{ap:rs232} for more information about the RS-232 standard.\\
 
-The standard will be used for asynchronous transmission of data between the \acrshort{pc} and \gls{fpga}. A simple \gls{uart} with a byte-decoder will be implemented on the \gls{fpga}-side, while a dedicated C-program with access to the COM port will be implemented on the \acrshort{pc}-side. A USB-to-RS232 adapter with a voltage converter will be used as the connection between the \gls{fpga} and the \acrshort{pc}. The following chapters describe the implementation of the serial interface, first on the \gls{fpga} side (\ref{chap:hardware}) and then on the \acrshort{pc} side (\ref{chap:software}).
+The standard will be used for asynchronous transmission of data between the \acrshort{pc} and \gls{fpga}. A simple \gls{uart} with a byte-decoder will be implemented on the \gls{fpga}-side, while a dedicated C-program with access to the COM port will be implemented on the \acrshort{pc}-side. A USB-to-RS232 adapter with a voltage converter will be used as the connection between the \gls{fpga} and the \acrshort{pc}. The following chapters describe the implementation of the serial interface, first on the \gls{fpga} side (section \ref{chap:hardware}) and then on the \acrshort{pc} side (section \ref{chap:software}).
 
 %\chapter{Implementing a serial interface into the FPGA}
 
 \section{Hardware Design on the FPGA Side} \label{chap:hardware}
 
-The \gls{fpga} hardware design is responsible for treating incoming requests made by the user PC. It will essentially become a module to connect with the GBT example design, were it replaces the \gls{issp}-module that is used today. The module must have access to the GBT control signal register, and this is done by re-connecting the already defined probe and source signals, which is connected to the \gls{issp}, to this module. The module is mostly completed; what remains is to implement it in the GBT example design and connect the probe and source/switches registers to the module, effectively replacing the \gls{issp} module. For now, the module uses dummy registers instead of the real probe and source/switches registers. 
+The \gls{fpga} hardware design is responsible for treating incoming requests made by the user PC. It will essentially become a module to connect with the GBT example design, were it replaces the \gls{issp}-module that is used today. The module must have access to the GBT control signal register, and this is done by re-connecting the already defined probe and source signals, which is connected to the \gls{issp}, to this module. The module is mostly completed; what remains is to implement it in the GBT example design and connect the probe and source registers to the module, effectively replacing the \gls{issp} module. For now, the module uses dummy registers instead of the real probe and source registers. 
 
 \subsection{Specification}
 
@@ -94,10 +94,10 @@ When finished, the implemented hardware logic is to contain the following specif
 The below sections gives a brief description of each part of the module design.\\
 The \gls{uart} itself was based on the \gls{uart}-design by Pong P. Chu, found in chapter 7 from his book \textit{FPGA Prototyping By VHDL Examples} \cite{chu08}. The Baud Rate Generator was borrowed from the \textit{Uart2Bus} \acrshort{vhdl}-design by Arild Velure \cite{velure10}. The \gls{uart}-decoder was written in conjunction with the C-program on the \acrshort{pc} side, and is the one component that ties the communication together.\\
 
-The end result forms a design that uses an \gls{uart} to receive and transmit $19200-8-N-1~$ RS-232 data-bytes. The received bytes are stored in a FIFO until treated by the \gls{uart}-decoder. The "decoder" translates the received bytes into requests, i.e a read-request if 0xDD or a write-request if 0xEE (write value 0) or 0xFF (write value 1), and manipulates or sends out data-bits from the \gls{gbt}-register according to the received requests. The \gls{uart} itself is optimized for $19200~\bit\per\second$, but has been tested to work at speeds up to $57600~\bit\per\second$.
+The end result forms a design that uses a \gls{uart} to receive and transmit $19200-8-N-1~$ RS-232 data-bytes. The received bytes are stored in a FIFO until treated by the \gls{uart}-decoder. The "decoder" translates the received bytes into requests, i.e a read-request if 0xDD or a write-request if 0xEE (write value 0) or 0xFF (write value 1), and manipulates or sends out data-bits from the \gls{gbt}-register according to the received requests. The \gls{uart} itself is optimized for $19200~\bit\per\second$, but has been tested to work at speeds up to $57600~\bit\per\second$.
 
 \subsubsection{UART}
-Simply put, an \gls{uart} is a circuit that transmits and receives parallel data through a serial line \cite{chu08}. Since it has no dedicated clock line, it uses the concept of oversampling to synchronize with the incoming data. This involves using a sample-clock which is 16 times faster than the transmitted/received data; the transmitting and receiving end must thus have matched data rates.\\
+Simply put, a \gls{uart} is a circuit that transmits and receives parallel data through a serial line \cite{chu08}. Since it has no dedicated clock line, it uses the concept of oversampling to synchronize with the incoming data. This involves using a sample-clock which is 16 times faster than the transmitted/received data; the transmitting and receiving end must thus have matched data rates.\\
 
 \noindent
 The \gls{uart}-design is divided into five parts:
@@ -216,7 +216,7 @@ There are two constants defined for the receiver: the $C\_DBIT$ constant, which 
 \subsubsection{Transmitter}
 The \gls{uart} transmitter has a similar design to that of the receiver; it uses the same state machine structure, but for the purpose of shifting out data. In addition to the s-, n-, and b-registers used for counting, the transmitter contains a din-register for parallel input data and a $1~\bit$ tx-register for shifting out the data. To prevent multiple clocks, the baud rate generator is also used to clock the transmitter. For the transmitter to be properly synchronized with the receiver, it instead uses the counter registers to slow down the operation 16 times. This is because there is no oversampling involved in transmitting a signal.\\
 
-\begin{figure}[!ht]
+\begin{figure}[!t]
 \begin{center}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
   \node[initial,state,accepting] (idle)      {\small{\textit{idle}}};
@@ -247,7 +247,7 @@ Both the \gls{uart} transmitter and receiver has FIFO-buffers that stores the in
 \subsubsection{Decoder}
 The \gls{uart} decoder is a state machine connected to the other end of the \gls{uart} receiver- and transmitter FIFOs. It reads out the stored received bytes and does tasks according to the order and value of the bytes. Starting at the idle state, the decoder waits for a request byte from the FIFO followed by an address byte. Legal request bytes are 0xDD, for read; 0xEE, for write value '1'; and 0xFF, for write value '0'. The request-bytes must then be followed by a byte containing an legal address between 0x00 - 0x40. If all requirements are met, the state machine will perform the requested action on the probe and source registers of the GBT example design. A read of a given address will result in the decoder instructing the UART to transmit a byte containing the data value (stored in the \gls{msb} of the byte) and the register address of the data value (stored in the last seven bits of the byte). A write of a given address will result in the decoder changing the value of the given address in the source register of the GBT example design. The address must thus be smaller than 0x24. See appendix \ref{ap:gbtctrl} for more information about the GBT source and probe registers.
 
-\begin{figure}[!b]
+\begin{figure}[!t]
 \begin{center}
 %\usetikzlibrary{arrows,automata}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm]
@@ -337,7 +337,7 @@ There are four variables that controls the transmitter: \textit{txStatus}, \text
 \end{center}
 \end{figure}
 
-For the receiver function to read out what is stored in the COM port buffer, \textit{txStatus} must be set to read (0xDD). The process of reading out a byte from the COM port involves using the \textit{RS232\_PollComport}-function (see section \ref{sec:rs232}). The \textit{n} variable is equal to the number of bytes read from the COM port. If no bytes are present, this means that the previous read-request has not been received or processed properly by the \gls{fpga} \gls{uart} state machine. \textit{txStatus} is therefore set equal to repeat (0xFD), signaling the transmitter function to send the same previous read-request to the COM port. If \textit{n} is larger than 0, the data and address values are filtered out of the byte(s); the data bit being the \gls{msb} and the address the remaining bits.
+For the receiver function to read out what is stored in the COM port buffer, \textit{txStatus} must be set to read (0xDD). The process of reading out a byte from the COM port involves using the \textit{RS232\_PollComport}-function (see appendix \ref{sec:rs232}). The \textit{n} variable is equal to the number of bytes read from the COM port. If no bytes are present, this means that the previous read-request has not been received or processed properly by the \gls{fpga} \gls{uart} state machine. \textit{txStatus} is therefore set equal to repeat (0xFD), signaling the transmitter function to send the same previous read-request to the COM port. If \textit{n} is larger than 0, the data and address values are filtered out of the byte(s); the data bit being the \gls{msb} and the address the remaining bits.
 
 \begin{figure}[H] % H(strictly put HERE > h!)
 \begin{center}
@@ -356,12 +356,12 @@ System-Source-And-Probe Editor, which is used today to access the GBT control-si
 
 As for now, the serial interface software consists of two modules: the sending and receiving module, and the ncurses command interface. Both modules work more or less as they should: The send/receive module writes a pattern to the \gls{gbt}-register in the \gls{fpga} and reads it back to the terminal, and the interface module allows you to perform write- and read-commands and monitor the \gls{gbt} control signals. What remains is to fully integrate the send/receive module into the interface module. They are partly integrated in terms of merging the two into one program. What is left undone is to rewrite the main transmit and receive routines from the send/receive module, which are not completed. In addition, some adaptations needs to be made to the write- and read command-entries in order for them to invoke and direct the send/receive module. Also, a final test of the software as a whole remains.\\
 
-As this software has   a goal of being open-source and thus modular, a useful feature to the software to be added in the future would be the ability to log the GBT register information into date-sorted files. This was a feature that was intended to be integrated, but because of time constraints had to be dropped.
+A useful software feature to be added in future updates would be the ability to log the GBT register information into date-sorted files. This feature was intended to be integrated, but because of time constraints it had to be dropped. Figure \ref{fig:gbtgui} shows a snapshot of the GBT control interface.
 
 \begin{figure} % H(strictly put HERE > h!)
 % h(here), !(force), t(top), b(bottom), p(on extra page)
 \includegraphics[width=1.35\linewidth, trim={6mm 0 0 11mm},clip,angle=90]{../img/gbt_gui_inv.png}  \\[0.1 cm]
-\caption{Snapshot of the GBT software interface in action. The colors in this picture has been inverted for a better visual representation.}
+\caption{Snapshot of the GBT control interface in action. The colors in this picture has been inverted for a better visual representation.}
 \label{fig:gbtgui}
 \end{figure}
 

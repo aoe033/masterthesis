@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1464729157 "ch1.tex" "ch1.pdf" "ch1" 1464729159
+["pdflatex"] 1464769197 "ch1.tex" "ch1.pdf" "ch1" 1464769198
   "../acronyms.sty" 1464724375 4449 e8271f1f36c626ee02f5e5b5611388cb ""
   "../img/gbtframe.pdf" 1464252095 50431 8759aacfa1ef1643ba31cd872c26d83b ""
   "../img/gbtsys.pdf" 1464262978 116633 f0ec29b073298799bc63a923f6f56286 ""
@@ -277,19 +277,19 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1455898810 1346346 7f2b8b715a9ddb095afe3697a6ba02b5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1455898751 3822874 ae0af48f15c68fc927d221e55d5c812c ""
-  "ch1.aux" 1464729158 6544 c84e0ad97f00c891905172b0c5c9614e ""
-  "ch1.out" 1464729158 1149 dfedc9d93f52b242a3f2261c8b49bfa9 ""
-  "ch1.sta" 1464729158 45 5977ee01d6365feae7164ffda30d2c8b ""
-  "ch1.tex" 1464729157 20274 c9508ee69c55c05c7478f212d6f2b7e2 ""
+  "ch1.aux" 1464769198 5508 4a45448a9300a9eab699cba19c7568d4 ""
+  "ch1.out" 1464769198 906 77f4c551092212a3671770a16b359cb6 ""
+  "ch1.sta" 1464769198 45 5977ee01d6365feae7164ffda30d2c8b ""
+  "ch1.tex" 1464769197 18292 251fe60ca25cf8b3d3d14edd3c820273 ""
   "main.tex" 1464711141 3131 ca8a1cd763b6f572dafb42472435c485 ""
   (generated)
-  "ch1.glo"
+  "ch1.out"
   "ch1.aux"
   "ch1.sta"
   "ch1.acn"
+  "ch1.glo"
+  "ch1.log"
   "/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/ch1.log"
   "ch1.pdf"
   "ch1.ist"
-  "ch1.log"
   "/media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/tex/ch1.pdf"
-  "ch1.out"

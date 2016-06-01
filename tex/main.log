@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  31 MAY 2016 23:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  1 JUN 2016 13:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1830,7 +1830,7 @@ Option `squaren' provided!
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- <../img/uib-emblem-svart.pdf, id=316, 80.3pt x 80.3pt>
+ <../img/uib-emblem-svart.pdf, id=320, 80.3pt x 80.3pt>
 File: ../img/uib-emblem-svart.pdf Graphic file (type pdf)
 
 <use ../img/uib-emblem-svart.pdf>
@@ -1898,7 +1898,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ] (./ch1.tex
 Chapter 1.
-<../img/lhc.jpg, id=520, 781.92125pt x 563.10374pt>
+<../img/lhc.jpg, id=526, 781.92125pt x 563.10374pt>
 File: ../img/lhc.jpg Graphic file (type jpg)
  <use ../img/lhc.jpg>
 Package pdftex.def Info: ../img/lhc.jpg used on input line 34.
@@ -1906,14 +1906,14 @@ Package pdftex.def Info: ../img/lhc.jpg used on input line 34.
 
 [1
 
-] <../img/gbtsys.pdf, id=546, 733.94202pt x 587.79597pt>
+] <../img/gbtsys.pdf, id=552, 733.94202pt x 587.79597pt>
 File: ../img/gbtsys.pdf Graphic file (type pdf)
 
 <use ../img/gbtsys.pdf>
 Package pdftex.def Info: ../img/gbtsys.pdf used on input line 50.
 (pdftex.def)             Requested size: 298.75264pt x 239.2579pt.
  [2 <../img/lhc.jpg>]
-<../img/gbtframe.pdf, id=571, 1006.962pt x 155.782pt>
+<../img/gbtframe.pdf, id=577, 1006.962pt x 155.782pt>
 File: ../img/gbtframe.pdf Graphic file (type pdf)
 
 <use ../img/gbtframe.pdf>
@@ -1931,35 +1931,35 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 3954) has occurred while \output is active []
 
  [4 <../img/gbtframe.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
-<../img/vldb.pdf, id=643, 680.14098pt x 533.995pt>
+<../img/vldb.pdf, id=650, 680.14098pt x 533.995pt>
 File: ../img/vldb.pdf Graphic file (type pdf)
  <use ../img/vldb.pdf>
-Package pdftex.def Info: ../img/vldb.pdf used on input line 104.
+Package pdftex.def Info: ../img/vldb.pdf used on input line 103.
 (pdftex.def)             Requested size: 256.07741pt x 201.05429pt.
 
 [5]
-Underfull \vbox (badness 2547) has occurred while \output is active []
+Underfull \vbox (badness 2080) has occurred while \output is active []
 
  [6 <../img/vldb.pdf, page is rotated 90 degrees>] [7] [8
 
 ]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
@@ -1975,16 +1975,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--62
 
  []
 
-[11
 
-] <../img/HSMC_52_53_hsmcspec.pdf, id=776, 760.44098pt x 269.80798pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11
+
+]
+<../img/HSMC_52_53_hsmcspec.pdf, id=792, 760.44098pt x 269.80798pt>
 File: ../img/HSMC_52_53_hsmcspec.pdf Graphic file (type pdf)
 
 <use ../img/HSMC_52_53_hsmcspec.pdf>
 Package pdftex.def Info: ../img/HSMC_52_53_hsmcspec.pdf used on input line 67.
 (pdftex.def)             Requested size: 426.79135pt x 151.42491pt.
- [12 <../img/HSMC_52_53_hsmcspec.pdf>]
-[13]
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
+
+ []
+
+[13 <../img/HSMC_52_53_hsmcspec.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
@@ -2011,7 +2019,7 @@ Overfull \hbox (9.53207pt too wide) in paragraph at lines 247--261
 Underfull \vbox (badness 3449) has occurred while \output is active []
 
  [16]
-<../img/pcb_1.JPG, id=876, 3854.4pt x 2168.1pt>
+<../img/pcb_1.JPG, id=890, 3854.4pt x 2168.1pt>
 File: ../img/pcb_1.JPG Graphic file (type jpg)
  <use ../img/pcb_1.JPG>
 Package pdftex.def Info: ../img/pcb_1.JPG used on input line 279.
@@ -2055,9 +2063,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 
  []
 
-[19
 
-] [20] <../img/altera_jtag.pdf, id=964, 903.375pt x 252.945pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19
+
+]
+[20] <../img/altera_jtag.pdf, id=980, 903.375pt x 252.945pt>
 File: ../img/altera_jtag.pdf Graphic file (type pdf)
 
 <use ../img/altera_jtag.pdf>
@@ -2069,11 +2081,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
  []
 
 [21 <../img/altera_jtag.pdf>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 57.
-
-<../img/lcdheader.pdf, id=1002, 549.25201pt x 354.12299pt>
+<../img/lcdheader.pdf, id=1017, 549.25201pt x 354.12299pt>
 File: ../img/lcdheader.pdf Graphic file (type pdf)
 
 <use ../img/lcdheader.pdf>
@@ -2084,10 +2092,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22 <../img/lcdheader.pdf>]
+[22 <../img/lcdheader.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
@@ -2162,7 +2167,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 357--358
 
  []
 
-[33] <../img/gbt_gui_inv.png, id=1175, 1109.14375pt x 606.265pt>
+[33] <../img/gbt_gui_inv.png, id=1193, 1109.14375pt x 606.265pt>
 File: ../img/gbt_gui_inv.png Graphic file (type png)
 
 <use ../img/gbt_gui_inv.png>
@@ -2173,84 +2178,77 @@ Package pdftex.def Info: ../img/gbt_gui_inv.png used on input line 363.
 ]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [37]
-<../img/si5338.pdf, id=1219, 633.56702pt x 617.50702pt>
+<../img/si5338.pdf, id=1236, 633.56702pt x 617.50702pt>
 File: ../img/si5338.pdf Graphic file (type pdf)
 
 <use ../img/si5338.pdf>
-Package pdftex.def Info: ../img/si5338.pdf used on input line 49.
+Package pdftex.def Info: ../img/si5338.pdf used on input line 51.
 (pdftex.def)             Requested size: 190.07156pt x 185.25352pt.
  [38]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
-[39 <../img/si5338.pdf>]
-Underfull \vbox (badness 3068) has occurred while \output is active []
 
- [40]
-(./fig_txdelay.tex) (./fig_rxdelay_0.tex) [41]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \vbox (badness 2435) has occurred while \output is active []
 
- []
-
+ [39 <../img/si5338.pdf>] [40] [41] (./fig_txdelay.tex) (./fig_rxdelay_0.tex)
 (./fig_rxdelay.tex)
-Overfull \hbox (0.59557pt too wide) in paragraph at lines 159--159
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
+
+ []
+
+[42]
+Overfull \hbox (0.59557pt too wide) in paragraph at lines 162--162
 []|\OT1/cmr/m/n/12 Clock
  []
 
 
-Overfull \hbox (0.5914pt too wide) in paragraph at lines 159--159
+Overfull \hbox (0.5914pt too wide) in paragraph at lines 162--162
 \OT1/cmr/m/n/12 [Mhz]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--159
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 []|\OT1/cmr/m/n/12 Signal
  []
 
 
-Overfull \hbox (1.71321pt too wide) in paragraph at lines 159--159
+Overfull \hbox (1.71321pt too wide) in paragraph at lines 162--162
 []|\OT1/cmr/m/n/12 Rising/Falling
  []
 
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
-<../img/hektere_probes.pdf, id=1324, 815.84799pt x 797.37903pt>
+<../img/hektere_probes.pdf, id=1335, 815.84799pt x 797.37903pt>
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
 
 <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 188.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 189.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
 File: ../img/hektere_probes.pdf Graphic file (type pdf)
  <use ../img/hektere_probes.pdf>
-Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 188.
+Package pdftex.def Info: ../img/hektere_probes.pdf used on input line 189.
 (pdftex.def)             Requested size: 163.1667pt x 159.47298pt.
-
-Underfull \vbox (badness 5274) has occurred while \output is active []
-
  [43]
-<../img/hektere_oppsett_100mhz.png, id=1336, 1027.84pt x 770.88pt>
+<../img/hektere_oppsett_100mhz.png, id=1342, 1027.84pt x 770.88pt>
 File: ../img/hektere_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/hektere_oppsett_100mhz.png>
@@ -2258,7 +2256,7 @@ Package pdftex.def Info: ../img/hektere_oppsett_100mhz.png used on input line 1
 98.
 (pdftex.def)             Requested size: 213.39568pt x 160.04283pt.
 
-<../img/stubs_oppsett_100mhz.png, id=1337, 1027.84pt x 770.88pt>
+<../img/stubs_oppsett_100mhz.png, id=1343, 1027.84pt x 770.88pt>
 File: ../img/stubs_oppsett_100mhz.png Graphic file (type png)
 
 <use ../img/stubs_oppsett_100mhz.png>
@@ -2270,50 +2268,47 @@ Overfull \hbox (7.83325pt too wide) in paragraph at lines 196--207
  []$[]$   $[]$ 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [44 <../img/hektere_probes.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+[44 <../img/hektere_probes.pdf> <../img/hektere_oppsett_100mhz.png (PNG copy)> 
+<../img/stubs_oppsett_100mhz.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
-[45 <../img/hektere_oppsett_100mhz.png (PNG copy)> <../img/stubs_oppsett_100mhz
-.png (PNG copy)>] <../img/uart_tb_0.pdf, id=1365, 107.60199pt x 41.756pt>
+[45] <../img/uart_tb_0.pdf, id=1382, 107.60199pt x 41.756pt>
 File: ../img/uart_tb_0.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_0.pdf>
-Package pdftex.def Info: ../img/uart_tb_0.pdf used on input line 243.
+Package pdftex.def Info: ../img/uart_tb_0.pdf used on input line 247.
 (pdftex.def)             Requested size: 76.8193pt x 29.81006pt.
 
-<../img/uart_tb_1.pdf, id=1366, 424.78702pt x 42.559pt>
+<../img/uart_tb_1.pdf, id=1383, 424.78702pt x 42.559pt>
 File: ../img/uart_tb_1.pdf Graphic file (type pdf)
 
 <use ../img/uart_tb_1.pdf>
-Package pdftex.def Info: ../img/uart_tb_1.pdf used on input line 247.
+Package pdftex.def Info: ../img/uart_tb_1.pdf used on input line 251.
 (pdftex.def)             Requested size: 298.75264pt x 29.932pt.
  [46 <../img/uart_tb_0.pdf> <../img/uart_tb_1.pdf
 
 pdfTeX warning: pdflatex (file ../img/uart_tb_1.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 270--271
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
 
  []
 
-[47] [48
-
-]
+[47] [48]
 Chapter 6.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49])
+ [49
+
+])
 (./ap6.tex [50]
 Appendix A.
 
@@ -2679,7 +2674,7 @@ Overfull \hbox (9.87305pt too wide) in paragraph at lines 32--33
  \ _13 . 1 \ bin"$ \OT1/cmr/m/n/12 -jar clk[]cont.jar".
  []
 
-<../img/clk_cont120.PNG, id=1694, 344.78813pt x 283.0575pt>
+<../img/clk_cont120.PNG, id=1713, 344.78813pt x 283.0575pt>
 File: ../img/clk_cont120.PNG Graphic file (type png)
 
 <use ../img/clk_cont120.PNG>
@@ -2691,7 +2686,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--58
  []
 
 [68 <../img/clk_cont120.PNG>]
-<../img/20160226_tek100.png, id=1708, 1027.84pt x 770.88pt>
+<../img/20160226_tek100.png, id=1726, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek100.png Graphic file (type png)
 
 <use ../img/20160226_tek100.png>
@@ -2711,7 +2706,7 @@ Underfull \hbox (badness 4595) in paragraph at lines 61--61
 [][]|$\OML/cmm/m/it/12 Si\OT1/cmr/m/n/12 570$ Be-fore con-fig-u-ra-
  []
 
-<../img/20160226_tek120.png, id=1709, 1027.84pt x 770.88pt>
+<../img/20160226_tek120.png, id=1727, 1027.84pt x 770.88pt>
 File: ../img/20160226_tek120.png Graphic file (type png)
 
 <use ../img/20160226_tek120.png>
@@ -2727,7 +2722,7 @@ py)>] [70
 
 ]
 Appendix E.
-<../img/temp_prof.pdf, id=1723, 847.165pt x 394.273pt>
+<../img/temp_prof.pdf, id=1741, 847.165pt x 394.273pt>
 File: ../img/temp_prof.pdf Graphic file (type pdf)
 
 <use ../img/temp_prof.pdf>
@@ -2748,7 +2743,7 @@ Underfull \hbox (badness 1173) in paragraph at lines 25--26
 
 ]) (./ap2.tex [74]
 Appendix G.
-<../img/pcb_sch1.pdf, id=1763, 692.5875pt x 317.185pt>
+<../img/pcb_sch1.pdf, id=1785, 692.5875pt x 317.185pt>
 File: ../img/pcb_sch1.pdf Graphic file (type pdf)
 
 <use ../img/pcb_sch1.pdf>
@@ -2760,14 +2755,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [75
 
 ]
-<../img/pcb_sch2.pdf, id=1772, 751.80875pt x 495.8525pt>
+<../img/pcb_sch2.pdf, id=1794, 751.80875pt x 495.8525pt>
 File: ../img/pcb_sch2.pdf Graphic file (type pdf)
 
 <use ../img/pcb_sch2.pdf>
 Package pdftex.def Info: ../img/pcb_sch2.pdf used on input line 27.
 (pdftex.def)             Requested size: 629.82918pt x 415.4313pt.
  [76 <../img/pcb_sch1.pdf, page is rotated 90 degrees>] <../img/pcb_sch3.pdf, i
-d=1779, 793.96625pt x 518.93875pt>
+d=1801, 793.96625pt x 518.93875pt>
 File: ../img/pcb_sch3.pdf Graphic file (type pdf)
 
 <use ../img/pcb_sch3.pdf>
@@ -2778,14 +2773,14 @@ Package pdftex.def Info: ../img/pcb_sch3.pdf used on input line 36.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 42.
 
-<../img/pcb_top.pdf, id=1786, 304.13625pt x 269.005pt>
+<../img/pcb_top.pdf, id=1808, 304.13625pt x 269.005pt>
 File: ../img/pcb_top.pdf Graphic file (type pdf)
 
 <use ../img/pcb_top.pdf>
 Package pdftex.def Info: ../img/pcb_top.pdf used on input line 46.
 (pdftex.def)             Requested size: 298.75264pt x 264.2511pt.
 
-<../img/pcb_btm.pdf, id=1787, 304.13625pt x 269.005pt>
+<../img/pcb_btm.pdf, id=1809, 304.13625pt x 269.005pt>
 File: ../img/pcb_btm.pdf Graphic file (type pdf)
 
 <use ../img/pcb_btm.pdf>
@@ -2796,13 +2791,13 @@ Package pdftex.def Info: ../img/pcb_btm.pdf used on input line 52.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 59.
 
-<../img/pcb_in1.pdf, id=1795, 313.17pt x 269.005pt>
+<../img/pcb_in1.pdf, id=1817, 313.17pt x 269.005pt>
 File: ../img/pcb_in1.pdf Graphic file (type pdf)
  <use ../img/pcb_in1.pdf>
 Package pdftex.def Info: ../img/pcb_in1.pdf used on input line 63.
 (pdftex.def)             Requested size: 298.75264pt x 256.62871pt.
 
-<../img/pcb_in2.pdf, id=1796, 313.17pt x 269.005pt>
+<../img/pcb_in2.pdf, id=1818, 313.17pt x 269.005pt>
 File: ../img/pcb_in2.pdf Graphic file (type pdf)
  <use ../img/pcb_in2.pdf>
 Package pdftex.def Info: ../img/pcb_in2.pdf used on input line 69.
@@ -2935,13 +2930,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 733A86883CE438D7889CA6546A091532;5465.
+(rerunfilecheck)             Checksum: A4AB31CE5662B99BC416894230B320C5;5525.
  ) 
 Here is how much of TeX's memory you used:
- 38222 strings out of 493304
- 693526 string characters out of 6139871
- 904598 words of memory out of 5000000
- 40361 multiletter control sequences out of 15000+600000
+ 38258 strings out of 493304
+ 694060 string characters out of 6139871
+ 905214 words of memory out of 5000000
+ 40395 multiletter control sequences out of 15000+600000
  16681 words of font info for 59 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  82i,12n,101p,10419b,2141s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2968,10 +2963,10 @@ onts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts
 nts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eu
 rm10.pfb>
-Output written on main.pdf (99 pages, 8800379 bytes).
+Output written on main.pdf (99 pages, 8803070 bytes).
 PDF statistics:
- 2182 PDF objects out of 2487 (max. 8388607)
- 1981 compressed objects within 20 object streams
- 474 named destinations out of 1000 (max. 500000)
- 776 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2208 PDF objects out of 2487 (max. 8388607)
+ 2005 compressed objects within 21 object streams
+ 476 named destinations out of 1000 (max. 500000)
+ 784 words of extra memory for PDF output out of 10000 (max. 10000000)
 
