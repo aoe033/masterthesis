@@ -81,6 +81,20 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
+\usepackage[absolute,overlay]{textpos}
+
+
+% beamer: How to place images behind text (z-order)
+% (http://tex.stackexchange.com/a/134311)
+\makeatletter
+\newbox\@backgroundblock
+\newenvironment{backgroundblock}[2]{%
+  \global\setbox\@backgroundblock=\vbox\bgroup%
+    \unvbox\@backgroundblock%
+    \vbox to0pt\bgroup\vskip#2\hbox to0pt\bgroup\hskip#1\relax%
+}{\egroup\egroup\egroup}
+\addtobeamertemplate{background}{\box\@backgroundblock}{}
+\makeatother
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -149,10 +163,26 @@
 %------------------------------------------------ 
 
 \begin{frame}
-\frametitle{LHC upgrade}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+\frametitle{Gigabit Transceiver System}
 
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
+\begin{backgroundblock}{7cm}{2.8cm}
+\includegraphics[width=5cm]{../img/gbtsys}
+\end{backgroundblock}
+
+\begin{itemize}
+\item On-detector - Custom ASICs
+	\begin{itemize}
+	\item GBTx, GBT-SCA, VTTx/VTRx
+	\item E-links
+	\end{itemize}
+\item Off-detector - Control room
+	\begin{itemize}
+	\item CRU (FPGA)
+	\item GBT-FPGA
+	\end{itemize}
+\item Optical communication	
+\end{itemize}
+
 \end{frame}
 
 %------------------------------------------------

@@ -1,0 +1,18 @@
+
+%------------------------------------------------
+%-----------Introduction
+%------------------------------------------------
+
+%-----------LHC Upgrade
+
+
+%------------------------------------------------
+%-----------PCB
+%------------------------------------------------
+
+So the idea here is to have the FPGA be the detectors AND the CRU. Configure the GBTx to receive information from the FPGA at a speed of 320 Mbps and the send information via the fiber-optical cable back to the FPGA for analysis.
+
+%------------------------------------------------
+
+
+%------------------------------------------------
