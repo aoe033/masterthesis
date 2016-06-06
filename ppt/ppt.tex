@@ -82,6 +82,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage[absolute,overlay]{textpos}
+\usepackage[mediumspace,squaren,binary]{SIunits}
 
 
 % beamer: How to place images behind text (z-order)
@@ -163,6 +164,31 @@
 %------------------------------------------------ 
 
 \begin{frame}
+\frametitle{LHC Upgrade}
+
+\begin{backgroundblock}{7cm}{2.8cm}
+\includegraphics[width=5cm]{../img/lhc.jpg}
+\end{backgroundblock}
+
+\begin{itemize}
+\item Large Hadron Collider (LHC)
+	\begin{itemize}
+	\item $27~\kilo\meter$ circular tunnel
+	\item 13 TeV
+	\end{itemize}
+\item High-Lumiosity LHC
+	\begin{itemize}
+	\item 10x beam lumiosity
+	\item Increase in radiation \\ and amount of data
+	\item $\rightarrow$ Gigabit Transceiver
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
 \frametitle{Gigabit Transceiver System}
 
 \begin{backgroundblock}{7cm}{2.8cm}
@@ -178,6 +204,7 @@
 \item Off-detector - Control room
 	\begin{itemize}
 	\item CRU (FPGA)
+	\item \textgreater~ $4.8~\giga\bit\per\second$ transceivers
 	\item GBT-FPGA
 	\end{itemize}
 \item Optical communication	
@@ -186,6 +213,31 @@
 \end{frame}
 
 %------------------------------------------------
+
+\begin{frame}
+\frametitle{Gigabit Transceiver System}
+
+\begin{backgroundblock}{1.5cm}{7cm}
+\includegraphics[width=10cm]{../img/gbtframe}
+\end{backgroundblock}
+
+\begin{backgroundblock}{7cm}{2.8cm}
+\includegraphics[width=5cm]{../img/gbtsys}
+\end{backgroundblock}
+
+\begin{itemize}
+\item Encoding modes
+	\begin{itemize}
+	\item GBT-Frame
+	\item 8B/10B
+	\item Wide-Bus
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
 \begin{frame}
 \frametitle{Bullet Points}
 \begin{itemize}
