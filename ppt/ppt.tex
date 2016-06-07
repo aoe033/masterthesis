@@ -81,6 +81,8 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 \usepackage[absolute,overlay]{textpos}
 \usepackage[mediumspace,squaren,binary]{SIunits}
 
@@ -142,9 +144,28 @@
 \setbeamerfont*{title}{family=\sffamily,series=\bfseries,size=\large}
 \setbeamerfont*{author}{family=\sffamily,series=\mdseries, size=\scriptsize}
 
+%\setbeamerfont*{caption}{size=\footnotesize}
+
+\makeatletter
+\newenvironment{noheadline}{
+    \setbeamertemplate{headline}{}
+    \addtobeamertemplate{frametitle}{\vspace*{-0.9\baselineskip}}{}
+}{}
+\makeatother
+
+\begin{noheadline}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
+\end{noheadline}
+
+%{\usebackgroundtemplate{% 
+%\tikz[overlay,remember picture] \node[opacity=0.1] at ([xshift=-2.5cm,yshift=2.4cm]current page.south east) { \includegraphics[
+%width=0.4\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
+
+{\usebackgroundtemplate{% 
+\tikz[overlay,remember picture] \node[opacity=0.06] at ([xshift=-5.2cm,yshift=-3.5cm]current page.center) { \includegraphics[
+width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 
 \begin{frame}
 \frametitle{Overview} % Table of contents slide, comment this block out to remove it
@@ -158,9 +179,8 @@
 %------------------------------------------------
 \section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 \subsection{LHC Upgrade} 
-\subsection{Gigabit Transceiver}
+\subsection{Gigabit Transceiver System}
 \subsection{Primary Objectives}
-\subsection{Outline}
 %------------------------------------------------ 
 
 \begin{frame}
@@ -173,6 +193,7 @@
 \begin{itemize}
 \item Large Hadron Collider (LHC)
 	\begin{itemize}
+	\item Particle accelerator
 	\item $27~\kilo\meter$ circular tunnel
 	\item 13 TeV
 	\end{itemize}
@@ -207,7 +228,12 @@
 	\item \textgreater~ $4.8~\giga\bit\per\second$ transceivers
 	\item GBT-FPGA
 	\end{itemize}
-\item Optical communication	
+\item Optical communication
+	\begin{itemize}
+	\item Timing and Trigger Control (TTC)
+	\item Data Acquisition	(DAQ)
+	\item Slow Control (SC)
+	\end{itemize}
 \end{itemize}
 
 \end{frame}
@@ -239,17 +265,89 @@
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Bullet Points}
+\frametitle{GBT-FPGA}
+
+%\begin{figure}
+\begin{backgroundblock}{7.5cm}{2.8cm}
+\includegraphics[width=5cm]{../img/gbtex}
+\end{backgroundblock}
+%\caption{GBT example design \cite{gbt_fpga}}
+%\end{figure}
+
 \begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\item Firmware library for \\ Altera/Xilinx FPGAs
+\item GBT Link
+	\begin{itemize}
+	\item "Standard", "Latency-Optimized"
+	\item GBT Rx, GBT Tx, GBT MGT 
+	\end{itemize}
+\item GBT-example Design
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Versatile Link Demo Board}
+%\begin{figure}
+\begin{backgroundblock}{2.5cm}{3cm}
+\includegraphics[width=0.6\paperwidth]{../img/vldbex}
+\end{backgroundblock}
+%\caption{GBT example design \cite{gbt_fpga}}
+%\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Primary Objective}
+
+\begin{itemize}
+\item Design a CRU control interface software
+	\begin{itemize}
+	\item Serial communication between PC and CRU
+	\end{itemize}
+\item Design a HSMC-to-VLDB PCB
+	\begin{itemize}
+	\item Connection between CRU and VLDB 
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
 %------------------------------------------------
+
+%------------------------------------------------
+\section{PCB Design}
+%------------------------------------------------
+\subsection{Design Discussion} 
+\subsection{High-Speed PCB Design} 
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{PCB Design}
+
+\begin{backgroundblock}{6.5cm}{6.5cm}
+\includegraphics[width=0.5\paperwidth]{../img/HSMC_52_53_hsmcspec.pdf}
+\end{backgroundblock}
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{PCB Design}
+
+\begin{backgroundblock}{1.3cm}{4cm}
+\includegraphics[width=0.8\paperwidth]{../img/pcbdia.pdf}
+\end{backgroundblock}
+
+\end{frame}
+
+%------------------------------------------------
+
 \begin{frame}
 \frametitle{Blocks of Highlighted Text}
 \begin{block}{Block 1}
@@ -287,8 +385,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ul
 %------------------------------------------------
 \section{PCB Design}
 %------------------------------------------------
-\subsection{LHC Upgrade} 
+\subsection{LHC Upgrade}
 
+%------------------------------------------------
 
 \begin{frame}
 \frametitle{Table}
@@ -365,7 +464,7 @@ This statement requires citation \cite{p1}.
 %------------------------------------------------
 
 \begin{frame}
-\Huge{\centerline{The End}}
+\Huge{\centerline{Thank you!}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
