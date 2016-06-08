@@ -304,11 +304,12 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \frametitle{Primary Objective}
 
 \begin{itemize}
-\item Design a CRU control interface software
+\item Software Design
 	\begin{itemize}
 	\item Serial communication between PC and CRU
+	\item Interface allowing control over CRU
 	\end{itemize}
-\item Design a HSMC-to-VLDB PCB
+\item PCB Design
 	\begin{itemize}
 	\item Connection between CRU and VLDB 
 	\end{itemize}
@@ -321,31 +322,58 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \section{PCB Design}
 %------------------------------------------------
 \subsection{Design Discussion} 
-\subsection{High-Speed PCB Design} 
+\subsection{Transmission Lines} 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{PCB Design}
 
-\begin{backgroundblock}{6.5cm}{6.5cm}
+\begin{backgroundblock}{6.2cm}{2.0cm}
 \includegraphics[width=0.5\paperwidth]{../img/HSMC_52_53_hsmcspec.pdf}
+\end{backgroundblock}
+\Large Specifications:\\
+\normalsize
+\begin{itemize}
+\item Connect to CRU using HSMC-connector
+\item E-links $\rightarrow$ $320~\mega\bit\per\second$ detector data using HDMI-connector
+\item Optical-Fiber $\rightarrow$ $4.8~\giga\bit\per\second$ GBT data using SFP fiber-module
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{PCB Design}
+\begin{backgroundblock}{1.3cm}{4cm}
+\includegraphics[width=0.8\paperwidth]{../img/pcbdia.pdf}
+\end{backgroundblock}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Transmission Lines}
+
+\begin{itemize}
+\item $4.8~\giga\bit\per\second$ $\rightarrow$ transmission line if trace \textless~ $3.1~\centi\meter$
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+
+\begin{frame}
+\frametitle{GBT Control Software}
+
+\begin{backgroundblock}{6cm}{6.5cm}
+\includegraphics[width=0.5\paperwidth]{../img/softdia.pdf}
 \end{backgroundblock}
 
 \begin{itemize}
+\item Send/receive control signal information
 \item 
 \end{itemize}
 
 \end{frame}
-
-\begin{frame}
-\frametitle{PCB Design}
-
-\begin{backgroundblock}{1.3cm}{4cm}
-\includegraphics[width=0.8\paperwidth]{../img/pcbdia.pdf}
-\end{backgroundblock}
-
-\end{frame}
-
 %------------------------------------------------
 
 \begin{frame}

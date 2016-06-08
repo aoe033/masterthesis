@@ -14,5 +14,6 @@ So the idea here is to have the FPGA be the detectors AND the CRU. Configure the
 
 %------------------------------------------------
 
+A signal propagates with a velocity of 15cm/ns
 
 %------------------------------------------------
