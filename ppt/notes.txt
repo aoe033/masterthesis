@@ -14,6 +14,6 @@ So the idea here is to have the FPGA be the detectors AND the CRU. Configure the
 
 %------------------------------------------------
 
-A signal propagates with a velocity of 15cm/ns
+A signal propagates with a velocity of 15cm/ns. A 4.8ghz signal has a perios of 0.2ns, meaning that by the time a data bit has travelled 0.2*15cm = 3.1cm (and presuming the transmission line is longer than 3.1cm), a new data bit begins its travel from the transmitter. Now two data bits are traveling along the same trace. For the signal to be fully absorbed at the receiving end, the impedance along the trace must match the load at the receiving end. This load is called the characteristic impedance. If this is not the case, parts of the travelling signal will reflect back to the transmitter. With two data bits travelling along the same trace, the reflections from the first bit would distort the second bit. At worst case, the second bit will not be recognisable at the receiving end.
 
 %------------------------------------------------

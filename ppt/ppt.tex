@@ -335,8 +335,8 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \normalsize
 \begin{itemize}
 \item Connect to CRU using HSMC-connector
-\item E-links $\rightarrow$ $320~\mega\bit\per\second$ detector data using HDMI-connector
-\item Optical-Fiber $\rightarrow$ $4.8~\giga\bit\per\second$ GBT data using SFP fiber-module
+\item E-links $\rightarrow$ $320~\mega\bit\per\second$ detector data $\rightarrow$ LVDS
+\item Optical-Fiber $\rightarrow$ $4.8~\giga\bit\per\second$ GBT data $\rightarrow$ PCML
 \end{itemize}
 
 \end{frame}
@@ -353,13 +353,65 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}
 \frametitle{Transmission Lines}
 
+\begin{backgroundblock}{7.5cm}{7.0cm}
+\includegraphics[width=0.4\paperwidth]{../img/altera_z0.png}
+\end{backgroundblock}
+
+\begin{align*}
+ 	v = \frac{c}{\sqrt{\epsilon_r}} \\
+ 	\epsilon_r \approx 4
+ \end{align*}
+
 \begin{itemize}
-\item $4.8~\giga\bit\per\second$ $\rightarrow$ transmission line if trace \textless~ $3.1~\centi\meter$
+\item $v = 15~\centi\meter\per\nano\second$
+\item $4.8~\giga\bit\per\second~(0.2~\nano\second)$ $\rightarrow$ \\ transmission line if trace \textless~ $3.1~\centi\meter$
+\item Characteristic impedance, $Z_0 = 50$
+\item Differential impedance, $Z_{diff} = 100$
 \end{itemize}
 
 \end{frame}
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{Design Parameters}
+
+\begin{backgroundblock}{7.5cm}{7.0cm}
+\includegraphics[width=0.4\paperwidth]{../img/altera_z0.png}
+\end{backgroundblock}
+
+\begin{itemize}
+\item Routing differential signals:
+	\begin{itemize}
+	\item Equal trace lengths on each pair
+	\item As close as possible, but keep distance to other pairs
+	\item As straight paths as possible
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+\begin{frame}[b]
+\frametitle{Result}
+
+\begin{backgroundblock}{2.0cm}{2.0cm}
+\includegraphics[width=0.7\paperwidth]{../img/pcb_1.JPG}
+\end{backgroundblock}
+
+\begin{itemize}
+\item Each HDMI has an input pair and an output pair
+\item J4 has an additional pair for input clock from VLDB
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+%------------------------------------------------
+\section{GBT Control Software}
+%------------------------------------------------
+\subsection{Hardware}
+\subsection{Software}
+
+%------------------------------------------------
 
 \begin{frame}
 \frametitle{GBT Control Software}
@@ -367,128 +419,14 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{backgroundblock}{6cm}{6.5cm}
 \includegraphics[width=0.5\paperwidth]{../img/softdia.pdf}
 \end{backgroundblock}
-
+\Large Specifications:\\
+\normalsize
 \begin{itemize}
 \item Send/receive control signal information
 \item 
 \end{itemize}
 
 \end{frame}
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Blocks of Highlighted Text}
-\begin{block}{Block 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-\end{block}
-
-\begin{block}{Block 2}
-Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit.
-\end{block}
-
-\begin{block}{Block 3}
-Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
-\end{block}
-\end{frame}
-
-%------------------------------------------------
-\begin{frame}
-\frametitle{Multiple Columns}
-\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-
-\column{.45\textwidth} % Left column and width
-\textbf{Heading}
-\begin{enumerate}
-\item Statement
-\item Explanation
-\item Example
-\end{enumerate}
-
-\column{.5\textwidth} % Right column and width
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-
-\end{columns}
-\end{frame}
-
-%------------------------------------------------
-\section{PCB Design}
-%------------------------------------------------
-\subsection{LHC Upgrade}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Table}
-\begin{table}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
-\begin{verbatim}
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}\end{verbatim}
-\end{example}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Figure}
-Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%\begin{figure}
-%\includegraphics[width=0.8\linewidth]{test}
-%\end{figure}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Citation}
-An example of the \verb|\cite| command to cite within the presentation:\\~
-
-This statement requires citation \cite{p1}.
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{References}
-\footnotesize{
-\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{p1} John Smith (2012)
-\newblock Title of the publication
-\newblock \emph{Journal Name} 12(3), 45 -- 678.
-\end{thebibliography}
-}
-\end{frame}
-
 %------------------------------------------------
 
 \begin{frame}
