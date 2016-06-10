@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  9 JUN 2016 15:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.19)  10 JUN 2016 14:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1259,7 +1259,7 @@ LaTeX Info: Redefining \includegraphics on input line 138.
 Option `squaren' provided! 
  Command \squaren defined by SIunits package!
 
-(./ppt.nav) <../img/uib-emblem-svart.pdf, id=70, 80.3pt x 80.3pt>
+(./ppt.nav) <../img/uib-emblem-svart.pdf, id=72, 80.3pt x 80.3pt>
 File: ../img/uib-emblem-svart.pdf Graphic file (type pdf)
 
 <use ../img/uib-emblem-svart.pdf>
@@ -1281,7 +1281,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 173.
  [2
 
 ]
-<../img/lhc.jpg, id=128, 781.92125pt x 563.10374pt>
+<../img/lhc.jpg, id=134, 781.92125pt x 563.10374pt>
 File: ../img/lhc.jpg Graphic file (type jpg)
  <use ../img/lhc.jpg>
 Package pdftex.def Info: ../img/lhc.jpg used on input line 208.
@@ -1320,7 +1320,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 208.
  [3
 
  <../img/lhc.jpg>]
-<../img/gbtsys.pdf, id=152, 733.94202pt x 587.79597pt>
+<../img/gbtsys.pdf, id=160, 733.94202pt x 587.79597pt>
 File: ../img/gbtsys.pdf Graphic file (type pdf)
  <use ../img/gbtsys.pdf>
 Package pdftex.def Info: ../img/gbtsys.pdf used on input line 239.
@@ -1349,7 +1349,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 239.
  [4
 
  <../img/gbtsys.pdf>]
-<../img/gbtframe.pdf, id=179, 1006.962pt x 155.782pt>
+<../img/gbtframe.pdf, id=189, 1006.962pt x 155.782pt>
 File: ../img/gbtframe.pdf Graphic file (type pdf)
 
 <use ../img/gbtframe.pdf>
@@ -1384,7 +1384,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 263.
  [5
 
  <../img/gbtframe.pdf>]
-<../img/gbtex.pdf, id=204, 647.21799pt x 646.415pt>
+<../img/gbtex.pdf, id=216, 647.21799pt x 646.415pt>
 File: ../img/gbtex.pdf Graphic file (type pdf)
  <use ../img/gbtex.pdf>
 Package pdftex.def Info: ../img/gbtex.pdf used on input line 287.
@@ -1405,7 +1405,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 287.
  [6
 
  <../img/gbtex.pdf>]
-<../img/vldbex.pdf, id=229, 905.78403pt x 647.21799pt>
+<../img/vldbex.pdf, id=243, 905.78403pt x 647.21799pt>
 File: ../img/vldbex.pdf Graphic file (type pdf)
  <use ../img/vldbex.pdf>
 Package pdftex.def Info: ../img/vldbex.pdf used on input line 299.
@@ -1434,7 +1434,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 317.
  [8
 
 ]
-<../img/HSMC_52_53_hsmcspec.pdf, id=275, 760.44098pt x 269.80798pt>
+<../img/HSMC_52_53_hsmcspec.pdf, id=294, 760.44098pt x 269.80798pt>
 File: ../img/HSMC_52_53_hsmcspec.pdf Graphic file (type pdf)
 
 <use ../img/HSMC_52_53_hsmcspec.pdf>
@@ -1457,7 +1457,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 342.
  [9
 
  <../img/HSMC_52_53_hsmcspec.pdf>]
-<../img/pcbdia.pdf, id=301, 734.745pt x 202.356pt>
+<../img/pcbdia.pdf, id=321, 734.745pt x 202.356pt>
 File: ../img/pcbdia.pdf Graphic file (type pdf)
  <use ../img/pcbdia.pdf>
 Package pdftex.def Info: ../img/pcbdia.pdf used on input line 350.
@@ -1478,7 +1478,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 350.
  [10
 
  <../img/pcbdia.pdf>]
-<../img/altera_z0.png, id=326, 944.52875pt x 323.2075pt>
+<../img/altera_z0.png, id=348, 944.52875pt x 323.2075pt>
 File: ../img/altera_z0.png Graphic file (type png)
 
 <use ../img/altera_z0.png>
@@ -1521,7 +1521,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 391.
  [12
 
 ]
-<../img/pcb_1.JPG, id=369, 3854.4pt x 2168.1pt>
+<../img/pcb_1.JPG, id=396, 3854.4pt x 2168.1pt>
 File: ../img/pcb_1.JPG Graphic file (type jpg)
  <use ../img/pcb_1.JPG>
 Package pdftex.def Info: ../img/pcb_1.JPG used on input line 405.
@@ -1542,7 +1542,7 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 405.
  [13
 
  <../img/pcb_1.JPG>]
-<../img/softdia.pdf, id=392, 692.18597pt x 288.27701pt>
+<../img/softdia.pdf, id=420, 692.18597pt x 288.27701pt>
 File: ../img/softdia.pdf Graphic file (type pdf)
 
 <use ../img/softdia.pdf>
@@ -1567,9 +1567,38 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 429.
 File: ../img/uib-emblem-svart.pdf Graphic file (type pdf)
 
 <use ../img/uib-emblem-svart.pdf>
-Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 434.
+Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 443.
 (pdftex.def)             Requested size: 58.61179pt x 58.6136pt.
  [15
+
+]
+<../img/statedec.pdf, id=469, 794.167pt x 226.446pt>
+File: ../img/statedec.pdf Graphic file (type pdf)
+ <use ../img/statedec.pdf>
+Package pdftex.def Info: ../img/statedec.pdf used on input line 479.
+(pdftex.def)             Requested size: 364.19536pt x 103.84508pt.
+
+Overfull \hbox (363.78325pt too wide) detected at line 479
+  []
+ []
+
+
+Overfull \vbox (246.10886pt too high) detected at line 479
+ []
+
+File: ../img/uib-emblem-svart.pdf Graphic file (type pdf)
+<use ../img/uib-emblem-svart.pdf>
+Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 479.
+(pdftex.def)             Requested size: 58.61179pt x 58.6136pt.
+ [16
+
+ <../img/statedec.pdf>]
+File: ../img/uib-emblem-svart.pdf Graphic file (type pdf)
+
+<use ../img/uib-emblem-svart.pdf>
+Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 484.
+(pdftex.def)             Requested size: 58.61179pt x 58.6136pt.
+ [17
 
 ]
 \tf@nav=\write6
@@ -1581,11 +1610,11 @@ Package pdftex.def Info: ../img/uib-emblem-svart.pdf used on input line 434.
 \tf@snm=\write8
 \openout8 = `ppt.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 488.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 488.
  (./ppt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 438.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 488.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 488.
 Package rerunfilecheck Info: File `ppt.out' has not changed.
 (rerunfilecheck)             Checksum: 5FDFA65E43D8AC718566266CD6CE40DA;599.
 
@@ -1596,20 +1625,20 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 488.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 166 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18924 strings out of 493304
- 351956 string characters out of 6139871
- 434082 words of memory out of 5000000
- 21856 multiletter control sequences out of 15000+600000
+ 18939 strings out of 493304
+ 352192 string characters out of 6139871
+ 436670 words of memory out of 5000000
+ 21866 multiletter control sequences out of 15000+600000
  17680 words of font info for 65 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,19n,56p,392b,995s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,19n,56p,392b,1011s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></u
@@ -1621,10 +1650,10 @@ dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy9.pfb>
-Output written on ppt.pdf (15 pages, 5684231 bytes).
+Output written on ppt.pdf (17 pages, 5706928 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 413 compressed objects within 5 object streams
- 41 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 569 PDF objects out of 1000 (max. 8388607)
+ 489 compressed objects within 5 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

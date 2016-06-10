@@ -430,6 +430,56 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 %------------------------------------------------
 
 \begin{frame}
+\frametitle{Hardware}
+
+\Large Components:\\
+\normalsize
+\begin{itemize}
+\item UART (RX, TX, Buffers, baudrate generator)
+\item Decoder
+\item GBT example (not implementet yet)
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{Decoder}
+
+\begin{backgroundblock}{-0.1cm}{5cm}
+\includegraphics[width=1\paperwidth]{../img/statedec.pdf}
+\end{backgroundblock}
+
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Left column and width
+\begin{itemize}
+\item Requests:
+	\begin{itemize}
+	\item read $\rightarrow$ 0xDD
+	\item write 0 $\rightarrow$ 0xEE
+	\item write 1 $\rightarrow$ 0xFF
+	\end{itemize}
+\end{itemize}
+
+\column{.5\textwidth} % Right column and width
+\begin{itemize}
+\item Legal addresses:
+	\begin{itemize}
+	\item 0x00 $\rightarrow$ 0x41
+	\end{itemize}
+\item Bytes sent to PC:
+	\begin{itemize}
+	\item 0x00 $\rightarrow$ 0xC1
+	\end{itemize}	
+\end{itemize}
+
+\end{columns}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
 \Huge{\centerline{Thank you!}}
 \end{frame}
 
