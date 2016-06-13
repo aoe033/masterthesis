@@ -444,6 +444,23 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 %------------------------------------------------
 
 \begin{frame}[t]
+\frametitle{UART}
+
+\begin{backgroundblock}{1.5cm}{6cm}
+\includegraphics[width=0.7\paperwidth]{../img/oversamp.pdf}
+\end{backgroundblock}
+
+\begin{itemize}
+\item Synchronisation $\rightarrow$ Oversampling
+\item $16 \times baudrate$
+\item Stores bytes in FIFO-buffers
+\item $19200-8-N-1~ \rightarrow 307200$ sample clock
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
 \frametitle{Decoder}
 
 \begin{backgroundblock}{-0.1cm}{5cm}
@@ -475,6 +492,42 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{itemize}
 
 \end{columns}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{Conclusion}
+
+\Large Hardware:\\
+\normalsize
+\begin{itemize}
+\item UART + Decoder works
+\item Implementation into the GBT Example Design remains
+\end{itemize}
+
+\Large Software:\\
+\normalsize
+\begin{itemize}
+\item Send/Receive and User Interface modules works
+\item Both needs to be merged
+\end{itemize}
+
+\vspace{15pt}
+\large Final testing of the system as a whole remains
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Software}
+
+\Large Modules:\\
+\normalsize
+\begin{itemize}
+\item Send/receive
+\item User Interface
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------
