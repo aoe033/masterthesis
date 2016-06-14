@@ -26,15 +26,16 @@
 \headcommand {\beamer@subsectionpages {3}{8}}
 \headcommand {\beamer@subsectionentry {0}{2}{1}{9}{Design Discussion}}\headcommand {\beamer@subsectionpages {9}{8}}
 \headcommand {\beamer@subsectionentry {0}{2}{2}{9}{Transmission Lines}}\headcommand {\beamer@subsectionpages {9}{8}}
-\headcommand {\slideentry {2}{2}{1}{9/9}{Transmission Lines}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{9}{Design Parameters}}\headcommand {\beamer@subsectionpages {9}{8}}
+\headcommand {\slideentry {2}{3}{1}{9/9}{Design Parameters}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {2}{2}{2}{10/10}{Transmission Lines}{0}}
+\headcommand {\slideentry {2}{3}{2}{10/10}{Design Parameters}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {2}{2}{3}{11/11}{Transmission Lines}{0}}
+\headcommand {\slideentry {2}{3}{3}{11/11}{Design Parameters}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\slideentry {2}{2}{4}{12/12}{Transmission Lines}{0}}
+\headcommand {\slideentry {2}{3}{4}{12/12}{Design Parameters}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {2}{2}{5}{13/13}{Transmission Lines}{0}}
+\headcommand {\slideentry {2}{3}{5}{13/13}{Design Parameters}{0}}
 \headcommand {\beamer@framepages {13}{13}}
 \headcommand {\sectionentry {3}{GBT Control Software}{14}{GBT Control Software}{0}}
 \headcommand {\beamer@sectionpages {9}{13}}
@@ -55,8 +56,12 @@
 \headcommand {\beamer@framepages {19}{19}}
 \headcommand {\slideentry {3}{2}{7}{20/20}{Software}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\beamer@partpages {1}{20}}
-\headcommand {\beamer@subsectionpages {14}{20}}
-\headcommand {\beamer@sectionpages {14}{20}}
-\headcommand {\beamer@documentpages {20}}
-\headcommand {\def \inserttotalframenumber {20}}
+\headcommand {\slideentry {3}{2}{8}{21/21}{Software}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {3}{2}{9}{22/22}{Software}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\beamer@partpages {1}{22}}
+\headcommand {\beamer@subsectionpages {14}{22}}
+\headcommand {\beamer@sectionpages {14}{22}}
+\headcommand {\beamer@documentpages {22}}
+\headcommand {\def \inserttotalframenumber {22}}

@@ -323,6 +323,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 %------------------------------------------------
 \subsection{Design Discussion} 
 \subsection{Transmission Lines} 
+\subsection{Design Parameters}
 %------------------------------------------------
 
 \begin{frame}
@@ -350,12 +351,16 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{frame}
 %------------------------------------------------
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{Transmission Lines}
 
 \begin{backgroundblock}{7.5cm}{7.0cm}
 \includegraphics[width=0.4\paperwidth]{../img/altera_z0.png}
 \end{backgroundblock}
+
+%\begin{backgroundblock}{2.5cm}{8.0cm}
+%\includegraphics[width=0.4\paperwidth]{../img/umstrip.pdf}
+%\end{backgroundblock}
 
 \begin{align*}
  	v = \frac{c}{\sqrt{\epsilon_r}} \\
@@ -372,11 +377,11 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{frame}
 %------------------------------------------------
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{Design Parameters}
 
-\begin{backgroundblock}{7.5cm}{7.0cm}
-\includegraphics[width=0.4\paperwidth]{../img/altera_z0.png}
+\begin{backgroundblock}{1.2cm}{5.0cm}
+\includegraphics[width=0.8\paperwidth]{../img/designpar.pdf}
 \end{backgroundblock}
 
 \begin{itemize}
@@ -413,17 +418,18 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 
 %------------------------------------------------
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{GBT Control Software}
 
-\begin{backgroundblock}{6cm}{6.5cm}
-\includegraphics[width=0.5\paperwidth]{../img/softdia.pdf}
+\begin{backgroundblock}{2cm}{5cm}
+\includegraphics[width=0.7\paperwidth]{../img/softdia.pdf}
 \end{backgroundblock}
 \Large Specifications:\\
 \normalsize
 \begin{itemize}
-\item Send/receive control signal information
-\item 
+\item Provide communication between PC and FPGA
+\item Read and write GBT control signal information
+\item Provide a simple User Interface	
 \end{itemize}
 
 \end{frame}
@@ -432,12 +438,15 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}
 \frametitle{Hardware}
 
-\Large Components:\\
-\normalsize
 \begin{itemize}
-\item UART (RX, TX, Buffers, baudrate generator)
-\item Decoder
-\item GBT example (not implementet yet)
+\item Treat incoming requests sent from PC
+\item Components:
+	\begin{itemize}
+	\item Treat requests sent from PC
+	\item UART (RX, TX, Buffers, baudrate generator)
+	\item Decoder
+	\end{itemize}
+\item Goal $\rightarrow$ implement into GBT Example Design
 \end{itemize}
 
 \end{frame}
@@ -467,7 +476,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \includegraphics[width=1\paperwidth]{../img/statedec.pdf}
 \end{backgroundblock}
 
-\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+\begin{columns}[c] %The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 
 \column{.45\textwidth} % Left column and width
 \begin{itemize}
@@ -496,6 +505,47 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{frame}
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{Software}
+
+\Large Modules:\\
+\normalsize
+\begin{itemize}
+\item Send/Receive
+	\begin{itemize}
+	\item RS-232 library
+	\item Continuously transmits pattern to GBT-registers
+	\item Reads it back for transmit confirmation
+	\end{itemize}
+\item User Interface
+	\begin{itemize}
+	\item ncurses library
+	\item User commands: write, read, status, open, close, exit
+	\item Dummy registers instead of real GBT-registers
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{User Interface}
+\begin{backgroundblock}{0.5cm}{2cm}
+\includegraphics[width=0.9\paperwidth, trim={6mm 0 0 11mm}, clip]{../img/gbt_gui_inv.png}
+\end{backgroundblock}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{Testing and Verification}
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
 \begin{frame}[t]
 \frametitle{Conclusion}
 
@@ -514,20 +564,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{itemize}
 
 \vspace{15pt}
-\large Final testing of the system as a whole remains
-
-\end{frame}
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Software}
-
-\Large Modules:\\
-\normalsize
-\begin{itemize}
-\item Send/receive
-\item User Interface
-\end{itemize}
+\large A final test of the system as a whole remains
 
 \end{frame}
 %------------------------------------------------
