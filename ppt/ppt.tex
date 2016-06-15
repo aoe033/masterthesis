@@ -358,12 +358,8 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \includegraphics[width=0.4\paperwidth]{../img/altera_z0.png}
 \end{backgroundblock}
 
-%\begin{backgroundblock}{2.5cm}{8.0cm}
-%\includegraphics[width=0.4\paperwidth]{../img/umstrip.pdf}
-%\end{backgroundblock}
-
 \begin{align*}
- 	v = \frac{c}{\sqrt{\epsilon_r}} \\
+ 	v = \frac{c}{\sqrt{\epsilon_r}},~
  	\epsilon_r \approx 4
  \end{align*}
 
@@ -378,9 +374,27 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 %------------------------------------------------
 
 \begin{frame}[t]
+\frametitle{Transmission Lines}
+
+\begin{backgroundblock}{2.0cm}{6cm}
+\includegraphics[width=0.7\paperwidth]{../img/umstrip.pdf}
+\end{backgroundblock}
+
+\begin{align*}
+    Z_0 = \frac{60}{\sqrt{0.475\epsilon_r + 0.67}} \times \ln{\frac{4h}{0.67(0.8w + t)}}
+ \end{align*}
+
+ \begin{align*}
+    Z_{diff} = 2 \times Z_0 [1 - 0.48 e^{(-0.96 \times \frac{s}{h})}]
+\end{align*}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
 \frametitle{Design Parameters}
 
-\begin{backgroundblock}{1.2cm}{5.0cm}
+\begin{backgroundblock}{1.2cm}{4.5cm}
 \includegraphics[width=0.8\paperwidth]{../img/designpar.pdf}
 \end{backgroundblock}
 
@@ -395,6 +409,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 
 \end{frame}
 %------------------------------------------------
+
 \begin{frame}[b]
 \frametitle{Result}
 
@@ -415,15 +430,19 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 %------------------------------------------------
 \subsection{Hardware}
 \subsection{Software}
-
 %------------------------------------------------
 
 \begin{frame}[t]
 \frametitle{GBT Control Software}
 
 \begin{backgroundblock}{2cm}{5cm}
-\includegraphics[width=0.7\paperwidth]{../img/softdia.pdf}
+\includegraphics[width=0.6\paperwidth]{../img/softdia.pdf}
 \end{backgroundblock}
+
+\begin{backgroundblock}{5.5cm}{8.3cm}
+\includegraphics[width=0.3\paperwidth]{../img/gbtreg.pdf}
+\end{backgroundblock}
+
 \Large Specifications:\\
 \normalsize
 \begin{itemize}
@@ -446,7 +465,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 	\item UART (RX, TX, Buffers, baudrate generator)
 	\item Decoder
 	\end{itemize}
-\item Goal $\rightarrow$ implement into GBT Example Design
+\item Goal: implement into GBT Example Design
 \end{itemize}
 
 \end{frame}
@@ -455,7 +474,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}[t]
 \frametitle{UART}
 
-\begin{backgroundblock}{1.5cm}{6cm}
+\begin{backgroundblock}{1.5cm}{5cm}
 \includegraphics[width=0.7\paperwidth]{../img/oversamp.pdf}
 \end{backgroundblock}
 
@@ -536,6 +555,13 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{frame}
 %------------------------------------------------
 
+%------------------------------------------------
+\section{Testing and Verification}
+%------------------------------------------------
+\subsection{Hardware}
+\subsection{Software}
+%------------------------------------------------
+
 \begin{frame}[t]
 \frametitle{Testing and Verification}
 
@@ -544,6 +570,12 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{itemize}
 
 \end{frame}
+%------------------------------------------------
+
+%------------------------------------------------
+\section{Conclusion}
+%------------------------------------------------
+\subsection{}
 %------------------------------------------------
 
 \begin{frame}[t]

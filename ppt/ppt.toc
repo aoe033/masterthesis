@@ -7,6 +7,10 @@
 \beamer@subsectionintoc {2}{1}{Design Discussion}{9}{0}{2}
 \beamer@subsectionintoc {2}{2}{Transmission Lines}{9}{0}{2}
 \beamer@subsectionintoc {2}{3}{Design Parameters}{9}{0}{2}
-\beamer@sectionintoc {3}{GBT Control Software}{14}{0}{3}
-\beamer@subsectionintoc {3}{1}{Hardware}{14}{0}{3}
-\beamer@subsectionintoc {3}{2}{Software}{14}{0}{3}
+\beamer@sectionintoc {3}{GBT Control Software}{15}{0}{3}
+\beamer@subsectionintoc {3}{1}{Hardware}{15}{0}{3}
+\beamer@subsectionintoc {3}{2}{Software}{15}{0}{3}
+\beamer@sectionintoc {4}{Testing and Verification}{21}{0}{4}
+\beamer@subsectionintoc {4}{1}{Hardware}{21}{0}{4}
+\beamer@subsectionintoc {4}{2}{Software}{21}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{22}{0}{5}
