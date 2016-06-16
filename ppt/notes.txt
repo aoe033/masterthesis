@@ -12,8 +12,26 @@
 
 So the idea here is to have the FPGA be the detectors AND the CRU. Configure the GBTx to receive information from the FPGA at a speed of 320 Mbps and the send information via the fiber-optical cable back to the FPGA for analysis.
 
+The HDMI-connectors are passively connected to the FPGA HSMC contact. The challenge was to keep the reflections and to a minimum
+
 %------------------------------------------------
 
 A signal propagates with a velocity of 15cm/ns. A 4.8ghz signal has a perios of 0.2ns, meaning that by the time a data bit has travelled 0.2*15cm = 3.1cm (and presuming the transmission line is longer than 3.1cm), a new data bit begins its travel from the transmitter. Now two data bits are traveling along the same trace. For the signal to be fully absorbed at the receiving end, the impedance along the trace must match the load at the receiving end. This load is called the characteristic impedance. If this is not the case, parts of the travelling signal will reflect back to the transmitter. With two data bits travelling along the same trace, the reflections from the first bit would distort the second bit. At worst case, the second bit will not be recognisable at the receiving end.
 
 %------------------------------------------------
+
+%------------------------------------------------
+%-----------Software
+%------------------------------------------------
+
+Signals-library was custom written to store and maintain the GBT register data. The data is to some extent encapsulated using a partly hidden structure accessible only through a pointer. 
+
+Program flow: in the thesis, these are presented as a bit complex flow charts. Here, however, I show a bit more simplified flow-chart of the programs.
+
+%------------------------------------------------
+%-----------Testing and Verification
+%------------------------------------------------
+
+Test-chapter is a bit incomplete. While doing some testing, I managed to burn one of the FPGA current regulators, rendering it unusable. Some results lack because of this, but I will try to explain the tests and the reason behind them as understandable as I can. 
+
+
