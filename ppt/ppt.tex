@@ -555,10 +555,6 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \includegraphics[width=0.4\paperwidth]{../img/flow_tx.pdf}
 \end{backgroundblock}
 
-\begin{itemize}
-\item 
-\end{itemize}
-
 \end{frame}
 %------------------------------------------------
 
@@ -581,7 +577,73 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \frametitle{Testing and Verification}
 
 \begin{itemize}
+\item External Loop-back Tests: HDMI and Optical-Fiber
 \item 
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{Setup}
+
+\begin{backgroundblock}{0.5cm}{2cm}
+\includegraphics[width=0.9\paperwidth]{../img/setup.JPG}
+\end{backgroundblock}
+
+\end{frame}
+%------------------------------------------------
+\begin{frame}[t]
+\frametitle{Setup}
+
+\begin{backgroundblock}{0.5cm}{2cm}
+\includegraphics[width=0.9\paperwidth]{../img/setup2.JPG}
+\end{backgroundblock}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{External Loop-back Test}
+
+\begin{backgroundblock}{7.5cm}{2.8cm}
+\includegraphics[width=5cm]{../img/gbtex}
+\end{backgroundblock}
+
+\begin{backgroundblock}{3cm}{7.2cm}
+\includegraphics[width=5cm]{../img/laser}
+\end{backgroundblock}
+
+\Large Optical Fiber Connector (PCML):\\
+\normalsize
+\begin{itemize}
+\item GBT example Design
+\item $4.8~\giga\bit\per\second~counter$
+\item SignalTap II $\rightarrow$ sample TX and RX
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{External Loop-back Test}
+
+\begin{backgroundblock}{7cm}{5cm}
+\includegraphics[width=0.4\paperwidth]{../img/hdmilpback}
+\end{backgroundblock}
+
+\Large HDMI connector (LVDS):\\
+\normalsize
+\begin{itemize}
+\item Purpose: Transmission of $320~\mega\bit\per\second$ E-link detector data
+\item Test: Loop-back a $300~\mega\hertz$ Pseudo-random counter
+\item Measure:
+	\begin{itemize}
+	\item bit-error count
+	\item eye-diagram
+	\item crosstalk
+	\item reflections
+	\end{itemize}
 \end{itemize}
 
 \end{frame}
@@ -596,22 +658,46 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}[t]
 \frametitle{Conclusion}
 
-\Large Hardware:\\
-\normalsize
+%\Large PCB:\\
+%\normalsize
 \begin{itemize}
-\item UART + Decoder works
-\item Implementation into the GBT Example Design remains
+\item PCB:
+	\begin{itemize}
+	\item Optical Fiber module \textbf{works} $\rightarrow$ $4.8~\giga\bit\per\second$ external loopback
+	\item HDMI LVDS connectors \textbf{needs more testing} $\rightarrow$ eye-diagram, crosstalk, reflections, bit-error count.
+	\end{itemize}
 \end{itemize}
 
-\Large Software:\\
-\normalsize
+%\Large Hardware:\\
+%\normalsize
 \begin{itemize}
-\item Send/Receive and User Interface modules works
-\item Both needs to be merged
-\end{itemize}
+\item Hardware:
+	\begin{itemize}
+	\item UART + Decoder \textbf{works}
+	\item Implementation into the GBT Example Design remains
+	\end{itemize}
+\end{itemize}	
 
-\vspace{15pt}
-\large A final test of the system as a whole remains
+%\Large Software:\\
+%\normalsize
+\begin{itemize}
+\item Software:
+	\begin{itemize}
+	\item Send/Receive and User Interface modules \textbf{works}
+	\item Both needs to be merged
+	\end{itemize}
+\end{itemize}	
+
+%\vspace{15pt}
+%\large A final test of the system as a whole remains
+
+\begin{itemize}
+\item Final test of the whole system:
+	\begin{itemize}
+	\item GBT example + Hardware + Software + PCB-loopback
+	\item Test system together with VLDB
+	\end{itemize}
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------

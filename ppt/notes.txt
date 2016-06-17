@@ -3,6 +3,8 @@
 %-----------Introduction
 %------------------------------------------------
 
+Welcome to my master presentation. This thesis has involved development of a PCB and software Interface for controlling the Common ReadOut Unit for the Gigabit Transceiver. I was not able to test the system thoroughly because of an accident with the FPGA, but more on that when I'm going to talk about what testing has been done.  We're going to start talking about the LHC and the upgrade in which the Gigabit Transceiver comes in. I'm then going to describe the PCB I've been developing and then go over to the software and VHDL associated with it. Lastly, I'm going to talk about the different tests I've performed on the system and also the tests I didn't do, which in the future work needs to be done.
+
 %-----------LHC Upgrade
 
 
