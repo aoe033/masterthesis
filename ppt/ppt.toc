@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.24pt}
+\beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Introduction}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{LHC Upgrade}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Gigabit Transceiver System}{3}{0}{1}

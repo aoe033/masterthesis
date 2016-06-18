@@ -1,0 +1,59 @@
+%location/filename: tex/fig/flow_tx.tex
+%author: Anders Østevik
+%Last edited: 19.05.2016
+%#######--Flowchart for rs232 transmitt function--#######
+%
+
+\documentclass[main.tex]{subfiles}
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\begin{document}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=0cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, text centered, text width=2.5cm, draw=black]
+\tikzstyle{describe} = [ellipse, minimum width=0cm, minimum height=0cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text width=2.0cm, text badly centered, inner sep=1pt]
+
+\tikzstyle{ann} = [draw=none,fill=none,right, text centered]
+\tikzstyle{arrow} = [->,>=latex]
+\tikzstyle{cycle} = [ellipse, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, text width=2.0cm]
+
+
+\begin{tikzpicture}[thick]
+
+  \node (read) [cycle] {read register};
+  \node (reqread) [ann, above right = 1cm of read, xshift=-5.0em] {\uline{$0xDD + Adr(0x00 - 0x41)$}};
+  %\node (disp) [process, below = 1cm of read] {Store};
+
+
+  \node (disp) [process, below right = 2cm of read] {display};
+
+  \node (write) [cycle, below left = 2cm of disp] {write register};
+  \node (reqwrite) [ann, below right = 1cm of write, xshift=-5.0em] {\uline{$0xEE/0xFF + Adr(0x00 - 0x23)$}};
+
+  \node (incr) [process, above left = 2cm of write] {pattern++};
+
+
+  %\path [->] (read) edge [in=270,out=45,above,distance=1cm] (reqread);      
+  \path [arrow] (read) edge [in=240,out=300,above,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {receive \& store} (read);      
+
+  \path [arrow] (read) edge [in=90,out=0,above,distance=1cm] node[align=center] {} (disp);    
+
+  \path [arrow] (disp) edge [in=0,out=270,above,distance=1cm] node[align=center] {} (write);  
+
+  \path [arrow] (write) edge [in=270,out=180,above,distance=1cm] node[align=center] {} (incr); 
+
+  \path [arrow] (incr) edge [in=180,out=90,above,distance=1cm] node[align=center] {} (read); 
+
+  \path [arrow] (write) edge [in=120,out=60,below,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {transmit} (write);      
+     
+
+  \draw [arrow] (read) -- (reqread);
+  \draw [arrow] (write) -- (reqwrite);
+
+
+\end{tikzpicture}
+
+\end{document}

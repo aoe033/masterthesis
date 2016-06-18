@@ -1,0 +1,11 @@
+PWD /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/ppt/flow
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/ppt/flow/flow_txsimp.tex
+OUTPUT /media/squid/Lagring/Mastergrad/Masteroppgave/workspace/Latex/masterthesis/ppt/flow/flow_txsimp.log
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
