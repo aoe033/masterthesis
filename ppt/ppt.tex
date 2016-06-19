@@ -461,7 +461,6 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \item Treat incoming requests sent from PC
 \item Components:
 	\begin{itemize}
-	\item Treat requests sent from PC
 	\item UART (RX, TX, Buffers, baudrate generator)
 	\item Decoder
 	\end{itemize}
@@ -551,24 +550,49 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}[t]
 \frametitle{Transmit/Receive Module}
 
-\begin{backgroundblock}{4.5cm}{2cm}
+\begin{backgroundblock}{4.5cm}{3cm}
 \includegraphics[width=0.6\paperwidth]{../img/prgcycle.pdf}
 \end{backgroundblock}
 
 \begin{itemize}
 \item Transmit 2 bytes, receive 1 byte
 \item 2D-array with "patterns"
-\item COM-port
+\item COM-port $\leftarrow\rightarrow$ FPGA
 \end{itemize}
 
 \end{frame}
 %------------------------------------------------
 
 \begin{frame}[t]
+\frametitle{Read register}
+
+\begin{backgroundblock}{1.5cm}{2cm}
+\includegraphics[width=0.7\paperwidth]{../img/rx_cycle.pdf}
+\end{backgroundblock}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{Write register}
+
+\begin{backgroundblock}{1.5cm}{3cm}
+\includegraphics[width=0.8\paperwidth]{../img/tx_cycle.pdf}
+\end{backgroundblock}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[b]
 \frametitle{User Interface}
 \begin{backgroundblock}{0.5cm}{2cm}
 \includegraphics[width=0.9\paperwidth, trim={6mm 0 0 11mm}, clip]{../img/gbt_gui_inv.png}
 \end{backgroundblock}
+
+\begin{itemize}
+\item Ex.: "write 1 s01 s02 s03"
+\end{itemize}
+
 \end{frame}
 %------------------------------------------------
 
@@ -579,19 +603,20 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \subsection{Software}
 %------------------------------------------------
 
+% \begin{frame}[t]
+% \frametitle{Testing and Verification}
+
+% \begin{itemize}
+% \item External Loop-back Tests: HDMI and Optical-Fiber
+% \item Hardware Simulation using Testbench in Modelsim
+% \item Running Software together with Hardware
+% \end{itemize}
+
+% \end{frame}
+% %------------------------------------------------
+
 \begin{frame}[t]
-\frametitle{Testing and Verification}
-
-\begin{itemize}
-\item External Loop-back Tests: HDMI and Optical-Fiber
-\item 
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------
-
-\begin{frame}[t]
-\frametitle{Setup}
+\frametitle{Test Setup}
 
 \begin{backgroundblock}{0.5cm}{2cm}
 \includegraphics[width=0.9\paperwidth]{../img/setup.JPG}
@@ -600,7 +625,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{frame}
 %------------------------------------------------
 \begin{frame}[t]
-\frametitle{Setup}
+\frametitle{Test Setup}
 
 \begin{backgroundblock}{0.5cm}{2cm}
 \includegraphics[width=0.9\paperwidth]{../img/setup2.JPG}
@@ -616,7 +641,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \includegraphics[width=5cm]{../img/gbtex}
 \end{backgroundblock}
 
-\begin{backgroundblock}{3cm}{7.2cm}
+\begin{backgroundblock}{1.5cm}{5cm}
 \includegraphics[width=5cm]{../img/laser}
 \end{backgroundblock}
 

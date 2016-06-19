@@ -9,44 +9,60 @@
 \usetikzlibrary{shapes.geometric, arrows}
 
 \begin{document}
+\thispagestyle{empty}
 
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black]
 \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=0cm, minimum height=1cm, text centered, draw=black]
-\tikzstyle{process} = [rectangle, text centered, text width=2.5cm, draw=black]
+\tikzstyle{process} = [rectangle, text centered, text width=1.5cm, draw=black]
 \tikzstyle{describe} = [ellipse, minimum width=0cm, minimum height=0cm, text centered, draw=black]
-\tikzstyle{decision} = [diamond, aspect=2, draw, text width=2.0cm, text badly centered, inner sep=1pt]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text width=1.0cm, text badly centered, inner sep=1pt]
 
 \tikzstyle{ann} = [draw=none,fill=none,right, text centered]
 \tikzstyle{arrow} = [->,>=latex]
-\tikzstyle{cycle} = [ellipse, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, text width=2.0cm]
+\tikzstyle{cycle} = [ellipse, rounded corners, minimum width=1cm, minimum height=1cm,text centered, draw=black, text width=3.0cm]
 
 
 \begin{tikzpicture}[thick]
 
-  \node (read) [cycle] {read register};
-  \node (reqread) [ann, above right = 1cm of read, xshift=-5.0em] {\uline{$0xDD + Adr(0x00 - 0x41)$}};
+  \node (scan) [cycle] {read 2D-array};
+  \node (tx) [cycle, below right = 1.5cm of scan] {transmit bytes to COM};
+
+  \node (reqwrite) [ann, above right = 1cm of tx, xshift=-10.0em, yshift=1.5em] {\uline{$0xEE/0xFF + adr(0x00 - 0x41)$}};
+  \node (reqscan) [ann, above right = 1cm of scan, xshift=-5.0em] {\uline{$0xEE/0xFF$}};
+
   %\node (disp) [process, below = 1cm of read] {Store};
 
-  \node (disp) [process, below right = 2cm of read] {Display};
+  \node (wait) [process, below = 4cm of scan] {wait (delay)};
 
-  \node (write) [cycle, below left = 2cm of disp] {write register};
-  \node (reqwrite) [ann, below right = 1cm of write, xshift=-5.0em] {\uline{$0xEE/0xFF + Adr(0x00 - 0x23)$}};
+  \node (incr) [process, below left = 1cm of scan] {adr++};
+    \node (dec) [decision, below = 1cm of incr] {$adr < 0x41$};
+
+
+  \node (done) [process, left = 1cm of dec] {done};
 
 
   %\path [->] (read) edge [in=270,out=45,above,distance=1cm] (reqread);      
-  \path [arrow] (read) edge [in=240,out=300,above,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {Receive \& Store} (read);      
+  %\path [arrow] (tx) edge [in=240,out=300,above,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {Receive \& Store} (tx);      
 
-  \path [arrow] (read) edge [in=90,out=0,above,distance=1cm] node[align=center] {} (disp);      
+  \path [arrow] (scan) edge [in=90,out=0,above,distance=1cm] node[align=center] {} (tx);      
 
-  \path [arrow] (disp) edge [in=0,out=270,above,distance=1cm] node[align=center] {} (write);  
+  \path [arrow] (tx) edge [in=0,out=270,above,distance=2cm] node[align=center] {} (wait);  
 
-  \path [arrow] (write) edge [in=180,out=180,above,distance=3cm] node[align=center] {} (read); 
+  \path [arrow] (wait) edge [in=270,out=180,above,distance=1cm] node[align=center] {} (dec); 
 
-  \path [arrow] (write) edge [in=120,out=60,above,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {} (write);      
-     
+  \path [arrow] (dec) edge [in=270,out=90,above,distance=1cm] node[align=center] {} (incr); 
 
-  \draw [arrow] (read) -- (reqread);
-  \draw [arrow] (write) -- (reqwrite);
+  \path [arrow] (incr) edge [in=180,out=90,above,distance=1cm] node[align=center] {} (scan); 
+
+  \path [arrow] (dec) edge [in=0,out=180,above,distance=1cm] node[yshift=-1.5em, xshift=0.5em] {no} (done);      
+  
+  \path [arrow] (dec) edge [in=270,out=90,above,distance=1cm] node[yshift=-1.0em, xshift=1.5em] {yes} (incr);      
+
+
+  \draw [arrow] (tx) -- (reqwrite);
+  \draw [arrow] (scan) -- (reqscan);
+
+  %\draw [arrow] (dec) -- (done);
 
 
 \end{tikzpicture}

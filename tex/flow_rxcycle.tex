@@ -12,9 +12,9 @@
 
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black]
 \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=0cm, minimum height=1cm, text centered, draw=black]
-\tikzstyle{process} = [rectangle, text centered, text width=2.5cm, draw=black]
+\tikzstyle{process} = [rectangle, text centered, text width=1.5cm, draw=black]
 \tikzstyle{describe} = [ellipse, minimum width=0cm, minimum height=0cm, text centered, draw=black]
-\tikzstyle{decision} = [diamond, aspect=2, draw, text width=2.0cm, text badly centered, inner sep=1pt]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text width=1.0cm, text badly centered, inner sep=1pt]
 
 \tikzstyle{ann} = [draw=none,fill=none,right, text centered]
 \tikzstyle{arrow} = [->,>=latex]
@@ -24,33 +24,42 @@
 \begin{tikzpicture}[thick]
 
   \node (tx) [cycle] {transmit bytes to COM};
-  \node (reqread) [ann, above right = 1cm of tx, xshift=-5.0em] {\uline{$0xDD + Adr(0x00 - 0x41)$}};
+  \node (reqread) [ann, above right = 1cm of tx, xshift=-5.0em] {\uline{$0xDD + adr(0x00 - 0x41)$}};
   %\node (disp) [process, below = 1cm of read] {Store};
 
-  \node (wait) [process, below right = 2cm of tx] {wait (delay)};
+  \node (wait) [process, below right = 3cm of tx] {wait (delay)};
 
-  \node (rx) [cycle, below left = 2cm of wait] {retrieve byte \\ from COM};
-  \node (reqwrite) [ann, below right = 1cm of rx, xshift=-5.0em] {\uline{$0xEE/0xFF + Adr(0x00 - 0x23)$}};
+  \node (rx) [cycle, below left = 3cm of wait] {retrieve byte \\ from COM};
+  \node (reqwrite) [ann, below right = 1cm of rx, xshift=-5.0em] {\uline{$data + adr(0x00 - 0x41)$}};
 
-  \node (incr) [process, above left = 2cm of rx] {adr++};
+  \node (dec) [decision, above left = 2cm of rx] {$adr < 0x41$};
+  \node (incr) [process, above = 1cm of dec] {adr++};
+
+  \node (done) [process, left = 1cm of dec] {done};
 
 
   %\path [->] (read) edge [in=270,out=45,above,distance=1cm] (reqread);      
-  \path [arrow] (tx) edge [in=240,out=300,above,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {Receive \& Store} (tx);      
+  %\path [arrow] (tx) edge [in=240,out=300,above,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {Receive \& Store} (tx);      
 
-  \path [arrow] (tx) edge [in=90,out=0,above,distance=1cm] node[align=center] {} (wait);      
+  \path [arrow] (tx) edge [in=90,out=0,above,distance=2cm] node[align=center] {} (wait);      
 
-  \path [arrow] (wait) edge [in=0,out=270,above,distance=1cm] node[align=center] {} (rx);  
+  \path [arrow] (wait) edge [in=0,out=270,above,distance=2cm] node[align=center] {} (rx);  
 
-  \path [arrow] (rx) edge [in=270,out=180,above,distance=1cm] node[align=center] {} (incr); 
+  \path [arrow] (rx) edge [in=270,out=180,above,distance=1cm] node[align=center] {} (dec); 
+
+  \path [arrow] (dec) edge [in=270,out=90,above,distance=1cm] node[align=center] {} (incr); 
 
   \path [arrow] (incr) edge [in=180,out=90,above,distance=1cm] node[align=center] {} (tx); 
 
-  \path [arrow] (rx) edge [in=120,out=60,above,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {} (rx);      
-     
+  \path [arrow] (dec) edge [in=0,out=180,above,distance=1cm] node[yshift=-1.5em, xshift=0.5em] {no} (done);      
+  
+  \path [arrow] (dec) edge [in=270,out=90,above,distance=1cm] node[yshift=-1.0em, xshift=1.5em] {yes} (incr);      
+
 
   \draw [arrow] (tx) -- (reqread);
   \draw [arrow] (rx) -- (reqwrite);
+
+  %\draw [arrow] (dec) -- (done);
 
 
 \end{tikzpicture}

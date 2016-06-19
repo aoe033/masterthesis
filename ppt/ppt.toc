@@ -10,7 +10,7 @@
 \beamer@sectionintoc {3}{GBT Control Software}{15}{0}{3}
 \beamer@subsectionintoc {3}{1}{Hardware}{15}{0}{3}
 \beamer@subsectionintoc {3}{2}{Software}{15}{0}{3}
-\beamer@sectionintoc {4}{Testing and Verification}{22}{0}{4}
-\beamer@subsectionintoc {4}{1}{Hardware}{22}{0}{4}
-\beamer@subsectionintoc {4}{2}{Software}{22}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{27}{0}{5}
+\beamer@sectionintoc {4}{Testing and Verification}{24}{0}{4}
+\beamer@subsectionintoc {4}{1}{Hardware}{24}{0}{4}
+\beamer@subsectionintoc {4}{2}{Software}{24}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{28}{0}{5}
