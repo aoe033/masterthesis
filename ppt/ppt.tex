@@ -190,24 +190,37 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}
 \frametitle{LHC Upgrade}
 
-\begin{backgroundblock}{7cm}{2.8cm}
-\includegraphics[width=5cm]{../img/lhc.jpg}
+\begin{backgroundblock}{7.5cm}{1.8cm}
+\includegraphics[width=4cm]{../img/lhc.jpg}
 \end{backgroundblock}
 
 \begin{itemize}
-\item Large Hadron Collider (LHC)
-	\begin{itemize}
-	\item Particle accelerator
-	\item $27~\kilo\meter$ circular tunnel
-	\item 13 TeV
-	\end{itemize}
+%\item Large Hadron Collider (LHC)
+	%\begin{itemize}
+	%\item Particle accelerator
+	%\item $27~\kilo\meter$ circular tunnel
+	%\item 13 TeV
+	%\end{itemize}
 \item High-Lumiosity LHC
 	\begin{itemize}
 	\item 10x beam lumiosity
 	\item Increase in radiation \\ and amount of data
-	\item $\rightarrow$ Gigabit Transceiver
+	\item improve statistical accuracy of the measurements
+	\item requires stricter performance of the DAQ systems
+	%\item $\rightarrow$ Gigabit Transceiver
+	\end{itemize}
+\item $\rightarrow$ Gigabit Transceiver (GBT)
+\item GBT combines:
+	\begin{itemize}
+	\item Timing and Trigger Control (TTC)
+	\item Data Acquisition	(DAQ)
+	\item Slow Control (SC)
 	\end{itemize}
 \end{itemize}
+
+\begin{textblock*}{\paperwidth}(10pt,8cm)
+{\small \color{gray} LHC - Large Hadron Collider}
+\end{textblock*}
 
 \end{frame}
 
@@ -228,15 +241,15 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 	\end{itemize}
 \item Off-detector - Control room
 	\begin{itemize}
-	\item CRU (FPGA)
-	\item \textgreater~ $4.8~\giga\bit\per\second$ transceivers
+	\item CRU (FPGA) $\rightarrow$ interface between:
+		\begin{itemize}
+		\item on-detector ASICs
+		\item online computer farm
+		\item Trigger Timing System
+		\end{itemize}
+	%\item \textgreater~ $4.8~\giga\bit\per\second$ transceivers
 	\item GBT-FPGA
-	\end{itemize}
-\item Optical communication
-	\begin{itemize}
-	\item Timing and Trigger Control (TTC)
-	\item Data Acquisition	(DAQ)
-	\item Slow Control (SC)
+
 	\end{itemize}
 \end{itemize}
 
@@ -251,22 +264,22 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}[t]
 \frametitle{GBTx encoding modes}
 
-\begin{backgroundblock}{1.5cm}{2.5cm}
+\begin{backgroundblock}{2.5cm}{2.5cm}
 \includegraphics[width=10cm]{../img/gbtframe}
 \end{backgroundblock}
 
-\begin{backgroundblock}{1.5cm}{4.5cm}
+\begin{backgroundblock}{2.5cm}{4.5cm}
 \includegraphics[width=10cm]{../img/8b10b}
 \end{backgroundblock}
 
-\begin{backgroundblock}{1.5cm}{6.7cm}
+\begin{backgroundblock}{2.5cm}{7cm}
 \includegraphics[width=10cm]{../img/widebus}
 \end{backgroundblock}
 
 \begin{itemize}
 \item GBT-Frame - Standard \vspace{45pt}
-\item 8B/10B  \vspace{45pt}
-\item Wide-Bus  \vspace{45pt}
+\item 8B/10B - DAQ/EC in uplink \vspace{45pt}
+\item Wide-Bus - no FEC, only uplink \vspace{45pt}
 \end{itemize}
 
 \begin{textblock*}{\paperwidth}(4cm,9cm)
@@ -325,7 +338,8 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \item Software Design
 	\begin{itemize}
 	\item Serial communication between PC and CRU
-	\item Interface allowing control over CRU
+	\item User Interface allowing control over CRU
+	\item Lightweight, cross-platform
 	\end{itemize}
 \item PCB Design
 	\begin{itemize}
@@ -343,6 +357,30 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{Choosing FPGA board}
+
+\begin{itemize}
+	\item MGT requires a $4.8~\giga\bit\per\second$ transceiver
+	\item Originally - Terasic Cyclone V SX
+	\begin{itemize}
+	\item Transceivers only reaching $3.125~\giga\bit\per\second$
+	\end{itemize}
+\item A new Cyclone V GT dev. board was ordered
+	\begin{itemize}
+	\item Transceivers reaching $5-6~\giga\bit\per\second$
+	\item Limited communication with the outside world
+	\end{itemize}
+\end{itemize}
+
+\begin{textblock*}{\paperwidth}(10pt,8cm)
+{\small \color{gray} MGT - Multi-Gigabit Transceiver}
+\end{textblock*}
+
+\end{frame}
+
+%------------------------------------------------
+
 %------------------------------------------------
 \section{PCB Design}
 %------------------------------------------------
@@ -354,7 +392,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}
 \frametitle{PCB Design}
 
-\begin{backgroundblock}{1.8cm}{2.0cm}
+\begin{backgroundblock}{2cm}{2.0cm}
 \includegraphics[width=0.7\paperwidth, trim={16cm 0cm 15cm 0cm}, clip]{../img/pcb_1.JPG}
 \end{backgroundblock}
 
@@ -371,6 +409,9 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \normalsize
 \begin{itemize}
 \item Connect board between CRU and VLDB using HSMC-connector
+	\begin{itemize}
+	\item HSMC $\rightarrow$ Allows for utilization of high-speed I/O features
+	\end{itemize}
 \item E-links $\rightarrow$ $320~\mega\bit\per\second$ detector data $\rightarrow$ LVDS
 \item Optical-Fiber $\rightarrow$ $4.8~\giga\bit\per\second$ GBT data $\rightarrow$ PCML
 \end{itemize}
@@ -553,7 +594,7 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \Large Specifications:\\
 \normalsize
 \begin{itemize}
-\item Provide communication between PC and FPGA
+\item Provide communication between PC and CRU (FPGA) $\rightarrow$ UART
 \item Read and write GBT control signal information
 \item Provide a simple User Interface	
 \end{itemize}
@@ -693,26 +734,6 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \end{frame}
 %------------------------------------------------
 
-% \begin{frame}[t]
-% \frametitle{Read register}
-
-% \begin{backgroundblock}{1.5cm}{2cm}
-% \includegraphics[width=0.7\paperwidth]{../img/rx_cycle.pdf}
-% \end{backgroundblock}
-
-% \end{frame}
-% %------------------------------------------------
-
-% \begin{frame}[t]
-% \frametitle{Write register}
-
-% \begin{backgroundblock}{1.5cm}{3cm}
-% \includegraphics[width=0.8\paperwidth]{../img/tx_cycle.pdf}
-% \end{backgroundblock}
-
-% \end{frame}
-% %------------------------------------------------
-
 \begin{frame}[b]
 \frametitle{User Interface}
 \begin{backgroundblock}{0.5cm}{2cm}
@@ -832,9 +853,11 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{itemize}
 \item Verified hardware with a testbench $\rightarrow$ Bitvis Utility Library
 \item Verified that the software and hardware were communicating
-	%\begin{itemize}
-	%\item Uart-
-	%\end{itemize}
+	\begin{itemize}
+	\item Connected FPGA to PC via UART
+	\item Wrote pattern to FPGA register
+	\item Displayed result on PCB
+	\end{itemize}
 \end{itemize}
 
 \end{frame}
@@ -896,6 +919,30 @@ width=0.2\dimexpr\paperwidth-2.5cm\relax]{../img/uib-emblem-svart}}; }
 \begin{frame}
 \Huge{\centerline{Thank you!}}
 \end{frame}
+
+\begin{frame}
+\frametitle{Backup}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Read register}
+
+\begin{backgroundblock}{1.5cm}{2cm}
+\includegraphics[width=0.7\paperwidth]{../img/rx_cycle.pdf}
+\end{backgroundblock}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{Write register}
+
+\begin{backgroundblock}{1.5cm}{3cm}
+\includegraphics[width=0.8\paperwidth]{../img/tx_cycle.pdf}
+\end{backgroundblock}
+
+\end{frame}
+%------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 
