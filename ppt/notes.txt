@@ -36,4 +36,5 @@ Program flow: in the thesis, these are presented as a bit complex flow charts. H
 
 Test-chapter is a bit incomplete. While doing some testing, I managed to burn one of the FPGA current regulators, rendering it unusable. Some results lack because of this, but I will try to explain the tests and the reason behind them as understandable as I can. 
 
+Bit error rate - number of bit errors per unit time
 

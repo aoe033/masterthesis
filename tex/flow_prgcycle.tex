@@ -24,14 +24,14 @@
 \begin{tikzpicture}[thick]
 
   \node (read) [cycle] {read register};
-  %\node (reqread) [ann, above right = 1cm of read, xshift=-5.0em] {\uline{$0xDD + Adr(0x00 - 0x41)$}};
+  \node (reqread) [ann, above right = 1cm of read, xshift=-5.0em] {\uline{$0xDD + adr(0x00 - 0x41)$}};
   %\node (disp) [process, below = 1cm of read] {Store};
 
 
   \node (disp) [process, below right = 2cm of read] {display};
 
   \node (write) [cycle, below left = 2cm of disp] {write register};
-  %\node (reqwrite) [ann, below right = 1cm of write, xshift=-5.0em] {\uline{$0xEE/0xFF + Adr(0x00 - 0x23)$}};
+  \node (reqwrite) [ann, below right = 1cm of write, xshift=-5.0em] {\uline{$0xEE/0xFF + adr(0x00 - 0x23)$}};
 
   \node (incr) [process, above left = 2cm of write] {pattern++};
 
@@ -50,8 +50,8 @@
   %\path [arrow] (write) edge [in=120,out=60,below,distance=1cm] node[yshift=-1.5em, xshift=0.0em] {transmit} (write);      
      
 
-  %\draw [arrow] (read) -- (reqread);
-  %\draw [arrow] (write) -- (reqwrite);
+  \draw [arrow] (read) -- (reqread);
+  \draw [arrow] (write) -- (reqwrite);
 
 
 \end{tikzpicture}

@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.36pt}
+\beamer@endinputifotherversion {3.24pt}
 \beamer@sectionintoc {1}{Introduction}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{LHC Upgrade}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Gigabit Transceiver System}{3}{0}{1}
@@ -7,10 +7,10 @@
 \beamer@subsectionintoc {2}{1}{Design Discussion}{9}{0}{2}
 \beamer@subsectionintoc {2}{2}{Transmission Lines}{9}{0}{2}
 \beamer@subsectionintoc {2}{3}{Design Parameters}{9}{0}{2}
-\beamer@sectionintoc {3}{GBT Control Software}{15}{0}{3}
-\beamer@subsectionintoc {3}{1}{Hardware}{15}{0}{3}
-\beamer@subsectionintoc {3}{2}{Software}{15}{0}{3}
-\beamer@sectionintoc {4}{Testing and Verification}{24}{0}{4}
-\beamer@subsectionintoc {4}{1}{Hardware}{24}{0}{4}
-\beamer@subsectionintoc {4}{2}{Software}{24}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{28}{0}{5}
+\beamer@sectionintoc {3}{GBT Control Software}{18}{0}{3}
+\beamer@subsectionintoc {3}{1}{Hardware}{18}{0}{3}
+\beamer@subsectionintoc {3}{2}{Software}{18}{0}{3}
+\beamer@sectionintoc {4}{Testing and Verification}{26}{0}{4}
+\beamer@subsectionintoc {4}{1}{External Loop-back Test}{26}{0}{4}
+\beamer@subsectionintoc {4}{2}{Testing Software and Hardware}{26}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{33}{0}{5}
